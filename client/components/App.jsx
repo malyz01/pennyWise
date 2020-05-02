@@ -1,8 +1,13 @@
 import React from 'react'
+import { HashRouter, Route } from 'react-router-dom'
+
+import Landing from './Landing'
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <HashRouter>
+      <Route exact path='/' component={Landing} />
+    </HashRouter>
   )
 }
 

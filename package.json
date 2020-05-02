@@ -1,6 +1,6 @@
 {
   "name": "bp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "boiler plate",
   "repository": "https://github.com/malyz01/bplate.git",
   "main": "server/index.js",
@@ -8,8 +8,8 @@
   "license": "ISC",
   "scripts": {
     "client": "webpack-dev-server --hot --inline",
-    "dev": "run-p client dev:server",
-    "dev:w": "run-p dev:client dev:server",
+    "dev:h": "run-p client dev:server",
+    "dev": "run-p dev:client dev:server",
     "dev:client": "webpack --watch",
     "dev:server": "nodemon server",
     "start": "run-s build server",
@@ -34,6 +34,7 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "npm-run-all": "^4.1.5"
@@ -45,7 +46,6 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "axios": "^0.19.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.2.6",
     "babel-loader": "^8.1.0",
