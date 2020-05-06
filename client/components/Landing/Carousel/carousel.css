@@ -32,3 +32,15 @@
 .carousel .fab.fa-react.hidden:hover {
   cursor: pointer !important;
 }
+.visible {
+  opacity: 1;
+  transition: 500ms;
+}
+
+.hidden {
+  opacity: 0.3;
+  transition: 500ms;
+}
+.hidden:hover {
+  cursor: default !important;
+}

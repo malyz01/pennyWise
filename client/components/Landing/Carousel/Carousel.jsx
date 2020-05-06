@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import './carousel.css'
+import { Transition } from 'semantic-ui-react'
 
-let items = [
+const items = [
   'Tools To manage Your Expenses',
   'Tools To manage Your Budget',
   'Tools To manage Your Mom'
@@ -10,10 +11,18 @@ let items = [
 export default class Carousel extends Component {
   state = {
     currentIndex: 0,
-
+    animation: 'fade',
+    duration: 500,
+    visible: true
   }
 
   prev = () => {
+    this.setState({visible: false}, () => {
+      setTimeout(() => {
+        this.setState({visible: true})
+      }, 500)
+    })
+
     if (this.state.currentIndex > 0) {
       this.setState({ currentIndex: this.state.currentIndex - 1 })
     } else {
@@ -22,6 +31,12 @@ export default class Carousel extends Component {
   }
 
   next = () => {
+    this.setState({visible: false}, () => {
+      setTimeout(() => {
+        this.setState({visible: true})
+      }, 500)
+    })
+
     if (this.state.currentIndex < items.length - 1) {
       this.setState({ currentIndex: this.state.currentIndex + 1 })
     } else {
@@ -39,19 +54,17 @@ export default class Carousel extends Component {
       <div className='carousel-main'>
         <div
           onClick={this.prev}
-          className={`arrows ${
-            this.state.currentIndex > 0 ? `visible` : `hidden`
-          }`}>
+          className={`arrows `}>
           <i className='fas fa-arrow-circle-left'></i>
         </div>
-        <p>{items[this.state.currentIndex]}</p>
+        <Transition.Group animation={this.state.animation} duration={this.state.duration}>
+          {this.state.visible && (
+            <p>{items[this.state.currentIndex]}</p>
+          )}
+        </Transition.Group>
         <div
           onClick={this.next}
-          className={`arrows ${
-            this.state.currentIndex < items.length - 1
-              ? `visible`
-              : `hidden`
-          }`}>
+          className={`arrows `}>
           <i className='fas fa-arrow-circle-right'></i>
         </div>
       </div>
