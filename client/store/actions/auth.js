@@ -35,7 +35,7 @@ export const newUser = (data) => async (dispatch) => {
     dispatch(setAuth(userData))
     return userData.id
   } catch (err) {
-    console.log(err)
+    throw new Error(err.response.data.message)
   }
 }
 
