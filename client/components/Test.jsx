@@ -1,24 +1,39 @@
 import React from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { Container, Card, Icon, Button } from 'semantic-ui-react'
+import './test.css'
 
-const CardExampleCard = () => (
-  <Card>
-    <Card.Content>
-      <Card.Header>Matthew</Card.Header>
-      <Card.Meta>
-        <span className="date">Joined in 2015</span>
-      </Card.Meta>
-      <Card.Description>
-        Matthew is a musician living in Nashville.
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <a>
-        <Icon name="user" />
-        22 Friends
-      </a>
-    </Card.Content>
-  </Card>
-)
+import { setTest } from '../store/actions/test'
 
-export default CardExampleCard
+const CardExampleCard = (props) => {
+  const handleClick = value => (e) => {
+    e.preventDefault()
+    props.setTest(value)
+  }
+
+  return (
+    <Container className='testContainer'>
+      <Card>
+        <Card.Content>
+          <Card.Header>Penny Wise</Card.Header>
+          <Card.Meta>
+            <span className="date">Joined in 2015</span>
+          </Card.Meta>
+          <Card.Description>
+        Penny Wise is a clown from IT.
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <a>
+            <Icon name="user" />
+        1m Friends
+          </a>
+        </Card.Content>
+      </Card>
+      <Button onClick={handleClick('test')}>Test</Button>
+      <Button onClick={handleClick(null)}>Reset</Button>
+    </Container>
+  )
+}
+
+export default connect(null, { setTest })(CardExampleCard)
