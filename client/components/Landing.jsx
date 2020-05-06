@@ -1,11 +1,8 @@
 import React from 'react'
+import Test from './Test'
 
 const Landing = () => {
-    return (
-        <h1>
-            Landing Page
-        </h1>
-    )
+  return <Test />
 }
 
 export default Landing
