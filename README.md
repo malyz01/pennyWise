@@ -1,9 +1,3 @@
-# Boiler Plate
+# PennyWise
 
-### React
-
-### Redux
-
-### Express
-
-### Axios
+## Welcome to PennyWise
