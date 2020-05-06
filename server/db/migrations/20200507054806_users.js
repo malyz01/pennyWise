@@ -1,4 +1,4 @@
-const table = 'auth'
+const table = 'users'
 
 exports.up = (knex) =>
   knex.schema.createTable(table, (t) => {

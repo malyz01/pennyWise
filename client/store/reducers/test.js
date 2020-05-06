@@ -1,13 +1,11 @@
 import { TEST } from '../types'
 
-const INITIAL = {
-  test: null
-}
+const INITIAL = null
 
 export default (state = INITIAL, actions) => {
   switch (actions.type) {
     case TEST:
-      return state
+      return actions.payload
     default:
       return state
   }
