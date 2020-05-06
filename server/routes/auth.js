@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
-const Auth = require('../db/functions/auth')
+const Auth = require('../db/fn/auth')
 
 // path - /api/v1/auth/logout
 router.get('/logout', (req, res) => {
