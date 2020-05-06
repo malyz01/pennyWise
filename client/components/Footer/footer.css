@@ -1,0 +1,19 @@
+/* LOGO CSS */
+.logo{
+    max-width: 75px;
+    float: left;
+}
+.penny {
+    font-size: 20px;
+    color: #7363C8;
+}
+
+.wise {
+    color: #B7B7B7;
+}
+
+.logoContainer {
+    width: 100px;
+    text-align: center;
+}
+/*  */
