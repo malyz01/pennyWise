@@ -1,9 +1,9 @@
-const table = 'profile'
+const table = 'profiles'
 
 exports.up = (knex) =>
   knex.schema.createTable(table, (t) => {
     t.increments('id').primary()
-    t.integer('user_id').references('auth.id')
+    t.integer('user_id').references('users.id')
     t.string('full_name')
     t.string('avatar')
   })

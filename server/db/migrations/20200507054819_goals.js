@@ -3,7 +3,7 @@ const table = 'goals'
 exports.up = (knex) =>
   knex.schema.createTable(table, (t) => {
     t.increments('id').primary()
-    t.integer('user_id').references('auth.id')
+    t.integer('user_id').references('users.id')
     t.string('goal_name')
     t.integer('target_budget')
     t.datetime('start_date').defaultTo(knex.fn.now())
