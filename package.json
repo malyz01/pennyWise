@@ -45,6 +45,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.0.3",
+    "react-responsive-carousel": "^3.2.7",
     "semantic-ui-react": "^0.88.2",
     "sqlite3": "^4.2.0"
   },

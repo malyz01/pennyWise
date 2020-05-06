@@ -1,8 +1,8 @@
 import React from 'react'
-import Test from './Test'
+import Carousel from './Landing/Carousel/Carousel'
 
 const Landing = () => {
-  return <Test />
+  return <Carousel />
 }
 
 export default Landing
