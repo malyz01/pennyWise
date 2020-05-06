@@ -1,0 +1,34 @@
+.carousel-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(fit-content + 100px);
+  transition: 500ms;
+}
+.carousel .arrows {
+  font-size: 2rem;
+}
+.carousel-main p {
+  padding-left: 50px;
+  padding-right: 50px;
+  transition: 500ms;
+  height: 150px;
+  overflow-y: auto;
+}
+.carousel .arrows:hover {
+  cursor: pointer;
+}
+.carousel-index {
+  text-align: center;
+}
+.carousel-index:hover {
+  cursor: pointer;
+}
+.carousel .fab.fa-react {
+  margin-right: 20px;
+  font-size: 1.5rem;
+  color: #ffdd00;
+}
+.carousel .fab.fa-react.hidden:hover {
+  cursor: pointer !important;
+}
