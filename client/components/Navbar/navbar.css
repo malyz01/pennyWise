@@ -6,6 +6,8 @@
   align-items: center;
   min-height: 70px;
   padding: 0 10rem 0;
+  z-index: 2;
+  background-color: white;
 }
 
 .navBarLogoContainer {

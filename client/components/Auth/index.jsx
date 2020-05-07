@@ -1,32 +1,38 @@
 import React, { Component } from 'react'
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Button, Divider } from 'semantic-ui-react'
 import './auth.css'
 
-class index extends Component {
+class Auth extends Component {
   state = {
     email: '',
     password: ''
   }
 
-  handleOnSubmit = (e, data) => {
-    console.log(e)
+  handleOnChange = (e, { name, value }) => {
+    this.setState({ [name]: value })
   }
 
   render () {
+    const { email, password } = this.state
     return (
-      <div>
-        <Form onSubmit={}>
-          <div>SIGN IN</div>
-          <Form.Field>
-            <Input onChange={this.handleOnChange} type='text' placeholder='email' />
-          </Form.Field>
-          <Form.Field>
-            <Input onChange={this.handleOnChange} type='password' placeholder='password' />
-          </Form.Field>
-        </Form>
+      <div className='authMainContainer'>
+        <div className='authFormContainer'>
+          <div className='authHeader'>SIGN IN</div>
+          <div className='divider'></div>
+          <Form>
+            <Form.Field>
+              <Form.Input value={email} onChange={this.handleOnChange} name='email' type='text' placeholder='email' />
+            </Form.Field>
+            <Form.Field>
+              <Form.Input value={password} onChange={this.handleOnChange} name='password' type='password' placeholder='password' />
+            </Form.Field>
+            <Button type='submit'>Submit</Button>
+          </Form>
+
+        </div>
       </div>
     )
   }
 }
 
-export default index
+export default Auth
