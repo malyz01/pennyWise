@@ -13,13 +13,16 @@ import Budget from './Budget'
 const App = () => {
   return (
     <div className="appContainer">
+
       <HashRouter>
         <Navbar />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/expense" component={Expense} />
-        <Route exact path="/income" component={Income} />
-        <Route exact path="/budget" component={Budget} />
+        <div className='routesContainer'>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/expense" component={Expense} />
+          <Route exact path="/income" component={Income} />
+          <Route exact path="/budget" component={Budget} />
+        </div>
       </HashRouter>
       <Footer />
       <img
@@ -27,6 +30,7 @@ const App = () => {
         className="fern"
         alt=""
       />
+
     </div>
   )
 }
