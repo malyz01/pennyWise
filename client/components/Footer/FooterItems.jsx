@@ -1,7 +1,7 @@
 import React from 'react'
 
 class FooterItems extends React.Component {
-  render () {
+  render() {
     return (
       <div className='container' >
 
@@ -22,12 +22,12 @@ class FooterItems extends React.Component {
           <p className='footerHeading'>CONTACT</p>
           {/* <div className='footerLinks'> */}
           <div className='contactSection'>
-            <a href="#"><p>Matt Uy</p></a>
-            <a href="#"><p>Chris Alba</p></a>
-            <a href="#"><p>Lucas Santana</p></a>
-            <a href="#"><p>Jimmi Meredith</p></a>
-            <a href="#"><p>Raymond Leung</p></a>
-            <a href="#"><p>David Dumolo</p></a>
+            <p><a href="#">Matt Uy</a></p>
+            <p><a href="#">Chris Alba</a></p>
+            <p><a href="#">Lucas Santana</a></p>
+            <p><a href="#">Jimmi Meredith</a></p>
+            <p><a href="#">Raymond Leung</a></p>
+            <p><a href="#">David Dumolo</a></p>
           </div>
           {/* </div> */}
         </div>
@@ -48,8 +48,8 @@ class FooterItems extends React.Component {
           <div className='awardSection'>
             <p>Best Budgeting App 2020</p>
             <p>Most Innovative Team 2020</p>
-            <p>Most Attractive Staff 2018/2019/2020</p>
             <p>#1 Creative UI Team 2020</p>
+            <p>Most Attractive Staff 2018/2019/2020</p>
             <p>"PennyWise is maximum Big Don Energy!" - Don Smith</p>
           </div>
         </div>
