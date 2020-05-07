@@ -1,0 +1,11 @@
+.appContainer {
+  position: relative;
+}
+
+.fern {
+  max-width: 320px;
+  right: -20px;
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+}
