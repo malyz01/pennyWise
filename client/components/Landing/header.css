@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@300;500&display=swap');
+
+
+/*====================
+        HEADER
+======================*/
+
+.carrouselWrapper {
+    height: 500px; 
+  }
+
+.carrouselImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width:100%
+  }
+
+  .carrousel img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+  }
+
+  .carrousel{
+    width: 100%;
+  }

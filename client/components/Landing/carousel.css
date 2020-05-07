@@ -1,0 +1,60 @@
+.landingCarousel{
+  position: absolute;
+  top: 100px;
+  right: 10%;
+  padding: 20px;
+  padding-bottom: 5px;
+  background: white;
+  width: 700px;
+  height: 350px;
+}
+
+.landingCarouselMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 500ms;
+}
+
+.landingCarousel .landingArrows {
+  font-size: 2rem;
+  margin-top: 50px;
+}
+.landingCarouselMain p {
+  padding-left: 50px;
+  padding-right: 50px;
+  transition: 500ms;
+  height: 150px;
+  overflow-y: auto;
+  width:400px;
+}
+.landingCarousel .landingArrows:hover {
+  cursor: pointer;
+}
+.landingCarouselIndex {
+  text-align: center;
+}
+.landingCarouselIndex:hover {
+  cursor: pointer;
+}
+.landingCarousel .hidden:hover {
+  cursor: pointer !important;
+}
+.landingCarouselIcon{
+  width:30px;
+  height:30px;
+  margin:10px;
+}
+
+.visible {
+  opacity: 1;
+  transition: 500ms;
+}
+
+.hidden {
+  opacity: 0.3;
+  transition: 500ms;
+}
+.hidden:hover {
+  cursor: default !important;
+}
