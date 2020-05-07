@@ -1,7 +1,19 @@
 /* LOGO CSS */
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoContainer {
+    width: 100px;
+    text-align: center;
+}
+
 .logo{
     max-width: 75px;
-    float: left;
 }
 .penny {
     font-size: 20px;
@@ -12,8 +24,12 @@
     color: #B7B7B7;
 }
 
-.logoContainer {
-    width: 100px;
-    text-align: center;
+.footerHeading {
+    color: #81A780;
 }
+
+.footerLinks {
+    color: black;
+}
+
 /*  */
