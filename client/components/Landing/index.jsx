@@ -1,6 +1,7 @@
 import React from 'react'
 import Info from './Info'
 import Carousel from './Carousel'
+import Header from './Header'
 import './landing.css'
 
 const Landing = () => {
@@ -8,6 +9,7 @@ const Landing = () => {
     <div className = "landing">
 
       <div className = "landingBody">
+        <Header/>
         <Info />
         <Carousel/>
       </div>
