@@ -2,9 +2,13 @@ import React from 'react'
 import { HashRouter, Route } from 'react-router-dom'
 import './app.css'
 
-import Landing from './Landing'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Landing from './Landing'
+import Profile from './Profile'
+import Expense from './Expense'
+import Income from './Income'
+import Budget from './Budget'
 
 const App = () => {
   return (
@@ -12,6 +16,10 @@ const App = () => {
       <HashRouter>
         <Navbar />
         <Route exact path="/" component={Landing} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/expense" component={Expense} />
+        <Route exact path="/income" component={Income} />
+        <Route exact path="/budget" component={Budget} />
       </HashRouter>
       <Footer />
       <img
