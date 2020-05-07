@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
 
 class Header extends Component {
-  render() {
+  render () {
     return (
       <Container>
         <div>OVERVIEW OF EXPENSES</div>
