@@ -82,42 +82,47 @@ export default class Carousel extends Component {
 
   render () {
     return (
-      <div className='landingCarousel'>
-        <div className='landingCarouselMain'>
-          <div
-            onClick={this.prev}
-            className={`landingArrows `}>
-            <i className="angle left icon"></i>
-          </div>
-          <Transition.Group animation={this.state.animation} duration={this.state.duration}>
-            {this.state.visible && (
-              <div className="landingCarouselItem">
-                <div className="landingCarouselInner">
-                  <img src={items[this.state.currentIndex].img} alt=""/>
-                  <div className="landingCarouselText">{items[this.state.currentIndex].text}</div>
-                </div>
-              </div>
-            )}
-          </Transition.Group>
-          <div
-            onClick={this.next}
-            className={`landingArrows `}>
-            <i className="angle right icon"></i>
-          </div>
-        </div>
-        <div className='landingCarouselIndex'>
-          {items.map((item, index) => {
-            return (
-              <img key ={index}
-                onClick={() => this.setIndex(index)}
-                className={`landingCarouselIcon ${
-                  this.state.currentIndex === index ? `visible` : `hidden`
-                }`}src="./images/pennywise_logo.png" alt=""/>
+      <div className="landingCarouselOuter">
+        <h1 className="landingCarouselTitle">What Services We Provide</h1>
+        <div className='landingCarousel'>
 
-            )
-          })}
+          <div className='landingCarouselMain'>
+            <div
+              onClick={this.prev}
+              className={`landingArrows landingLeft`}>
+              <i className="angle left icon"></i>
+            </div>
+            <Transition.Group animation={this.state.animation} duration={this.state.duration}>
+              {this.state.visible && (
+                <div className="landingCarouselItem">
+                  <div className="landingCarouselInner">
+                    <img src={items[this.state.currentIndex].img} alt=""/>
+                    <div className="landingCarouselText">{items[this.state.currentIndex].text}</div>
+                  </div>
+                </div>
+              )}
+            </Transition.Group>
+            <div
+              onClick={this.next}
+              className={`landingArrows landingRight`}>
+              <i className="angle right icon"></i>
+            </div>
+          </div>
+          <div className='landingCarouselIndex'>
+            {items.map((item, index) => {
+              return (
+                <img key ={index}
+                  onClick={() => this.setIndex(index)}
+                  className={`landingCarouselIcon ${
+                    this.state.currentIndex === index ? `visible` : `hidden`
+                  }`}src="./images/pennywise_logo.png" alt=""/>
+
+              )
+            })}
+          </div>
         </div>
       </div>
+
     )
   }
 }
