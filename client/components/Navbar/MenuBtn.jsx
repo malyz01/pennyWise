@@ -14,7 +14,6 @@ handleOnClick = (route) => () => {
 
 render () {
   const { authenticated } = this.props
-  console.log(authenticated)
   return (
     <div>
       {!authenticated
