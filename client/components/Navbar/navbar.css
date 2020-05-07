@@ -1,0 +1,39 @@
+.navBarMainContainer {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+  padding: 0 10rem 0;
+  z-index: 2;
+  background-color: white;
+}
+
+.navBarLogoContainer {
+   display: flex;
+   align-items: center;
+   font-size: 1.2rem;
+   font-weight: 600;
+}
+
+.navBarLogoItem {
+   margin-right: 1rem;
+   cursor: pointer;
+   font-size: 1.2rem;
+   font-weight: 600;
+}
+
+.signupBtn, .loginBtn {
+  color: white !important;
+  min-width: 150px;
+}
+
+.signupBtn {
+  background-color: #7363C8 !important;
+  margin-right: 1rem !important;
+}
+
+.loginBtn {
+  background-color: #322943 !important;
+}

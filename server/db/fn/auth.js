@@ -16,17 +16,15 @@ const authenticate = async (data, db = conn) => {
 }
 
 const newUser = async (data, db = conn) => {
-  const { code, password, confirmPassword, ...username } = data
+  const { password, confirmPassword, email } = data
   try {
     if (password !== confirmPassword) return 'Password does not match'
-    let newUser = username
-    const hashPassword = await bcrypt.hash(data.password, 10)
-    newUser.type = data.code === process.env.ADMINCODE ? 'admin' : 'user'
-    const [id] = await db('users').insert({
-      ...newUser,
+    const hashPassword = await bcrypt.hash(password, 10)
+    const id = await db('users').insert({
+      email,
       password: hashPassword
     })
-    return { id, ...newUser }
+    return { id: id[0], email }
   } catch (err) {
     return 'Username/Email is already taken'
   }
