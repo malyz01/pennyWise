@@ -2,7 +2,7 @@
 .footerMainContainer{
     background-color: #322943;
     position: relative;
-    padding: 80px 100px 0 200px;
+    padding: 50px 100px 10px 100px;
 }
 
 p {
@@ -14,16 +14,13 @@ a {
     color: white;
 }
 
-
 /* Logo CSS */
 
 .logoContainer {
     text-align: center;
     position: absolute;
-    left: 40px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+    top: 25px;
+    left: 150px;
 }
 
 .logo{
@@ -44,12 +41,13 @@ a {
 
 .footerHeading {
     color: #81A780;
+    padding-bottom: 10px;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
-    padding: 0 100px;
+    padding: 0 300px;
 }
 
 /* SocialLogos CSS */
@@ -57,15 +55,14 @@ a {
     display: flex;
     /* color: #241D31; */
     color: white;
-    font-size: 2em;
+    font-size: 50px;
     margin-top: 20px;
     justify-content: center;
 }
 
 .line {
     border-top: 2px solid #707070;
-    width: 50%;
-    /* display: flex;
-    justify-content: center; */
-    /* align-items: center; */
+    width: 75%;
+    position: absolute;
+    margin: 50px auto;
 }

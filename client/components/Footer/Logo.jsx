@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css'
 
 class Logo extends React.Component {
-  render() {
+  render () {
     return (
       <div className='logoContainer'>
         <img className='logo' src='images/pennywise_logo.png' alt='PennyWise Logo' />
