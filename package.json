@@ -45,6 +45,9 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.0.3",
+    "react-reveal": "^1.2.2",
+    "react-scroll": "^1.7.16",
+    "react-slick": "^0.25.2",
     "semantic-ui-react": "^0.88.2",
     "sqlite3": "^4.2.0"
   },

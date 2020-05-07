@@ -1,0 +1,114 @@
+.landingCarousel{
+  position: absolute;
+  padding: 20px;
+  padding-bottom: 5px;
+  background: white;
+  width: 700px;
+  height: 350px;
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.712);
+}
+.landingCarouselOuter{
+  position: absolute;
+  top: 100px;
+  right: 10%;
+}
+.landingCarouselMain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 500ms;
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+
+.landingCarousel .landingArrows {
+  font-size: 2rem;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  transition:500ms;
+  z-index:3;
+  background:rgba(255, 255, 255, 0.171);
+}
+.landingCarousel .landingArrows:hover{
+  background:white;
+}
+.landingCarouselInner{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.landingLeft{
+  position:absolute;
+  left:0px;
+}
+.landingRight{
+  position:absolute;
+  right:0px;
+}
+.landingCarouselTitle{
+  width:700px;
+  text-align: center;
+  color:white;
+  font-size:3rem;
+  letter-spacing: 10px;
+
+}
+.landingCarouselText {
+  position:absolute;
+  display:flex;
+  top:0px;
+  height:100%;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  font-size:2.5rem;
+  font-weight:800;
+  text-decoration: solid;
+  color:white;
+  text-shadow: 2px 2px 1px rgb(0, 0, 0);
+}
+.landingCarouselMain img{
+  width:100%;
+  height: 100%;
+}
+.landingCarousel .landingArrows:hover {
+  cursor: pointer;
+}
+.landingCarouselIndex {
+  text-align: center;
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  width:100%;
+}
+.landingCarouselIndex:hover {
+  cursor: pointer;
+}
+.landingCarousel .hidden:hover {
+  cursor: pointer !important;
+}
+.landingCarouselIcon{
+  width:30px;
+  height:30px;
+  margin-right:10px;
+  margin-left:10px;
+}
+
+.visible {
+  opacity: 1;
+  transition: 500ms;
+}
+
+.hidden {
+  opacity: 0.3;
+  transition: 500ms;
+}
+.hidden:hover {
+  cursor: default !important;
+}

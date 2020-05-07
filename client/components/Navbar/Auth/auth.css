@@ -1,0 +1,29 @@
+.authMainContainer {
+  background-color: #322943;
+  color: white;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  background-color: white;
+  height: 3px;
+  margin: 8px 0 10px;
+}
+
+.authHeader {
+  font-size: 2rem;
+  text-transform: capitalize;
+} 
+
+.authFormContainer {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.ui.button.authBtn {
+  background-color: #7363C8;
+  color: white
+}
