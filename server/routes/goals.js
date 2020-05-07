@@ -1,8 +1,7 @@
-const express = require("express")
+const router = require("express").Router()
 const camelcaseKeys = require("camelcase-keys")
 
 const db = require("../db/fn/goals")
-const server = express.Router()
 
 // router.get('/', (req, res) => {
 //   return db.getFoods()
