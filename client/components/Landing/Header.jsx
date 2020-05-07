@@ -1,5 +1,5 @@
 import React from 'react'
-import Carrousel from './Carrousel'
+import Carrousel from './HeaderCarousel'
 import './header.css'
 
 const Header = () => {

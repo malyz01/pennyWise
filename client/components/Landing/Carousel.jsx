@@ -83,7 +83,7 @@ export default class Carousel extends Component {
   render () {
     return (
       <div className="landingCarouselOuter">
-        <h1 className="landingCarouselTitle">What Services We Provide</h1>
+        <h1 className="landingCarouselTitle">Services We Provide</h1>
         <div className='landingCarousel'>
 
           <div className='landingCarouselMain'>
