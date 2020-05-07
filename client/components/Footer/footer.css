@@ -1,4 +1,13 @@
-/* LOGO CSS */
+/* Index CSS */
+.footerMainContainer{
+    background-color: #322943;
+}
+
+p {
+    color: white;
+}
+
+/* Logo CSS */
 
 .footerContainer {
     display: flex;
@@ -24,19 +33,22 @@
     color: #B7B7B7;
 }
 
-/* Footer Items CSS */
+/* FooterItems CSS */
 
 .footerHeading {
     color: #81A780;
 }
 
-.footerLinks {
-    color: black;
-}
-
-/* SocialLogos */
+/* SocialLogos CSS */
 .mediaContainer {
     display: inline-flex;
+    /* color: #241D31; */
+    color: white;
+    font-size: 2em;
+}
+
+.line{
+    border-bottom: 2px ;
 }
 
 /*  */

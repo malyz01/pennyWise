@@ -3,7 +3,8 @@ import React from 'react'
 import Logo from './Logo'
 import FooterItems from './FooterItems'
 import SocialLogos from './SocialLogos'
-// -----------------------
+// -----------CSS------------
+import './footer.css'
 
 class Footer extends React.Component {
   render () {
