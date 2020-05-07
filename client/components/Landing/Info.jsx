@@ -11,6 +11,7 @@ const Info = () => {
         <div className='landginInfoBody'>- Your money, mindfulness and this moment</div>
         <div className='landginInfoBody'>- Too many of us worry about our money situations. Sorting your money is good for your mental health too.</div>
       </div>
+      <img src="./images/home-web.png" alt=""/>
     </div>
   )
 }

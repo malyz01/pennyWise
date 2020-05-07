@@ -1,24 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 .landingInfoContainer {
-  display: flex;
   cursor: pointer;
-  height: 100%;
+  max-height: 80vh;
   width: 500px;
   perspective: 800px;
   position: absolute;
   left: 10%;
-  top: -8%;
+  top: -15%;
   line-height: normal;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.7);
+  overflow-y:hidden;
 }
-
+.landingInfoContainer img{
+  width:100%;
+}
 .landingInfo {
   height: 380px;
   width: 100%;
   color: #322943;
   background-color: white;
   padding: 2rem;
-  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.7);
+  padding-top:100px;
+ 
 }
 
 .landingInfoHeading {
