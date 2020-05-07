@@ -1,0 +1,23 @@
+
+.profileMainContainer {
+  background-color: #281A43;
+}
+
+.profileHeading {
+  text-align: center;
+  color: white;
+  text-shadow: 0px 3px 7px black;
+}
+
+.profileSummary {
+  text-align: center;
+  color: white;
+  margin: 0;
+}
+
+.profileHeadingLine {
+  border-top: 2px solid #707070;
+  width: 50%;
+  position: relative;
+  margin: 10px auto;
+}
