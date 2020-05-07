@@ -8,6 +8,21 @@ class Header extends Component {
         <div>OVERVIEW OF EXPENSES</div>
         <div />
         <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque exercitationem sequi expedita cupiditate error nam laudantium ut quo quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore corporis!</div>
+        <div className="expenseButtons">
+          <button className="ui button white expenseAdd">
+            ADD EXPENSE
+          </button>
+          <button className="ui button purple expenseAdd">
+            ON/OFF
+          </button>
+          <button className="ui button blue expenseAdd">
+           UPDATE
+          </button>
+          <button className="ui button black expenseAdd">
+            DELETE
+          </button>
+        </div>
+
       </Container>
     )
   }

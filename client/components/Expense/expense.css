@@ -1,7 +1,17 @@
 .expenseHeader{
   padding-top:10%;
-  padding-bottom:10%;
+  padding: bottom 3%;
 }
 .expenseTable{
   padding-bottom:10%;
+}
+
+.expenseButtons{
+  display: flex;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.expenseButtons .button{
+  flex-grow: 1;
+
 }
