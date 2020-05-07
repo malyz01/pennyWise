@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter, Route } from 'react-router-dom'
 
-import Landing from './Landing'
+import Landing from '../components/Landing/Landing'
 
 const App = () => {
   return (
