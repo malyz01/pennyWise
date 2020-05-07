@@ -8,7 +8,7 @@ const Landing = () => {
   return (
     <div className = "landing">
       <Header/>
-      <div className = "landingBody">
+      <div className='landingSubContainer'>
         <Info />
         <Carousel/>
       </div>
