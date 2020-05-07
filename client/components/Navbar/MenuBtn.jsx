@@ -7,26 +7,42 @@ import { logout } from '../../store/actions/auth'
 import { setModalAuthForm, setModalAuthOpen } from '../../store/actions/modal'
 
 class MenuBtn extends Component {
-handleOnClick = (route) => () => {
-  this.props.setModalAuthForm(route)
-  this.props.setModalAuthOpen(true)
-}
+  handleOnClick = (route) => () => {
+    this.props.setModalAuthForm(route)
+    this.props.setModalAuthOpen(true)
+  }
 
-render () {
-  const { authenticated } = this.props
-  return (
-    <div>
-      {!authenticated
-        ? <>
-          <Button onClick={this.handleOnClick('signup')} size='large' className='signupBtn'>SIGN UP</Button>
-          <Button onClick={this.handleOnClick('login')} size='large' className='loginBtn'>LOGIN</Button>
-        </>
-        : <Button onClick={() => this.props.logout()}>Logout</Button>
-      }
+  renderAuthBtn = () => {
+    return <>
+      <Button
+        onClick={this.handleOnClick('signup')}
+        size="large"
+        className="signupBtn"
+      >
+        SIGN UP
+      </Button>
+      <Button
+        onClick={this.handleOnClick('login')}
+        size="large"
+        className="loginBtn"
+      >
+        LOGIN
+      </Button>
+    </>
+  }
 
-    </div>
-  )
-}
+  renderLogInMenu = () => {
+    return <Button onClick={() => this.props.logout()}>Logout</Button>
+  }
+
+  render () {
+    const { authenticated } = this.props
+    return (
+      <div>
+        {!authenticated ? this.renderAuthBtn() : this.renderLogInMenu()}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
