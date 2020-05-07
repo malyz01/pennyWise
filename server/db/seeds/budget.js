@@ -6,12 +6,12 @@ exports.seed = (knex) =>
     .then(() => knex('users').del())
     .then(() =>
       knex('users').insert([
-        { id: 1, email: '', password: '' },
-        { id: 2, email: '', password: '' },
-        { id: 3, email: '', password: '' },
-        { id: 4, email: '', password: '' },
-        { id: 5, email: '', password: '' },
-        { id: 6, email: '', password: '' }
+        { id: 1001, email: 'johndoe@testing.com', password: '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu' },
+        { id: 1002, email: 'janedoe@testing.com', password: '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu' },
+        { id: 1003, email: 'senseimatt@testing.com', password: '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu' },
+        { id: 1004, email: 'christy@testing.com', password: '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu' },
+        { id: 1005, email: 'jimmi@testing.com', password: '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu' },
+        { id: 1006, email: 'david@testing.com', password: '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu' }
       ]))
     .then(() =>
       knex('profiles').insert([

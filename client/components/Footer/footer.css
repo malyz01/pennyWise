@@ -1,0 +1,54 @@
+/* Index CSS */
+.footerMainContainer{
+    background-color: #322943;
+}
+
+p {
+    color: white;
+}
+
+/* Logo CSS */
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoContainer {
+    width: 100px;
+    text-align: center;
+}
+
+.logo{
+    max-width: 75px;
+}
+.penny {
+    font-size: 20px;
+    color: #7363C8;
+}
+
+.wise {
+    color: #B7B7B7;
+}
+
+/* FooterItems CSS */
+
+.footerHeading {
+    color: #81A780;
+}
+
+/* SocialLogos CSS */
+.mediaContainer {
+    display: inline-flex;
+    /* color: #241D31; */
+    color: white;
+    font-size: 2em;
+}
+
+.line{
+    border-bottom: 2px ;
+}
+
+/*  */
