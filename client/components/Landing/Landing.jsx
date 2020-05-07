@@ -5,8 +5,9 @@ import Info from './Info/Info'
 const Landing = () => {
   return (
     <>
-    <Test />
+     <Test />
      <Info />
+     <Carousel/>
     </>
   )
 }
