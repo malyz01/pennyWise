@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-.info {
-  height: 200px;
+.landingInfo {
   width: 198px;
   overflow: hidden;
   text-align: center;
   background-color: #fffdd0;
 }
 
-.info-container {
+.landingInfoContainer {
   cursor: pointer;
   height: 250px;
   width: 200px;
   perspective: 800px;
-  position: fixed;
+  position: relative;
   left: 10%;
   top: 30%;
   margin: auto;
 }
 
-.heading {
+.landingHeading {
   font-weight: bold;
 }

@@ -1,36 +1,36 @@
-.carousel-main {
+.landingCarouselMain {
   display: flex;
   justify-content: center;
   align-items: center;
   width: calc(fit-content + 100px);
   transition: 500ms;
 }
-.carousel .arrows {
+.landingCarousel .landingArrows {
   font-size: 2rem;
 }
-.carousel-main p {
+.landingCarouselMain p {
   padding-left: 50px;
   padding-right: 50px;
   transition: 500ms;
   height: 150px;
   overflow-y: auto;
 }
-.carousel .arrows:hover {
+.landingCarousel .landingArrows:hover {
   cursor: pointer;
 }
-.carousel-index {
+.landingCarouselIndex {
   text-align: center;
 }
-.carousel-index:hover {
+.landingCarouselIndex:hover {
   cursor: pointer;
 }
-.carousel .fab.fa-react {
-  margin-right: 20px;
-  font-size: 1.5rem;
-  color: #ffdd00;
-}
-.carousel .fab.fa-react.hidden:hover {
+.landingCarousel .hidden:hover {
   cursor: pointer !important;
+}
+.landingCarouselIcon{
+  width:30px;
+  height:30px;
+  margin:10px;
 }
 .visible {
   opacity: 1;

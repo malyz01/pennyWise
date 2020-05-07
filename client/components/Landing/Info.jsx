@@ -3,9 +3,9 @@ import './info.css'
 
 const Info = () => {
   return (
-    <div className='info-container'>
-      <div className="info">
-        <p className="heading">How we can help you manage your finances</p>
+    <div className='landingInfoContainer'>
+      <div className="landingInfo">
+        <p className="landingHeading">How we can help you manage your finances</p>
         <hr />
         <p>- COVID-19 information regarding you and your money</p>
         <p>- Your money, mindfulness and this moment</p>
