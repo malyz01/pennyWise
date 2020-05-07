@@ -7,13 +7,11 @@ import './landing.css'
 const Landing = () => {
   return (
     <div className = "landing">
-
+      <Header/>
       <div className = "landingBody">
-        <Header/>
         <Info />
         <Carousel/>
       </div>
-
     </div>
   )
 }

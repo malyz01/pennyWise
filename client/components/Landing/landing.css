@@ -1,8 +1,6 @@
 .landing {
   background: rgba(76, 64, 98, 0.9);
   min-height: 50vh;
-  display:flex;
-  padding:10%;
-  padding-top: 100px;
+  padding-top:0px;
   padding-bottom:100px;
 }
