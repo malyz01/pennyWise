@@ -6,12 +6,12 @@ exports.seed = (knex) =>
     .then(() => knex('users').del())
     .then(() =>
       knex('users').insert([
-        { id: 1, email: '', password: '' },
-        { id: 2, email: '', password: '' },
-        { id: 3, email: '', password: '' },
-        { id: 4, email: '', password: '' },
-        { id: 5, email: '', password: '' },
-        { id: 6, email: '', password: '' }
+        { id: 1, email: 'johndoe@testing.com', password: '' },
+        { id: 2, email: 'janedoe@testing.com', password: '' },
+        { id: 3, email: 'senseimatt@testing.com', password: '' },
+        { id: 4, email: 'christy@testing.com', password: '' },
+        { id: 5, email: 'jimmi@testing.com', password: '' },
+        { id: 6, email: 'david@testing.com', password: '' }
       ]))
     .then(() =>
       knex('profiles').insert([
