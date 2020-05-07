@@ -5,11 +5,13 @@ class FooterItems extends React.Component {
     return (
       <div className='container' >
         <div className='footerLink'>
-          <p className='footerHeading'>About</p>
+          <p className='footerHeading'>ABOUT</p>
           <p>About Us</p>
+          <p>Careers</p>
+          <p>Help</p>
         </div>
         <div className='footerLink'>
-          <p className='footerHeading'>Contact</p>
+          <p className='footerHeading'>CONTACT</p>
           <div className='footerLinks'>
             <a href="#"><p>Matt Uy</p></a>
             <a href="#"><p>Chris Alba</p></a>
@@ -20,14 +22,16 @@ class FooterItems extends React.Component {
           </div>
         </div>
         <div className='footerLink'>
-          <p className='footerHeading'>Course</p>
+          <p className='footerHeading'>COURSE</p>
           <a href='https://devacademy.co.nz'>Enspiral Dev Academy</a>
         </div>
         <div className='footerLink'>
-          <p className='footerHeading'>Awards</p>
+          <p className='footerHeading'>AWARDS</p>
           <p>Best Budgeting App 2020</p>
           <p>Most Innovative Team 2020</p>
           <p>Most Attractive Staff 2018/2019/2020</p>
+          <p>#1 Creative UI Team 2020</p>
+          <p>"PennyWise is maximum Big Don Energy!" - Don Smith</p>
         </div>
       </div>
     )

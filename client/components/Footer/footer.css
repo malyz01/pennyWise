@@ -24,12 +24,19 @@
     color: #B7B7B7;
 }
 
+/* Footer Items CSS */
+
 .footerHeading {
     color: #81A780;
 }
 
 .footerLinks {
     color: black;
+}
+
+/* SocialLogos */
+.mediaContainer {
+    display: inline-flex;
 }
 
 /*  */

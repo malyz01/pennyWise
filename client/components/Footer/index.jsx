@@ -1,9 +1,9 @@
 import React from 'react'
-//----Sub-Components----
+// ----Sub-Components----
 import Logo from './Logo'
 import FooterItems from './FooterItems'
 import SocialLogos from './SocialLogos'
-//-----------------------
+// -----------------------
 
 class Footer extends React.Component {
   render () {
