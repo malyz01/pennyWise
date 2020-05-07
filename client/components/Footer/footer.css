@@ -1,0 +1,42 @@
+/* LOGO CSS */
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoContainer {
+    width: 100px;
+    text-align: center;
+}
+
+.logo{
+    max-width: 75px;
+}
+.penny {
+    font-size: 20px;
+    color: #7363C8;
+}
+
+.wise {
+    color: #B7B7B7;
+}
+
+/* Footer Items CSS */
+
+.footerHeading {
+    color: #81A780;
+}
+
+.footerLinks {
+    color: black;
+}
+
+/* SocialLogos */
+.mediaContainer {
+    display: inline-flex;
+}
+
+/*  */
