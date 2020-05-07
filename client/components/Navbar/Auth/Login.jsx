@@ -20,7 +20,7 @@ export class Login extends Component {
         <Form.Field>
           <Form.Input value={password} onChange={this.handleOnChange} name='password' type='password' placeholder='password' />
         </Form.Field>
-        <Button type='submit'>Submit</Button>
+        <Button className='authBtn' type='submit'>Submit</Button>
       </Form>
     )
   }

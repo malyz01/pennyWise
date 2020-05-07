@@ -24,7 +24,7 @@ export class Signup extends Component {
         <Form.Field>
           <Form.Input value={confirmPassword} onChange={this.handleOnChange} name='password' type='password' placeholder='confirm password' />
         </Form.Field>
-        <Button type='submit'>Submit</Button>
+        <Button className='authBtn' type='submit'>Submit</Button>
       </Form>
     )
   }
