@@ -17,7 +17,9 @@
     "server": "node server",
     "test": "jest --watchAll"
   },
-  "eslintIgnore": ["bundle.js"],
+  "eslintIgnore": [
+    "bundle.js"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env",

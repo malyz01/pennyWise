@@ -1,7 +1,7 @@
 import React from 'react'
 
 class SocialLogos extends React.Component {
-  render() {
+  render () {
     return (
       <div className='mediaContainer'>
         <i className="facebook icon"></i>

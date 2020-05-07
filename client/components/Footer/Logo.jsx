@@ -5,8 +5,8 @@ class Logo extends React.Component {
   render () {
     return (
       <div className='logoContainer'>
-        <img className='logo' src='images/pennywise_logo.png' alt='PennyWise Logo' />
-        <p className='penny'>PENNY<span className='wise'>WISE</span></p>
+        <img className='footerLogo' src='images/pennywise_logo.png' alt='PennyWise Logo' />
+        <p className='pennyLogoWord'>PENNY<span className='wiseLogoWord'>WISE</span></p>
       </div>
     )
   }
