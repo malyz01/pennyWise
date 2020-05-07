@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import './auth.css'
 
 import Login from './Login'
-import Signup from './Signup
+import Signup from './Signup'
 
 class Auth extends Component {
   render () {
+    console.log(this.props)
     return (
       <div className='authMainContainer'>
         <div className='authFormContainer'>
