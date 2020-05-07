@@ -1,6 +1,8 @@
 import React from 'react'
 import BottomDetailsCardComponent from './BottomDetailsCardComponent'
 import './profile.css'
+// import './index.css'
+import ProfileMain from './ProfileMain'
 
 class ProfileContainer extends React.Component {
   render () {
@@ -13,6 +15,7 @@ class ProfileContainer extends React.Component {
 
         <div className='profileCardContainer'>
           <BottomDetailsCardComponent />
+          <ProfileMain />
         </div>
       </div>
     )
