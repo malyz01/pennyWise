@@ -36,9 +36,7 @@ class FooterItems extends React.Component {
 
         <div className='footerLinks'>
           <p className='footerHeading'>COURSE</p>
-          <div className='awardsSection'>
-            <p><a href='https://devacademy.co.nz'>Enspiral Dev Academy</a></p>
-          </div>
+          <p><a href='https://devacademy.co.nz'>Enspiral Dev Academy</a></p>
         </div>
 
         {/* ======================AWARDS=============================== */}
