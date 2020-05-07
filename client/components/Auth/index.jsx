@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Divider } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import './auth.css'
 
 class Auth extends Component {
