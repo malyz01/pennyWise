@@ -13,34 +13,45 @@ export default class Carousel extends Component {
     currentIndex: 0,
     animation: 'fade',
     duration: 500,
-    visible: true
+    visible: true,
+    rightArrow: true,
+    leftArrow: true
   }
 
   prev = () => {
-    this.setState({ visible: false }, () => {
-      setTimeout(() => {
-        this.setState({ visible: true })
-      }, 500)
-    })
+    if (this.state.leftArrow === true) {
+      if (this.state.currentIndex > 0) {
+        this.setState({ currentIndex: this.state.currentIndex - 1 })
+      } else if (this.state.leftArrow === true) {
+        this.setState({ currentIndex: items.length - 1 })
+      }
 
-    if (this.state.currentIndex > 0) {
-      this.setState({ currentIndex: this.state.currentIndex - 1 })
-    } else {
-      this.setState({ currentIndex: items.length - 1 })
+      this.setState({ visible: false, leftArrow: false }, () => {
+        setTimeout(() => {
+          this.setState({ visible: true })
+        }, 500)
+        setTimeout(() => {
+          this.setState({ leftArrow: true })
+        }, 1000)
+      })
     }
   }
 
   next = () => {
-    this.setState({ visible: false }, () => {
-      setTimeout(() => {
-        this.setState({ visible: true })
-      }, 500)
-    })
-
-    if (this.state.currentIndex < items.length - 1) {
-      this.setState({ currentIndex: this.state.currentIndex + 1 })
-    } else {
-      this.setState({ currentIndex: 0 })
+    if (this.state.rightArrow === true) {
+      if (this.state.currentIndex < items.length - 1) {
+        this.setState({ currentIndex: this.state.currentIndex + 1 })
+      } else {
+        this.setState({ currentIndex: 0 })
+      }
+      this.setState({ visible: false, rightArrow: false }, () => {
+        setTimeout(() => {
+          this.setState({ visible: true })
+        }, 500)
+        setTimeout(() => {
+          this.setState({ rightArrow: true })
+        }, 1000)
+      })
     }
   }
 
