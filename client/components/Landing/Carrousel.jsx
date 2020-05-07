@@ -36,7 +36,7 @@ const Carrousel = () => {
         </div>
         <div>
           <div
-            className="arrouselImage"
+            className="carrouselImage"
             style={{
               background: `url(${slide2})`,
               height: `${window.innerHeight}px`,
@@ -47,7 +47,7 @@ const Carrousel = () => {
         </div>
         <div>
           <div
-            className="arrouselImage"
+            className="carrouselImage"
             style={{
               background: `url(${slide3})`,
               height: `${window.innerHeight}px`,
