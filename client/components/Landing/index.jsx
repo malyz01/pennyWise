@@ -6,8 +6,12 @@ import './landing.css'
 const Landing = () => {
   return (
     <div className = "landing">
-      <Info />
-      <Carousel/>
+
+      <div className = "landingBody">
+        <Info />
+        <Carousel/>
+      </div>
+
     </div>
   )
 }

@@ -5,8 +5,18 @@
   width: calc(fit-content + 100px);
   transition: 500ms;
 }
+.landingCarousel{
+  height:fit-content;
+  padding:20px;
+  padding-bottom:5px;
+  background: white;
+  width:500px;
+  position:relative;
+  margin-left:auto;
+}
 .landingCarousel .landingArrows {
   font-size: 2rem;
+  margin-top: 50px;
 }
 .landingCarouselMain p {
   padding-left: 50px;
@@ -14,6 +24,7 @@
   transition: 500ms;
   height: 150px;
   overflow-y: auto;
+  width:400px;
 }
 .landingCarousel .landingArrows:hover {
   cursor: pointer;
@@ -32,6 +43,7 @@
   height:30px;
   margin:10px;
 }
+
 .visible {
   opacity: 1;
   transition: 500ms;

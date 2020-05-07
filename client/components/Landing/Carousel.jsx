@@ -15,7 +15,8 @@ export default class Carousel extends Component {
     duration: 500,
     visible: true,
     rightArrow: true,
-    leftArrow: true
+    leftArrow: true,
+    iconToggle: true
   }
 
   prev = () => {
@@ -56,7 +57,18 @@ export default class Carousel extends Component {
   }
 
   setIndex = index => {
-    this.setState({ currentIndex: index })
+    if (this.state.iconToggle === true) {
+      this.setState({ currentIndex: index })
+
+      this.setState({ visible: false, iconToggle: false }, () => {
+        setTimeout(() => {
+          this.setState({ visible: true })
+        }, 500)
+        setTimeout(() => {
+          this.setState({ iconToggle: true })
+        }, 1000)
+      })
+    }
   }
 
   render () {
@@ -66,7 +78,7 @@ export default class Carousel extends Component {
           <div
             onClick={this.prev}
             className={`landingArrows `}>
-            <i className='fas fa-arrow-circle-left'></i>
+            <i className="angle left icon"></i>
           </div>
           <Transition.Group animation={this.state.animation} duration={this.state.duration}>
             {this.state.visible && (
@@ -76,7 +88,7 @@ export default class Carousel extends Component {
           <div
             onClick={this.next}
             className={`landingArrows `}>
-            <i className='fas fa-arrow-circle-right'></i>
+            <i className="angle right icon"></i>
           </div>
         </div>
         <div className='landingCarouselIndex'>
