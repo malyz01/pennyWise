@@ -8,20 +8,26 @@
 ======================*/
 
 
-header {
-    padding:10px 0px;
-    transition: all 300ms ease-in;
-}
+.carrouselWrapper {
+    height: 500px; 
+  }
 
-header .header_logo {
-    flex-grow: 1;
-}
-header .header_logo_app {
-  font-family: Righteous;
-    font-size: 40px;
-}
+.carrouselImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
 
-header .header_logo_title {
-    margin-top: 2%;
-    text-transform: uppercase;
-}
+  .carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+  }
+
+  .carousel img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+  }
