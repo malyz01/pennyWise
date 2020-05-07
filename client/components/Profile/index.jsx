@@ -14,8 +14,8 @@ class ProfileContainer extends React.Component {
         <p className='profileSummary'>Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s.</p>
 
         <div className='profileCardContainer'>
-          <BottomDetailsCardComponent />
           <ProfileMain />
+          <BottomDetailsCardComponent />
         </div>
       </div>
     )
