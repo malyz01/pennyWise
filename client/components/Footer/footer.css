@@ -18,6 +18,7 @@ a {
 .footerOuterContainer {
     height: 450px;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .fern{
