@@ -19,7 +19,6 @@ const authenticate = async (data, db = conn) => {
 
 const newUser = async (data, db = conn) => {
   const { password, confirmPassword, email, fullName, avatar } = data
-  console.log(data)
   try {
     if (password !== confirmPassword) return 'Password does not match'
     const hashPassword = await bcrypt.hash(password, 10)

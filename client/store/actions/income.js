@@ -27,9 +27,9 @@ export const addUserIncome = (userId, data) => async (dispatch) => {
   }
 }
 
-export const updateUserIncome = (userId) => async (dispatch) => {
+export const updateUserIncome = (incomeId, data) => async (dispatch) => {
   try {
-    const userIncome = await api.put(`/income/${userId}`)
+    const userIncome = await api.put(`/income/${incomeId}`, data)
     dispatch({
       type: UPDATE_USER_INCOME,
       payload: userIncome
@@ -40,9 +40,9 @@ export const updateUserIncome = (userId) => async (dispatch) => {
   }
 }
 
-export const deleteUserIncome = (userId) => async (dispatch) => {
+export const deleteUserIncome = (incomeId) => async (dispatch) => {
   try {
-    const userIncome = await api.delete(`/income/${userId}`)
+    const userIncome = await api.delete(`/income/${incomeId}`)
     dispatch({
       type: DELETE_USER_INCOME,
       payload: userIncome

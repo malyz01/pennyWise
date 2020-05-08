@@ -27,9 +27,9 @@ export const addUserGoals = (userId, data) => async (dispatch) => {
   }
 }
 
-export const updateUserGoals = (userId, data) => async (dispatch) => {
+export const updateUserGoals = (goalsId, data) => async (dispatch) => {
   try {
-    const userGoals = await api.put(`/goals/${userId}`, data)
+    const userGoals = await api.put(`/goals/${goalsId}`, data)
     dispatch({
       type: UPDATE_USER_GOALS,
       payload: userGoals
@@ -40,9 +40,9 @@ export const updateUserGoals = (userId, data) => async (dispatch) => {
   }
 }
 
-export const deleteUserGoals = (userId) => async (dispatch) => {
+export const deleteUserGoals = (goalsId) => async (dispatch) => {
   try {
-    const userGoals = await api.delete(`/goals/${userId}`)
+    const userGoals = await api.delete(`/goals/${goalsId}`)
     dispatch({
       type: DELETE_USER_GOALS,
       payload: userGoals
