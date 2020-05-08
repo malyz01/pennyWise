@@ -10,33 +10,33 @@ export const getUserIncome = (userId) => async (dispatch) => {
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in getUserIncome Api Call')
+    console.log('error in getUserExpense Api Call')
   }
 }
 
-export const addUserIncome = (userId) => async (dispatch) => {
+export const addUserIncome = (userId, data) => async (dispatch) => {
   try {
-    const userExpense = await api.post(`/users/${userId}/expense`)
+    const userExpense = await api.post(`/users/${userId}/expense`, data)
     dispatch({
       type: ADD_USER_EXPENSE,
       payload: userExpense
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in addUserIncome Api Call')
+    console.log('error in addUserExpense Api Call')
   }
 }
 
-export const updateUserIncome = (userId) => async (dispatch) => {
+export const updateUserIncome = (userId, data) => async (dispatch) => {
   try {
-    const userExpense = await api.patch(`/users/${userId}/expense`)
+    const userExpense = await api.put(`/users/${userId}/expense`, data)
     dispatch({
       type: UPDATE_USER_EXPENSE,
       payload: userExpense
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in updateUserIncome Api Call')
+    console.log('error in updateUserExpense Api Call')
   }
 }
 
@@ -49,6 +49,6 @@ export const deleteUserIncome = (userId) => async (dispatch) => {
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in deleteUserIncome Api Call')
+    console.log('error in deleteUserExpense Api Call')
   }
 }

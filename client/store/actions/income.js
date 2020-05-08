@@ -29,7 +29,7 @@ export const addUserIncome = (userId) => async (dispatch) => {
 
 export const updateUserIncome = (userId) => async (dispatch) => {
   try {
-    const userIncome = await api.patch(`/users/${userId}/income`)
+    const userIncome = await api.put(`/users/${userId}/income`)
     dispatch({
       type: UPDATE_USER_INCOME,
       payload: userIncome

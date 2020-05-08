@@ -10,7 +10,7 @@ export const getUserIncome = (userId) => async (dispatch) => {
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in getUserIncome Api Call')
+    console.log('error in getUserGoals Api Call')
   }
 }
 
@@ -23,20 +23,20 @@ export const addUserIncome = (userId) => async (dispatch) => {
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in addUserIncome Api Call')
+    console.log('error in addUserGoals Api Call')
   }
 }
 
 export const updateUserIncome = (userId) => async (dispatch) => {
   try {
-    const userGoals = await api.patch(`/users/${userId}/goals`)
+    const userGoals = await api.put(`/users/${userId}/goals`)
     dispatch({
       type: UPDATE_USER_GOALS,
       payload: userGoals
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in updateUserIncome Api Call')
+    console.log('error in updateUserGoals Api Call')
   }
 }
 
@@ -49,6 +49,6 @@ export const deleteUserIncome = (userId) => async (dispatch) => {
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in deleteUserIncome Api Call')
+    console.log('error in deleteUserGoals Api Call')
   }
 }

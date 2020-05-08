@@ -6,7 +6,7 @@ export const getUserProfile = (userId) => async (dispatch) => {
     const userDetails = await api.get(`/users/${userId}/profile`)
     dispatch({
       type: GET_USER_PROFILE,
-      payload: userDetails
+      payload: userDetails.data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
