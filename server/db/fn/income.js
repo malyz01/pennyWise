@@ -1,19 +1,31 @@
-const conn = require('../connection')
+const connection = require('../connection')
 
-function getIncomes (db = conn) {
+function getAllIncomes (db = connection) {
   return db('income')
     .select()
+    .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
 }
 
-function getIncome (userId, db = conn) {
+function getUserIncomes (userId, db = connection) {
   return db('income')
     .where('user_id', userId)
+    .select()
+    .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
 }
 
-function addIncome (data, db = conn) {  
+function addIncome (data, db = connection) {
   return db('income')
     .insert(data)
-    .then(([id]) => db('income').where('id', id).select().first())
+    .then(([id]) => db('income')
+      .where('id', id)
+      .select()
+      .first())
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
@@ -21,29 +33,37 @@ function addIncome (data, db = conn) {
 }
 
 // Not too certain
-function updateIncome (data, db = conn) {
+function updateIncome (incomeId, data, db = connection) {
   // eslint-disable-next-line no-console
   console.log(data)
 
   return db('income')
-    .where('user_id', data.userId)
+    .where('id', incomeId)
     .update(data)
-    .then(() => db('income').where('id', data.userId).select().first())
+    .then(() => db('income')
+      .where('id', incomeId)
+      .select()
+      .first()
+    )
     .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-function deleteIncome (userId, db = conn) {
+function deleteIncome (incomeId, db = connection) {
   return db('income')
-    .where('user_id', userId)
+    .where('id', incomeId)
     .del()
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
 }
 
 module.exports = {
-  getIncome,
-  getIncomes,
+  getAllIncomes,
+  getUserIncomes,
   addIncome,
   updateIncome,
   deleteIncome

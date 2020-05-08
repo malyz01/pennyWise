@@ -7,35 +7,47 @@ const db = require('../db/fn/income')
 // postman testing COMPLETE
 router.get('/', (req, res) => {
   return db
-    .getIncomes()
+    .getAllIncomes()
     .then(camelcaseKeys)
     .then((income) => res.json(income))
-    .catch(() => res.sendStatus(500))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
+
 // GET - /api/v1/income/:userId
 // postman testing COMPLETE
 router.get('/:userId', (req, res) => {
   return db
-    .getIncome(req.params.userId)
+    .getUserIncomes(req.params.userId)
     .then(camelcaseKeys)
     .then((income) => res.json(income))
-    .catch(() => res.sendStatus(500))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
+
 // POST /api/v1/income/:userId
 // postman testing COMPLETE
 router.post('/:userId', (req, res) => {
   const newIncome = req.body
   return db
     .addIncome({ user_id: req.params.userId, ...newIncome })
-    .then(income => res.sendStatus(200).json(income))
-    .catch(() => res.sendStatus(500))
+    .then(income => res.status(200).json(income))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
 
 // PUT /api/v1/income/:userId
+// postman testing COMPLETE
 router.put('/:incomeId', (req, res) => {
   return db
     .updateIncome(req.params.incomeId, req.body)
-    .then(income => res.sendStatus(200).json(income))
-    .catch(() => res.sendStatus(500))
+    .then(income => res.status(200).json(income))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
+
 module.exports = router
