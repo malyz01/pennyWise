@@ -1,9 +1,9 @@
 import { ADD_USER_INCOME, DELETE_USER_INCOME, GET_USER_INCOME, UPDATE_USER_INCOME } from '../types'
-import { api } from '../../api'
+import axios from 'axios'
 
 export const getUserIncome = (userId) => async (dispatch) => {
   try {
-    const userIncome = await api.get(`/income/${userId}`)
+    const userIncome = await axios.get(`/api/v1/income/${userId}`)
     dispatch({
       type: GET_USER_INCOME,
       payload: userIncome
@@ -16,7 +16,7 @@ export const getUserIncome = (userId) => async (dispatch) => {
 
 export const addUserIncome = (userId, data) => async (dispatch) => {
   try {
-    const userIncome = await api.post(`/income/${userId}`, data)
+    const userIncome = await axios.post(`/api/v1/income/${userId}`, data)
     dispatch({
       type: ADD_USER_INCOME,
       payload: userIncome
@@ -29,7 +29,7 @@ export const addUserIncome = (userId, data) => async (dispatch) => {
 
 export const updateUserIncome = (incomeId, data) => async (dispatch) => {
   try {
-    const userIncome = await api.put(`/income/${incomeId}`, data)
+    const userIncome = await axios.put(`/api/v1/income/${incomeId}`, data)
     dispatch({
       type: UPDATE_USER_INCOME,
       payload: userIncome
@@ -42,7 +42,7 @@ export const updateUserIncome = (incomeId, data) => async (dispatch) => {
 
 export const deleteUserIncome = (incomeId) => async (dispatch) => {
   try {
-    const userIncome = await api.delete(`/income/${incomeId}`)
+    const userIncome = await axios.delete(`/api/v1/income/${incomeId}`)
     dispatch({
       type: DELETE_USER_INCOME,
       payload: userIncome
