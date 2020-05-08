@@ -8,7 +8,7 @@ import Landing from './Landing'
 import Profile from './Profile'
 import Expense from './Expense'
 import Income from './Income'
-import Budget from './Budget'
+// import Budget from './Budget'
 
 const App = () => {
   return (

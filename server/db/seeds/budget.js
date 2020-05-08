@@ -47,8 +47,7 @@ exports.seed = (knex) =>
     )
     .then(() =>
       knex('profiles').insert([
-        {
-          id: 1, user_id: 1001, full_name: 'John Doe', avatar: 'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'},
+        { id: 1, user_id: 1001, full_name: 'John Doe', avatar: 'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png' },
         { id: 2, user_id: 1002, full_name: 'Jane Doe', avatar: 'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png' },
         { id: 3, user_id: 1003, full_name: 'Sensei Matt', avatar: 'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png' },
         { id: 4, user_id: 1004, full_name: 'Christy', avatar: 'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png' },
