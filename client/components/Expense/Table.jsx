@@ -31,20 +31,21 @@ export class ExpenseTable extends Component {
             </Table.Header>
 
             <Table.Body>
-              {[1, 2, 3, 4].map(item => {
-                return (
-                  <Table.Row key={item}>
-                    <Table.Cell>
-                      <input type='checkbox' />
-                    </Table.Cell>
-                    <Table.Cell>Fuel</Table.Cell>
-                    <Table.Cell>Essential</Table.Cell>
-                    <Table.Cell>Weekly</Table.Cell>
-                    <Table.Cell>$80</Table.Cell>
-                    <Table.Cell>ON</Table.Cell>
-                  </Table.Row>
-                )
-              })}
+              {data &&
+                data.map(item => {
+                  return (
+                    <Table.Row key={item.id}>
+                      <Table.Cell>
+                        <input type='checkbox' />
+                      </Table.Cell>
+                      <Table.Cell>{item.expense_name}</Table.Cell>
+                      <Table.Cell>{item.categories}</Table.Cell>
+                      <Table.Cell>{item.frequency}</Table.Cell>
+                      <Table.Cell>{item.expense_amount}</Table.Cell>
+                      <Table.Cell>ON</Table.Cell>
+                    </Table.Row>
+                  )
+                })}
             </Table.Body>
           </Table>
         </Container>
