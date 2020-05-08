@@ -4,6 +4,7 @@ const camelcaseKeys = require('camelcase-keys')
 const db = require('../db/fn/income')
 
 // GET - /api/v1/income/
+// postman testing COMPLETE
 router.get('/', (req, res) => {
   return db
     .getIncomes()

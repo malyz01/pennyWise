@@ -1,6 +1,6 @@
 const conn = require('../connection')
 
-function getIncomes (db = onn) {
+function getIncomes (db = conn) {
   return db('income')
     .select()
 }
