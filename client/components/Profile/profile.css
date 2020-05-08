@@ -29,6 +29,8 @@
 /* BottomCardDetailsComponent.jsx :) */
 
 .profileCardContainer{
+  background-color: white;
+  padding: 3rem;
   display: block;
   cursor: pointer;
   height: 400px;
