@@ -51,6 +51,18 @@
   text-shadow: 1px 1px 2px black;
 }
 
+.incomeButtons .button:hover{
+  background:#af6ef0 !important;
+}
+.incomeButtons .button.add{
+  background:rgb(219, 219, 219) !important;
+  color:black;
+  text-shadow:none;
+}
+.incomeButtons .button.add:hover{
+  background:white !important;
+}
+
 .income{
   background: rgb(44,6,77);
   background: linear-gradient(0deg, rgba(226,191,117,1) 0%, rgba(44,6,77,1) 100%);
