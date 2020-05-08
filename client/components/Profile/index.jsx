@@ -1,9 +1,7 @@
 import React from 'react'
 import BottomDetailsCardComponent from './BottomDetailsCardComponent'
 import './profile.css'
-
 import ProfileMain from './ProfileMain'
-import Footer from '../Footer/index.jsx'
 
 class ProfileContainer extends React.Component {
   render () {
@@ -19,7 +17,6 @@ class ProfileContainer extends React.Component {
         <div className='profileCardContainer'>
           <ProfileMain />
           <BottomDetailsCardComponent />
-
         </div>
       </div>
 

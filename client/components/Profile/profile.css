@@ -1,11 +1,16 @@
 
 .profileMainContainer {
-  background-color: #281A43;
+  /* background-color: #281A43;
+  opacity: 0.9; */
+  background-color: #3D3055;
+  padding-bottom: 100px;
+  margin: auto;
 }
 
 .profileHeading {
   text-align: center;
   color: white;
+  font-size: 45px;
   text-shadow: 0px 3px 7px black;
 }
 
@@ -23,23 +28,22 @@
 }
 
 .profileHeader {
-  margin-bottom: 100px;
+  padding-bottom: 100px;
+  padding-top: 100px;
 }
 
-/* BottomCardDetailsComponent.jsx :) */
+/* BottomCardDetailsComponent.jsx :) Lucas */
 
 .profileCardContainer{
   background-color: white;
   padding: 3rem;
-  display: block;
-  cursor: pointer;
-  height: 400px;
   width: 100%;
   min-width: 350px;
   max-width: 1000px;
   perspective: 800px;
   position: relative;
   margin: auto;
+  padding: auto;
   transition: ease-in;
   border: solid 1px #300;
   border-radius: 38px;
@@ -59,13 +63,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,400&display=swap');
 
-.profileRow {
-text-align: center;
-font-size: 20px;
-font-family: 'RobotoCondensed';
-overflow: hidden;
+.profileBody {
 display: flex;
-justify-content: center;
-align-items: center;
+border-bottom: 5px solid cadetblue;
+/* justify-content: center; */
 }
 
+.usernameAndProfile{
+  font-family: 'RobotoCondensed';
+  color: #707070;
+}
+
+.profileFullName{
+  font-size: 67px;
+  letter-spacing: 10.4px;
+}
+
+.profileAvatar{
+  width: 235px;
+  height: 235px;
+  border-radius: 235px;
+}
