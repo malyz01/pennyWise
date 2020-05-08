@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     .catch(() => res.sendStatus(500))
 })
 // GET - /api/v1/income/:userId
+// postman testing COMPLETE
 router.get('/:userId', (req, res) => {
   return db
     .getIncome(req.params.userId)
