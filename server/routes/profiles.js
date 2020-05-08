@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     .then((profiles) => res.json(profiles))
 })
 
-// GET - /api/v1/users/profile
+// POST - /api/v1/users/profile
 router.post('/profile', (req, res) => {
   db.getUserDetails(req.body.id)
     .then(profile => res.status(200).json(profile))
