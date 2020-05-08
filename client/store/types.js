@@ -1,6 +1,9 @@
 // AUTH
 export const SET_AUTH = 'SET_AUTH'
 
+// USERS
+export const GET_USER_PROFILE = 'GET_USER_PROFILE'
+
 export const TEST = 'TEST'
 
 // MODAL
