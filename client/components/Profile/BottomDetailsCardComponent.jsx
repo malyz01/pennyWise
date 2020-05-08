@@ -28,20 +28,22 @@ class BottomDetailsCardComponent extends React.Component {
                 manage your goals
           </button>
         </div>
+        <div className='totalDisplayContainer'>
+          <h1 className='totalDisplayTitle'>An Overview of your Finances</h1>
+          <div className='totalDisplayBox'>
 
-        <div className='totalDisplayBox'>
-          <p className='totalDisplayTitle'>An Overview of your Finances</p>
-          <div className='totalOverview'>
-            <p>Total Income</p>
-            <p>Total Expenses</p>
-            <p>Total Budget</p>
-            <p>Total Goals</p>
-          </div>
-          <div className='moneyOverview'>
-            <p>$1,000,000</p>
-            <p>$999,999</p>
-            <p>$1 per week</p>
-            <p>10</p>
+            <div className='totalOverview'>
+              <p>Total Income</p>
+              <p>Total Expenses</p>
+              <p>Total Budget</p>
+              <p>Total Goals</p>
+            </div>
+            <div className='moneyOverview'>
+              <p>$1,000,000</p>
+              <p>$999,999</p>
+              <p>$1 per week</p>
+              <p>10</p>
+            </div>
           </div>
         </div>
 

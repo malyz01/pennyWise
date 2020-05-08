@@ -50,7 +50,52 @@
   border: solid 1px #300;
   border-radius: 25px;
 }
+.bottomCardDetailsContainer{
+  display:flex;
+}
+.bottomCardDetailsContainer .ui.right.labeled.icon.button{
+  display:block;
+  margin-bottom:20px;
+  width:250px;
+  border: 1px solid #6B36A1;
+  background:white;
+  color: #6B36A1;
+}
+.bottomCardDetailsContainer .ui.right.labeled.icon.button:hover{
 
+  background:rgb(236, 236, 236);
+}
+.bottomButtonContainer{
+  padding-top: 40px;
+  
+}
+.totalDisplayContainer{
+  margin-left:auto;
+  margin-top:20px;
+  height:fit-content;
+}
+.totalDisplayContainer h1{
+  font-weight:200;
+  text-align: center;
+  margin-bottom:20px;
+}
+.totalDisplayBox{
+  border: 2px solid #6B36A1;
+  display:flex;
+  border-radius:20px;
+  overflow:hidden;
+}
+.totalOverview, .moneyOverview{
+  padding: 30px;
+  flex-grow:1;
+}
+.moneyOverview{
+  
+  padding-left:60px;
+  background: #6B36A1;
+  color:white;
+  position:relative;
+}
 /* BottomCardDetailsComponent*/
 
 /* .bottomButtonContainer{
