@@ -12,14 +12,34 @@ router.get('/', (req, res) => {
 
 // GET - /api/v1/expense/:userId
 router.get('/:userId', (req, res) => {
-  db.getExpensesForSingleUser(req.params.userId)
+  db.getExpense(req.params.userId)
     .then(expenses => res.status(200).json(expenses))
     .catch(err => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
 
-// //POST route
-// router.post('/:userId')
+// POST /api/v1/expense/:userId
+router.post('/:userId', (req, res) => {
+  const newExpense = req.body
+  db.addExpense(newExpense)
+    .then(expense => res.status(200).json(expense))
+    .catch(err => {
+      res.status(500).json('DATABASE ERROR: ' + err.message)
+    })
+})
+
+// PUT - /api/v1/expense/:userId
+router.put('/:userId', (req, res) => {
+  const id = Number(req.params.userId)
+  const newExpense = req.body
+  db.updateExpense(id, newExpense)
+    .then(() => {
+      res.status(202).send()
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
 
 module.exports = router

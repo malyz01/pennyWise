@@ -10,6 +10,44 @@ function getUserDetails (id, db = connection) {
       'users.email',
       'profiles.avatar'
     )
+    .first()
+    .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
+}
+
+function updateProfileDetails (id, details, db = connection) {
+  return db('profiles')
+    .where('profiles.id', id)
+    .update({ ...details })
+    .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
+}
+
+function getUsers (db = connection) {
+  return db('users')
+    .select()
+    .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
+}
+function getProfiles (db = connection) {
+  return db('profiles')
+    .select()
+    .catch(err => {
+    // eslint-disable-next-line no-console
+      console.error(err)
+    })
+}
+
+function deleteUserById (id, db = connection) {
+  return db('users')
+    .where('id', id)
+    .del()
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
@@ -17,5 +55,9 @@ function getUserDetails (id, db = connection) {
 }
 
 module.exports = {
-  getUserDetails
+  getUserDetails,
+  updateProfileDetails,
+  getUsers,
+  getProfiles,
+  deleteUserById
 }
