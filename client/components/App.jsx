@@ -21,7 +21,7 @@ const App = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/expense" component={Expense} />
           <Route exact path="/income" component={Income} />
-          <Route exact path="/budget" component={Budget} />
+          {/* <Route exact path="/budget" component={Budget} /> */}
         </div>
       </HashRouter>
       <Footer />
