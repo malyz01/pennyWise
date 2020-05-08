@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
-import './expense.css'
+import './income.css'
 class Header extends Component {
   render () {
     return (
