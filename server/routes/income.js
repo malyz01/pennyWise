@@ -54,7 +54,7 @@ router.put('/:incomeId', (req, res) => {
 router.delete('/:incomeId', (req, res) => {
   return db
     .deleteIncome(req.params.incomeId)
-    .then(income => res.status(200))
+    .then(income => res.sendStatus(200))
     .catch(err => {
       res.status(500).send(err.message)
     })
