@@ -21,13 +21,14 @@ router.get('/:userId', (req, res) => {
     .then((income) => res.json(income))
     .catch(() => res.sendStatus(500))
 })
-// // POST /api/v1/income/:userId
-// router.post('/:userId', (req, res) => {
-//   return db
-//     .addIncome(req.params.userId, req.body)
-//     .then(income => res.sendStatus(200).json(income))
-//     .catch(() => res.sendStatus(500))
-// })
+// POST /api/v1/income/:userId
+router.post('/:userId', (req, res) => {
+  const newIncome = req.body
+  return db
+    .addIncome({ user_id: req.params.userId, ...newIncome })
+    .then(income => res.sendStatus(200).json(income))
+    .catch(() => res.sendStatus(500))
+})
 
 // // PUT /api/v1/income/:userId
 // router.put('/:incomeId', (req, res) => {
