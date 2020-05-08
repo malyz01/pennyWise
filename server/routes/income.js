@@ -33,6 +33,7 @@ router.post('/:userId', (req, res) => {
   const newIncome = req.body
   return db
     .addIncome({ user_id: req.params.userId, ...newIncome })
+    .then(camelcaseKeys)
     .then(income => res.status(200).json(income))
     .catch(err => {
       res.status(500).send(err.message)
@@ -44,6 +45,7 @@ router.post('/:userId', (req, res) => {
 router.put('/:incomeId', (req, res) => {
   return db
     .updateIncome(req.params.incomeId, req.body)
+    .then(camelcaseKeys)
     .then(income => res.status(200).json(income))
     .catch(err => {
       res.status(500).send(err.message)
@@ -54,7 +56,8 @@ router.put('/:incomeId', (req, res) => {
 router.delete('/:incomeId', (req, res) => {
   return db
     .deleteIncome(req.params.incomeId)
-    .then(income => res.sendStatus(200))
+    .then(camelcaseKeys)
+    .then(income => res.send(200).json(req.params.incomeId))
     .catch(err => {
       res.status(500).send(err.message)
     })
