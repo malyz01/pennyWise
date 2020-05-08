@@ -1,24 +1,24 @@
 import React from 'react'
 
 class FooterItems extends React.Component {
-  render() {
+  render () {
     return (
-      <div className='container' >
+      <div className='footerItemsContainer' >
 
         {/* ======================ABOUT============================ */}
 
-        <div className='footerLink'>
+        <div className='footerLinks'>
           <p className='footerHeading'>ABOUT</p>
           <div className='aboutSection'>
-            <p>About Us</p>
-            <p>Careers</p>
-            <p>Help</p>
+            <p><a href="#">About Us</a></p>
+            <p><a href="#">Careers</a></p>
+            <p><a href="#">Help</a></p>
           </div>
         </div>
 
         {/* ====================CONTACTS=========================== */}
 
-        <div className='footerLink'>
+        <div className='footerLinks'>
           <p className='footerHeading'>CONTACT</p>
           {/* <div className='footerLinks'> */}
           <div className='contactSection'>
@@ -34,23 +34,21 @@ class FooterItems extends React.Component {
 
         {/* ======================COURSE============================== */}
 
-        <div className='footerLink'>
+        <div className='footerLinks'>
           <p className='footerHeading'>COURSE</p>
-          <div className='awardsSection'>
-            <a href='https://devacademy.co.nz'><p>Enspiral Dev Academy</p></a>
-          </div>
+          <p><a href='https://devacademy.co.nz'>Enspiral Dev Academy</a></p>
         </div>
 
         {/* ======================AWARDS=============================== */}
 
-        <div className='footerLink'>
+        <div className='footerLinks'>
           <p className='footerHeading'>AWARDS</p>
           <div className='awardSection'>
             <p>Best Budgeting App 2020</p>
             <p>Most Innovative Team 2020</p>
             <p>#1 Creative UI Team 2020</p>
             <p>Most Attractive Staff 2018/2019/2020</p>
-            <p>"PennyWise is maximum Big Don Energy!" - Don Smith</p>
+            <p>&#34;PennyWise is maximum Big Don Energy!&#34; - Don Smith</p>
           </div>
         </div>
       </div>

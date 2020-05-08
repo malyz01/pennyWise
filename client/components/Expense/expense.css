@@ -1,0 +1,76 @@
+.expenseHeader{
+  padding-top:10%;
+  padding: bottom 3%;
+  color:white;
+}
+.expenseHeaderTitle{
+  text-align: center;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  letter-spacing:5px;
+
+}
+.expenseHeaderText{
+  width:70%;
+  margin: 0 auto;
+}
+.expenseHeader Hr{
+  width:80%;
+  margin: 0 auto;
+  margin-bottom:20px;
+}
+.expenseTable{
+  padding-bottom:10%;
+}
+
+.expenseButtons{
+  display: flex;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.expenseButtons .button{
+  flex-grow: 1;
+  margin-left:20px;
+  margin-right:20px;
+  letter-spacing: 10px;
+  padding:15px;
+  border-radius:30px;
+  font-size: 0.8rem;
+  background: #bd9cdf !important;
+  color:white;
+  text-shadow: 1px 1px 2px black;
+
+}
+.expenseButtons .button:hover{
+  background:#af6ef0 !important;
+}
+.expenseButtons .button.add{
+  background:rgb(219, 219, 219) !important;
+  color:black;
+  text-shadow:none;
+}
+.expenseButtons .button.add:hover{
+  background:white !important;
+}
+.expense{
+  background: rgb(44,6,77);
+background: linear-gradient(0deg, rgba(44,6,77,1) 30%, rgba(44,6,77,0.8) 60%,  rgb(154, 57, 184) 100%);
+}
+
+/* TABLE STYLES */
+.expense .ui.single.line.table th{
+  background:#9770be;
+  color:white;
+  text-decoration: solid;
+}
+.expense .ui.single.line.table td{
+  background:rgb(34, 33, 36);
+  color:white;
+  text-decoration: solid;
+}
+.expense .ui.table{
+  background:none !important;
+  border-radius:20px;
+  overflow:hidden;
+  text-align:center;
+}

@@ -8,9 +8,8 @@ router.post('/login', async (req, res, next) => {
   try {
     const auth = await Auth.authenticate(req.body)
     if (typeof auth === 'string' || auth instanceof String) { return res.status(400).json(auth) }
-    const { id, username, type } = auth
-    const token = jwt.sign({ id, username, type }, process.env.SECRET)
-    res.status(200).json({ id, username, type, token })
+    const token = jwt.sign(auth, process.env.SECRET)
+    res.status(200).json({ ...auth, token })
   } catch (err) {
     res.status(400).json(err.message)
   }

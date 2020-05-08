@@ -6,11 +6,6 @@
   /* margin-top: 100px; */
 }
 
-.footerMainContainer p {
-  color: white;
-  margin: 0;
-}
-
 .footerMainContainer a {
   color: white;
 }
@@ -24,16 +19,16 @@
   left: 150px;
 }
 
-.logo {
+.footerLogo {
   max-width: 75px;
   margin-bottom: -10px;
 }
-.penny {
+.pennyLogoWord {
   font-size: 20px;
   color: #7363c8;
 }
 
-.wise {
+.wiseLogoWord {
   color: #b7b7b7;
 }
 
@@ -44,11 +39,22 @@
   padding-bottom: 10px;
 }
 
-.container {
+.footerItemsContainer {
   display: flex;
   justify-content: space-between;
   padding: 0 300px;
 }
+
+.awardSection p{
+  color: white;
+}
+.footerLinks a:hover {
+  color: bisque;
+}
+
+/* a:hover {
+  color: lightblue;
+} */
 
 /* SocialLogos CSS */
 .mediaContainer {
@@ -60,7 +66,7 @@
   justify-content: center;
 }
 
-.line {
+.footerLine {
   border-top: 2px solid #707070;
   width: 75%;
   position: relative;
