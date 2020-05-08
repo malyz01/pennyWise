@@ -1,5 +1,6 @@
 const conn = require('../connection')
 const bcrypt = require('bcrypt')
+const fn = require('./user')
 
 const authenticate = async (data, db = conn) => {
   try {
@@ -9,22 +10,29 @@ const authenticate = async (data, db = conn) => {
     const isMatch = await bcrypt.compare(data.password, user.password)
     if (!isMatch) return 'Password does not match'
 
-    return user
+    const userDetails = await fn.getUserDetails(user.id)
+    return userDetails
   } catch (err) {
     return 'Authentication - Something went wrong'
   }
 }
 
 const newUser = async (data, db = conn) => {
-  const { password, confirmPassword, email } = data
+  const { password, confirmPassword, email, fullName, avatar } = data
+  console.log(data)
   try {
     if (password !== confirmPassword) return 'Password does not match'
     const hashPassword = await bcrypt.hash(password, 10)
-    const id = await db('users').insert({
+    const [ id ] = await db('users').insert({
       email,
       password: hashPassword
     })
-    return { id: id[0], email }
+    await db('profiles').insert({
+      user_id: id,
+      full_name: fullName,
+      avatar
+    })
+    return { id, email, fullName, avatar }
   } catch (err) {
     return 'Username/Email is already taken'
   }
