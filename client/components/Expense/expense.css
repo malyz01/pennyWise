@@ -36,16 +36,30 @@
   padding:15px;
   border-radius:30px;
   font-size: 0.8rem;
+  background: #bd9cdf !important;
+  color:white;
+  text-shadow: 1px 1px 2px black;
 
 }
-
+.expenseButtons .button:hover{
+  background:#af6ef0 !important;
+}
+.expenseButtons .button.add{
+  background:rgb(219, 219, 219) !important;
+  color:black;
+  text-shadow:none;
+}
+.expenseButtons .button.add:hover{
+  background:white !important;
+}
 .expense{
-  background: rgba(39, 26, 66, 0.9);
+  background: rgb(44,6,77);
+background: linear-gradient(0deg, rgba(44,6,77,1) 30%, rgba(44,6,77,0.8) 60%,  rgb(154, 57, 184) 100%);
 }
 
 /* TABLE STYLES */
 .expense .ui.single.line.table th{
-  background:#674C82;
+  background:#9770be;
   color:white;
   text-decoration: solid;
 }

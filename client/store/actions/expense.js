@@ -1,54 +1,55 @@
 import { GET_USER_EXPENSE, ADD_USER_EXPENSE, DELETE_USER_EXPENSE, UPDATE_USER_EXPENSE } from '../types'
 import { api } from '../../api'
 
-export const getUserIncome = (userId) => async (dispatch) => {
+export const getUserExpense = (userId) => async (dispatch) => {
   try {
-    const userExpense = await api.get(`/users/${userId}/expense`)
+    const userExpense = await api.get(`/expense/${userId}`)
     dispatch({
       type: GET_USER_EXPENSE,
       payload: userExpense
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in getUserIncome Api Call')
+    console.log('error in getUserExpense Api Call')
   }
 }
 
-export const addUserIncome = (userId) => async (dispatch) => {
+export const addUserExpense = (userId, data) => async (dispatch) => {
   try {
-    const userExpense = await api.post(`/users/${userId}/expense`)
+    const userExpense = await api.post(`/expense/${userId}`, data)
     dispatch({
       type: ADD_USER_EXPENSE,
       payload: userExpense
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in addUserIncome Api Call')
+    console.log('error in addUserExpense Api Call')
   }
 }
 
-export const updateUserIncome = (userId) => async (dispatch) => {
+export const updateUserExpense = (expenseId, data) => async (dispatch) => {
   try {
-    const userExpense = await api.patch(`/users/${userId}/expense`)
+    // /api/v1/expense/:expenseId
+    const userExpense = await api.put(`/expense/${expenseId}`, data)
     dispatch({
       type: UPDATE_USER_EXPENSE,
       payload: userExpense
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in updateUserIncome Api Call')
+    console.log('error in updateUserExpense Api Call')
   }
 }
 
-export const deleteUserIncome = (userId) => async (dispatch) => {
+export const deleteUserExpense = (expenseId) => async (dispatch) => {
   try {
-    const userExpense = await api.delete(`/users/${userId}/expense`)
+    const userExpense = await api.delete(`/expense/${expenseId}`)
     dispatch({
       type: DELETE_USER_EXPENSE,
       payload: userExpense
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in deleteUserIncome Api Call')
+    console.log('error in deleteUserExpense Api Call')
   }
 }

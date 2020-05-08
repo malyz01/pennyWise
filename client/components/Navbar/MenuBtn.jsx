@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Button, Dropdown } from 'semantic-ui-react'
 
 import { logout } from '../../store/actions/auth'
 import { setModalAuthForm, setModalAuthOpen } from '../../store/actions/modal'
@@ -10,6 +10,12 @@ class MenuBtn extends Component {
   handleOnClick = (route) => () => {
     this.props.setModalAuthForm(route)
     this.props.setModalAuthOpen(true)
+  }
+
+  logout = () => {
+    const { history, logout } = this.props
+    logout()
+    if (history.location.pathname !== '/') history.push('/')
   }
 
   renderAuthBtn = () => {
@@ -32,7 +38,26 @@ class MenuBtn extends Component {
   }
 
   renderLogInMenu = () => {
-    return <Button onClick={() => this.props.logout()}>Logout</Button>
+    const { user, history } = this.props
+    return (
+      <div className="logoutContainer">
+        <div>Signed in as: </div>
+        <Dropdown className="signedInName" text={user} pointing>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              className="dropdownItem"
+              onClick={() => history.push('/profile')}
+              text="Profile"
+            />
+            <Dropdown.Item
+              className="dropdownItem"
+              onClick={this.logout}
+              text="Logout"
+            />
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+    )
   }
 
   render () {
@@ -47,7 +72,7 @@ class MenuBtn extends Component {
 
 const mapStateToProps = state => ({
   authenticated: state.auth.isAuthenticated,
-  user: state.auth.user
+  user: state.auth.user.fullName
 })
 
 const mapDispatchToProps = {

@@ -1,14 +1,7 @@
 const router = require('express').Router()
-const camelcaseKeys = require('camelcase-keys')
+// const camelcaseKeys = require('camelcase-keys')
 
 const db = require('../db/fn/expense')
-
-router.get('/', (req, res) => {
-  return db
-    .getExpense()
-    .then(camelcaseKeys)
-    .then((expense) => res.json(expense))
-})
 
 // GET - /api/v1/expense/:userId
 router.get('/:userId', (req, res) => {
@@ -22,22 +15,31 @@ router.get('/:userId', (req, res) => {
 // POST /api/v1/expense/:userId
 router.post('/:userId', (req, res) => {
   const newExpense = req.body
-  db.addExpense(newExpense)
+  db.addExpense({ user_id: req.params.userId, ...newExpense })
     .then(expense => res.status(200).json(expense))
     .catch(err => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
 
-// PUT - /api/v1/expense/:userId
-router.put('/:userId', (req, res) => {
-  const id = Number(req.params.userId)
-  const newExpense = req.body
-  db.updateExpense(id, newExpense)
-    .then(() => {
-      res.status(202).send()
+// PUT - /api/v1/expense/:expenseId
+router.put('/:expenseId', (req, res) => {
+  db.updateExpense(req.params.expenseId, req.body)
+    .then((d) => {
+      res.status(200).json(d)
     })
-    .catch(err => {
+    .catch((err) => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
+// DELETE - /api/v1/expense/:expenseId
+router.delete('/:expenseId', (req, res) => {
+  db.deleteExpense(req.params.expenseId)
+    .then(() => {
+      res.status(200).json(req.params.expenseId)
+    })
+    .catch((err) => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })

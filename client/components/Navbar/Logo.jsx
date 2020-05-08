@@ -3,7 +3,7 @@ import React from 'react'
 const c = {
   logoContainer: {
     display: 'flex',
-    marginRight: '1.2rem',
+    marginRight: '80px',
     cursor: 'pointer'
   },
   img: {
@@ -13,7 +13,9 @@ const c = {
   logoTextContainer: {
     alignSelf: 'center',
     fontSize: '2rem',
-    fontWeight: '600'
+    fontWeight: '600',
+    fontFamily: `Quicksand, sans-serif`,
+    letterSpacing: '3px'
   },
   logoTextPenny: {
     color: '#7363C8'

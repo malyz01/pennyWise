@@ -5,7 +5,7 @@ function getUserDetails (id, db = connection) {
     .where('users.id', id)
     .join('profiles', 'users.id', 'profiles.user_id')
     .select(
-      'users.id as userId',
+      'users.id as id',
       'profiles.full_name as fullName',
       'users.email',
       'profiles.avatar'
