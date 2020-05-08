@@ -9,7 +9,7 @@ function getAllExpenses (db = connection) {
     })
 }
 
-function getExpense (userId, db = connection) {
+function getUserExpenses (userId, db = connection) {
   return db('expense')
     .where('user_id', userId)
     .select()
@@ -62,7 +62,7 @@ function deleteExpense (expenseId, db = connection) {
 
 module.exports = {
   getAllExpenses,
-  getExpense,
+  getUserExpenses,
   addExpense,
   updateExpense,
   deleteExpense
