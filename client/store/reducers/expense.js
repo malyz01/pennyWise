@@ -2,7 +2,7 @@ import { ADD_USER_EXPENSE, DELETE_USER_EXPENSE, GET_USER_EXPENSE, UPDATE_USER_EX
 
 const INITIAL_STATE = {}
 
-export default (state = INITIAL_STATE, action) => {
+export const addExpenseReducer (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_USER_EXPENSE:
       return {
@@ -12,3 +12,5 @@ export default (state = INITIAL_STATE, action) => {
       return state
   }
 }
+
+export default expense

@@ -14,9 +14,9 @@ export const getUserIncome = (userId) => async (dispatch) => {
   }
 }
 
-export const addUserIncome = (userId) => async (dispatch) => {
+export const addUserIncome = (userId, data) => async (dispatch) => {
   try {
-    const userExpense = await api.post(`/users/${userId}/expense`)
+    const userExpense = await api.post(`/users/${userId}/expense`, data)
     dispatch({
       type: ADD_USER_EXPENSE,
       payload: userExpense
@@ -27,9 +27,9 @@ export const addUserIncome = (userId) => async (dispatch) => {
   }
 }
 
-export const updateUserIncome = (userId) => async (dispatch) => {
+export const updateUserIncome = (userId, data) => async (dispatch) => {
   try {
-    const userExpense = await api.put(`/users/${userId}/expense`)
+    const userExpense = await api.put(`/users/${userId}/expense`, data)
     dispatch({
       type: UPDATE_USER_EXPENSE,
       payload: userExpense
