@@ -50,4 +50,13 @@ router.put('/:incomeId', (req, res) => {
     })
 })
 
+// DELETE /api/v1/income/:incomeId
+router.delete('/:incomeId', (req, res) => {
+  return db
+    .deleteIncome(req.params.incomeId)
+    .then(income => res.status(200))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
 module.exports = router

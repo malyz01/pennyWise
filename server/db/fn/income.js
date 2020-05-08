@@ -32,11 +32,7 @@ function addIncome (data, db = connection) {
     })
 }
 
-// Not too certain
 function updateIncome (incomeId, data, db = connection) {
-  // eslint-disable-next-line no-console
-  console.log(data)
-
   return db('income')
     .where('id', incomeId)
     .update(data)
