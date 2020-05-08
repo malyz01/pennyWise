@@ -1,0 +1,86 @@
+
+.profileMainContainer {
+  /* background-color: #281A43;
+  opacity: 0.9; */
+  background-color: #3D3055;
+  padding-bottom: 100px;
+  margin: auto;
+}
+
+.profileHeading {
+  text-align: center;
+  color: white;
+  font-size: 45px;
+  text-shadow: 0px 3px 7px black;
+}
+
+.profileSummary {
+  text-align: center;
+  color: white;
+  margin: 0;
+}
+
+.profileHeadingLine {
+  border-top: 2px solid #707070;
+  width: 50%;
+  position: relative;
+  margin: 10px auto;
+}
+
+.profileHeader {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+/* BottomCardDetailsComponent.jsx :) Lucas */
+
+.profileCardContainer{
+  background-color: white;
+  padding: 3rem;
+  width: 100%;
+  min-width: 350px;
+  max-width: 1000px;
+  perspective: 800px;
+  position: relative;
+  margin: auto;
+  padding: auto;
+  transition: ease-in;
+  border: solid 1px #300;
+  border-radius: 38px;
+}
+
+/* .profileContainer {
+  margin: auto;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 38px;
+  top: 200px;
+  
+} */
+
+
+/* ProfileMain David Style */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,400&display=swap');
+
+.profileBody {
+display: flex;
+border-bottom: 5px solid cadetblue;
+/* justify-content: center; */
+}
+
+.usernameAndProfile{
+  font-family: 'RobotoCondensed';
+  color: #707070;
+}
+
+.profileFullName{
+  font-size: 67px;
+  letter-spacing: 10.4px;
+}
+
+.profileAvatar{
+  width: 235px;
+  height: 235px;
+  border-radius: 235px;
+}
