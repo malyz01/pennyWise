@@ -10,7 +10,7 @@ function getIncome (userId, db = conn) {
     .where('user_id', userId)
 }
 
-function addIncome (data, db = conn) {
+function addIncome (data, db = conn) {  
   return db('income')
     .insert(data)
     .then(([id]) => db('income').where('id', id).select().first())

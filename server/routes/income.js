@@ -22,6 +22,7 @@ router.get('/:userId', (req, res) => {
     .catch(() => res.sendStatus(500))
 })
 // POST /api/v1/income/:userId
+// postman testing COMPLETE
 router.post('/:userId', (req, res) => {
   const newIncome = req.body
   return db
