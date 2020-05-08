@@ -6,11 +6,6 @@
   /* margin-top: 100px; */
 }
 
-.footerMainContainer p {
-  color: white;
-  margin: 0;
-}
-
 .footerMainContainer a {
   color: white;
 }
@@ -50,8 +45,11 @@
   padding: 0 300px;
 }
 
+.awardSection p{
+  color: white;
+}
 .footerLinks a:hover {
-  color: black;
+  color: bisque;
 }
 
 /* a:hover {

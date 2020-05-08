@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import test from './test'
 import auth from './auth'
+import user from './user'
 import modal from './modal'
 
 export default combineReducers({
   auth,
-  test,
+  user,
   modal
 })

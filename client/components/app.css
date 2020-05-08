@@ -9,3 +9,6 @@
   position: absolute;
   z-index: 2;
 }
+.routesContainer{
+  min-height: 60vh
+}

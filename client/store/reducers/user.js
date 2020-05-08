@@ -1,10 +1,10 @@
-import { TEST } from '../types'
+import { GET_USER_PROFILE } from '../types'
 
 const INITIAL = null
 
 export default (state = INITIAL, actions) => {
   switch (actions.type) {
-    case TEST:
+    case GET_USER_PROFILE:
       return actions.payload
     default:
       return state
