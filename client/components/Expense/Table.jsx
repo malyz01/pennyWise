@@ -42,8 +42,8 @@ export class ExpenseTable extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return null
-}
+const mapStateToProps = state => ({
+  expense: state.expense
+})
 
 export default connect(mapStateToProps)(ExpenseTable)

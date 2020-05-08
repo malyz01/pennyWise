@@ -74,7 +74,7 @@ export class Signup extends Component {
             placeholder="avatar"
           />
         </Form.Field>
-        <Button className="authBtn" type="submit">
+        <Button className="submitBtn" type="submit">
           Submit
         </Button>
       </Form>

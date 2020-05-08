@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
 
 import { authUser } from '../../../store/actions/auth'
-import { setModalAuthOpen, setModalAuthForm } from '../../../store/actions/modal'
+import {
+  setModalAuthOpen,
+  setModalAuthForm
+} from '../../../store/actions/modal'
 
 export class Login extends Component {
   state = {
@@ -21,17 +24,31 @@ export class Login extends Component {
     this.props.setModalAuthForm('')
   }
 
-  render () {
+  render() {
     const { email, password } = this.state
     return (
       <Form onSubmit={this.handleOnSubmit}>
         <Form.Field>
-          <Form.Input value={email} onChange={this.handleOnChange} name='email' type='text' placeholder='email' />
+          <Form.Input
+            value={email}
+            onChange={this.handleOnChange}
+            name="email"
+            type="text"
+            placeholder="email"
+          />
         </Form.Field>
         <Form.Field>
-          <Form.Input value={password} onChange={this.handleOnChange} name='password' type='password' placeholder='password' />
+          <Form.Input
+            value={password}
+            onChange={this.handleOnChange}
+            name="password"
+            type="password"
+            placeholder="password"
+          />
         </Form.Field>
-        <Button className='submitBtn' type='submit'>Submit</Button>
+        <Button className="authBtn" type="submit">
+          Submit
+        </Button>
       </Form>
     )
   }

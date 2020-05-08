@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Header from './Header'
 import Table from './Table'
+import ModalForm from './ModalForm'
 
 export class index extends Component {
   render () {
@@ -9,6 +10,7 @@ export class index extends Component {
       <div className="expense">
         <Header />
         <Table />
+        <ModalForm />
       </div>
     )
   }
