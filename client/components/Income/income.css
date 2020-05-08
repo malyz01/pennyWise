@@ -26,11 +26,18 @@
   padding-bottom:10%;
 }
 
+/* .incomeButtons .button{
+  display: flex;
+  margin-top:50px;
+  margin-bottom:50px;
+} */
+
 .incomeButtons{
   display: flex;
   margin-top:50px;
   margin-bottom:50px;
 }
+
 .incomeButtons .button{
   flex-grow: 1;
   margin-left:20px;
@@ -39,7 +46,9 @@
   padding:15px;
   border-radius:30px;
   font-size: 0.8rem;
-
+  background: #bd9cdf !important;
+  color:white;
+  text-shadow: 1px 1px 2px black;
 }
 
 .income{
@@ -49,13 +58,13 @@
 
 /* TABLE STYLES */
 .income .ui.single.line.table th{
-  background: #e2bf75;
+  background:#9770be;
   color:white;
   text-decoration: solid;
 }
 .income .ui.single.line.table td{
-  background:rgb(255, 255, 255);
-  color:rgb(0, 0, 0);
+  background:rgb(34, 33, 36);
+  color:white;
   text-decoration: solid;
 }
 .income .ui.table{
