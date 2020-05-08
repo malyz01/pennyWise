@@ -10,7 +10,7 @@ class Header extends Component {
         <div className="expenseHeaderText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque exercitationem sequi expedita cupiditate error nam laudantium ut quo quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore corporis!</div>
         <div className="expenseButtons">
           <button className="ui button add expenseAdd">
-            ADD EXPENSE
+            ADD NEW
           </button>
           <button className="ui button  expenseAdd">
             ON/OFF
