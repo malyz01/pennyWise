@@ -37,3 +37,18 @@
 .loginBtn {
   background-color: #322943 !important;
 }
+
+.logoutContainer {
+  display: flex;
+  font-size: 16.8px;
+}
+
+.signedInName {
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.ui.dropdown .menu>.item.dropdownItem
+ {
+  font-size: 16.8px
+}

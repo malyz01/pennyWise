@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Table, Container } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
 import './expense.css'
+
 export class ExpenseTable extends Component {
   render () {
     return (
@@ -39,4 +42,8 @@ export class ExpenseTable extends Component {
   }
 }
 
-export default ExpenseTable
+const mapStateToProps = state => {
+  return null
+}
+
+export default connect(mapStateToProps)(ExpenseTable)

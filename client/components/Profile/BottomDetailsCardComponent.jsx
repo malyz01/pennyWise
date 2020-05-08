@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 import './profile.css'
 
 class BottomDetailsCardComponent extends React.Component {
@@ -8,25 +11,25 @@ class BottomDetailsCardComponent extends React.Component {
 
         <div className='bottomButtonContainer'>
 
-          <button className="ui right labeled icon button">
+          <Link className="ui right labeled icon button">
             <i className="right arrow icon"></i>
                 manage your income
-          </button>
+          </Link>
 
-          <button className="ui right labeled icon button">
+          <Link className="ui right labeled icon button">
             <i className="right arrow icon"></i>
                 manage your expenses
-          </button>
+          </Link>
 
-          <button className="ui right labeled icon button">
+          <Link className="ui right labeled icon button">
             <i className="right arrow icon"></i>
                 manage your budget
-          </button>
+          </Link>
 
-          <button className="ui right labeled icon button">
+          <Link className="ui right labeled icon button">
             <i className="right arrow icon"></i>
                 manage your goals
-          </button>
+          </Link>
         </div>
         <div className='totalDisplayContainer'>
           <h1 className='totalDisplayTitle'>An Overview of your Finances</h1>
@@ -52,4 +55,4 @@ class BottomDetailsCardComponent extends React.Component {
   }
 }
 
-export default BottomDetailsCardComponent
+export default connect()(BottomDetailsCardComponent)
