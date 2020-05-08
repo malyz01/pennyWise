@@ -33,9 +33,8 @@ export class incomeTable extends Component {
             <Table.Body>
               {
                 data && data.map(item => {
-                  console.log(item)
                   return (
-                    <Table.Row key={item}>
+                    <Table.Row key={item.id}>
                       <Table.Cell><input type="checkbox"/></Table.Cell>
                       <Table.Cell>Main</Table.Cell>
                       <Table.Cell>{item.incomeType}</Table.Cell>
