@@ -8,8 +8,8 @@ export default function withAuth (ComponentToBeRendered) {
         this.props.history.push('/')
       }
     }
-    componentDidUpdate (props) {
-      if (!props.isAuthenticated) {
+    componentDidUpdate () {
+      if (!this.props.isAuthenticated) {
         this.props.history.push('/')
       }
     }
