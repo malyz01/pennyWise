@@ -1,9 +1,14 @@
-import { GET_USER_EXPENSE, ADD_USER_EXPENSE, DELETE_USER_EXPENSE, UPDATE_USER_EXPENSE } from '../types'
-import { api } from '../../api'
+import {
+  GET_USER_EXPENSE,
+  ADD_USER_EXPENSE,
+  DELETE_USER_EXPENSE,
+  UPDATE_USER_EXPENSE
+} from '../types'
+import axios from 'axios'
 
-export const getUserExpense = (userId) => async (dispatch) => {
+export const getUserExpense = userId => async dispatch => {
   try {
-    const userExpense = await api.get(`/expense/${userId}`)
+    const userExpense = await axios.get(`/api/v1/expense/${userId}`)
     dispatch({
       type: GET_USER_EXPENSE,
       payload: userExpense
@@ -14,9 +19,9 @@ export const getUserExpense = (userId) => async (dispatch) => {
   }
 }
 
-export const addUserExpense = (userId, data) => async (dispatch) => {
+export const addUserExpense = (userId, data) => async dispatch => {
   try {
-    const userExpense = await api.post(`/expense/${userId}`, data)
+    const userExpense = await axios.post(`/api/v1/expense/${userId}`, data)
     dispatch({
       type: ADD_USER_EXPENSE,
       payload: userExpense
@@ -27,10 +32,10 @@ export const addUserExpense = (userId, data) => async (dispatch) => {
   }
 }
 
-export const updateUserExpense = (expenseId, data) => async (dispatch) => {
+export const updateUserExpense = (expenseId, data) => async dispatch => {
   try {
-    // /api/v1/expense/:expenseId
-    const userExpense = await api.put(`/expense/${expenseId}`, data)
+    // /axios/v1/expense/:expenseId
+    const userExpense = await axios.put(`/api/v1/expense/${expenseId}`, data)
     dispatch({
       type: UPDATE_USER_EXPENSE,
       payload: userExpense
@@ -41,9 +46,9 @@ export const updateUserExpense = (expenseId, data) => async (dispatch) => {
   }
 }
 
-export const deleteUserExpense = (expenseId) => async (dispatch) => {
+export const deleteUserExpense = expenseId => async dispatch => {
   try {
-    const userExpense = await api.delete(`/expense/${expenseId}`)
+    const userExpense = await axios.delete(`/api/v1/expense/${expenseId}`)
     dispatch({
       type: DELETE_USER_EXPENSE,
       payload: userExpense

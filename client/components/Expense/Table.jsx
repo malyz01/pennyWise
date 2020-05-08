@@ -4,12 +4,20 @@ import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
 
 import './expense.css'
+import { getUserExpense } from '../../store/actions/expense'
 
 export class ExpenseTable extends Component {
+  componentDidMount () {
+    const { getUserExpense } = this.props
+
+    getUserExpense(this.props.userId)
+  }
+
   render () {
+    const { data } = this.props.userData
     return (
       <Fade>
-        <Container className="expenseTable">
+        <Container className='expenseTable'>
           <Table singleLine>
             <Table.Header>
               <Table.Row>
@@ -21,22 +29,23 @@ export class ExpenseTable extends Component {
                 <Table.HeaderCell>State</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
-  
+
             <Table.Body>
-              {
-                [1, 2, 3, 4].map(item => {
+              {data &&
+                data.map(item => {
                   return (
-                    <Table.Row key={item}>
-                      <Table.Cell><input type="checkbox"/></Table.Cell>
-                      <Table.Cell>Fuel</Table.Cell>
-                      <Table.Cell>Essential</Table.Cell>
-                      <Table.Cell>Weekly</Table.Cell>
-                      <Table.Cell>$80</Table.Cell>
+                    <Table.Row key={item.id}>
+                      <Table.Cell>
+                        <input type='checkbox' />
+                      </Table.Cell>
+                      <Table.Cell>{item.expense_name}</Table.Cell>
+                      <Table.Cell>{item.categories}</Table.Cell>
+                      <Table.Cell>{item.frequency}</Table.Cell>
+                      <Table.Cell>{item.expense_amount}</Table.Cell>
                       <Table.Cell>ON</Table.Cell>
                     </Table.Row>
                   )
-                })
-              }
+                })}
             </Table.Body>
           </Table>
         </Container>
@@ -45,4 +54,15 @@ export class ExpenseTable extends Component {
   }
 }
 
-export default connect()(ExpenseTable)
+const mapStateToProps = state => {
+  return {
+    userData: state.expense,
+    userId: state.auth.user.id
+  }
+}
+
+const mapDispatchToProps = {
+  getUserExpense
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseTable)
