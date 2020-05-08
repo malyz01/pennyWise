@@ -38,10 +38,10 @@ export class ExpenseTable extends Component {
                       <Table.Cell>
                         <input type='checkbox' />
                       </Table.Cell>
-                      <Table.Cell>{item.expense_name}</Table.Cell>
+                      <Table.Cell>{item.expenseName}</Table.Cell>
                       <Table.Cell>{item.categories}</Table.Cell>
                       <Table.Cell>{item.frequency}</Table.Cell>
-                      <Table.Cell>{item.expense_amount}</Table.Cell>
+                      <Table.Cell>{item.expenseAmount}</Table.Cell>
                       <Table.Cell>ON</Table.Cell>
                     </Table.Row>
                   )
