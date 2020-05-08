@@ -53,6 +53,7 @@ router.put('/:incomeId', (req, res) => {
 })
 
 // DELETE /api/v1/income/:incomeId
+// postman testing COMPLETE
 router.delete('/:incomeId', (req, res) => {
   return db
     .deleteIncome(req.params.incomeId)
