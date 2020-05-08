@@ -1,12 +1,12 @@
 const router = require('express').Router()
-
 const db = require('../db/fn/user')
 
-// router.get('/', (req, res) => {
-//   return db.getFoods()
-//     .then(camelcaseKeys)
-//     .then(foods => res.status(200).json(foods))
-// })
+router.get('/', (req, res) => {
+  return db
+    .getProfiles()
+    .then(camelcaseKeys)
+    .then((profiles) => res.json(profiles))
+})
 
 // GET - /api/v1/users/profile
 router.post('/profile', (req, res) => {

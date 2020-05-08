@@ -1,13 +1,13 @@
-const express = require("express")
-const camelcaseKeys = require("camelcase-keys")
+const router = require('express').Router()
+const camelcaseKeys = require('camelcase-keys')
 
-const db = require("../db/fn/goals")
-const server = express.Router()
+const db = require('../db/fn/goals')
 
-// router.get('/', (req, res) => {
-//   return db.getFoods()
-//     .then(camelcaseKeys)
-//     .then(foods => res.status(200).json(foods))
-// })
+router.get('/', (req, res) => {
+  return db
+    .getGoals()
+    .then(camelcaseKeys)
+    .then((goals) => res.json(goals))
+})
 
 module.exports = router
