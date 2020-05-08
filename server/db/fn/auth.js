@@ -1,8 +1,8 @@
-const conn = require('../connection')
+const connection = require('../connection')
 const bcrypt = require('bcrypt')
 const fn = require('./user')
 
-const authenticate = async (data, db = conn) => {
+const authenticate = async (data, db = connection) => {
   try {
     const user = await db('users').where('email', data.email).first()
     if (typeof user === 'undefined') return 'Email does not exists'
@@ -17,7 +17,7 @@ const authenticate = async (data, db = conn) => {
   }
 }
 
-const newUser = async (data, db = conn) => {
+const newUser = async (data, db = connection) => {
   const { password, confirmPassword, email, fullName, avatar } = data
   try {
     if (password !== confirmPassword) return 'Password does not match'

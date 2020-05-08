@@ -9,16 +9,16 @@ class Header extends Component {
         <hr />
         <div className="incomeHeaderText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque exercitationem sequi expedita cupiditate error nam laudantium ut quo quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore corporis!</div>
         <div className="incomeButtons">
-          <button className="ui button white incomeAdd">
-            ADD INCOME
+          <button className="ui button add incomeAdd">
+            ADD NEW
           </button>
-          <button className="ui button purple incomeAdd">
+          <button className="ui button incomeAdd">
             ON/OFF
           </button>
-          <button className="ui button blue incomeAdd">
+          <button className="ui button incomeAdd">
            UPDATE
           </button>
-          <button className="ui button black incomeAdd">
+          <button className="ui button incomeAdd">
             DELETE
           </button>
         </div>

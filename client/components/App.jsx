@@ -21,7 +21,6 @@ const App = () => {
           <Route exact path="/profile" component={withAuth(Profile)} />
           <Route exact path="/expense" component={withAuth(Expense)} />
           <Route exact path="/income" component={withAuth(Income)} />
-          {/* <Route exact path="/budget" component={Budget} /> */}
         </div>
       </HashRouter>
       <Footer />
