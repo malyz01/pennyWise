@@ -13,13 +13,13 @@ router.get('/', (req, res) => {
     .catch(() => res.sendStatus(500))
 })
 // GET - /api/v1/income/:userId
-// router.get('/:userId', (req, res) => {
-//   return db
-//     .getIncome(req.params.userId)
-//     .then(camelcaseKeys)
-//     .then((income) => res.json(income))
-//     .catch(() => res.sendStatus(500))
-// })
+router.get('/:userId', (req, res) => {
+  return db
+    .getIncome(req.params.userId)
+    .then(camelcaseKeys)
+    .then((income) => res.json(income))
+    .catch(() => res.sendStatus(500))
+})
 // // POST /api/v1/income/:userId
 // router.post('/:userId', (req, res) => {
 //   return db
