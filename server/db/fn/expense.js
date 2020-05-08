@@ -4,6 +4,7 @@ function getExpense (userId, db = connection) {
   return db('expense')
     .where('user_id', userId)
     .select()
+    .first()
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
@@ -13,37 +14,28 @@ function getExpense (userId, db = connection) {
 function addExpense (data, db = connection) {
   return db('expense')
     .insert(data)
+    .then(([id]) => db('expense').where('id', id).select().first())
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-// Not too certain
-function updateExpense (data, db = connection) {
+function updateExpense (expenseId, data, db = connection) {
   return db('expense')
-    .where('user_id', data.userId)
+    .where('id', expenseId)
     .update(data)
-    .catch(err => {
+    .then(() => db('expense').where('id', expenseId).select().first())
+    .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-function deleteExpense (userId, db = connection) {
+function deleteExpense (expenseId, db = connection) {
   return db('expense')
-    .where('user_id', userId)
+    .where('id', expenseId)
     .del()
-    .catch(err => {
-      // eslint-disable-next-line no-console
-      console.error(err)
-    })
-}
-
-function getExpensesForSingleUser (id, db = connection) {
-  return db('expense')
-    .where('expense.user_id', id)
-    .select()
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
@@ -54,6 +46,5 @@ module.exports = {
   getExpense,
   addExpense,
   updateExpense,
-  deleteExpense,
-  getExpensesForSingleUser
+  deleteExpense
 }
