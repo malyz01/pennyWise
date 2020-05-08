@@ -1,6 +1,23 @@
 .expenseHeader{
   padding-top:10%;
   padding: bottom 3%;
+  color:white;
+}
+.expenseHeaderTitle{
+  text-align: center;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  letter-spacing:5px;
+
+}
+.expenseHeaderText{
+  width:70%;
+  margin: 0 auto;
+}
+.expenseHeader Hr{
+  width:80%;
+  margin: 0 auto;
+  margin-bottom:20px;
 }
 .expenseTable{
   padding-bottom:10%;
@@ -13,5 +30,33 @@
 }
 .expenseButtons .button{
   flex-grow: 1;
+  margin-left:20px;
+  margin-right:20px;
+  letter-spacing: 10px;
+  padding:15px;
+  border-radius:30px;
+  font-size: 0.8rem;
 
+}
+
+.expense{
+  background: rgba(39, 26, 66, 0.9);
+}
+
+/* TABLE STYLES */
+.expense .ui.single.line.table th{
+  background:#674C82;
+  color:white;
+  text-decoration: solid;
+}
+.expense .ui.single.line.table td{
+  background:rgb(34, 33, 36);
+  color:white;
+  text-decoration: solid;
+}
+.expense .ui.table{
+  background:none !important;
+  border-radius:20px;
+  overflow:hidden;
+  text-align:center;
 }

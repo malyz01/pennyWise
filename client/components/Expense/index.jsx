@@ -6,7 +6,7 @@ import Table from './Table'
 export class index extends Component {
   render () {
     return (
-      <div>
+      <div className="expense">
         <Header />
         <Table />
       </div>
