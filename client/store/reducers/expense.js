@@ -18,7 +18,11 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_USER_EXPENSE:
       return { ...state, all: [ ...state.all, payload ] }
     case UPDATE_USER_EXPENSE:
-      return { all: [ ...state.all, payload ], selected: payload }
+      const updated = state.all.map(e => { 
+        if (e.id === payload.id) return payload
+        return e
+      })
+      return { all: updated, selected: payload }
     case DELETE_USER_EXPENSE:
       return { all: state.all.filter(e => e.id !== payload), selected: null }
     default:
