@@ -64,4 +64,8 @@ class BottomDetailsCardComponent extends React.Component {
   }
 }
 
-export default connect()(withRouter(BottomDetailsCardComponent))
+const mapStateToProps = state => {
+  return { expense: state.expense }
+}
+
+export default connect(mapStateToProps)(withRouter(BottomDetailsCardComponent))

@@ -3,9 +3,17 @@ import { Table, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import './expense.css'
+import { getUserExpense } from '../../store/actions/expense'
 
 export class ExpenseTable extends Component {
+  componentDidMount () {
+    const { getUserExpense } = this.props
+
+    getUserExpense(this.props.userId)
+  }
+
   render () {
+    const { data } = this.props.userData
     return (
       <Container className='expenseTable'>
         <Table singleLine>
@@ -42,4 +50,15 @@ export class ExpenseTable extends Component {
   }
 }
 
-export default connect()(ExpenseTable)
+const mapStateToProps = state => {
+  return {
+    userData: state.expense,
+    userId: state.auth.user.id
+  }
+}
+
+const mapDispatchToProps = {
+  getUserExpense
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseTable)
