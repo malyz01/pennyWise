@@ -15,7 +15,13 @@
     "start": "run-s build server",
     "build": "webpack",
     "server": "node server",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "db:reset": "run-s db:delete db:migrate db:seed",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run",
+    "db:delete": "rm -f server/db/dev.sqlite3",
+    "postinstall": "run-s db:reset build"
   },
   "eslintIgnore": [
     "bundle.js"
@@ -80,6 +86,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "style-loader": "^1.2.1",
+    "supertest": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
