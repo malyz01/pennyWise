@@ -28,14 +28,15 @@
   display: block;
   cursor: pointer;
   height: 400px;
-  width: 800px;
+  width: 100%;
+  min-width: 350px;
+  max-width: 1000px;
   perspective: 800px;
   position: relative;
-  top: 200px;
   margin: auto;
   transition: ease-in;
   border: solid 1px #300;
-  border-radius: 25px;
+  border-radius: 38px;
 }
 
 /* .profileContainer {
@@ -43,9 +44,8 @@
   background-color: white;
   border: 2px solid black;
   border-radius: 38px;
-  min-width: 350px;
-  max-width: 500px;
-  width: 100%;
+  top: 200px;
+  
 } */
 
 
