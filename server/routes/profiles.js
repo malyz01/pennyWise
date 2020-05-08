@@ -4,7 +4,6 @@ const db = require('../db/fn/user')
 router.get('/', (req, res) => {
   return db
     .getProfiles()
-    .then(camelcaseKeys)
     .then((profiles) => res.json(profiles))
 })
 
