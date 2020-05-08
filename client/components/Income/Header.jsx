@@ -4,21 +4,21 @@ import './income.css'
 class Header extends Component {
   render () {
     return (
-      <Container className = "expenseHeader">
-        <div className ="expenseHeaderTitle">OVERVIEW OF INCOMES</div>
+      <Container className = "incomeHeader">
+        <div className ="incomeHeaderTitle">OVERVIEW OF INCOMES</div>
         <hr />
-        <div className="expenseHeaderText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque exercitationem sequi expedita cupiditate error nam laudantium ut quo quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore corporis!</div>
-        <div className="expenseButtons">
-          <button className="ui button white expenseAdd">
+        <div className="incomeHeaderText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque exercitationem sequi expedita cupiditate error nam laudantium ut quo quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore corporis!</div>
+        <div className="incomeButtons">
+          <button className="ui button white incomeAdd">
             ADD INCOME
           </button>
-          <button className="ui button purple expenseAdd">
+          <button className="ui button purple incomeAdd">
             ON/OFF
           </button>
-          <button className="ui button blue expenseAdd">
+          <button className="ui button blue incomeAdd">
            UPDATE
           </button>
-          <button className="ui button black expenseAdd">
+          <button className="ui button black incomeAdd">
             DELETE
           </button>
         </div>
