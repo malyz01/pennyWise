@@ -5,12 +5,12 @@ class Header extends Component {
   render () {
     return (
       <Container className = "expenseHeader">
-        <div className ="expenseHeaderTitle">OVERVIEW OF EXPENSES</div>
+        <div className ="expenseHeaderTitle">OVERVIEW OF INCOMES</div>
         <hr />
         <div className="expenseHeaderText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque exercitationem sequi expedita cupiditate error nam laudantium ut quo quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore corporis!</div>
         <div className="expenseButtons">
           <button className="ui button white expenseAdd">
-            ADD EXPENSE
+            ADD INCOME
           </button>
           <button className="ui button purple expenseAdd">
             ON/OFF
