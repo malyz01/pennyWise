@@ -7,7 +7,7 @@ import './expense.css'
 export class ExpenseTable extends Component {
   render () {
     return (
-      <Container className="expenseTable">
+      <Container className='expenseTable'>
         <Table singleLine>
           <Table.Header>
             <Table.Row>
@@ -21,20 +21,20 @@ export class ExpenseTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {
-              [1, 2, 3, 4].map(item => {
-                return (
-                  <Table.Row key={item}>
-                    <Table.Cell><input type="checkbox"/></Table.Cell>
-                    <Table.Cell>Fuel</Table.Cell>
-                    <Table.Cell>Essential</Table.Cell>
-                    <Table.Cell>Weekly</Table.Cell>
-                    <Table.Cell>$80</Table.Cell>
-                    <Table.Cell>ON</Table.Cell>
-                  </Table.Row>
-                )
-              })
-            }
+            {[1, 2, 3, 4].map(item => {
+              return (
+                <Table.Row key={item}>
+                  <Table.Cell>
+                    <input type='checkbox' />
+                  </Table.Cell>
+                  <Table.Cell>Fuel</Table.Cell>
+                  <Table.Cell>Essential</Table.Cell>
+                  <Table.Cell>Weekly</Table.Cell>
+                  <Table.Cell>$80</Table.Cell>
+                  <Table.Cell>ON</Table.Cell>
+                </Table.Row>
+              )
+            })}
           </Table.Body>
         </Table>
       </Container>
@@ -42,8 +42,4 @@ export class ExpenseTable extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return null
-}
-
-export default connect(mapStateToProps)(ExpenseTable)
+export default connect()(ExpenseTable)
