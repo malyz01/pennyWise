@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react'
 import './goalModal.css'
 
 import { updateUserGoal } from '../../../../store/actions/goals'
-import { setModalGoalOpen, setModalGoalForm } from '../../../../store/actions/modal'
+import { setModal } from '../../../../store/actions/modal'
 
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
@@ -25,8 +25,7 @@ export class UpdateGoal extends Component {
 
   handleOnSubmit = async () => {
     await this.props.updateUserGoal(this.props.select.id, this.state)
-    this.props.setModalGoalOpen(false)
-    this.props.setModalGoalForm('')
+    this.props.setModal(null, false)
   }
 
   render () {
@@ -76,8 +75,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  setModalGoalOpen,
-  setModalGoalForm,
+  setModal,
   updateUserGoal
 }
 
