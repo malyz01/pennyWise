@@ -18,19 +18,22 @@ export default (state = INITIAL_STATE, action) => {
     case GET_USER_INCOME:
       return { ...state, all: payload }
     case ADD_USER_INCOME:
-      return { ...state, all: [ ...state.all, payload ] }
+      return { ...state, all: [...state.all, payload] }
     case SELECT_USER_INCOME:
       return { ...state, selected: payload }
     case UPDATE_USER_INCOME:
       return {
-        all: state.all.map((e) => {
+        all: state.all.map(e => {
           if (e.id === payload.id) return payload
           return e
         }),
         selected: payload
       }
     case DELETE_USER_INCOME:
-      return { all: state.all.filter(e => e.id !== payload), selected: null }
+      return {
+        all: state.all.filter(e => e.id !== Number(payload)),
+        selected: null
+      }
     case CLEAR_USER_INCOME:
       return { ...state, all: [] }
     default:
