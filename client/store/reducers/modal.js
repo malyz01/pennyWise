@@ -57,12 +57,12 @@ export default (state = INITIAL_STATE, action) => {
     case SET_MODAL_GOAL_OPEN:
       return {
         ...INITIAL_STATE,
-        income: { ...state.income, open: action.payload }
+        goal: { ...state.goal, open: action.payload }
       }
     case SET_MODAL_GOAL_FORM:
       return {
         ...INITIAL_STATE,
-        income: { ...state.income, form: action.payload }
+        goal: { ...state.goal, form: action.payload }
       }
     default:
       return state

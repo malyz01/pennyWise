@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
-import './modal.css'
+import './goalModal.css'
 
-import { addUserExpense } from '../../../store/actions/expense'
+import { addUserGoal } from '../../../../store/actions/goals'
 import {
-  setModalExpenseOpen,
-  setModalExpenseForm
-} from '../../../store/actions/modal'
-
-const category = [
-  { key: 'e', text: 'Essential', value: 'Essential' },
-  { key: 'n', text: 'Non-Essential', value: 'Non-Essential' }
-]
+  setModalGoalOpen,
+  setModalGoalForm
+} from '../../../../store/actions/modal'
 
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
@@ -22,10 +17,12 @@ const options = [
 
 export class Login extends Component {
   state = {
-    categories: '',
-    expenseName: '',
-    expenseAmount: '',
-    frequency: ''
+    goalName: '',
+    targetBudget: 0,
+    currentAmount: 0,
+    frequency: 'Weekly',
+    targetDate: '',
+    budgetDistribution: 0
   }
 
   handleOnChange = (e, { name, value }) => {
@@ -33,40 +30,49 @@ export class Login extends Component {
   }
 
   handleOnSubmit = async () => {
-    await this.props.addUserExpense(this.props.userId, this.state)
-    this.props.setModalExpenseOpen(false)
-    this.props.setModalExpenseForm('')
+    await this.props.addUserGoal(this.props.userId, this.state)
+    this.props.setModalGoalOpen(false)
+    this.props.setModalGoalForm('')
   }
 
-  render() {
-    const { expenseName, expenseAmount } = this.state
+  render () {
+    const {
+      goalName,
+      targetBudget,
+      currentAmount,
+      targetDate,
+      budgetDistribution
+    } = this.state
     return (
-      <div className="expenseModalFormContainer">
-        <div className="expenseModalHeader">{this.props.form}</div>
+      <div className="goalModalFormContainer">
+        <div className="goalModalHeader">{this.props.form}</div>
         <div className="divider" />
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <Form.Select
-            options={category}
-            name="categories"
-            onChange={this.handleOnChange}
-            placeholder="categories"
-          />
           <Form.Field>
             <Form.Input
-              value={expenseName}
+              value={goalName}
               onChange={this.handleOnChange}
-              name="expenseName"
+              name="goalName"
               type="text"
-              placeholder="expense name"
+              placeholder="goal name"
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-              value={expenseAmount}
+              value={targetBudget}
               onChange={this.handleOnChange}
-              name="expenseAmount"
+              name="goalAmount"
               type="text"
-              placeholder="expense amount"
+              placeholder="goal amount"
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Input
+              value={currentAmount}
+              onChange={this.handleOnChange}
+              name="goalAmount"
+              type="text"
+              placeholder="current amount"
             />
           </Form.Field>
           <Form.Select
@@ -75,6 +81,24 @@ export class Login extends Component {
             onChange={this.handleOnChange}
             placeholder="frequency"
           />
+          <Form.Field>
+            <Form.Input
+              value={targetDate}
+              onChange={this.handleOnChange}
+              name="goalAmount"
+              type="text"
+              placeholder="target date"
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Input
+              value={budgetDistribution}
+              onChange={this.handleOnChange}
+              name="budgetDistribution"
+              type="text"
+              placeholder="budget distribution"
+            />
+          </Form.Field>
           <Button className="submitBtn" type="submit">
             Submit
           </Button>
@@ -86,13 +110,13 @@ export class Login extends Component {
 
 const mapStateToProps = (state) => ({
   userId: state.auth.user.id,
-  form: state.modal.expense.form
+  form: state.modal.goal.form
 })
 
 const mapDispatchToProps = {
-  setModalExpenseOpen,
-  setModalExpenseForm,
-  addUserExpense
+  setModalGoalOpen,
+  setModalGoalForm,
+  addUserGoal
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

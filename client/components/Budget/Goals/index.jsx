@@ -1,31 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { getUserGoals, addUserGoals, updateUserGoals, deleteUserGoals } from '../../../store/actions/goals'
+import { getUserGoals, addUserGoal, updateUserGoal, deleteUserGoals } from '../../../store/actions/goals'
 import { setModalGoalOpen, setModalGoalForm } from '../../../store/actions/modal'
 import { Button } from 'semantic-ui-react'
 
 class Goal extends Component {
   handleOnClick = (name) => (evt) => {
-    const { updateUserGoals, deleteUserGoals, selected, setModalGoalOpen } = this.props
-    switch (name) {
-      case 'add':
-        setModalGoalOpen(true)
-        setModalGoalForm('Add Goal')
-        break
-      case 'toggle':
-        selected.active = !selected.active
-        return updateUserGoals(selected.id, selected)
-      case 'update':
-        setModalGoalOpen(true)
-        setModalGoalForm('Update Goal')
-        break
-      case 'delete':
-        deleteUserGoals(selected.id)
-        break
-      default:
-        break
+    const {
+      updateUserGoal,
+      deleteUserGoals,
+      selected,
+      setModalGoalOpen,
+      setModalGoalForm
+    } = this.props
+    if (name === 'Add Goal' || name === 'Update Goal') {
+      setModalGoalOpen(true)
+      setModalGoalForm(name)
     }
+    if (name === 'toggle') {
+      selected.active = !selected.active
+      return updateUserGoal(selected.id, selected)
+    }
+    if (name === 'toggle') return deleteUserGoals(selected.id)
   }
 
   render () {
@@ -35,10 +32,16 @@ class Goal extends Component {
           SPECIFY INCOME ALLOCATION FOR YOUR GOALS
         </div>
         <div className="goalBtnContainer">
-          <Button onClick={this.handleOnClick('add')}>ADD GOAL</Button>
-          <Button onClick={this.handleOnClick('toggle')}>ON/OFF</Button>
-          <Button onClick={this.handleOnClick('delete')}>DELETE</Button>
-          <Button onClick={this.handleOnClick('update')}>UPDATE</Button>
+          <Button onClick={this.handleOnClick('Add Goal')}>ADD GOAL</Button>
+          {this.props.selected && (
+            <>
+              <Button onClick={this.handleOnClick('toggle')}>ON/OFF</Button>
+              <Button onClick={this.handleOnClick('delete')}>DELETE</Button>
+              <Button onClick={this.handleOnClick('Update Goal')}>
+                UPDATE
+              </Button>
+            </>
+          )}
         </div>
       </div>
     )
@@ -51,6 +54,11 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  getUserGoals, addUserGoals, updateUserGoals, deleteUserGoals, setModalGoalOpen
+  getUserGoals,
+  addUserGoal,
+  updateUserGoal,
+  deleteUserGoals,
+  setModalGoalOpen,
+  setModalGoalForm
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Goal)

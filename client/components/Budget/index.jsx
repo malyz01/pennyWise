@@ -1,7 +1,9 @@
 import React from 'react'
 import './budget.css'
-import './Goals'
+import { connect } from 'react-redux'
+import Goals from './Goals'
 import BudgetCard from './BudgetCard'
+import GoalModal from './Goals/GoalsModal'
 
 class Budget extends React.Component {
   render () {
@@ -21,9 +23,10 @@ class Budget extends React.Component {
           </div>
         </div>
         <Goals/>
+        <GoalModal />
       </div>
     )
   }
 }
 
-export default Budget
+export default connect(mapStateToProps, mapDispatchToProps)(Budget)

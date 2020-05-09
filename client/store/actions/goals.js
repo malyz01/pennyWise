@@ -14,12 +14,12 @@ export const getUserGoals = (userId) => async (dispatch) => {
   }
 }
 
-export const addUserGoals = (userId, data) => async (dispatch) => {
+export const addUserGoal = (userId, data) => async (dispatch) => {
   try {
-    const userGoals = await api.post(`/goals/${userId}`, data)
+    const userGoal = await api.post(`/goals/${userId}`, data)
     dispatch({
       type: ADD_USER_GOALS,
-      payload: userGoals
+      payload: userGoal
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -27,7 +27,7 @@ export const addUserGoals = (userId, data) => async (dispatch) => {
   }
 }
 
-export const updateUserGoals = (goalsId, data) => async (dispatch) => {
+export const updateUserGoal = (goalsId, data) => async (dispatch) => {
   try {
     const userGoals = await api.put(`/goals/${goalsId}`, data)
     dispatch({

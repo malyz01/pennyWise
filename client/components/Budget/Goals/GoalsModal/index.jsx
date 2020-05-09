@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal } from 'semantic-ui-react'
-import './modal.css'
+import './goalModal.css'
 
 import AddGoal from './AddGoal'
 import UpdateGoal from './UpdateGoal'
 import {
   setModalGoalOpen,
   setModalGoalForm
-} from '../../../store/actions/modal'
+} from '../../../../store/actions/modal'
 
 export class ModalExpenseForm extends Component {
   close = () => {
@@ -16,11 +16,11 @@ export class ModalExpenseForm extends Component {
     this.props.setModalGoalForm('')
   }
 
-  render() {
+  render () {
     const { open, modal } = this.props
     return (
       <Modal open={open} onClose={this.close} closeIcon>
-        <Modal.Content className="expenseModalMainContainer">
+        <Modal.Content className="goalModalMainContainer">
           {modal === 'Add Goal' && <AddGoal />}
           {modal === 'Update Goal' && <UpdateGoal />}
         </Modal.Content>
@@ -30,8 +30,8 @@ export class ModalExpenseForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  modal: state.modal.expense.form,
-  open: state.modal.expense.open
+  modal: state.modal.goal.form,
+  open: state.modal.goal.open
 })
 
 const mapDispatchToProps = {

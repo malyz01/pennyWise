@@ -100,7 +100,6 @@ exports.seed = knex =>
           target_budget: 1000,
           start_date: '',
           target_date: '',
-          period: 'short',
           budget_distribution: 100
         },
         {
@@ -110,7 +109,6 @@ exports.seed = knex =>
           target_budget: 1000,
           start_date: '',
           target_date: '',
-          period: 'short',
           budget_distribution: 100
         },
         {
@@ -120,7 +118,6 @@ exports.seed = knex =>
           target_budget: 1000,
           start_date: '',
           target_date: '',
-          period: 'short',
           budget_distribution: 100
         },
         {
@@ -130,7 +127,6 @@ exports.seed = knex =>
           target_budget: 1000,
           start_date: '',
           target_date: '',
-          period: 'short',
           budget_distribution: 100
         },
         {
@@ -140,7 +136,6 @@ exports.seed = knex =>
           target_budget: 1000,
           start_date: '',
           target_date: '',
-          period: 'short',
           budget_distribution: 100
         },
         {
@@ -150,7 +145,6 @@ exports.seed = knex =>
           target_budget: 1000,
           start_date: '',
           target_date: '',
-          period: 'short',
           budget_distribution: 100
         }
       ])
