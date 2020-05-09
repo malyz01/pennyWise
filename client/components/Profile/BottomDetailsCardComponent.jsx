@@ -33,14 +33,6 @@ class BottomDetailsCardComponent extends React.Component {
             <i className='right arrow icon'></i>
             manage your budget
           </button>
-
-          <button
-            className='ui right labeled icon button'
-            onClick={() => history.push('/goals')}
-          >
-            <i className='right arrow icon'></i>
-            manage your goals
-          </button>
         </div>
         <div className='totalDisplayContainer'>
           <h1 className='totalDisplayTitle'>An Overview of your Finances</h1>
