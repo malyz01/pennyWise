@@ -3,13 +3,16 @@ import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import './expense.css'
 
-import { setModal } from '../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../store/actions/modal'
 import { updateUserExpense, deleteUserExpense } from '../../store/actions/expense'
 
 class Header extends Component {
   handleOnClick = action => () => {
-    const { setModal, updateUserExpense, deleteUserExpense, selected } = this.props
-    if (action === 'Add Expense' || action === 'Update Expense') setModal(action, true)
+    const { updateUserExpense, deleteUserExpense, selected } = this.props
+    if (action === 'Add Expense' || action === 'Update Expense') {
+      this.props.setModalName(action)
+      this.props.setModalOpen(true)
+    }
     if (action === 'active') {
       selected.active = !selected.active
       updateUserExpense(selected.id, selected)
@@ -67,7 +70,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  setModal,
+  setModalOpen,
+  setModalName,
   updateUserExpense,
   deleteUserExpense
 }
