@@ -5,24 +5,20 @@ import './goalModal.css'
 
 import AddGoal from './AddGoal'
 import UpdateGoal from './UpdateGoal'
-import {
-  setModalGoalOpen,
-  setModalGoalForm
-} from '../../../../store/actions/modal'
+import { setModal } from '../../../../store/actions/modal'
 
 export class ModalExpenseForm extends Component {
   close = () => {
-    this.props.setModalGoalOpen(false)
-    this.props.setModalGoalForm('')
+    this.props.setModal(null, false)
   }
 
   render () {
-    const { open, modal } = this.props
+    const { form, open } = this.props
     return (
       <Modal open={open} onClose={this.close} closeIcon>
         <Modal.Content className="goalModalMainContainer">
-          {modal === 'Add Goal' && <AddGoal />}
-          {modal === 'Update Goal' && <UpdateGoal />}
+          {form === 'Add Goal' && <AddGoal />}
+          {form === 'Update Goal' && <UpdateGoal />}
         </Modal.Content>
       </Modal>
     )
@@ -30,13 +26,8 @@ export class ModalExpenseForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  modal: state.modal.goal.form,
-  open: state.modal.goal.open
+  form: state.modal.form,
+  open: state.modal.open
 })
 
-const mapDispatchToProps = {
-  setModalGoalOpen,
-  setModalGoalForm
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModalExpenseForm)
+export default connect(mapStateToProps, { setModal })(ModalExpenseForm)

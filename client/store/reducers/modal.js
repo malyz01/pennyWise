@@ -11,7 +11,7 @@ import {
 } from '../types'
 
 const INITIAL_STATE = {
-  form: '',
+  form: null,
   open: false,
   auth: {
     form: '',
