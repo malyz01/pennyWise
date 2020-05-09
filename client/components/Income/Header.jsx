@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { getUserIncome } from '../../store/actions/income'
 
+import { getUserIncome } from '../../store/actions/income'
 import './income.css'
 
 class Header extends Component {
