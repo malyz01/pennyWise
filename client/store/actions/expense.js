@@ -39,10 +39,10 @@ export const addUserExpense = (userId, expenseData) => async (dispatch) => {
   }
 }
 
-export const updateUserExpense = (expenseId, userData) => async (dispatch) => {
+export const updateUserExpense = (expenseId, expenseData) => async (dispatch) => {
   try {
     // /api/v1/expense/:expenseId
-    const { data } = await api.put(`/expense/${expenseId}`, userData)
+    const { data } = await api.put(`/expense/${expenseId}`, expenseData)
     dispatch({
       type: UPDATE_USER_EXPENSE,
       payload: data
@@ -56,6 +56,7 @@ export const updateUserExpense = (expenseId, userData) => async (dispatch) => {
 export const deleteUserExpense = (expenseId) => async (dispatch) => {
   try {
     const { data } = await api.delete(`/expense/${expenseId}`)
+    console.log(data)
     dispatch({
       type: DELETE_USER_EXPENSE,
       payload: data
