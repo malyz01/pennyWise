@@ -1,15 +1,16 @@
 const router = require('express').Router()
 const camelcaseKeys = require('camelcase-keys')
 
-const db = require('../db/fn/expense')
+const db = require('../db/fn/budget')
 
-// GET - /api/v1/expense/:userId
-// Complete Postman Testing
+// GET - /api/v1/budget/:userId
 router.get('/:userId', (req, res) => {
-  db.getUserExpenses(req.params.userId)
+  db.getUserBudget(req.params.userId)
     .then(camelcaseKeys)
-    .then(expenses => res.status(200).json(expenses))
+    .then(budget => res.status(200).json(budget))
     .catch(err => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
+
+module.exports = router
