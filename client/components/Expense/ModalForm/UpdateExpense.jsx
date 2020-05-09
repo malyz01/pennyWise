@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
-import './modal.css'
+import './expenseModal.css'
 
 import { updateUserExpense } from '../../../store/actions/expense'
-import {
-  setModalExpenseOpen,
-  setModalExpenseForm
-} from '../../../store/actions/modal'
+import { setModal } from '../../../store/actions/modal'
 
 const category = [
   { key: 'e', text: 'Essential', value: 'Essential' },
@@ -33,8 +30,7 @@ export class Login extends Component {
 
   handleOnSubmit = async () => {
     await this.props.updateUserExpense(this.props.select.id, this.state)
-    this.props.setModalExpenseOpen(false)
-    this.props.setModalExpenseForm('')
+    this.props.setModal(null, false)
   }
 
   render () {
@@ -91,8 +87,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  setModalExpenseOpen,
-  setModalExpenseForm,
+  setModal,
   updateUserExpense
 }
 
