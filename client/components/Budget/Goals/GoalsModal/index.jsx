@@ -5,11 +5,12 @@ import './goalModal.css'
 
 import AddGoal from './AddGoal'
 import UpdateGoal from './UpdateGoal'
-import { setModal } from '../../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 
 export class ModalExpenseForm extends Component {
   close = () => {
-    this.props.setModal(null, false)
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
@@ -30,4 +31,4 @@ const mapStateToProps = (state) => ({
   open: state.modal.open
 })
 
-export default connect(mapStateToProps, { setModal })(ModalExpenseForm)
+export default connect(mapStateToProps, { setModalOpen, setModalName })(ModalExpenseForm)
