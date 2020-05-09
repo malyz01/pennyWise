@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal } from 'semantic-ui-react'
-import './modal.css'
+import './expenseModal.css'
 
 import AddExpense from './AddExpense'
 import UpdateExpense from './UpdateExpense'
-import { setModalExpenseOpen, setModalExpenseForm } from '../../../store/actions/modal'
+import { setModal } from '../../../store/actions/modal'
 
 export class ModalExpenseForm extends Component {
   close = () => {
-    this.props.setModalExpenseOpen(false)
-    this.props.setModalExpenseForm('')
+    this.props.setModal(null, false)
   }
 
   render () {
@@ -31,9 +30,4 @@ const mapStateToProps = (state) => ({
   open: state.modal.expense.open
 })
 
-const mapDispatchToProps = {
-  setModalExpenseOpen,
-  setModalExpenseForm
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModalExpenseForm)
+export default connect(mapStateToProps, { setModal })(ModalExpenseForm)
