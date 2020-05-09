@@ -212,48 +212,48 @@ exports.seed = knex =>
         {
           id: 1,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
+          categories: 'essential',
           frequency: 'weekly',
           expense_amount: 200
         },
         {
           id: 2,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
+          categories: 'essential',
           frequency: 'weekly',
           expense_amount: 200
         },
         {
           id: 3,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
+          categories: 'essential',
           frequency: 'weekly',
           expense_amount: 200
         },
         {
           id: 4,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
+          categories: 'essential',
           frequency: 'weekly',
           expense_amount: 200
         },
         {
           id: 5,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
+          categories: 'essential',
           frequency: 'weekly',
           expense_amount: 200
         },
         {
           id: 6,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
+          categories: 'essential',
           frequency: 'weekly',
           expense_amount: 200
         }

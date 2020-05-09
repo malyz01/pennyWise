@@ -1,0 +1,11 @@
+.expenseModalMainContainer {
+  min-height: 400px;
+  background-color: #322943 !important;
+}
+
+.expenseModalFormContainer {
+  min-width: 350px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}

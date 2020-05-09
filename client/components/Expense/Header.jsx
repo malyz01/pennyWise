@@ -1,53 +1,57 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { getUserExpense } from '../../store/actions/expense'
 import './expense.css'
 
+import { setModalExpenseForm, setModalExpenseOpen } from '../../store/actions/modal'
+
 class Header extends Component {
-  componentDidMount () {
-    const { getUserExpense } = this.props
-    getUserExpense(this.props.userId)
+  handleOnClick = (action) => () => {
+    const { setModalExpenseForm, setModalExpenseOpen } = this.props
+    if (action === 'Add Expense' || action === 'Update Expense') {
+      setModalExpenseForm(action)
+      setModalExpenseOpen(true)
+    }
   }
 
-  totalExpense () {
-    const { data } = this.props.userData
-    let total = 0
-    data &&
-      data.map(item => {
-        total += item.expenseAmount
-      })
-    return total
-  }
   render () {
     return (
-      <Container className='expenseHeader'>
-        <div className='expenseHeaderTitle'>OVERVIEW OF EXPENSES</div>
+      <Container className="expenseHeader">
+        <div className="expenseHeaderTitle">OVERVIEW OF EXPENSES</div>
         <hr />
-        <div className='expenseHeaderText'>
-          Your total expense is: {this.totalExpense()}
+        <div className="expenseHeaderText">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque
+          exercitationem sequi expedita cupiditate error nam laudantium ut quo
+          quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore
+          corporis!
         </div>
-        <div className='expenseButtons'>
-          <button className='ui button add expenseAdd'>ADD NEW</button>
-          <button className='ui button  expenseAdd'>ON/OFF</button>
-          <button className='ui button expenseAdd'>UPDATE</button>
-          <button className='ui button  expenseAdd'>DELETE</button>
+        <div className="expenseButtons">
+          <button
+            onClick={this.handleOnClick('Add Expense')}
+            className="ui button add expenseAdd"
+          >
+            ADD EXPENSE
+          </button>
+          <button className="ui button  expenseAdd">ON/OFF</button>
+          <button
+            onClick={this.handleOnClick('Update Expense')}
+            className="ui button expenseAdd"
+          >
+            UPDATE
+          </button>
+          <button className="ui button  expenseAdd">DELETE</button>
         </div>
       </Container>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    userData: state.expense,
-    userId: state.auth.user.id
-  }
-}
-
 const mapDispatchToProps = {
-  getUserExpense
+  setModalExpenseOpen,
+  setModalExpenseForm
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(null, mapDispatchToProps)(Header)
