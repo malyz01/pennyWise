@@ -27,7 +27,7 @@ router.get('/:userId', (req, res) => {
     })
 })
 
-// POST /api/v1/income/:userId
+// POST - /api/v1/income/:userId
 // postman testing COMPLETE
 router.post('/:userId', (req, res) => {
   const newIncome = req.body
@@ -40,7 +40,7 @@ router.post('/:userId', (req, res) => {
     })
 })
 
-// PUT /api/v1/income/:userId
+// PUT - /api/v1/income/:incomeId
 // postman testing COMPLETE
 router.put('/:incomeId', (req, res) => {
   return db
@@ -52,13 +52,13 @@ router.put('/:incomeId', (req, res) => {
     })
 })
 
-// DELETE /api/v1/income/:incomeId
+// DELETE - /api/v1/income/:incomeId
 // postman testing COMPLETE
 router.delete('/:incomeId', (req, res) => {
   return db
     .deleteIncome(req.params.incomeId)
     .then(camelcaseKeys)
-    .then(income => res.send(200).json(req.params.incomeId))
+    .then(() => res.send(200).json(req.params.incomeId))
     .catch(err => {
       res.status(500).send(err.message)
     })

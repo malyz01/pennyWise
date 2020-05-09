@@ -23,7 +23,7 @@ function addGoal (data, db = connection) {
   return db('goals')
     .insert(data)
     .then(([id]) => db('goals')
-      .where('user_id', id)
+      .where('id', id)
       .select()
       .first())
     .catch(err => {
