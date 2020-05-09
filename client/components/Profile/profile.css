@@ -62,7 +62,7 @@
   color: #6B36A1;
 }
 .bottomCardDetailsContainer .ui.right.labeled.icon.button:hover{
-
+  /* background: #2185d0; */
   background:rgb(236, 236, 236);
 }
 .bottomButtonContainer{
@@ -92,7 +92,7 @@
 .moneyOverview{
   
   padding-left:60px;
-  background: #6B36A1;
+  background: #674C82;
   color:white;
   position:relative;
 }
