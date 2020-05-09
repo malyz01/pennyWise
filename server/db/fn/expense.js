@@ -22,7 +22,7 @@ function getUserExpenses (userId, db = connection) {
 
 function addUserExpense (data, db = connection) {
   return db('expense')
-    .insert(data)
+    .insert(snakeCaseKeys(data))
     .then(([id]) =>
       db('expense')
         .where('id', id)
