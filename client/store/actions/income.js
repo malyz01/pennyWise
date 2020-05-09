@@ -1,7 +1,13 @@
-import { ADD_USER_INCOME, DELETE_USER_INCOME, GET_USER_INCOME, UPDATE_USER_INCOME, SELECT_USER_INCOME } from '../types'
+import {
+  ADD_USER_INCOME,
+  DELETE_USER_INCOME,
+  GET_USER_INCOME,
+  UPDATE_USER_INCOME,
+  SELECT_USER_INCOME
+} from '../types'
 import api from '../../api'
 
-export const getUserIncome = (userId) => async (dispatch) => {
+export const getUserIncome = userId => async dispatch => {
   try {
     const { data } = await api.get(`/income/${userId}`)
     dispatch({
@@ -14,7 +20,7 @@ export const getUserIncome = (userId) => async (dispatch) => {
   }
 }
 
-export const selectUserIncome = (data) => (dispatch) => {
+export const selectUserIncome = data => dispatch => {
   try {
     dispatch({
       type: SELECT_USER_INCOME,
@@ -22,13 +28,13 @@ export const selectUserIncome = (data) => (dispatch) => {
     })
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('error in addUserExpense Api Call')
+    console.log('error in addUserIncome Api Call')
   }
 }
 
-export const addUserIncome = (userId, userData) => async (dispatch) => {
+export const addUserIncome = (userId, incomeData) => async dispatch => {
   try {
-    const { data } = await api.post(`/income/${userId}`, userData)
+    const { data } = await api.post(`/income/${userId}`, incomeData)
     dispatch({
       type: ADD_USER_INCOME,
       payload: data
@@ -39,9 +45,9 @@ export const addUserIncome = (userId, userData) => async (dispatch) => {
   }
 }
 
-export const updateUserIncome = (incomeId, userData) => async (dispatch) => {
+export const updateUserIncome = (incomeId, incomeData) => async dispatch => {
   try {
-    const { data } = await api.put(`/income/${incomeId}`, userData)
+    const { data } = await api.put(`/income/${incomeId}`, incomeData)
     dispatch({
       type: UPDATE_USER_INCOME,
       payload: data
@@ -52,7 +58,7 @@ export const updateUserIncome = (incomeId, userData) => async (dispatch) => {
   }
 }
 
-export const deleteUserIncome = (incomeId) => async (dispatch) => {
+export const deleteUserIncome = incomeId => async dispatch => {
   try {
     const { data } = await api.delete(`/income/${incomeId}`)
     dispatch({
