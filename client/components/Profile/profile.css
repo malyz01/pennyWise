@@ -1,7 +1,5 @@
 
 .profileMainContainer {
-  /* background-color: #281A43;
-  opacity: 0.9; */
   background-color: #3D3055;
   padding-bottom: 100px;
   margin: auto;
@@ -9,7 +7,7 @@
 
 .profileHeading {
   text-align: center;
-  font-family:  'Segoe UI';
+  font-family: 'Raleway', sans-serif;
   font-weight: lighter;
   color: white;
   letter-spacing: 7.9px;
@@ -19,7 +17,7 @@
 
 .profileSummary {
   text-align: center;
-  font-family:  'Segoe UI';
+  font-family: 'Raleway', sans-serif;
   letter-spacing: 4.16px;
   color: white;
   margin: 0;
