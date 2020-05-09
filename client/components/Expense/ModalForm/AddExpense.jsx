@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react'
 import './expenseModal.css'
 
 import { addUserExpense } from '../../../store/actions/expense'
-import { setModal } from '../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 const category = [
   { key: 'e', text: 'Essential', value: 'Essential' },
@@ -30,7 +30,8 @@ export class Login extends Component {
 
   handleOnSubmit = async () => {
     await this.props.addUserExpense(this.props.userId, this.state)
-    this.props.setModal(null, false)
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
@@ -85,7 +86,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  setModal,
+  setModalOpen,
+  setModalName,
   addUserExpense
 }
 
