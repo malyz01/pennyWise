@@ -10,6 +10,7 @@ exports.up = (knex) =>
     t.datetime('target_date')
     t.string('period')
     t.integer('budget_distribution')
+    t.boolean('active').defaultTo(true)
   })
 
 exports.down = (knex) => knex.schema.dropTable(table)

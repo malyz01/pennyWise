@@ -4,7 +4,9 @@ import {
   SET_MODAL_EXPENSE_FORM,
   SET_MODAL_EXPENSE_OPEN,
   SET_MODAL_INCOME_FORM,
-  SET_MODAL_INCOME_OPEN
+  SET_MODAL_INCOME_OPEN,
+  SET_MODAL_GOAL_FORM,
+  SET_MODAL_GOAL_OPEN
 } from '../types'
 
 const INITIAL_STATE = {
@@ -17,6 +19,10 @@ const INITIAL_STATE = {
     open: false
   },
   income: {
+    form: '',
+    open: false
+  },
+  goal: {
     form: '',
     open: false
   }
@@ -44,6 +50,16 @@ export default (state = INITIAL_STATE, action) => {
         income: { ...state.income, open: action.payload }
       }
     case SET_MODAL_INCOME_FORM:
+      return {
+        ...INITIAL_STATE,
+        income: { ...state.income, form: action.payload }
+      }
+    case SET_MODAL_GOAL_OPEN:
+      return {
+        ...INITIAL_STATE,
+        income: { ...state.income, open: action.payload }
+      }
+    case SET_MODAL_GOAL_FORM:
       return {
         ...INITIAL_STATE,
         income: { ...state.income, form: action.payload }

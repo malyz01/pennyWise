@@ -4,7 +4,9 @@ import {
   SET_MODAL_EXPENSE_OPEN,
   SET_MODAL_EXPENSE_FORM,
   SET_MODAL_INCOME_OPEN,
-  SET_MODAL_INCOME_FORM
+  SET_MODAL_INCOME_FORM,
+  SET_MODAL_GOAL_OPEN,
+  SET_MODAL_GOAL_FORM
 } from '../types'
 
 export const setModalAuthOpen = (bool) => ({
@@ -34,6 +36,16 @@ export const setModalIncomeOpen = (bool) => ({
 
 export const setModalIncomeForm = (form) => ({
   type: SET_MODAL_INCOME_FORM,
+  payload: form
+})
+
+export const setModalGoalOpen = (bool) => ({
+  type: SET_MODAL_GOAL_OPEN,
+  payload: bool
+})
+
+export const setModalGoalForm = (form) => ({
+  type: SET_MODAL_GOAL_FORM,
   payload: form
 })
 
