@@ -1,63 +1,99 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
+import './modal.css'
 
-import { authUser } from '../../../store/actions/auth'
+import { updateUserExpense } from '../../../store/actions/expense'
 import {
-  setModalAuthOpen,
-  setModalAuthForm
+  setModalExpenseOpen,
+  setModalExpenseForm
 } from '../../../store/actions/modal'
+
+const category = [
+  { key: 'e', text: 'Essential', value: 'Essential' },
+  { key: 'n', text: 'Non-Essential', value: 'Non-Essential' }
+]
+const options = [
+  { key: 'w', text: 'Weekly', value: 'Weekly' },
+  { key: 'm', text: 'Monthly', value: 'Monthly' },
+  { key: 'y', text: 'Yearly', value: 'Yearly' }
+]
 
 export class Login extends Component {
   state = {
-    email: '',
-    password: ''
+    categories: this.props.select.categories,
+    expenseName: this.props.select.expenseName,
+    expenseAmount: this.props.select.expenseAmount,
+    frequency: this.props.select.frequency
   }
 
   handleOnChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
 
-  handleOnSubmit = () => {
-    this.props.authUser(this.state)
-    this.props.setModalAuthOpen(false)
-    this.props.setModalAuthForm('')
+  handleOnSubmit = async () => {
+    await this.props.updateUserExpense(this.props.select.id, this.state)
+    this.props.setModalExpenseOpen(false)
+    this.props.setModalExpenseForm('')
   }
 
   render () {
-    const { email, password } = this.state
+    const { categories, expenseName, expenseAmount, frequency } = this.state
     return (
-      <Form onSubmit={this.handleOnSubmit}>
-        <Form.Field>
-          <Form.Input
-            value={email}
+      <div className="expenseModalFormContainer">
+        <div className="expenseModalHeader">{this.props.form}</div>
+        <div className="divider" />
+        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
+          <Form.Select
+            options={category}
+            name="categories"
+            defaultValue={categories}
             onChange={this.handleOnChange}
-            name="email"
-            type="text"
-            placeholder="email"
+            placeholder="categories"
           />
-        </Form.Field>
-        <Form.Field>
-          <Form.Input
-            value={password}
+          <Form.Field>
+            <Form.Input
+              value={expenseName}
+              onChange={this.handleOnChange}
+              name="expenseName"
+              type="text"
+              placeholder="expense name"
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Input
+              value={expenseAmount}
+              onChange={this.handleOnChange}
+              name="expenseAmount"
+              type="text"
+              placeholder="expense amount"
+            />
+          </Form.Field>
+          <Form.Select
+            options={options}
+            name="frequency"
+            defaultValue={frequency}
             onChange={this.handleOnChange}
-            name="password"
-            type="password"
-            placeholder="password"
+            placeholder="frequency"
           />
-        </Form.Field>
-        <Button className="authBtn" type="submit">
-          Submit
-        </Button>
-      </Form>
+          <Button className="submitBtn" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  form: state.modal.expense.form,
+  select: state.expense.selected
+})
+
 const mapDispatchToProps = {
-  setModalAuthOpen,
-  setModalAuthForm,
-  authUser
+  setModalExpenseOpen,
+  setModalExpenseForm,
+  updateUserExpense
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

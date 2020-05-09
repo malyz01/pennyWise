@@ -8,7 +8,7 @@ import income from './income'
 export default combineReducers({
   auth,
   user,
-  modal,
+  income,
   expense,
-  income
+  modal
 })

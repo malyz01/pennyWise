@@ -32,9 +32,9 @@ export const selectUserIncome = data => dispatch => {
   }
 }
 
-export const addUserIncome = (userId, userData) => async dispatch => {
+export const addUserIncome = (userId, incomeData) => async dispatch => {
   try {
-    const { data } = await api.post(`/income/${userId}`, userData)
+    const { data } = await api.post(`/income/${userId}`, incomeData)
     dispatch({
       type: ADD_USER_INCOME,
       payload: data
@@ -45,9 +45,9 @@ export const addUserIncome = (userId, userData) => async dispatch => {
   }
 }
 
-export const updateUserIncome = (incomeId, userData) => async dispatch => {
+export const updateUserIncome = (incomeId, incomeData) => async dispatch => {
   try {
-    const { data } = await api.put(`/income/${incomeId}`, userData)
+    const { data } = await api.put(`/income/${incomeId}`, incomeData)
     dispatch({
       type: UPDATE_USER_INCOME,
       payload: data

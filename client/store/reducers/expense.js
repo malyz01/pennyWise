@@ -30,7 +30,7 @@ export default (state = INITIAL_STATE, action) => {
         selected: payload
       }
     case DELETE_USER_EXPENSE:
-      return { all: state.all.filter(e => e.id !== payload), selected: null }
+      return { all: state.all.filter(e => e.id !== Number(payload)), selected: null }
     case CLEAR_USER_EXPENSE:
       return { ...state, all: [] }
     default:
