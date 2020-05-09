@@ -11,12 +11,12 @@ import {
   SET_MODAL_GOAL_FORM
 } from '../types'
 
-export const setModalOpen = (open) =>  ({
+export const setModalOpen = (open) => ({
   type: SET_MODAL_OPEN,
   payload: open
 })
 
-export const setModalName = (name) =>  ({
+export const setModalName = (name) => ({
   type: SET_MODAL_NAME,
   payload: name
 })
