@@ -56,7 +56,6 @@ export const updateUserExpense = (expenseId, expenseData) => async (dispatch) =>
 export const deleteUserExpense = (expenseId) => async (dispatch) => {
   try {
     const { data } = await api.delete(`/expense/${expenseId}`)
-    console.log(data)
     dispatch({
       type: DELETE_USER_EXPENSE,
       payload: data
