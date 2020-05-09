@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
-import { connect } from 'react-redux'
-
-import { getUserExpense } from '../../store/actions/expense'
 import './expense.css'
 
 import { setModalExpenseForm, setModalExpenseOpen } from '../../store/actions/modal'
@@ -31,16 +28,12 @@ class Header extends Component {
         <div className="expenseButtons">
           <button
             onClick={this.handleOnClick('Add Expense')}
-            className="ui button add expenseAdd"
-          >
-            ADD EXPENSE
+            className="ui button add expenseAdd">ADD EXPENSE
           </button>
           <button className="ui button  expenseAdd">ON/OFF</button>
           <button
             onClick={this.handleOnClick('Update Expense')}
-            className="ui button expenseAdd"
-          >
-            UPDATE
+            className="ui button expenseAdd">UPDATE
           </button>
           <button className="ui button  expenseAdd">DELETE</button>
         </div>
