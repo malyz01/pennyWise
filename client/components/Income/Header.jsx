@@ -7,19 +7,33 @@ import {
   setModalIncomeForm,
   setModalIncomeOpen
 } from '../../store/actions/modal'
+import { updateUserIncome, deleteUserIncome } from '../../store/actions/income'
 
 class Header extends Component {
   handleOnClick = action => () => {
-    const { setModalIncomeForm, setModalIncomeOpen } = this.props
+    const {
+      setModalIncomeForm,
+      setModalIncomeOpen,
+      updateUserIncome,
+      deleteUserIncome,
+      selected
+    } = this.props
     if (action === 'Add Income' || action === 'Update Income') {
       setModalIncomeForm(action)
       setModalIncomeOpen(true)
     }
+    if (action === 'active') {
+      selected.active = !selected.active
+      updateUserIncome(selected.id, selected)
+    }
+    if (action === 'delete') deleteUserIncome(selected.id)
   }
 
   render () {
     return (
-      <Container className='incomeHeader'>
+      <Container className='expenseHeader'>
+        <div className='expenseHeaderTitle'>OVERVIEW OF INCOME</div>
+        <hr />
         <div className='incomeButtons'>
           <button
             onClick={this.handleOnClick('Add Income')}
@@ -29,14 +43,24 @@ class Header extends Component {
           </button>
           {this.props.selected && (
             <>
-              <button className='ui button  incomeAdd'>ON/OFF</button>
+              <button
+                onClick={this.handleOnClick('active')}
+                className='ui button  incomeAdd'
+              >
+                ON/OFF
+              </button>
               <button
                 onClick={this.handleOnClick('Update Income')}
                 className='ui button incomeAdd'
               >
                 UPDATE
               </button>
-              <button className='ui button  incomeAdd'>DELETE</button>
+              <button
+                onClick={this.handleOnClick('delete')}
+                className='ui button  incomeAdd'
+              >
+                DELETE
+              </button>
             </>
           )}
         </div>
@@ -51,7 +75,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   setModalIncomeOpen,
-  setModalIncomeForm
+  setModalIncomeForm,
+  updateUserIncome,
+  deleteUserIncome
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

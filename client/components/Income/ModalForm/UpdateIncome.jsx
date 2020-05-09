@@ -2,62 +2,98 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
 
-import { authUser } from '../../../store/actions/auth'
+import { updateUserIncome } from '../../../store/actions/income'
 import {
-  setModalAuthOpen,
-  setModalAuthForm
+  setModalIncomeOpen,
+  setModalIncomeForm
 } from '../../../store/actions/modal'
+import './modal.css'
+
+const category = [
+  { key: 'p', text: 'Primary', value: 'Primary' },
+  { key: 's', text: 'Secondary', value: 'Secondary' }
+]
+const options = [
+  { key: 'w', text: 'Weekly', value: 'Weekly' },
+  { key: 'm', text: 'Monthly', value: 'Monthly' },
+  { key: 'y', text: 'Yearly', value: 'Yearly' }
+]
 
 export class Login extends Component {
   state = {
-    email: '',
-    password: ''
+    incomeType: this.props.select.incomeType,
+    incomeName: this.props.select.incomeName,
+    incomeAmount: this.props.select.incomeAmount,
+    frequency: this.props.select.frequency
   }
 
   handleOnChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
 
-  handleOnSubmit = () => {
-    this.props.authUser(this.state)
-    this.props.setModalAuthOpen(false)
-    this.props.setModalAuthForm('')
+  handleOnSubmit = async () => {
+    await this.props.updateUserIncome(this.props.select.id, this.state)
+    this.props.setModalIncomeOpen(false)
+    this.props.setModalIncomeForm('')
   }
 
   render () {
-    const { email, password } = this.state
+    const { incomeType, incomeName, incomeAmount, frequency } = this.state
     return (
-      <Form onSubmit={this.handleOnSubmit}>
-        <Form.Field>
-          <Form.Input
-            value={email}
+      <div className='incomeModalFormContainer'>
+        <div className='incomeModalHeader'>{this.props.form}</div>
+        <div className='divider' />
+        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
+          <Form.Select
+            options={category}
+            name='incomeType'
+            defaultValue={incomeType}
             onChange={this.handleOnChange}
-            name='email'
-            type='text'
-            placeholder='email'
+            placeholder='incomeType'
           />
-        </Form.Field>
-        <Form.Field>
-          <Form.Input
-            value={password}
+          <Form.Field>
+            <Form.Input
+              value={incomeName}
+              onChange={this.handleOnChange}
+              name='incomeName'
+              type='text'
+              placeholder='income name'
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Input
+              value={incomeAmount}
+              onChange={this.handleOnChange}
+              name='incomeAmount'
+              type='text'
+              placeholder='income amount'
+            />
+          </Form.Field>
+          <Form.Select
+            options={options}
+            name='frequency'
+            defaultValue={frequency}
             onChange={this.handleOnChange}
-            name='password'
-            type='password'
-            placeholder='password'
+            placeholder='frequency'
           />
-        </Form.Field>
-        <Button className='authBtn' type='submit'>
-          Submit
-        </Button>
-      </Form>
+          <Button className='submitBtn' type='submit'>
+            Submit
+          </Button>
+        </Form>
+      </div>
     )
   }
 }
 
+const mapStateToProps = state => ({
+  form: state.modal.income.form,
+  select: state.income.selected
+})
+
 const mapDispatchToProps = {
-  setModalAuthOpen,
-  setModalAuthForm,
-  authUser
+  setModalIncomeOpen,
+  setModalIncomeForm,
+  updateUserIncome
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -4,6 +4,7 @@ import { Modal } from 'semantic-ui-react'
 import './modal.css'
 
 import AddIncome from './AddIncome'
+import UpdateIncome from './UpdateIncome'
 import {
   setModalIncomeOpen,
   setModalIncomeForm
@@ -21,7 +22,7 @@ export class ModalIncomeForm extends Component {
       <Modal open={open} onClose={this.close} closeIcon>
         <Modal.Content className='incomeModalMainContainer'>
           {modal === 'Add Income' && <AddIncome />}
-          {modal === 'Update Income' && 'Update income form'}
+          {modal === 'Update Income' && <UpdateIncome />}
         </Modal.Content>
       </Modal>
     )

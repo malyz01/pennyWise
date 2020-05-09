@@ -40,10 +40,10 @@ function updateUserIncome (incomeId, data, db = connection) {
     .update({
       id: data.id,
       user_id: data.userId,
-      expense_name: data.expenseName,
+      income_name: data.incomeName,
       categories: data.categories,
       frequency: data.frequency,
-      expense_amount: data.expenseAmount,
+      income_amount: data.incomeAmount,
       active: data.active
     })
     .then(() =>
