@@ -27,6 +27,7 @@
     margin: 0;
     font-weight: 0;
 }
+
 .BudgetHeaderLine{
     border-top: 2px solid #707070;
     width: 60%;
@@ -34,3 +35,25 @@
     position: relative;
     margin: 10px auto;
 }
+
+/* BudgetCard Component */
+
+.diagonalBG{
+    background: #674C82 0% 0% no-repeat padding-box;
+    padding: 3rem;
+    width: 100%;
+    min-width: 350px;
+    max-width: 605px;
+    transform: matrix(0.64, 0.77, -0.77, 0.64, 0, 0);
+    /* perspective: 800px; */
+    position: relative;
+    /* margin: auto;
+    transition: ease-in;
+    border: solid 1px #300;
+    border-radius: 25px; */
+}
+
+/* .topCardComponent{
+    border: 2px solid violet;
+    border-radius: ;
+} */
