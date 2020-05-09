@@ -32,21 +32,21 @@ export class Login extends Component {
           <Form.Input
             value={email}
             onChange={this.handleOnChange}
-            name="email"
-            type="text"
-            placeholder="email"
+            name='email'
+            type='text'
+            placeholder='email'
           />
         </Form.Field>
         <Form.Field>
           <Form.Input
             value={password}
             onChange={this.handleOnChange}
-            name="password"
-            type="password"
-            placeholder="password"
+            name='password'
+            type='password'
+            placeholder='password'
           />
         </Form.Field>
-        <Button className="authBtn" type="submit">
+        <Button className='authBtn' type='submit'>
           Submit
         </Button>
       </Form>

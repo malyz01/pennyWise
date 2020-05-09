@@ -1,7 +1,13 @@
-import { GET_USER_EXPENSES, SELECT_USER_EXPENSE, ADD_USER_EXPENSE, DELETE_USER_EXPENSE, UPDATE_USER_EXPENSE } from '../types'
+import {
+  GET_USER_EXPENSES,
+  SELECT_USER_EXPENSE,
+  ADD_USER_EXPENSE,
+  DELETE_USER_EXPENSE,
+  UPDATE_USER_EXPENSE
+} from '../types'
 import api from '../../api'
 
-export const getUserExpenses = (userId) => async (dispatch) => {
+export const getUserExpenses = userId => async dispatch => {
   try {
     const { data } = await api.get(`/expense/${userId}`)
     dispatch({
@@ -14,7 +20,7 @@ export const getUserExpenses = (userId) => async (dispatch) => {
   }
 }
 
-export const selectUserExpense = (data) => (dispatch) => {
+export const selectUserExpense = data => dispatch => {
   try {
     dispatch({
       type: SELECT_USER_EXPENSE,
@@ -26,7 +32,7 @@ export const selectUserExpense = (data) => (dispatch) => {
   }
 }
 
-export const addUserExpense = (userId, expenseData) => async (dispatch) => {
+export const addUserExpense = (userId, expenseData) => async dispatch => {
   try {
     const { data } = await api.post(`/expense/${userId}`, expenseData)
     dispatch({
@@ -39,7 +45,7 @@ export const addUserExpense = (userId, expenseData) => async (dispatch) => {
   }
 }
 
-export const updateUserExpense = (expenseId, userData) => async (dispatch) => {
+export const updateUserExpense = (expenseId, userData) => async dispatch => {
   try {
     // /api/v1/expense/:expenseId
     const { data } = await api.put(`/expense/${expenseId}`, userData)
@@ -53,7 +59,7 @@ export const updateUserExpense = (expenseId, userData) => async (dispatch) => {
   }
 }
 
-export const deleteUserExpense = (expenseId) => async (dispatch) => {
+export const deleteUserExpense = expenseId => async dispatch => {
   try {
     const { data } = await api.delete(`/expense/${expenseId}`)
     dispatch({

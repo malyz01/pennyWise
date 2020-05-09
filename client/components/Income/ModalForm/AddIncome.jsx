@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
 import './modal.css'
 
-import { addUserExpense } from '../../../store/actions/expense'
+import { addUserIncome } from '../../../store/actions/income'
 import {
-  setModalExpenseOpen,
-  setModalExpenseForm
+  setModalIncomeOpen,
+  setModalIncomeForm
 } from '../../../store/actions/modal'
 
-const category = [
-  { key: 'e', text: 'Essential', value: 'Essential' },
-  { key: 'n', text: 'Non-Essential', value: 'Non-Essential' }
+const incomeType = [
+  { key: 'p', text: 'Primary', value: 'Primary' },
+  { key: 's', text: 'Secondary', value: 'Secondary' }
 ]
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
@@ -21,9 +21,9 @@ const options = [
 
 export class Login extends Component {
   state = {
-    categories: '',
-    expenseName: '',
-    expenseAmount: '',
+    incomeType: '',
+    incomeName: '',
+    incomeAmount: '',
     frequency: ''
   }
 
@@ -32,49 +32,49 @@ export class Login extends Component {
   }
 
   handleOnSubmit = async () => {
-    await this.props.addUserExpense(this.props.userId, this.state)
-    this.props.setModalExpenseOpen(false)
-    this.props.setModalExpenseForm('')
+    await this.props.addUserIncome(this.props.userId, this.state)
+    this.props.setModalIncomeOpen(false)
+    this.props.setModalIncomeForm('')
   }
 
   render () {
-    const { expenseName, expenseAmount } = this.state
+    const { incomeName, incomeAmount } = this.state
     return (
-      <div className="expenseModalFormContainer">
-        <div className="expenseModalHeader">{this.props.form}</div>
-        <div className="divider" />
+      <div className='incomeModalFormContainer'>
+        <div className='incomeModalHeader'>{this.props.form}</div>
+        <div className='divider' />
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
           <Form.Select
-            options={category}
-            name="categories"
+            options={incomeType}
+            name='incomeType'
             onChange={this.handleOnChange}
-            placeholder="categories"
+            placeholder='incomeType'
           />
           <Form.Field>
             <Form.Input
-              value={expenseName}
+              value={incomeName}
               onChange={this.handleOnChange}
-              name="expenseName"
-              type="text"
-              placeholder="expense name"
+              name='incomeName'
+              type='text'
+              placeholder='income name'
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-              value={expenseAmount}
+              value={incomeAmount}
               onChange={this.handleOnChange}
-              name="expenseAmount"
-              type="text"
-              placeholder="expense amount"
+              name='incomeAmount'
+              type='text'
+              placeholder='income amount'
             />
           </Form.Field>
           <Form.Select
             options={options}
-            name="frequency"
+            name='frequency'
             onChange={this.handleOnChange}
-            placeholder="frequency"
+            placeholder='frequency'
           />
-          <Button className="submitBtn" type="submit">
+          <Button className='submitBtn' type='submit'>
             Submit
           </Button>
         </Form>
@@ -85,13 +85,13 @@ export class Login extends Component {
 
 const mapStateToProps = state => ({
   userId: state.auth.user.id,
-  form: state.modal.expense.form
+  form: state.modal.income.form
 })
 
 const mapDispatchToProps = {
-  setModalExpenseOpen,
-  setModalExpenseForm,
-  addUserExpense
+  setModalIncomeOpen,
+  setModalIncomeForm,
+  addUserIncome
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
