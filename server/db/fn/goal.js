@@ -9,7 +9,7 @@ function getAllGoals (db = connection) {
     })
 }
 
-function getUserGoal (userId, db = connection) {
+function getUserGoals (userId, db = connection) {
   return db('goals')
     .where('user_id', userId)
     .select()
@@ -58,7 +58,7 @@ function deleteGoal (goalId, db = connection) {
 
 module.exports = {
   getAllGoals,
-  getUserGoal,
+  getUserGoals,
   addGoal,
   updateGoal,
   deleteGoal

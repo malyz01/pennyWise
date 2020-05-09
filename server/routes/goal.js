@@ -15,4 +15,16 @@ router.get('/', (req, res) => {
     })
 })
 
+// GET - /api/v1/goal/:userId
+// postman testing COMPLETE
+router.get('/:userId', (req, res) => {
+  return db
+    .getUserGoals(req.params.userId)
+    .then(camelcaseKeys)
+    .then(goals => res.json(goals))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router

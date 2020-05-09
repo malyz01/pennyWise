@@ -21,7 +21,7 @@ router.get('/:userId', (req, res) => {
   return db
     .getUserIncomes(req.params.userId)
     .then(camelcaseKeys)
-    .then((income) => res.json(income))
+    .then(income => res.json(income))
     .catch(err => {
       res.status(500).send(err.message)
     })
