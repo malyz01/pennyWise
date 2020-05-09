@@ -4,7 +4,7 @@ import {
   SELECT_USER_EXPENSE,
   UPDATE_USER_EXPENSE,
   DELETE_USER_EXPENSE,
-  CLEAR_USER_EXPENSES
+  CLEAR_USER_EXPENSE
 } from '../types'
 
 const INITIAL_STATE = {
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-  const { type, payload } = action
+  const { type, payload = null } = action
   switch (type) {
     case GET_USER_EXPENSES:
       return { ...state, all: payload }
@@ -22,14 +22,17 @@ export default (state = INITIAL_STATE, action) => {
     case SELECT_USER_EXPENSE:
       return { ...state, selected: payload }
     case UPDATE_USER_EXPENSE:
-      const updated = state.all.map(e => { 
-        if (e.id === payload.id) return payload
-        return e
-      })
-      return { all: updated, selected: payload }
+      return {
+        all: state.all.map((e) => {
+          if (e.id === payload.id) return payload
+          return e
+        }),
+        selected: payload
+      }
     case DELETE_USER_EXPENSE:
       return { all: state.all.filter(e => e.id !== payload), selected: null }
     case CLEAR_USER_EXPENSE:
+      return { ...state, all: [] }
     default:
       return state
   }

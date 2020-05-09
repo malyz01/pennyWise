@@ -24,7 +24,7 @@ export class Login extends Component {
     this.props.setModalAuthForm('')
   }
 
-  render() {
+  render () {
     const { email, password } = this.state
     return (
       <Form onSubmit={this.handleOnSubmit}>

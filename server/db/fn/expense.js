@@ -4,7 +4,6 @@ function getExpense (userId, db = connection) {
   return db('expense')
     .where('user_id', userId)
     .select()
-    .first()
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)

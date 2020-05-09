@@ -58,7 +58,7 @@ background: linear-gradient(0deg, rgba(44,6,77,1) 30%, rgba(44,6,77,0.8) 60%,  r
 }
 
 /* TABLE STYLES */
-.expense .ui.single.line.table th{
+/* .expense .ui.single.line.table th{
   background:#9770be;
   color:white;
   text-decoration: solid;
@@ -67,10 +67,10 @@ background: linear-gradient(0deg, rgba(44,6,77,1) 30%, rgba(44,6,77,0.8) 60%,  r
   background:rgb(34, 33, 36);
   color:white;
   text-decoration: solid;
-}
+} */
 .expense .ui.table{
-  background:none !important;
-  border-radius:20px;
-  overflow:hidden;
+  /* background:none !important; */
+  /* border-radius:20px; */
+  /* overflow:hidden; */
   text-align:center;
 }
