@@ -1,5 +1,6 @@
 import {
-  SET_MODAL,
+  SET_MODAL_OPEN,
+  SET_MODAL_NAME,
   SET_MODAL_AUTH_OPEN,
   SET_MODAL_AUTH_FORM,
   SET_MODAL_EXPENSE_FORM,
@@ -33,8 +34,10 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_MODAL:
-      return { form: action.form, open: action.open }
+    case SET_MODAL_OPEN:
+      return { ...state, open: action.payload }
+    case SET_MODAL_NAME:
+      return { ...state, name: action.payload }
     case SET_MODAL_AUTH_OPEN:
       return { ...INITIAL_STATE, auth: { ...state.auth, open: action.payload } }
     case SET_MODAL_AUTH_FORM:

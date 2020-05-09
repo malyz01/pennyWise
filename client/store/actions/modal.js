@@ -1,5 +1,6 @@
 import {
-  SET_MODAL,
+  SET_MODAL_OPEN,
+  SET_MODAL_NAME,
   SET_MODAL_AUTH_OPEN,
   SET_MODAL_AUTH_FORM,
   SET_MODAL_EXPENSE_OPEN,
@@ -10,9 +11,14 @@ import {
   SET_MODAL_GOAL_FORM
 } from '../types'
 
-export const setModal = (form, open) => ({
-  type: SET_MODAL,
-  payload: { form, open }
+export const setModalOpen = (open) =>  ({
+  type: SET_MODAL_OPEN,
+  payload: open
+})
+
+export const setModalName = (name) =>  ({
+  type: SET_MODAL_NAME,
+  payload: name
 })
 
 export const setModalAuthOpen = (bool) => ({
