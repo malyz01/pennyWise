@@ -19,7 +19,7 @@ function getUserExpenses (userId, db = connection) {
     })
 }
 
-function addExpense (data, db = connection) {
+function addUserExpense (data, db = connection) {
   return db('expense')
     .insert(data)
     .then(([id]) =>
@@ -34,23 +34,26 @@ function addExpense (data, db = connection) {
     })
 }
 
-function updateExpense (expenseId, data, db = connection) {
+function updateUserExpense (expenseId, data, db = connection) {
   return db('expense')
     .where('id', expenseId)
-    .update(data)
-    .then(() =>
-      db('expense')
-        .where('id', expenseId)
-        .select()
-        .first()
-    )
-    .catch(err => {
+    .update({
+      id: data.id,
+      user_id: data.userId,
+      expense_name: data.expenseName,
+      categories: data.categories,
+      frequency: data.frequency,
+      expense_amount: data.expenseAmount,
+      active: data.active
+    })
+    .then(() => db('expense').where('id', expenseId).select().first())
+    .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-function deleteExpense (expenseId, db = connection) {
+function deleteUserExpense (expenseId, db = connection) {
   return db('expense')
     .where('id', expenseId)
     .del()
@@ -63,7 +66,7 @@ function deleteExpense (expenseId, db = connection) {
 module.exports = {
   getAllExpenses,
   getUserExpenses,
-  addExpense,
-  updateExpense,
-  deleteExpense
+  addUserExpense,
+  updateUserExpense,
+  deleteUserExpense
 }

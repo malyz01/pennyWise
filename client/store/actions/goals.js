@@ -1,5 +1,5 @@
 import { ADD_USER_GOALS, DELETE_USER_GOALS, GET_USER_GOALS, UPDATE_USER_GOALS } from '../types'
-import { api } from '../../api'
+import api from '../../api'
 
 export const getUserGoals = (userId) => async (dispatch) => {
   try {

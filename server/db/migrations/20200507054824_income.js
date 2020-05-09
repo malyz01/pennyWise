@@ -8,6 +8,7 @@ exports.up = knex =>
     t.string('frequency')
     t.string('income_type')
     t.integer('income_amount')
+    t.boolean('active').defaultTo(true)
   })
 
 exports.down = knex => knex.schema.dropTable(table)

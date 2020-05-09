@@ -161,7 +161,7 @@ exports.seed = knex =>
           id: 1,
           user_id: 1001,
           income_name: "Chrishty's fulltime slave",
-          frequency: 'weekly',
+          frequency: 'Weekly',
           income_type: 'primary',
           income_amount: 200
         },
@@ -169,7 +169,7 @@ exports.seed = knex =>
           id: 2,
           user_id: 1001,
           income_name: "Chrishty's fulltime slave",
-          frequency: 'weekly',
+          frequency: 'Weekly',
           income_type: 'primary',
           income_amount: 200
         },
@@ -177,7 +177,7 @@ exports.seed = knex =>
           id: 3,
           user_id: 1001,
           income_name: "Chrishty's fulltime slave",
-          frequency: 'weekly',
+          frequency: 'Weekly',
           income_type: 'primary',
           income_amount: 200
         },
@@ -185,7 +185,7 @@ exports.seed = knex =>
           id: 4,
           user_id: 1001,
           income_name: "Chrishty's fulltime slave",
-          frequency: 'weekly',
+          frequency: 'Weekly',
           income_type: 'primary',
           income_amount: 200
         },
@@ -193,7 +193,7 @@ exports.seed = knex =>
           id: 5,
           user_id: 1001,
           income_name: "Chrishty's fulltime slave",
-          frequency: 'weekly',
+          frequency: 'Weekly',
           income_type: 'primary',
           income_amount: 200
         },
@@ -201,7 +201,7 @@ exports.seed = knex =>
           id: 6,
           user_id: 1001,
           income_name: "Chrishty's fulltime slave",
-          frequency: 'weekly',
+          frequency: 'Weekly',
           income_type: 'primary',
           income_amount: 200
         }
@@ -212,50 +212,50 @@ exports.seed = knex =>
         {
           id: 1,
           user_id: 1001,
-          categories: 'essential',
           expense_name: 'fuel',
-          frequency: 'weekly',
-          expense_amount: 200
+          categories: 'Essential',
+          frequency: 'Weekly',
+          expense_amount: 50
         },
         {
           id: 2,
           user_id: 1001,
-          categories: 'essential',
-          expense_name: 'fuel',
-          frequency: 'weekly',
+          expense_name: 'Grocery',
+          categories: 'Essential',
+          frequency: 'Weekly',
           expense_amount: 200
         },
         {
           id: 3,
           user_id: 1001,
-          categories: 'essential',
-          expense_name: 'fuel',
-          frequency: 'weekly',
-          expense_amount: 200
+          expense_name: 'Electric Bill',
+          categories: 'Essential',
+          frequency: 'Monthly',
+          expense_amount: 220
         },
         {
           id: 4,
           user_id: 1001,
-          categories: 'essential',
-          expense_name: 'fuel',
-          frequency: 'weekly',
-          expense_amount: 200
+          expense_name: 'Pizza',
+          categories: 'Non-Essential',
+          frequency: 'Weekly',
+          expense_amount: 40
         },
         {
           id: 5,
           user_id: 1001,
-          categories: 'essential',
-          expense_name: 'fuel',
-          frequency: 'weekly',
-          expense_amount: 200
+          expense_name: 'Gym',
+          categories: 'Non-Essential',
+          frequency: 'Weekly',
+          expense_amount: 9.99
         },
         {
           id: 6,
           user_id: 1001,
-          categories: 'essential',
-          expense_name: 'fuel',
-          frequency: 'weekly',
-          expense_amount: 200
+          expense_name: 'Car Insurance',
+          categories: 'Essential',
+          frequency: 'Yearly',
+          expense_amount: 800
         }
       ])
     )

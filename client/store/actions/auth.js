@@ -1,5 +1,4 @@
 import api, { setTokenHeader } from '../../api'
-// import setError from './error'
 import { SET_AUTH } from '../types'
 
 export const setAuth = (user) => ({
@@ -18,10 +17,8 @@ export const authUser = (user) => async (dispatch) => {
     localStorage.setItem('jwtToken', token)
     setAuthorizationToken(token)
     dispatch(setAuth(userData))
-    // dispatch(setError({}))
     return userData.id
   } catch (err) {
-    // dispatch(setError(err.response.data))
     throw new Error(err.response.data.message)
   }
 }

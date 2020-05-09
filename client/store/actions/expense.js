@@ -1,17 +1,12 @@
-import {
-  GET_USER_EXPENSE,
-  ADD_USER_EXPENSE,
-  DELETE_USER_EXPENSE,
-  UPDATE_USER_EXPENSE
-} from '../types'
-import axios from 'axios'
+import { GET_USER_EXPENSES, SELECT_USER_EXPENSE, ADD_USER_EXPENSE, DELETE_USER_EXPENSE, UPDATE_USER_EXPENSE } from '../types'
+import api from '../../api'
 
-export const getUserExpense = userId => async dispatch => {
+export const getUserExpenses = (userId) => async (dispatch) => {
   try {
-    const userExpense = await axios.get(`/api/v1/expense/${userId}`)
+    const { data } = await api.get(`/expense/${userId}`)
     dispatch({
-      type: GET_USER_EXPENSE,
-      payload: userExpense
+      type: GET_USER_EXPENSES,
+      payload: data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -19,12 +14,11 @@ export const getUserExpense = userId => async dispatch => {
   }
 }
 
-export const addUserExpense = (userId, data) => async dispatch => {
+export const selectUserExpense = (data) => (dispatch) => {
   try {
-    const userExpense = await axios.post(`/api/v1/expense/${userId}`, data)
     dispatch({
-      type: ADD_USER_EXPENSE,
-      payload: userExpense
+      type: SELECT_USER_EXPENSE,
+      payload: data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -32,13 +26,26 @@ export const addUserExpense = (userId, data) => async dispatch => {
   }
 }
 
-export const updateUserExpense = (expenseId, data) => async dispatch => {
+export const addUserExpense = (userId, expenseData) => async (dispatch) => {
   try {
-    // /axios/v1/expense/:expenseId
-    const userExpense = await axios.put(`/api/v1/expense/${expenseId}`, data)
+    const { data } = await api.post(`/expense/${userId}`, expenseData)
+    dispatch({
+      type: ADD_USER_EXPENSE,
+      payload: data
+    })
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log('error in addUserExpense Api Call')
+  }
+}
+
+export const updateUserExpense = (expenseId, expenseData) => async (dispatch) => {
+  try {
+    // /api/v1/expense/:expenseId
+    const { data } = await api.put(`/expense/${expenseId}`, expenseData)
     dispatch({
       type: UPDATE_USER_EXPENSE,
-      payload: userExpense
+      payload: data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -46,12 +53,12 @@ export const updateUserExpense = (expenseId, data) => async dispatch => {
   }
 }
 
-export const deleteUserExpense = expenseId => async dispatch => {
+export const deleteUserExpense = (expenseId) => async (dispatch) => {
   try {
-    const userExpense = await axios.delete(`/api/v1/expense/${expenseId}`)
+    const { data } = await api.delete(`/expense/${expenseId}`)
     dispatch({
       type: DELETE_USER_EXPENSE,
-      payload: userExpense
+      payload: data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
