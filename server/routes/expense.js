@@ -19,7 +19,13 @@ router.get('/:userId', (req, res) => {
 router.post('/:userId', (req, res) => {
   const { expenseName, categories, expenseAmount, frequency } = req.body
 
-  db.addUserExpense({ user_id: req.params.userId, categories, expense_name: expenseName, expense_amount: expenseAmount, frequency })
+  db.addUserExpense({
+    user_id: req.params.userId,
+    categories,
+    expense_name: expenseName,
+    expense_amount: expenseAmount,
+    frequency
+  })
     .then(camelcaseKeys)
     .then(expense => res.status(200).json(expense))
     .catch(err => {
