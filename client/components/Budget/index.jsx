@@ -29,4 +29,12 @@ class Budget extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  budget: state
+})
+
+const mapDispatchToProps = {
+  temp: null
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Budget)

@@ -5,7 +5,6 @@ function getUserBudget (userId, db = connection) {
     .where('user_id', userId)
     .select()
     .then(res => {
-      console.log(res)
       return res
     }
     ).then(goals => {
