@@ -57,8 +57,7 @@ class Header extends Component {
               </button>
               <button
                 onClick={this.handleOnClick('Update Expense')}
-                className="ui button expenseAdd"
-              >
+                className="ui button expenseAdd">
                 UPDATE
               </button>
               <button
