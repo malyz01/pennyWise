@@ -2,27 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { getUserGoals, addUserGoal, updateUserGoal, deleteUserGoals } from '../../../store/actions/goals'
-import { setModalGoalOpen, setModalGoalForm } from '../../../store/actions/modal'
+import { setModal } from '../../../store/actions/modal'
 import { Button } from 'semantic-ui-react'
 
 class Goal extends Component {
-  handleOnClick = (name) => (evt) => {
-    const {
-      updateUserGoal,
-      deleteUserGoals,
-      selected,
-      setModalGoalOpen,
-      setModalGoalForm
-    } = this.props
+  handleOnClick = (name) => () => {
+    const { updateUserGoal, deleteUserGoals, selected, setModal } = this.props
     if (name === 'Add Goal' || name === 'Update Goal') {
-      setModalGoalOpen(true)
-      setModalGoalForm(name)
+      setModal(name, true)
     }
     if (name === 'toggle') {
       selected.active = !selected.active
       return updateUserGoal(selected.id, selected)
     }
-    if (name === 'toggle') return deleteUserGoals(selected.id)
+    if (name === 'delete') return deleteUserGoals(selected.id)
   }
 
   render () {
@@ -58,7 +51,6 @@ const mapDispatchToProps = {
   addUserGoal,
   updateUserGoal,
   deleteUserGoals,
-  setModalGoalOpen,
-  setModalGoalForm
+  setModal
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Goal)
