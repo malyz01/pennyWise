@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
+import { getUserExpense } from '../../store/actions/expense'
 import './expense.css'
 
 import { setModalExpenseForm, setModalExpenseOpen } from '../../store/actions/modal'

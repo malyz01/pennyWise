@@ -1,7 +1,7 @@
 const connection = require('../connection')
 
-function getAllIncomes (db = connection) {
-  return db('income')
+function getAllGoals (db = connection) {
+  return db('goals')
     .select()
     .catch(err => {
       // eslint-disable-next-line no-console
@@ -9,8 +9,8 @@ function getAllIncomes (db = connection) {
     })
 }
 
-function getUserIncomes (userId, db = connection) {
-  return db('income')
+function getUserGoals (userId, db = connection) {
+  return db('goals')
     .where('user_id', userId)
     .select()
     .catch(err => {
@@ -19,10 +19,10 @@ function getUserIncomes (userId, db = connection) {
     })
 }
 
-function addIncome (data, db = connection) {
-  return db('income')
+function addGoal (data, db = connection) {
+  return db('goals')
     .insert(data)
-    .then(([id]) => db('income')
+    .then(([id]) => db('goals')
       .where('id', id)
       .select()
       .first())
@@ -32,34 +32,34 @@ function addIncome (data, db = connection) {
     })
 }
 
-function updateIncome (incomeId, data, db = connection) {
-  return db('income')
-    .where('id', incomeId)
+function updateGoal (goalId, data, db = connection) {
+  return db('goals')
+    .where('id', goalId)
     .update(data)
-    .then(() => db('income')
-      .where('id', incomeId)
+    .then(() => db('goals')
+      .where('id', goalId)
       .select()
       .first())
-    .catch((err) => {
+    .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-function deleteIncome (incomeId, db = connection) {
-  return db('income')
-    .where('id', incomeId)
+function deleteGoal (goalId, db = connection) {
+  return db('goals')
+    .where('id', goalId)
     .del()
-    .catch((err) => {
-      // eslint-disable-next-line no-console
+    .catch(err => {
+    // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
 module.exports = {
-  getAllIncomes,
-  getUserIncomes,
-  addIncome,
-  updateIncome,
-  deleteIncome
+  getAllGoals,
+  getUserGoals,
+  addGoal,
+  updateGoal,
+  deleteGoal
 }

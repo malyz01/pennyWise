@@ -1,40 +1,42 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import './profile.css'
 
 class BottomDetailsCardComponent extends React.Component {
   render () {
+    const { history } = this.props
     return (
       <div className='bottomCardDetailsContainer'>
-
         <div className='bottomButtonContainer'>
+          <button
+            className='ui right labeled icon button'
+            onClick={() => history.push('/income')}
+          >
+            <i className='right arrow icon'></i>
+            manage your income
+          </button>
 
-          <Link className="ui right labeled icon button">
-            <i className="right arrow icon"></i>
-                manage your income
-          </Link>
+          <button
+            className='ui right labeled icon button'
+            onClick={() => history.push('/expense')}
+          >
+            <i className='right arrow icon'></i>
+            manage your expenses
+          </button>
 
-          <Link className="ui right labeled icon button">
-            <i className="right arrow icon"></i>
-                manage your expenses
-          </Link>
-
-          <Link className="ui right labeled icon button">
-            <i className="right arrow icon"></i>
-                manage your budget
-          </Link>
-
-          <Link className="ui right labeled icon button">
-            <i className="right arrow icon"></i>
-                manage your goals
-          </Link>
+          <button
+            className='ui right labeled icon button'
+            onClick={() => history.push('/budget')}
+          >
+            <i className='right arrow icon'></i>
+            manage your budget
+          </button>
         </div>
         <div className='totalDisplayContainer'>
           <h1 className='totalDisplayTitle'>An Overview of your Finances</h1>
           <div className='totalDisplayBox'>
-
             <div className='totalOverview'>
               <p>Total Income</p>
               <p>Total Expenses</p>
@@ -49,10 +51,13 @@ class BottomDetailsCardComponent extends React.Component {
             </div>
           </div>
         </div>
-
       </div>
     )
   }
 }
 
-export default connect()(BottomDetailsCardComponent)
+const mapStateToProps = state => {
+  return { expense: state.expense }
+}
+
+export default connect(mapStateToProps)(withRouter(BottomDetailsCardComponent))

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Table, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+
 import './expense.css'
+import { getUserExpense } from '../../store/actions/expense'
 
 import { selectUserExpense } from '../../store/actions/expense'
 
 export class ExpenseTable extends Component {
+
   handleOnSelect = (e) => () => {
     const { data: { selected }, selectUserExpense } = this.props
     if (selected && selected.id === e.id) {

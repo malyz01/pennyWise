@@ -39,7 +39,7 @@ export const addUserExpense = (userId, data) => async (dispatch) => {
   }
 }
 
-export const updateUserExpense = (expenseId, data) => async (dispatch) => {
+export const updateUserExpense = (expenseId, data) => async dispatch => {
   try {
     // /api/v1/expense/:expenseId
     const { data } = await api.put(`/expense/${expenseId}`, data)
@@ -53,7 +53,7 @@ export const updateUserExpense = (expenseId, data) => async (dispatch) => {
   }
 }
 
-export const deleteUserExpense = (expenseId) => async (dispatch) => {
+export const deleteUserExpense = expenseId => async dispatch => {
   try {
     const { data } = await api.delete(`/expense/${expenseId}`)
     dispatch({
