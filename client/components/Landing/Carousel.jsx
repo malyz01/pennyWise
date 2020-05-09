@@ -12,7 +12,7 @@ const items = [
     img: '/images/image2.jpg'
   },
   {
-    text: 'Tools To Manage Your Mom',
+    text: 'Tools To Manage Your Budget',
     img: '/images/image3.jpg'
   }
 ]

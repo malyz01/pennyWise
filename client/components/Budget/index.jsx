@@ -1,6 +1,6 @@
 import React from 'react'
 import './budget.css'
-
+import './Goals'
 import BudgetCard from './BudgetCard'
 
 class Budget extends React.Component {
@@ -20,7 +20,7 @@ class Budget extends React.Component {
             <BudgetCard />
           </div>
         </div>
-
+        <Goals/>
       </div>
     )
   }
