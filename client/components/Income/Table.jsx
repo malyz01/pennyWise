@@ -4,47 +4,49 @@ import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
 
 import './income.css'
-import { getUserIncome } from '../../store/actions/income'
+import { selectUserIncome } from '../../store/actions/income'
 
 export class incomeTable extends Component {
-  componentDidMount () {
-    const { getUserIncome } = this.props
-    getUserIncome(this.props.userId)
+  handleOnSelect = e => () => {
+    const {
+      data: { selected },
+      selectUserIncome
+    } = this.props
+    if (selected && selected.id === e.id) return selectUserIncome(null)
+    selectUserIncome(e)
   }
 
   render () {
-    const { data } = this.props.userData
+    const { income, selected } = this.props.data
+    const select = selected || { id: 0 }
     return (
       <Fade>
         <Container className='incomeTable'>
           <Table singleLine>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Select</Table.HeaderCell>
                 <Table.HeaderCell>Income</Table.HeaderCell>
                 <Table.HeaderCell>Type</Table.HeaderCell>
                 <Table.HeaderCell>Frequency</Table.HeaderCell>
                 <Table.HeaderCell>Amount</Table.HeaderCell>
-                <Table.HeaderCell>State</Table.HeaderCell>
+                <Table.HeaderCell>Active</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
-              {data &&
-                data.map(item => {
-                  return (
-                    <Table.Row key={item.id}>
-                      <Table.Cell>
-                        <input type='checkbox' />
-                      </Table.Cell>
-                      <Table.Cell>Main</Table.Cell>
-                      <Table.Cell>{item.incomeType}</Table.Cell>
-                      <Table.Cell>Weekly</Table.Cell>
-                      <Table.Cell>{item.incomeAmount}</Table.Cell>
-                      <Table.Cell>ON</Table.Cell>
-                    </Table.Row>
-                  )
-                })}
+              {income.map((e, i) => (
+                <Table.Row
+                  onClick={this.handleOnSelect(e)}
+                  active={e.id === select.id}
+                  key={i}
+                >
+                  <Table.Cell>{e.incomeName}</Table.Cell>
+                  <Table.Cell>{e.incomeType}</Table.Cell>
+                  <Table.Cell>{e.frequency}</Table.Cell>
+                  <Table.Cell>{e.incomeAmount}</Table.Cell>
+                  <Table.Cell>{e.active ? 'Yes' : 'No'}</Table.Cell>
+                </Table.Row>
+              ))}
             </Table.Body>
           </Table>
         </Container>
@@ -53,15 +55,8 @@ export class incomeTable extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    userData: state.income,
-    userId: state.auth.user.id
-  }
-}
-
 const mapDispatchToProps = {
-  getUserIncome
+  selectUserIncome
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(incomeTable)
+export default connect(null, mapDispatchToProps)(incomeTable)

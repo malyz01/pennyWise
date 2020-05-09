@@ -15,7 +15,9 @@ class Header extends Component {
     if (action === 'Add Expense' || action === 'Update Expense') {
       setModalExpenseForm(action)
       setModalExpenseOpen(true)
+      return
     }
+
   }
 
   render () {
@@ -49,6 +51,10 @@ class Header extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  
+})
 
 const mapDispatchToProps = {
   setModalExpenseOpen,

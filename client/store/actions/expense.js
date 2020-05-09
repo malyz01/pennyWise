@@ -26,9 +26,9 @@ export const selectUserExpense = (data) => (dispatch) => {
   }
 }
 
-export const addUserExpense = (userId, userData) => async (dispatch) => {
+export const addUserExpense = (userId, expenseData) => async (dispatch) => {
   try {
-    const { data } = await api.post(`/expense/${userId}`, userData)
+    const { data } = await api.post(`/expense/${userId}`, expenseData)
     dispatch({
       type: ADD_USER_EXPENSE,
       payload: data
