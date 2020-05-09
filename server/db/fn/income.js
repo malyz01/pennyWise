@@ -39,8 +39,7 @@ function updateIncome (incomeId, data, db = connection) {
     .then(() => db('income')
       .where('id', incomeId)
       .select()
-      .first()
-    )
+      .first())
     .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
