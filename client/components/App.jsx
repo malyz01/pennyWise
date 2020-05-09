@@ -8,7 +8,7 @@ import Landing from './Landing'
 import Profile from './Profile'
 import Expense from './Expense'
 import Income from './Income'
-// import Budget from './Budget'
+import Budget from './Budget'
 import withAuth from './HOC/withAuth'
 
 const App = () => {
@@ -21,6 +21,8 @@ const App = () => {
           <Route exact path="/profile" component={withAuth(Profile)} />
           <Route exact path="/expense" component={withAuth(Expense)} />
           <Route exact path="/income" component={withAuth(Income)} />
+          <Route exact path="/budget" component={withAuth(Budget)} />
+
         </div>
       </HashRouter>
       <Footer />
