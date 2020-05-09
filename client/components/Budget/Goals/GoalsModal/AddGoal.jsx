@@ -4,10 +4,7 @@ import { Form, Button } from 'semantic-ui-react'
 import './goalModal.css'
 
 import { addUserGoal } from '../../../../store/actions/goals'
-import {
-  setModalGoalOpen,
-  setModalGoalForm
-} from '../../../../store/actions/modal'
+import { setModal } from '../../../../store/actions/modal'
 
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
@@ -31,8 +28,7 @@ export class Login extends Component {
 
   handleOnSubmit = async () => {
     await this.props.addUserGoal(this.props.userId, this.state)
-    this.props.setModalGoalOpen(false)
-    this.props.setModalGoalForm('')
+    this.props.setModal(null, false)
   }
 
   render () {
@@ -114,8 +110,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  setModalGoalOpen,
-  setModalGoalForm,
+  setModal,
   addUserGoal
 }
 
