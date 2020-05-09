@@ -61,10 +61,9 @@ router.put('/:incomeId', (req, res) => {
 // DELETE - /api/v1/income/:incomeId
 // postman testing COMPLETE
 router.delete('/:incomeId', (req, res) => {
-  db.deleteUserIncome(req.params.IncomeId)
-    .then(camelcaseKeys)
+  db.deleteUserIncome(req.params.incomeId)
     .then(() => {
-      res.status(200).json(req.params.IncomeId)
+      res.status(200).json(req.params.incomeId)
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
