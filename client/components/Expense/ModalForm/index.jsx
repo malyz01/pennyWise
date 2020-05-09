@@ -5,20 +5,21 @@ import './expenseModal.css'
 
 import AddExpense from './AddExpense'
 import UpdateExpense from './UpdateExpense'
-import { setModal } from '../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 export class ModalExpenseForm extends Component {
   close = () => {
-    this.props.setModal(null, false)
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
-    const { open, modal } = this.props
+    const { open, form } = this.props
     return (
       <Modal open={open} onClose={this.close} closeIcon>
         <Modal.Content className="expenseModalMainContainer">
-          {modal === 'Add Expense' && (<AddExpense />)}
-          {modal === 'Update Expense' && <UpdateExpense />}
+          {form === 'Add Expense' && (<AddExpense />)}
+          {form === 'Update Expense' && <UpdateExpense />}
         </Modal.Content>
       </Modal>
     )
@@ -26,8 +27,8 @@ export class ModalExpenseForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  modal: state.modal.expense.form,
-  open: state.modal.expense.open
+  form: state.modal.name,
+  open: state.modal.open
 })
 
-export default connect(mapStateToProps, { setModal })(ModalExpenseForm)
+export default connect(mapStateToProps, { setModalOpen, setModalName })(ModalExpenseForm)

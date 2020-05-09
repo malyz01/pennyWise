@@ -71,7 +71,7 @@ export class UpdateGoal extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  form: state.modal.goal.form,
+  form: state.modal.name,
   select: state.goal.selected
 })
 

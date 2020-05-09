@@ -82,7 +82,7 @@ export class Login extends Component {
 
 const mapStateToProps = state => ({
   userId: state.auth.user.id,
-  form: state.modal.expense.form
+  form: state.modal.name
 })
 
 const mapDispatchToProps = {

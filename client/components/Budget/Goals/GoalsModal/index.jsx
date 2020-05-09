@@ -27,7 +27,7 @@ export class ModalExpenseForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  form: state.modal.form,
+  form: state.modal.name,
   open: state.modal.open
 })
 

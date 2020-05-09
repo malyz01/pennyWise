@@ -12,7 +12,7 @@ import {
 } from '../types'
 
 const INITIAL_STATE = {
-  form: null,
+  name: null,
   open: false,
   auth: {
     form: '',
