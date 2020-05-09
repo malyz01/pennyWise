@@ -6,8 +6,11 @@ import './expense.css'
 import { selectUserExpense } from '../../store/actions/expense'
 
 export class ExpenseTable extends Component {
-  handleOnSelect = (e) => () => {
-    const { data: { selected }, selectUserExpense } = this.props
+  handleOnSelect = e => () => {
+    const {
+      data: { selected },
+      selectUserExpense
+    } = this.props
     if (selected && selected.id === e.id) {
       return selectUserExpense(null)
     }
@@ -18,7 +21,7 @@ export class ExpenseTable extends Component {
     const { expenses, selected } = this.props.data
     const select = selected || { id: 0 }
     return (
-      <Container className="expenseTable">
+      <Container className='expenseTable'>
         <Table inverted selectable singleLine>
           <Table.Header>
             <Table.Row>

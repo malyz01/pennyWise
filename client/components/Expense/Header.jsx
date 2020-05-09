@@ -6,7 +6,7 @@ import './expense.css'
 import { setModalExpenseForm, setModalExpenseOpen } from '../../store/actions/modal'
 
 class Header extends Component {
-  handleOnClick = (action) => () => {
+  handleOnClick = action => () => {
     const { setModalExpenseForm, setModalExpenseOpen } = this.props
     if (action === 'Add Expense' || action === 'Update Expense') {
       setModalExpenseForm(action)
@@ -16,26 +16,30 @@ class Header extends Component {
 
   render () {
     return (
-      <Container className="expenseHeader">
-        <div className="expenseHeaderTitle">OVERVIEW OF EXPENSES</div>
+      <Container className='expenseHeader'>
+        <div className='expenseHeaderTitle'>OVERVIEW OF EXPENSES</div>
         <hr />
-        <div className="expenseHeaderText">
+        <div className='expenseHeaderText'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque
           exercitationem sequi expedita cupiditate error nam laudantium ut quo
           quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore
           corporis!
         </div>
-        <div className="expenseButtons">
+        <div className='expenseButtons'>
           <button
             onClick={this.handleOnClick('Add Expense')}
-            className="ui button add expenseAdd">ADD EXPENSE
+            className='ui button add expenseAdd'
+          >
+            ADD EXPENSE
           </button>
-          <button className="ui button  expenseAdd">ON/OFF</button>
+          <button className='ui button  expenseAdd'>ON/OFF</button>
           <button
             onClick={this.handleOnClick('Update Expense')}
-            className="ui button expenseAdd">UPDATE
+            className='ui button expenseAdd'
+          >
+            UPDATE
           </button>
-          <button className="ui button  expenseAdd">DELETE</button>
+          <button className='ui button  expenseAdd'>DELETE</button>
         </div>
       </Container>
     )
