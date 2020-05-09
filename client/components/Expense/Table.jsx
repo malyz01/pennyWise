@@ -1,68 +1,61 @@
 import React, { Component } from 'react'
 import { Table, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import Fade from 'react-reveal/Fade'
 
 import './expense.css'
 import { getUserExpense } from '../../store/actions/expense'
 
-export class ExpenseTable extends Component {
-  componentDidMount () {
-    const { getUserExpense } = this.props
+import { selectUserExpense } from '../../store/actions/expense'
 
-    getUserExpense(this.props.userId)
+export class ExpenseTable extends Component {
+
+  handleOnSelect = (e) => () => {
+    const { data: { selected }, selectUserExpense } = this.props
+    if (selected && selected.id === e.id) {
+      return selectUserExpense(null)
+    }
+    selectUserExpense(e)
   }
 
   render () {
-    const { data } = this.props.userData
+    const { expenses, selected } = this.props.data
+    const select = selected || { id: 0 }
     return (
-      <Fade>
-        <Container className='expenseTable'>
-          <Table singleLine>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Select</Table.HeaderCell>
-                <Table.HeaderCell>Expense</Table.HeaderCell>
-                <Table.HeaderCell>Type</Table.HeaderCell>
-                <Table.HeaderCell>Frequency</Table.HeaderCell>
-                <Table.HeaderCell>Amount</Table.HeaderCell>
-                <Table.HeaderCell>State</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
+      <Container className="expenseTable">
+        <Table inverted selectable singleLine>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Expense</Table.HeaderCell>
+              <Table.HeaderCell>Type</Table.HeaderCell>
+              <Table.HeaderCell>Frequency</Table.HeaderCell>
+              <Table.HeaderCell>Amount</Table.HeaderCell>
+              <Table.HeaderCell>Active</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
 
-            <Table.Body>
-              {data &&
-                data.map(item => {
-                  return (
-                    <Table.Row key={item.id}>
-                      <Table.Cell>
-                        <input type='checkbox' />
-                      </Table.Cell>
-                      <Table.Cell>{item.expenseName}</Table.Cell>
-                      <Table.Cell>{item.categories}</Table.Cell>
-                      <Table.Cell>{item.frequency}</Table.Cell>
-                      <Table.Cell>{item.expenseAmount}</Table.Cell>
-                      <Table.Cell>ON</Table.Cell>
-                    </Table.Row>
-                  )
-                })}
-            </Table.Body>
-          </Table>
-        </Container>
-      </Fade>
+          <Table.Body>
+            {expenses.map((e, i) => (
+              <Table.Row
+                onClick={this.handleOnSelect(e)}
+                active={e.id === select.id}
+                key={i}
+              >
+                <Table.Cell>{e.expenseName}</Table.Cell>
+                <Table.Cell>{e.categories}</Table.Cell>
+                <Table.Cell>{e.frequency}</Table.Cell>
+                <Table.Cell>{e.expenseAmount}</Table.Cell>
+                <Table.Cell>{e.active ? 'Yes' : 'No'}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Container>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    userData: state.expense,
-    userId: state.auth.user.id
-  }
-}
-
 const mapDispatchToProps = {
-  getUserExpense
+  selectUserExpense
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseTable)
+export default connect(null, mapDispatchToProps)(ExpenseTable)

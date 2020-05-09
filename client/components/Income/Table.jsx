@@ -15,9 +15,8 @@ export class incomeTable extends Component {
   render () {
     const { data } = this.props.userData
     return (
-
       <Fade>
-        <Container className="incomeTable">
+        <Container className='incomeTable'>
           <Table singleLine>
             <Table.Header>
               <Table.Row>
@@ -31,11 +30,13 @@ export class incomeTable extends Component {
             </Table.Header>
 
             <Table.Body>
-              {
-                data && data.map(item => {
+              {data &&
+                data.map(item => {
                   return (
                     <Table.Row key={item.id}>
-                      <Table.Cell><input type="checkbox"/></Table.Cell>
+                      <Table.Cell>
+                        <input type='checkbox' />
+                      </Table.Cell>
                       <Table.Cell>Main</Table.Cell>
                       <Table.Cell>{item.incomeType}</Table.Cell>
                       <Table.Cell>Weekly</Table.Cell>
@@ -43,13 +44,11 @@ export class incomeTable extends Component {
                       <Table.Cell>ON</Table.Cell>
                     </Table.Row>
                   )
-                })
-              }
+                })}
             </Table.Body>
           </Table>
         </Container>
       </Fade>
-
     )
   }
 }

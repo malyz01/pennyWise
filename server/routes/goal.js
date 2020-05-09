@@ -1,66 +1,67 @@
 const router = require('express').Router()
 const camelcaseKeys = require('camelcase-keys')
 
-const db = require('../db/fn/income')
+const db = require('../db/fn/goal')
 
-// GET - /api/v1/income/
+// GET - api/v1/goal/
 // postman testing COMPLETE
 router.get('/', (req, res) => {
   return db
-    .getAllIncomes()
+    .getAllGoals()
     .then(camelcaseKeys)
-    .then((income) => res.json(income))
+    .then((goals) => res.json(goals))
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-// GET - /api/v1/income/:userId
+// GET - /api/v1/goal/:userId
 // postman testing COMPLETE
 router.get('/:userId', (req, res) => {
   return db
-    .getUserIncomes(req.params.userId)
+    .getUserGoals(req.params.userId)
     .then(camelcaseKeys)
-    .then(income => res.json(income))
+    .then(goals => res.json(goals))
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-// POST - /api/v1/income/:userId
+// POST - /api/v1/goal/:userId
 // postman testing COMPLETE
 router.post('/:userId', (req, res) => {
-  const newIncome = req.body
+  const newGoal = req.body
   return db
-    .addIncome({ user_id: req.params.userId, ...newIncome })
+    .addGoal({ user_id: req.params.userId, ...newGoal })
     .then(camelcaseKeys)
-    .then(income => res.status(200).json(income))
+    .then(goals => res.status(200).json(goals))
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-// PUT - /api/v1/income/:incomeId
+// PUT - /api/v1/goal/:userId
 // postman testing COMPLETE
-router.put('/:incomeId', (req, res) => {
+router.put('/:goalId', (req, res) => {
   return db
-    .updateIncome(req.params.incomeId, req.body)
+    .updateGoal(req.params.goalId, req.body)
     .then(camelcaseKeys)
-    .then(income => res.status(200).json(income))
+    .then(goal => res.status(200).json(goal))
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-// DELETE - /api/v1/income/:incomeId
+// DELETE - /api/v1/goal/:goalId
 // postman testing COMPLETE
-router.delete('/:incomeId', (req, res) => {
+router.delete('/:goalId', (req, res) => {
   return db
-    .deleteIncome(req.params.incomeId)
+    .deleteGoal(req.params.goalId)
     .then(camelcaseKeys)
-    .then(() => res.send(200).json(req.params.incomeId))
+    .then(() => res.send(200).json(req.params.goalId))
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
+
 module.exports = router

@@ -4,3 +4,8 @@ body {
 body h1{
   font-family: 'Raleway', sans-serif !important;
 }
+
+.ui.button.submitBtn {
+  background-color: #7363C8;
+  color: white
+}
