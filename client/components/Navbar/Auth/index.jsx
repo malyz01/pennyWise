@@ -16,7 +16,7 @@ class Auth extends Component {
   render () {
     const { open, modal } = this.props
     return (
-      <Modal open={open} onClose={this.close}>
+      <Modal open={open} onClose={this.close} closeIcon>
         <div className='authMainContainer'>
           <div className='authFormContainer'>
             <div className='authHeader'>{modal}</div>
