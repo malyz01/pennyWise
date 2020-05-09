@@ -17,8 +17,9 @@ router.get('/:userId', (req, res) => {
 // POST /api/v1/expense/:userId
 // Complete Postman Testing
 router.post('/:userId', (req, res) => {
-  const { expenseName: expense_name, categories, expenseAmount: expense_amount, frequency } = req.body
-  db.addUserExpense({ user_id: req.params.userId, categories, expense_name, expense_amount, frequency })
+  const { expenseName, categories, expenseAmount, frequency } = req.body
+
+  db.addUserExpense({ user_id: req.params.userId, categories, expense_name: expenseName, expense_amount: expenseAmount, frequency })
     .then(camelcaseKeys)
     .then(expense => res.status(200).json(expense))
     .catch(err => {
