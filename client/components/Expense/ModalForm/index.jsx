@@ -17,6 +17,7 @@ export class ModalExpenseForm extends Component {
     return (
       <Modal open={open} onClose={this.close} closeIcon>
         <Modal.Content className="expenseModalMainContainer">
+          <div></div>
           {modal === 'Add Expense' && (
             <AddExpense />
           )}
