@@ -31,13 +31,4 @@ export class BudgetCard extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   userId:
-
-// })
-
-// const mapDispatchToProps = {
-//   getUserBudget
-// }
-
 export default connect()(BudgetCard)
