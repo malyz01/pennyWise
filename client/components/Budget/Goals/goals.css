@@ -1,0 +1,52 @@
+.goalMainContainer{
+  margin: 10% 0 10% 0
+}
+
+.goalHeaderTitle {
+  text-align: center;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  letter-spacing:5px;
+  color:white;
+  text-shadow: 0px 3px 7px black;
+}
+.goalButtons{
+  display: flex;
+  margin-top:50px;
+  margin-bottom:50px;
+  width:100%;
+  
+}
+.goalButtons .button{
+  flex-grow: 1;
+  margin-left:20px;
+  margin-right:20px;
+  letter-spacing: 10px;
+  padding:15px;
+  border-radius:30px;
+  font-size: 0.8rem;
+  background: #bd9cdf !important;
+  color:white;
+  transition:500ms;
+  text-shadow: 1px 1px 2px black;
+}
+.goalButtons .button:hover{
+  background:#8b71a5 !important;
+  color: white;
+  transform: scale(1.1); 
+  transition: all .2s ease-in-out;
+}
+.goalButtons .button.add{
+  background:rgb(219, 219, 219) !important;
+  color:black;
+  text-shadow:none;
+}
+.goalButtons .button.add:hover{
+  background:white !important;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1); 
+}
+
+.pointerCursor {
+  cursor: pointer;
+}

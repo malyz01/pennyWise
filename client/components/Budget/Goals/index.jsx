@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import GoalsTable from './GoalsTable'
 import { getUserGoals, addUserGoal, updateUserGoal, deleteUserGoals } from '../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
-import { Button } from 'semantic-ui-react'
+import './goals.css'
 
 class Goals extends Component {
   handleOnClick = (name) => () => {
@@ -22,19 +22,22 @@ class Goals extends Component {
   render () {
     return (
       <div className="goalMainContainer">
-        <div className="goalHeader">
+        <div className="goalTableHeader">
+          <div className="goalHeaderTitle">
           SPECIFY INCOME ALLOCATION FOR YOUR GOALS
+          </div>
+          <hr className="titles"/>
         </div>
-        <div className="goalBtnContainer">
-          <Button onClick={this.handleOnClick('Add Goal')}>ADD GOAL</Button>
-          {this.props.selected && (
-            <>
-              <Button onClick={this.handleOnClick('toggle')}>ON/OFF</Button>
-              <Button onClick={this.handleOnClick('delete')}>DELETE</Button>
-              <Button onClick={this.handleOnClick('Update Goal')}>
+        <div className="goalButtons">
+          <button className="ui button add"onClick={this.handleOnClick('Add Goal')}>ADD GOAL</button>
+          {this.props.selected && this.props.goals && (
+              <>
+                <button className="ui button" onClick={this.handleOnClick('toggle')}>ON/OFF</button>
+                <button className="ui button" onClick={this.handleOnClick('delete')}>DELETE</button>
+                <button className="ui button" onClick={this.handleOnClick('Update Goal')}>
                 UPDATE
-              </Button>
-            </>
+                </button>
+              </>
           )}
         </div>
         <GoalsTable/>
