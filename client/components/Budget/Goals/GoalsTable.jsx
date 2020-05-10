@@ -21,7 +21,7 @@ class GoalsTable extends Component {
   render () {
     return (
       <Fade>
-        <Table inverted selectable>
+        <Table inverted>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Goal Name</Table.HeaderCell>
