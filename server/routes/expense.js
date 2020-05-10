@@ -2,21 +2,22 @@ const router = require('express').Router()
 const camelcaseKeys = require('camelcase-keys')
 
 const db = require('../db/fn/expense')
+const { isLoggedInAndOwner } = require('../middleware')
 
 // GET - /api/v1/expense/:userId
 // Complete Postman Testing
-router.get('/:userId', (req, res) => {
+router.get('/:userId', isLoggedInAndOwner, (req, res, next) => {
   db.getUserExpenses(req.params.userId)
     .then(camelcaseKeys)
-    .then(expenses => res.status(200).json(expenses))
-    .catch(err => {
+    .then((expenses) => res.status(200).json(expenses))
+    .catch((err) => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
 
 // POST /api/v1/expense/:userId
 // Complete Postman Testing
-router.post('/:userId', (req, res) => {
+router.post('/:userId', isLoggedInAndOwner, (req, res) => {
   const { expenseName, categories, expenseAmount, frequency } = req.body
 
   db.addUserExpense({

@@ -1,4 +1,5 @@
 const connection = require('../connection')
+const snakeCaseKeys = require('snakecase-keys')
 
 function getAllIncomes (db = connection) {
   return db('income')
@@ -21,7 +22,7 @@ function getUserIncomes (userId, db = connection) {
 
 function addUserIncome (data, db = connection) {
   return db('income')
-    .insert(data)
+    .insert(snakeCaseKeys(data))
     .then(([id]) =>
       db('income')
         .where('id', id)
@@ -37,22 +38,9 @@ function addUserIncome (data, db = connection) {
 function updateUserIncome (incomeId, data, db = connection) {
   return db('income')
     .where('id', incomeId)
-    .update({
-      id: data.id,
-      user_id: data.userId,
-      income_name: data.incomeName,
-      categories: data.categories,
-      frequency: data.frequency,
-      income_amount: data.incomeAmount,
-      active: data.active
-    })
-    .then(() =>
-      db('income')
-        .where('id', incomeId)
-        .select()
-        .first()
-    )
-    .catch(err => {
+    .update(snakeCaseKeys(data))
+    .then(() => db('income').where('id', incomeId).select().first())
+    .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
     })

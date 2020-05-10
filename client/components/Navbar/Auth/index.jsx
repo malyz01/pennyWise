@@ -5,18 +5,18 @@ import './auth.css'
 
 import Login from './Login'
 import Signup from './Signup'
-import { setModalAuthOpen, setModalAuthForm } from '../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 class Auth extends Component {
   close = () => {
-    this.props.setModalAuthOpen(false)
-    this.props.setModalAuthForm('')
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
     const { open, modal } = this.props
     return (
-      <Modal open={open} onClose={this.close}>
+      <Modal open={open} onClose={this.close} closeIcon>
         <div className='authMainContainer'>
           <div className='authFormContainer'>
             <div className='authHeader'>{modal}</div>
@@ -31,13 +31,13 @@ class Auth extends Component {
 }
 
 const mapStateToProps = state => ({
-  modal: state.modal.auth.form,
-  open: state.modal.auth.open
+  modal: state.modal.name,
+  open: state.modal.open
 })
 
 const mapDispatchToProps = {
-  setModalAuthOpen,
-  setModalAuthForm
+  setModalOpen,
+  setModalName
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth)
