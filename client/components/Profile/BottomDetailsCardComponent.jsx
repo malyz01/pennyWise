@@ -19,7 +19,7 @@ class BottomDetailsCardComponent extends React.Component {
     this.setState({ income: income.reduce((ac, va) => {
       if (va.frequency === 'Monthly') {
         va.incomeAmount = va.incomeAmount * 12 / 52
-      } else if (va.frequency === 'Yearly') {
+      } else if (va.frequency === 'Annually') {
         va.incomeAmount = va.incomeAmount / 52
       }
       return (ac + va.incomeAmount)
@@ -33,7 +33,7 @@ class BottomDetailsCardComponent extends React.Component {
       if (va.frequency === 'Monthly') {
         va.expenseAmount = va.expenseAmount * 12 / 52
       }
-      if (va.frequency === 'Yearly') {
+      if (va.frequency === 'Annually') {
         va.expenseAmount = va.expenseAmount / 52
       }
       return (ac + va.expenseAmount)

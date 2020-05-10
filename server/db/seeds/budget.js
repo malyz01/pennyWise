@@ -98,7 +98,7 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'Vacation',
           target_budget: 1000,
-          target_date: '01-06-2020',
+          target_date: '2020-06-01',
           budget_distribution: 100
         },
         {
@@ -106,7 +106,7 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'House Repairs',
           target_budget: 1000,
-          target_date: '20-11-2020',
+          target_date: '2020-11-20',
           budget_distribution: 100
         },
         {
@@ -114,7 +114,7 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'New Car',
           target_budget: 1000,
-          target_date: '01-02-2021',
+          target_date: '2021-02-01',
           budget_distribution: 100
         },
         {
@@ -122,7 +122,7 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'New Celphone',
           target_budget: 1000,
-          target_date: '15-07-2020',
+          target_date: '2020-07-15',
           budget_distribution: 100
         },
         {
@@ -130,7 +130,7 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'New Computer',
           target_budget: 1000,
-          target_date: '01-08-2020',
+          target_date: '2020-08-01',
           budget_distribution: 100
         },
         {
@@ -138,7 +138,7 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'Christmas Money',
           target_budget: 1000,
-          target_date: '01-12-2020',
+          target_date: '2020-12-01',
           budget_distribution: 100
         },
         {
@@ -146,7 +146,7 @@ exports.seed = knex =>
           user_id: 1006,
           goal_name: 'Rottweiler Puppy',
           target_budget: 3000,
-          target_date: '01-11-2021',
+          target_date: '2021-11-01',
           budget_distribution: 100
         },
         {
@@ -154,7 +154,7 @@ exports.seed = knex =>
           user_id: 1006,
           goal_name: 'Wide Screen TV',
           target_budget: 1000,
-          target_date: '01-07-2020',
+          target_date: '2020-07-01',
           budget_distribution: 100
         },
         {
@@ -162,7 +162,7 @@ exports.seed = knex =>
           user_id: 1006,
           goal_name: 'Jeep Wrangler',
           target_budget: 20000,
-          target_date: '01-12-2021',
+          target_date: '2021-12-01',
           budget_distribution: 150
         },
         {
@@ -170,7 +170,7 @@ exports.seed = knex =>
           user_id: 1002,
           goal_name: 'Family Reunion',
           target_budget: 2000,
-          target_date: '01-09-2020',
+          target_date: '2020-09-01',
           budget_distribution: 80
         },
         {
@@ -178,7 +178,7 @@ exports.seed = knex =>
           user_id: 1002,
           goal_name: 'Surf Board',
           target_budget: 1000,
-          target_date: '01-12-2020',
+          target_date: '2020-12-01',
           budget_distribution: 100
         },
         {
@@ -186,7 +186,7 @@ exports.seed = knex =>
           user_id: 1003,
           goal_name: 'Playstation 5',
           target_budget: 800,
-          target_date: '01-12-2020',
+          target_date: '2020-12-01',
           budget_distribution: 50
         },
         {
@@ -194,7 +194,7 @@ exports.seed = knex =>
           user_id: 1003,
           goal_name: 'Scooter',
           target_budget: 500,
-          target_date: '10-06-2020',
+          target_date: '2020-06-10',
           budget_distribution: 70
         },
         {
@@ -202,7 +202,7 @@ exports.seed = knex =>
           user_id: 1004,
           goal_name: 'Jacuzzi',
           target_budget: 5000,
-          target_date: '03-03-2021',
+          target_date: '2021-03-03',
           budget_distribution: 70
         },
         {
@@ -210,7 +210,7 @@ exports.seed = knex =>
           user_id: 1004,
           goal_name: 'Garden Patio Set',
           target_budget: 1500,
-          target_date: '01-09-2020',
+          target_date: '2020-09-01',
           budget_distribution: 100
         },
         {
@@ -218,7 +218,7 @@ exports.seed = knex =>
           user_id: 1005,
           goal_name: 'Car Tools',
           target_budget: 1000,
-          target_date: '20-08-2020',
+          target_date: '2020-08-20',
           budget_distribution: 60
         },
         {
@@ -226,7 +226,7 @@ exports.seed = knex =>
           user_id: 1005,
           goal_name: 'Multifuction Printer',
           target_budget: 1000,
-          target_date: '11-12-2020',
+          target_date: '2020-12-11',
           budget_distribution: 120
         }
 
