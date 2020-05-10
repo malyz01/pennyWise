@@ -92,12 +92,6 @@
    margin-bottom: 1px;
 } 
 
-.line {
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-
 /* .budgetMainContainer{
     margin: auto;
     background-color: #3D3055;
