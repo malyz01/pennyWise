@@ -13,7 +13,6 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-
   const { type, payload = null } = action
 
   switch (type) {
@@ -49,8 +48,6 @@ export default (state = INITIAL_STATE, action) => {
         selected: null
       }
     case SELECT_USER_GOALS:
-      console.log(state)
-      console.log(payload)
       if (state.selected && state.selected.id === payload.id) {
         return {
           ...state, selected: null
