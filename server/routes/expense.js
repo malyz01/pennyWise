@@ -28,7 +28,7 @@ router.post('/:userId', isLoggedInAndOwner, (req, res) => {
 
 // PUT - /api/v1/expense/:expenseId
 // Complete Postman Testing
-router.put('/:expenseId/user/:userId', (req, res) => {
+router.put('/:expenseId', (req, res) => {
   db.updateUserExpense(req.params.expenseId, req.body)
     .then(camelcaseKeys)
     .then(d => {
