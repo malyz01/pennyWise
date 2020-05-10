@@ -7,8 +7,6 @@ import Goals from './Goals'
 import BudgetCard from './BudgetCard'
 import GoalModal from './Goals/GoalsModal'
 import { getUserBudget } from '../../store/actions/budget'
-import { Container } from 'semantic-ui-react'
-
 
 class Budget extends React.Component {
   componentDidMount () {
