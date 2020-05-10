@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   return db
     .getAllIncomes()
     .then(camelcaseKeys)
-    .then((income) => res.json(income))
+    .then(income => res.json(income))
     .catch(err => {
       res.status(500).send(err.message)
     })
@@ -30,13 +30,19 @@ router.get('/:userId', (req, res) => {
 // POST - /api/v1/income/:userId
 // postman testing COMPLETE
 router.post('/:userId', (req, res) => {
-  const newIncome = req.body
+  const { incomeName, incomeType, incomeAmount, frequency } = req.body
   return db
-    .addIncome({ user_id: req.params.userId, ...newIncome })
+    .addUserIncome({
+      user_id: req.params.userId,
+      income_type: incomeType,
+      income_name: incomeName,
+      income_amount: incomeAmount,
+      frequency
+    })
     .then(camelcaseKeys)
     .then(income => res.status(200).json(income))
     .catch(err => {
-      res.status(500).send(err.message)
+      res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
 
@@ -44,7 +50,7 @@ router.post('/:userId', (req, res) => {
 // postman testing COMPLETE
 router.put('/:incomeId', (req, res) => {
   return db
-    .updateIncome(req.params.incomeId, req.body)
+    .updateUserIncome(req.params.incomeId, req.body)
     .then(camelcaseKeys)
     .then(income => res.status(200).json(income))
     .catch(err => {
@@ -55,12 +61,13 @@ router.put('/:incomeId', (req, res) => {
 // DELETE - /api/v1/income/:incomeId
 // postman testing COMPLETE
 router.delete('/:incomeId', (req, res) => {
-  return db
-    .deleteIncome(req.params.incomeId)
-    .then(camelcaseKeys)
-    .then(() => res.send(200).json(req.params.incomeId))
+  db.deleteUserIncome(req.params.incomeId)
+    .then(() => {
+      res.status(200).json(req.params.incomeId)
+    })
     .catch(err => {
-      res.status(500).send(err.message)
+      res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
+
 module.exports = router

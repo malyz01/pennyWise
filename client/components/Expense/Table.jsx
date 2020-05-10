@@ -11,9 +11,7 @@ export class ExpenseTable extends Component {
       data: { selected },
       selectUserExpense
     } = this.props
-    if (selected && selected.id === e.id) {
-      return selectUserExpense(null)
-    }
+    if (selected && selected.id === e.id) return selectUserExpense(null)
     selectUserExpense(e)
   }
 

@@ -4,6 +4,7 @@ import { Modal } from 'semantic-ui-react'
 import './modal.css'
 
 import AddExpense from './AddExpense'
+import UpdateExpense from './UpdateExpense'
 import { setModalExpenseOpen, setModalExpenseForm } from '../../../store/actions/modal'
 
 export class ModalExpenseForm extends Component {
@@ -17,11 +18,8 @@ export class ModalExpenseForm extends Component {
     return (
       <Modal open={open} onClose={this.close} closeIcon>
         <Modal.Content className="expenseModalMainContainer">
-          <div></div>
-          {modal === 'Add Expense' && (
-            <AddExpense />
-          )}
-          {modal === 'Update Expense' && 'Update expense form'}
+          {modal === 'Add Expense' && (<AddExpense />)}
+          {modal === 'Update Expense' && <UpdateExpense />}
         </Modal.Content>
       </Modal>
     )

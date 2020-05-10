@@ -3,52 +3,87 @@ import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import './expense.css'
 
-import { setModalExpenseForm, setModalExpenseOpen } from '../../store/actions/modal'
+import {
+  setModalExpenseForm,
+  setModalExpenseOpen
+} from '../../store/actions/modal'
+import { updateUserExpense, deleteUserExpense } from '../../store/actions/expense'
 
 class Header extends Component {
   handleOnClick = action => () => {
-    const { setModalExpenseForm, setModalExpenseOpen } = this.props
+    const {
+      setModalExpenseForm,
+      setModalExpenseOpen,
+      updateUserExpense,
+      deleteUserExpense,
+      selected
+    } = this.props
     if (action === 'Add Expense' || action === 'Update Expense') {
       setModalExpenseForm(action)
       setModalExpenseOpen(true)
     }
+    if (action === 'active') {
+      selected.active = !selected.active
+      updateUserExpense(selected.id, selected)
+    }
+    if (action === 'delete') deleteUserExpense(selected.id)
   }
 
   render () {
     return (
-      <Container className='expenseHeader'>
-        <div className='expenseHeaderTitle'>OVERVIEW OF EXPENSES</div>
+      <Container className="expenseHeader">
+        <div className="expenseHeaderTitle">OVERVIEW OF EXPENSES</div>
         <hr />
-        <div className='expenseHeaderText'>
+        <div className="expenseHeaderText">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque
           exercitationem sequi expedita cupiditate error nam laudantium ut quo
           quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore
           corporis!
         </div>
-        <div className='expenseButtons'>
+        <div className="expenseButtons">
           <button
             onClick={this.handleOnClick('Add Expense')}
-            className='ui button add expenseAdd'
+            className="ui button add expenseAdd"
           >
             ADD EXPENSE
           </button>
-          <button className='ui button  expenseAdd'>ON/OFF</button>
-          <button
-            onClick={this.handleOnClick('Update Expense')}
-            className='ui button expenseAdd'
-          >
-            UPDATE
-          </button>
-          <button className='ui button  expenseAdd'>DELETE</button>
+          {this.props.selected && (
+            <>
+              <button
+                onClick={this.handleOnClick('active')}
+                className="ui button  expenseAdd"
+              >
+                ON/OFF
+              </button>
+              <button
+                onClick={this.handleOnClick('Update Expense')}
+                className="ui button expenseAdd"
+              >
+                UPDATE
+              </button>
+              <button
+                onClick={this.handleOnClick('delete')}
+                className="ui button  expenseAdd"
+              >
+                DELETE
+              </button>
+            </>
+          )}
         </div>
       </Container>
     )
   }
 }
 
+const mapStateToProps = state => ({
+  selected: state.expense.selected
+})
+
 const mapDispatchToProps = {
   setModalExpenseOpen,
-  setModalExpenseForm
+  setModalExpenseForm,
+  updateUserExpense,
+  deleteUserExpense
 }
 
-export default connect(null, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
