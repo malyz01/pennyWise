@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import './budget.css'
 
-import { connect } from 'react-redux'
+import h from './helper'
 
-export class BudgetCard extends Component {
-  render() {
+class BudgetCard extends Component {
+  render () {
+    console.log(this.props.goal)
     return (
-      <div className='topCardComponent'>
+      <div className="topCardComponent">
         <div className="topCardWrapper">
           <div className="budgetRow">
             <div className="colLeft">
               <h2 style={{ color: 'white' }}>Frequency:</h2>
             </div>
             <div className="colRight">
-              <h2 style={{ color: 'white' }}>$0.50</h2>
+              <h2 style={{ color: 'white' }}>$ {this.props.goal && this.props.goal.length > 0 && h.ctw(h.getTotalFrequency(this.props.goal))}</h2>
             </div>
           </div>
           <hr style={{ marginBottom: '20px' }} />
@@ -22,7 +23,6 @@ export class BudgetCard extends Component {
               <h2 style={{ color: 'white' }}>Total Budget:</h2>
             </div>
             <div className="colRight">
-
               <h2 style={{ color: 'white' }}>$0.50</h2>
             </div>
           </div>
@@ -32,7 +32,6 @@ export class BudgetCard extends Component {
               <h2 style={{ color: 'white' }}> Allocated Budget:</h2>
             </div>
             <div className="colRight">
-
               <h2 style={{ color: 'white' }}>$0.50</h2>
             </div>
           </div>
@@ -42,7 +41,6 @@ export class BudgetCard extends Component {
               <h2 style={{ color: 'white' }}>Un-Allocated Budget:</h2>
             </div>
             <div className="colRight">
-
               <h2 style={{ color: 'white' }}>$0.50</h2>
             </div>
           </div>
@@ -52,4 +50,4 @@ export class BudgetCard extends Component {
   }
 }
 
-export default connect()(BudgetCard)
+export default BudgetCard
