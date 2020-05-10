@@ -35,7 +35,7 @@ class GoalsTable extends Component {
           </Table.Header>
           <Table.Body>
             {
-              !this.props.goals.length && this.props.goals.map((goal) => {
+              this.props.goals.map((goal) => {
                 return <Table.Row className='pointerCursor' key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{goal.targetBudget}</Table.Cell>
