@@ -15,11 +15,11 @@ const options = [
 export class Login extends Component {
   state = {
     goalName: '',
-    targetBudget: 0,
-    currentAmount: 0,
+    targetBudget: '',
+    currentAmount: '',
     frequency: 'Weekly',
     targetDate: '',
-    budgetDistribution: 0
+    budgetDistribution: ''
   }
 
   handleOnChange = (e, { name, value }) => {
@@ -37,6 +37,7 @@ export class Login extends Component {
       goalName,
       targetBudget,
       currentAmount,
+      frequency,
       targetDate,
       budgetDistribution
     } = this.state
@@ -47,7 +48,7 @@ export class Login extends Component {
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
           <Form.Field>
             <Form.Input
-
+              value={goalName}
               onChange={this.handleOnChange}
               name="goalName"
               type="text"
@@ -56,30 +57,32 @@ export class Login extends Component {
           </Form.Field>
           <Form.Field>
             <Form.Input
-
+              value={targetBudget}
               onChange={this.handleOnChange}
               name="targetBudget"
-              type="text"
+              type="number"
               placeholder="goal amount"
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-
+              value={currentAmount}
               onChange={this.handleOnChange}
               name="currentAmount"
-              type="text"
+              type="number"
               placeholder="current amount"
             />
           </Form.Field>
           <Form.Select
+            defaultValue={frequency}
             name="frequency"
             onChange={this.handleOnChange}
             placeholder="frequency"
+            options={options}
           />
           <Form.Field>
             <Form.Input
-
+              value={targetDate}
               onChange={this.handleOnChange}
               name="targetDate"
               type="date"
@@ -88,10 +91,10 @@ export class Login extends Component {
           </Form.Field>
           <Form.Field>
             <Form.Input
-
+              value={budgetDistribution}
               onChange={this.handleOnChange}
               name="budgetDistribution"
-              type="text"
+              type="number"
               placeholder="budget distribution"
             />
           </Form.Field>
