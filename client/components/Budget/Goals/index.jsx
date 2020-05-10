@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import GoalsTable from './GoalsTable'
 import { getUserGoals, addUserGoal, updateUserGoal, deleteUserGoals } from '../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 import { Button } from 'semantic-ui-react'
 
-class Goal extends Component {
+class Goals extends Component {
   handleOnClick = (name) => () => {
     const { updateUserGoal, deleteUserGoals, selected } = this.props
     if (name === 'Add Goal' || name === 'Update Goal') {
@@ -37,6 +37,7 @@ class Goal extends Component {
             </>
           )}
         </div>
+        <GoalsTable/>
       </div>
     )
   }
@@ -55,4 +56,4 @@ const mapDispatchToProps = {
   setModalOpen,
   setModalName
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Goal)
+export default connect(mapStateToProps, mapDispatchToProps)(Goals)

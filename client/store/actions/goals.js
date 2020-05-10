@@ -1,4 +1,4 @@
-import { ADD_USER_GOALS, DELETE_USER_GOALS, GET_USER_GOALS, UPDATE_USER_GOALS } from '../types'
+import { ADD_USER_GOALS, DELETE_USER_GOALS, SELECT_USER_GOALS, GET_USER_GOALS, UPDATE_USER_GOALS } from '../types'
 import api from '../../api'
 
 export const getUserGoals = (userId) => async (dispatch) => {
@@ -39,7 +39,17 @@ export const updateUserGoal = (goalsId, data) => async (dispatch) => {
     console.log('error in updateUserGoals Api Call')
   }
 }
-
+export const selectUserGoal = data => dispatch => {
+  try {
+    dispatch({
+      type: SELECT_USER_GOALS,
+      payload: data
+    })
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log('error in addUserExpense Api Call')
+  }
+}
 export const deleteUserGoals = (goalsId) => async (dispatch) => {
   try {
     const userGoals = await api.delete(`/goals/${goalsId}`)
