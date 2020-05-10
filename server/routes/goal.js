@@ -58,7 +58,7 @@ router.delete('/:goalId', (req, res) => {
   return db
     .deleteGoal(req.params.goalId)
     .then(camelcaseKeys)
-    .then(() => res.send(200).json(req.params.goalId))
+    .then(() => res.status(200).json(req.params.goalId))
     .catch(err => {
       res.status(500).send(err.message)
     })

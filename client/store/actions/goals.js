@@ -6,7 +6,7 @@ export const getUserGoals = (userId) => async (dispatch) => {
     const userGoals = await api.get(`/goals/${userId}`)
     dispatch({
       type: GET_USER_GOALS,
-      payload: userGoals
+      payload: userGoals.data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -19,7 +19,7 @@ export const addUserGoal = (userId, data) => async (dispatch) => {
     const userGoal = await api.post(`/goals/${userId}`, data)
     dispatch({
       type: ADD_USER_GOALS,
-      payload: userGoal
+      payload: userGoal.data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -32,7 +32,7 @@ export const updateUserGoal = (goalsId, data) => async (dispatch) => {
     const userGoals = await api.put(`/goals/${goalsId}`, data)
     dispatch({
       type: UPDATE_USER_GOALS,
-      payload: userGoals
+      payload: userGoals.data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -53,12 +53,16 @@ export const selectUserGoal = data => dispatch => {
 export const deleteUserGoals = (goalsId) => async (dispatch) => {
   try {
     const userGoals = await api.delete(`/goals/${goalsId}`)
+    console.log(userGoals);
+    
     dispatch({
       type: DELETE_USER_GOALS,
-      payload: userGoals
+      payload: userGoals.data
     })
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in deleteUserGoals Api Call')
+    console.log(err);
+    
   }
 }

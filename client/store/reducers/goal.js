@@ -4,7 +4,7 @@ import {
   DELETE_USER_GOALS,
   UPDATE_USER_GOALS,
   CLEAR_USER_GOALS,
-  SELECT_USER_GOALS,
+  SELECT_USER_GOALS
 } from '../types'
 
 const INITIAL_STATE = {
@@ -13,14 +13,25 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(state)
+
   const { type, payload = null } = action
+
   switch (type) {
     case GET_USER_GOALS:
       return { ...state, all: payload }
     case ADD_USER_GOALS:
-      return { ...state, all: [...state.all, payload] }
+      return { ...state, all: [...state.goal.all, payload] }
     case DELETE_USER_GOALS:
-      return { ...state, all: state.all.filter(goal => goal !== payload) }
+      return { ...state,
+        all: state.all.filter(goal => {
+          if (goal.id !== Number(payload)) {
+            console.log(goal.id)
+            console.log(payload)
+            return true
+          }
+          return false
+        }) }
     case UPDATE_USER_GOALS:
       return { ...state,
         all: state.all.map(goal => {

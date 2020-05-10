@@ -10,7 +10,6 @@ class GoalsTable extends Component {
     this.props.selectUserGoal(goal)
   }
   render () {
-    console.log(this.props.goals)
     return (
       <Table>
         <Table.Header>
@@ -38,7 +37,7 @@ class GoalsTable extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    goals: state.goal.all.data,
+    goals: state.goal.all,
     selected: state.goal.selected,
     userId: state.auth.user.id
   }
