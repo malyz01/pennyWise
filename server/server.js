@@ -3,7 +3,6 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const server = express()
-const { isLoggedIn } = require('./middleware')
 
 server.use(cors())
 server.use(express.urlencoded({ extended: false }))
