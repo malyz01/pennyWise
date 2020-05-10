@@ -13,7 +13,6 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(state)
 
   const { type, payload = null } = action
 
@@ -33,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_USER_GOALS:
       return { ...state,
         all: state.all.map(goal => {
-          if (goal.id === payload.id) {
+          if (goal.id === Number(payload.id)) {
             return payload
           }
           return goal
