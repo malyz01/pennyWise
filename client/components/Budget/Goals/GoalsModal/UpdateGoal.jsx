@@ -16,28 +16,39 @@ export class UpdateGoal extends Component {
   state = {
     currentAmount: this.props.select.currentAmount,
     budgetDistribution: this.props.select.budgetDistribution,
-    frequency: this.props.select.frequency
+    frequency: this.props.select.frequency,
+    money: 0
   }
 
   handleOnChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
-
+  handleMoney = (evt) => {
+    this.setState({ [evt.target.name]: evt.target.value })
+  }
   handleOnSubmit = async () => {
-    await this.props.updateUserGoal(this.props.select.id, this.state)
+    const { currentAmount, budgetDistribution, frequency } = this.state
+    await this.props.updateUserGoal(this.props.select.id, { currentAmount, budgetDistribution, frequency })
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
-
+  updateMoney = (type) => {
+    if (type === 'add') {
+      this.setState({ currentAmount: this.state.currentAmount + Number(this.state.money) })
+    }
+    if (type === 'submit') {
+      this.setState({ currentAmount: this.state.currentAmount - Number(this.state.money) })
+    }
+  }
   render () {
     const { currentAmount, budgetDistribution, frequency } = this.state
     return (
       <div className="goalModalFormContainer">
         <div className="goalModalHeader">Add Funds To Your Goal</div>
         <div className="divider" />
-        <label>{`Your Current Amount ${this.props.select.currentAmount}`}</label>
-        <input type="number" placeholder="add money"/><button className="ui button green">+</button>
-        <input type="number" placeholder="remove money"/><button className="ui button red">-</button>
+        <label>{`Your Current Amount is $${this.state.currentAmount}`}</label>
+        <input type="number" placeholder="add money" name="money" onChange={this.handleMoney}/><button onClick={() => this.updateMoney('add')}className="ui button green">+</button>
+        <button onClick={() => this.updateMoney('subtract')} className="ui button red">-</button>
         <div className="goalModalHeader">{this.props.form}</div>
         <div className="divider" />
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
