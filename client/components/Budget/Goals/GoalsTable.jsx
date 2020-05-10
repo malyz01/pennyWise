@@ -27,7 +27,7 @@ class GoalsTable extends Component {
             <Table.HeaderCell>Goal Name</Table.HeaderCell>
             <Table.HeaderCell>Target Budget</Table.HeaderCell>
             <Table.HeaderCell>Target Date</Table.HeaderCell>
-            <Table.HeaderCell>Time Remaining</Table.HeaderCell>
+            <Table.HeaderCell>Period</Table.HeaderCell>
             <Table.HeaderCell>Current Amount</Table.HeaderCell>
             <Table.HeaderCell>Contributions</Table.HeaderCell>
             <Table.HeaderCell>Active</Table.HeaderCell>
