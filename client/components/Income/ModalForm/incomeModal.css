@@ -1,0 +1,19 @@
+.incomeModalMainContainer {
+  min-height: 400px;
+  background-color: #322943 !important;
+}
+
+.incomeModalFormContainer {
+  min-width: 350px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  padding: 2rem;
+}
+
+.incomeModalHeader {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+}

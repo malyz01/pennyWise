@@ -13,18 +13,26 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
+
   const { type, payload = null } = action
+
   switch (type) {
     case GET_USER_GOALS:
       return { ...state, all: payload }
     case ADD_USER_GOALS:
       return { ...state, all: [...state.all, payload] }
     case DELETE_USER_GOALS:
-      return { ...state, all: state.all.filter(goal => goal !== payload) }
+      return { ...state,
+        all: state.all.filter(goal => {
+          if (goal.id !== Number(payload)) {
+            return true
+          }
+          return false
+        }) }
     case UPDATE_USER_GOALS:
       return { ...state,
         all: state.all.map(goal => {
-          if (goal.id === payload.id) {
+          if (goal.id === Number(payload.id)) {
             return payload
           }
           return goal

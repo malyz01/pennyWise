@@ -5,15 +5,15 @@ import { Transition } from 'semantic-ui-react'
 const items = [
   {
     text: 'Tools To Manage Your Expenses',
-    img: '/images/image1.jpg'
+    img: '/images/slide1.png'
   },
   {
     text: 'Tools To Manage Your Income',
-    img: '/images/image2.jpg'
+    img: '/images/slide2.jpg'
   },
   {
-    text: 'Tools To Manage Your Mom',
-    img: '/images/image3.jpg'
+    text: 'Tools To Manage Your Budget',
+    img: '/images/slide3.jpg'
   }
 ]
 

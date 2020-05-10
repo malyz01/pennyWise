@@ -1,4 +1,5 @@
 const connection = require('../connection')
+const snakeCaseKeys = require('snakecase-keys')
 
 function getAllIncomes (db = connection) {
   return db('income')
@@ -19,38 +20,37 @@ function getUserIncomes (userId, db = connection) {
     })
 }
 
-function addIncome (data, db = connection) {
+function addUserIncome (data, db = connection) {
   return db('income')
-    .insert(data)
-    .then(([id]) => db('income')
-      .where('id', id)
-      .select()
-      .first())
+    .insert(snakeCaseKeys(data))
+    .then(([id]) =>
+      db('income')
+        .where('id', id)
+        .select()
+        .first()
+    )
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-function updateIncome (incomeId, data, db = connection) {
+function updateUserIncome (incomeId, data, db = connection) {
   return db('income')
     .where('id', incomeId)
-    .update(data)
-    .then(() => db('income')
-      .where('id', incomeId)
-      .select()
-      .first())
+    .update(snakeCaseKeys(data))
+    .then(() => db('income').where('id', incomeId).select().first())
     .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
 }
 
-function deleteIncome (incomeId, db = connection) {
+function deleteUserIncome (incomeId, db = connection) {
   return db('income')
     .where('id', incomeId)
     .del()
-    .catch((err) => {
+    .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
@@ -59,7 +59,7 @@ function deleteIncome (incomeId, db = connection) {
 module.exports = {
   getAllIncomes,
   getUserIncomes,
-  addIncome,
-  updateIncome,
-  deleteIncome
+  addUserIncome,
+  updateUserIncome,
+  deleteUserIncome
 }

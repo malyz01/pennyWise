@@ -3,7 +3,7 @@ const camelcaseKeys = require('camelcase-keys')
 
 const db = require('../db/fn/goal')
 
-// GET - api/v1/goal/
+// GET - api/v1/goals/
 // postman testing COMPLETE
 router.get('/', (req, res) => {
   return db
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET - /api/v1/goal/:userId
+// GET - /api/v1/goals/:userId
 // postman testing COMPLETE
 router.get('/:userId', (req, res) => {
   return db
@@ -27,7 +27,7 @@ router.get('/:userId', (req, res) => {
     })
 })
 
-// POST - /api/v1/goal/:userId
+// POST - /api/v1/goals/:userId
 // postman testing COMPLETE
 router.post('/:userId', (req, res) => {
   const newGoal = req.body
@@ -40,7 +40,7 @@ router.post('/:userId', (req, res) => {
     })
 })
 
-// PUT - /api/v1/goal/:userId
+// PUT - /api/v1/goals/:userId
 // postman testing COMPLETE
 router.put('/:goalId', (req, res) => {
   return db
@@ -52,13 +52,13 @@ router.put('/:goalId', (req, res) => {
     })
 })
 
-// DELETE - /api/v1/goal/:goalId
+// DELETE - /api/v1/goals/:goalId
 // postman testing COMPLETE
 router.delete('/:goalId', (req, res) => {
   return db
     .deleteGoal(req.params.goalId)
     .then(camelcaseKeys)
-    .then(() => res.send(200).json(req.params.goalId))
+    .then(() => res.status(200).json(req.params.goalId))
     .catch(err => {
       res.status(500).send(err.message)
     })

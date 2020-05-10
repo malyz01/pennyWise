@@ -1,40 +1,39 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal } from 'semantic-ui-react'
-import './modal.css'
+import './incomeModal.css'
 
-import AddExpense from './AddExpense'
-import { setModalExpenseOpen, setModalExpenseForm } from '../../../store/actions/modal'
+import AddIncome from './AddIncome'
+import UpdateIncome from './UpdateIncome'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
-export class ModalExpenseForm extends Component {
+export class ModalIncomeForm extends Component {
   close = () => {
-    this.props.setModalExpenseOpen(false)
-    this.props.setModalExpenseForm('')
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
     const { open, modal } = this.props
     return (
       <Modal open={open} onClose={this.close} closeIcon>
-        <Modal.Content className="expenseModalMainContainer">
-          {modal === 'Add Expense' && (
-            <AddExpense />
-          )}
-          {modal === 'Update Expense' && 'Update expense form'}
+        <Modal.Content className='incomeModalMainContainer'>
+          {modal === 'Add Income' && <AddIncome />}
+          {modal === 'Update Income' && <UpdateIncome />}
         </Modal.Content>
       </Modal>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  modal: state.modal.expense.form,
-  open: state.modal.expense.open
+const mapStateToProps = state => ({
+  modal: state.modal.name,
+  open: state.modal.open
 })
 
 const mapDispatchToProps = {
-  setModalExpenseOpen,
-  setModalExpenseForm
+  setModalOpen,
+  setModalName
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalExpenseForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ModalIncomeForm)
