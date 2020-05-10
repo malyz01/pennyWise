@@ -6,9 +6,8 @@ class GoalsTable extends Component {
   componentDidMount () {
     this.props.getUserGoals(this.props.userId)
   }
-  handlClick = () => (goal) => {
-    console.log(goal)
-    
+  handleClick = (goal) => () => {
+    this.props.selectUserGoal(goal)
   }
   render () {
     console.log(this.props.goals)
@@ -24,7 +23,7 @@ class GoalsTable extends Component {
         <Table.Body>
           {
             this.props.goals && this.props.goals.map((goal) => {
-              return <Table.Row key={goal.id} onClick = {this.props.selectUserGoal(goal)}>
+              return <Table.Row key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
                 <Table.Cell>Cell</Table.Cell>
                 <Table.Cell>Cell</Table.Cell>
                 <Table.Cell>Cell</Table.Cell>
