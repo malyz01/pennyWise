@@ -47,7 +47,7 @@ export class Login extends Component {
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
           <Form.Field>
             <Form.Input
-              value={goalName}
+           
               onChange={this.handleOnChange}
               name="goalName"
               type="text"
@@ -56,40 +56,39 @@ export class Login extends Component {
           </Form.Field>
           <Form.Field>
             <Form.Input
-              value={targetBudget}
+        
               onChange={this.handleOnChange}
-              name="goalAmount"
+              name="targetBudget"
               type="text"
               placeholder="goal amount"
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-              value={currentAmount}
+           
               onChange={this.handleOnChange}
-              name="goalAmount"
+              name="currentAmount"
               type="text"
               placeholder="current amount"
             />
           </Form.Field>
           <Form.Select
-            options={options}
             name="frequency"
             onChange={this.handleOnChange}
             placeholder="frequency"
           />
           <Form.Field>
             <Form.Input
-              value={targetDate}
+          
               onChange={this.handleOnChange}
-              name="goalAmount"
-              type="text"
+              name="targetDate"
+              type="date"
               placeholder="target date"
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-              value={budgetDistribution}
+          
               onChange={this.handleOnChange}
               name="budgetDistribution"
               type="text"

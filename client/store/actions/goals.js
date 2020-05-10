@@ -17,6 +17,8 @@ export const getUserGoals = (userId) => async (dispatch) => {
 export const addUserGoal = (userId, data) => async (dispatch) => {
   try {
     const userGoal = await api.post(`/goals/${userId}`, data)
+    console.log(userGoal);
+    
     dispatch({
       type: ADD_USER_GOALS,
       payload: userGoal.data
