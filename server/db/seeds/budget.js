@@ -331,7 +331,7 @@ exports.seed = knex =>
           user_id: 1001,
           expense_name: 'Car Insurance',
           categories: 'Essential',
-          frequency: 'Yearly',
+          frequency: 'Annually',
           expense_amount: 800
         }
       ])

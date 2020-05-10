@@ -13,7 +13,7 @@ const category = [
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
   { key: 'm', text: 'Monthly', value: 'Monthly' },
-  { key: 'y', text: 'Yearly', value: 'Yearly' }
+  { key: 'a', text: 'Annually', value: 'Annually' }
 ]
 
 export class Login extends Component {
