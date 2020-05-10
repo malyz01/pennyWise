@@ -33,19 +33,17 @@ export class UpdateGoal extends Component {
     const { currentAmount, budgetDistribution, frequency } = this.state
     return (
       <div className="goalModalFormContainer">
+        <div className="goalModalHeader">Add Funds To Your Goal</div>
+        <div className="divider" />
+        <label>{`Your Current Amount ${this.props.select.currentAmount}`}</label>
+        <input type="number" placeholder="add money"/><button className="ui button green">+</button>
+        <input type="number" placeholder="remove money"/><button className="ui button red">-</button>
         <div className="goalModalHeader">{this.props.form}</div>
         <div className="divider" />
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
+          <label>Budget Distribution</label>
           <Form.Field>
-            <Form.Input
-              value={currentAmount}
-              onChange={this.handleOnChange}
-              name="currentAmount"
-              type="number"
-              placeholder="current amount"
-            />
-          </Form.Field>
-          <Form.Field>
+
             <Form.Input
               value={budgetDistribution}
               onChange={this.handleOnChange}
@@ -54,6 +52,7 @@ export class UpdateGoal extends Component {
               placeholder="budget distribution"
             />
           </Form.Field>
+          <label>Frequency</label>
           <Form.Select
             options={options}
             name="frequency"
