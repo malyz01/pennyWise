@@ -6,13 +6,21 @@ import { connect } from 'react-redux'
 import Goals from './Goals'
 import BudgetCard from './BudgetCard'
 import GoalModal from './Goals/GoalsModal'
+import { getUserBudget } from '../../store/actions/budget'
 
 class Budget extends React.Component {
+  componentDidMount () {
+    const { getUserBudget, userId } = this.props
+    getUserBudget(userId)
+  }
+
   render () {
+    const { userId, expenses, income, goals } = this.props
+    console.log(expenses, income, goals)
     return (
       <div className="budget">
         <Header />
-        <BudgetCard />
+        <BudgetCard data={{ userId, expenses, income, goals }} />
         <Goals/>
         <GoalModal/>
       </div>
@@ -21,11 +29,11 @@ class Budget extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  budget: state
+  userId: state.auth.user.id,
+  expenses: state.expense.all,
+  income: state.income.all,
+  goals: state.goal.all
+  // selected: state.goals.selected
 })
 
-const mapDispatchToProps = {
-  temp: null
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Budget)
+export default connect(mapStateToProps, { getUserBudget })(Budget)

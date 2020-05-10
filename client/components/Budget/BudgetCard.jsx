@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './budget.css'
 
+import { connect } from 'react-redux'
+
 export class BudgetCard extends Component {
   render () {
     return (
@@ -29,4 +31,13 @@ export class BudgetCard extends Component {
   }
 }
 
-export default BudgetCard
+// const mapStateToProps = state => ({
+//   userId:
+
+// })
+
+// const mapDispatchToProps = {
+//   getUserBudget
+// }
+
+export default connect()(BudgetCard)
