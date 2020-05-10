@@ -1,6 +1,5 @@
 import React from 'react'
 import { HashRouter, Route } from 'react-router-dom'
-import './app.css'
 
 import Navbar from './Navbar'
 import Footer from './Footer'
