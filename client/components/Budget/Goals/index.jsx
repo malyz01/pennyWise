@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import GoalsTable from './GoalsTable'
-import { getUserGoals, addUserGoal, updateUserGoal, deleteUserGoals } from '../../../store/actions/goals'
+import { addUserGoal, updateUserGoal, deleteUserGoals } from '../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 import './goals.css'
 
@@ -52,7 +52,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  getUserGoals,
   addUserGoal,
   updateUserGoal,
   deleteUserGoals,

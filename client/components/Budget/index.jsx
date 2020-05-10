@@ -16,12 +16,13 @@ class Budget extends React.Component {
   }
 
   render () {
-    const { userId, budget } = this.props
+    const { expense, income, goal } = this.props
+
     return (
-      <div className='budget'>
+      <div className="budget">
         <Container>
           <Header />
-          <BudgetCard data={{ userId, budget }} />
+          <BudgetCard expense={expense} income={income} goal={goal} />
           <Goals />
           <GoalModal />
         </Container>
@@ -32,7 +33,9 @@ class Budget extends React.Component {
 
 const mapStateToProps = state => ({
   userId: state.auth.user.id,
-  budget: state.expense.all
+  expense: state.expense.all,
+  income: state.income.all,
+  goal: state.goal.all
 })
 
 export default connect(mapStateToProps, { getUserBudget })(Budget)

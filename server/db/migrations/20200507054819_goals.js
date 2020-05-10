@@ -8,7 +8,7 @@ exports.up = (knex) =>
     t.integer('target_budget')
     t.datetime('start_date').defaultTo(knex.fn.now())
     t.datetime('target_date')
-    t.integer('current_amount')
+    t.integer('current_amount').defaultTo(0)
     t.string('frequency').defaultTo('Weekly')
     t.integer('budget_distribution')
     t.boolean('active').defaultTo(true)

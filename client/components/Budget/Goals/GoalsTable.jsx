@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
-import { selectUserGoal, getUserGoals } from '../../../store/actions/goals'
+import { selectUserGoal } from '../../../store/actions/goals'
 
 class GoalsTable extends Component {
-  componentDidMount () {
-    this.props.getUserGoals(this.props.userId)
-  }
   handleClick = (goal) => () => {
     this.props.selectUserGoal(goal)
   }
@@ -62,7 +59,6 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  selectUserGoal,
-  getUserGoals
+  selectUserGoal
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GoalsTable)
