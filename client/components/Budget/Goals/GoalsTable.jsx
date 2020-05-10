@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Container } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
 import { selectUserGoal, getUserGoals } from '../../../store/actions/goals'
