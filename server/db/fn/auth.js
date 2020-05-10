@@ -10,7 +10,7 @@ const authenticate = async (data, db = connection) => {
     const isMatch = await bcrypt.compare(data.password, user.password)
     if (!isMatch) return 'Password does not match'
 
-    const userDetails = await fn.getUserDetails(user.id)
+    const userDetails = await fn.getUserProfile(user.id)
     return userDetails
   } catch (err) {
     return 'Authentication - Something went wrong'

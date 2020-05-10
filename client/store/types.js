@@ -3,6 +3,7 @@ export const SET_AUTH = 'SET_AUTH'
 
 // USERS
 export const GET_USER_PROFILE = 'GET_USER_PROFILE'
+export const GET_USER_DETAILS = 'GET_USER_DETAILS'
 
 // GOALS
 export const GET_USER_GOALS = 'GET_USER_GOALS'
