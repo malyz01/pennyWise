@@ -18,15 +18,7 @@ router.get('/:userId', isLoggedInAndOwner, (req, res, next) => {
 // POST /api/v1/expense/:userId
 // Complete Postman Testing
 router.post('/:userId', isLoggedInAndOwner, (req, res) => {
-  const { expenseName, categories, expenseAmount, frequency } = req.body
-
-  db.addUserExpense({
-    user_id: req.params.userId,
-    categories,
-    expense_name: expenseName,
-    expense_amount: expenseAmount,
-    frequency
-  })
+  db.addUserExpense({ ...req.params, ...req.body })
     .then(camelcaseKeys)
     .then(expense => res.status(200).json(expense))
     .catch(err => {
@@ -36,7 +28,7 @@ router.post('/:userId', isLoggedInAndOwner, (req, res) => {
 
 // PUT - /api/v1/expense/:expenseId
 // Complete Postman Testing
-router.put('/:expenseId', (req, res) => {
+router.put('/:expenseId/user/:userId', (req, res) => {
   db.updateUserExpense(req.params.expenseId, req.body)
     .then(camelcaseKeys)
     .then(d => {

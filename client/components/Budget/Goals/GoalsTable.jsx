@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Table, Label } from 'semantic-ui-react'
+import { Table, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import Fade from 'react-reveal/Fade'
 import { selectUserGoal, getUserGoals } from '../../../store/actions/goals'
+
 class GoalsTable extends Component {
   componentDidMount () {
     this.props.getUserGoals(this.props.userId)
@@ -10,46 +12,45 @@ class GoalsTable extends Component {
     this.props.selectUserGoal(goal)
   }
   getPeriod = (end, start) => {
-    console.log(end);
-    
     const date1 = new Date(end)
     const date2 = new Date(start)
     const diffTime = Math.abs(date2 - date1)
-    console.log(diffTime);
-    
+
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
   }
   render () {
     return (
-      <Table>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Goal Name</Table.HeaderCell>
-            <Table.HeaderCell>Target Budget</Table.HeaderCell>
-            <Table.HeaderCell>Target Date</Table.HeaderCell>
-            <Table.HeaderCell>Period</Table.HeaderCell>
-            <Table.HeaderCell>Current Amount</Table.HeaderCell>
-            <Table.HeaderCell>Contributions</Table.HeaderCell>
-            <Table.HeaderCell>Active</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {
-            this.props.goals && this.props.goals.map((goal) => {
-              return <Table.Row key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
-                <Table.Cell>{goal.goalName}</Table.Cell>
-                <Table.Cell>{goal.targetBudget}</Table.Cell>
-                <Table.Cell>{goal.targetDate}</Table.Cell>
-                <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} Days`}</Table.Cell>
-                <Table.Cell>{goal.currentAmount}</Table.Cell>
-                <Table.Cell>{`${goal.budgetDistribution} ${goal.frequency}`}</Table.Cell>
-                <Table.Cell>{goal.active ? 'YES' : 'NO'}</Table.Cell>
-              </Table.Row>
-            })
-          }
+      <Fade>
+        <Table inverted selectable>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Goal Name</Table.HeaderCell>
+              <Table.HeaderCell>Target Budget</Table.HeaderCell>
+              <Table.HeaderCell>Target Date</Table.HeaderCell>
+              <Table.HeaderCell>Period</Table.HeaderCell>
+              <Table.HeaderCell>Current Amount</Table.HeaderCell>
+              <Table.HeaderCell>Contributions</Table.HeaderCell>
+              <Table.HeaderCell>Active</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {
+              this.props.goals && this.props.goals.map((goal) => {
+                return <Table.Row className='pointerCursor'key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
+                  <Table.Cell>{goal.goalName}</Table.Cell>
+                  <Table.Cell>{goal.targetBudget}</Table.Cell>
+                  <Table.Cell>{goal.targetDate}</Table.Cell>
+                  <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} Days`}</Table.Cell>
+                  <Table.Cell>{goal.currentAmount}</Table.Cell>
+                  <Table.Cell>{`${goal.budgetDistribution} ${goal.frequency}`}</Table.Cell>
+                  <Table.Cell>{goal.active ? 'YES' : 'NO'}</Table.Cell>
+                </Table.Row>
+              })
+            }
 
-        </Table.Body>
-      </Table>
+          </Table.Body>
+        </Table>
+      </Fade>
     )
   }
 }

@@ -7,6 +7,8 @@ import Goals from './Goals'
 import BudgetCard from './BudgetCard'
 import GoalModal from './Goals/GoalsModal'
 import { getUserBudget } from '../../store/actions/budget'
+import { Container } from 'semantic-ui-react'
+
 
 class Budget extends React.Component {
   componentDidMount () {
@@ -17,12 +19,14 @@ class Budget extends React.Component {
   render () {
     const { userId, expenses, income, goals } = this.props
     return (
+
       <div className="budget">
         <Header />
         <BudgetCard data={{ userId, expenses, income, goals }} />
         <Goals/>
         <GoalModal/>
       </div>
+
     )
   }
 }

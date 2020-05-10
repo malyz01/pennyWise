@@ -35,7 +35,7 @@ export class incomeTable extends Component {
 
             <Table.Body>
               {income.map((e, i) => (
-                <Table.Row
+                <Table.Row className='pointerCursor'
                   onClick={this.handleOnSelect(e)}
                   active={e.id === select.id}
                   key={i}
