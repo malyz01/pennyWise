@@ -10,15 +10,23 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET - /api/v1/users/:id/profile
-router.get('/:id/profile', (req, res) => {
-  db.getUserDetails(req.params.id)
-    .then(profile => res.status(200).json(profile))
-    .catch(err => {
+// GET - /api/v1/users/:userId/profile
+router.get('/:userId/profile', (req, res) => {
+  db.getUserProfile(req.params.userId)
+    .then((userDetail) => res.status(200).json(userDetail))
+    .catch((err) => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
 
+// GET - /api/v1/users/:id/details
+router.get('/:userId/details', (req, res) => {
+  db.getUserDetails(req.params.userId)
+    .then((userDetail) => res.status(200).json(userDetail))
+    .catch((err) => {
+      res.status(500).json('DATABASE ERROR: ' + err.message)
+    })
+})
 // PUT - /api/v1/users/profile
 
 router.put('/profile', (req, res) => {
