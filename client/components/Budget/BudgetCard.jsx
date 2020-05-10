@@ -4,7 +4,7 @@ import './budget.css'
 import { connect } from 'react-redux'
 
 export class BudgetCard extends Component {
-  render() {
+  render () {
     return (
       <div className='topCardComponent'>
         <div className="topCardWrapper">
