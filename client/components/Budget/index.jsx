@@ -17,6 +17,7 @@ class Budget extends React.Component {
 
   render () {
     const { expense, income, goal } = this.props
+
     return (
       <div className="budget">
         <Container>
@@ -31,6 +32,7 @@ class Budget extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  userId: state.auth.user.id,
   expense: state.expense.all,
   income: state.income.all,
   goal: state.goal.all

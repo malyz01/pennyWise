@@ -158,7 +158,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 8,
+          id: 9,
           user_id: 1006,
           goal_name: 'Jeep Wrangler',
           target_budget: 20000,
@@ -166,7 +166,7 @@ exports.seed = knex =>
           budget_distribution: 150
         },
         {
-          id: 9,
+          id: 10,
           user_id: 1002,
           goal_name: 'Family Reunion',
           target_budget: 2000,
@@ -174,7 +174,7 @@ exports.seed = knex =>
           budget_distribution: 80
         },
         {
-          id: 10,
+          id: 11,
           user_id: 1002,
           goal_name: 'Surf Board',
           target_budget: 1000,
@@ -182,7 +182,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 11,
+          id: 12,
           user_id: 1003,
           goal_name: 'Playstation 5',
           target_budget: 800,
@@ -190,7 +190,7 @@ exports.seed = knex =>
           budget_distribution: 50
         },
         {
-          id: 12,
+          id: 13,
           user_id: 1003,
           goal_name: 'Scooter',
           target_budget: 500,
@@ -198,7 +198,7 @@ exports.seed = knex =>
           budget_distribution: 70
         },
         {
-          id: 13,
+          id: 14,
           user_id: 1004,
           goal_name: 'Jacuzzi',
           target_budget: 5000,
@@ -206,7 +206,7 @@ exports.seed = knex =>
           budget_distribution: 70
         },
         {
-          id: 14,
+          id: 15,
           user_id: 1004,
           goal_name: 'Garden Patio Set',
           target_budget: 1500,
@@ -214,7 +214,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 15,
+          id: 16,
           user_id: 1005,
           goal_name: 'Car Tools',
           target_budget: 1000,
@@ -222,7 +222,7 @@ exports.seed = knex =>
           budget_distribution: 60
         },
         {
-          id: 16,
+          id: 17,
           user_id: 1005,
           goal_name: 'Multifuction Printer',
           target_budget: 1000,
