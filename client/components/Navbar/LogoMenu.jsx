@@ -38,11 +38,6 @@ class LogoMenu extends Component {
                 onClick={this.handleOnClick('/budget')}
                 text="Budget"
               />
-              <Dropdown.Item
-                className="dropdownItem"
-                onClick={this.handleOnClick('/goals')}
-                text="Goals"
-              />
             </Dropdown.Menu>
           </Dropdown>
         )}

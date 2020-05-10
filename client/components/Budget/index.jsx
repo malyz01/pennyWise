@@ -16,7 +16,6 @@ class Budget extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const { userId, budget } = this.props
     return (
       <div className='budget'>
