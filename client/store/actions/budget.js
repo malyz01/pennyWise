@@ -3,18 +3,18 @@ import { GET_USER_EXPENSES, GET_USER_INCOME, GET_USER_GOALS } from '../types'
 
 export const getUserBudget = userId => async dispatch => {
   try {
-    const { data } = await api.get(`/budget/${userId}`)
+    const { data: { expense, income, goals } } = await api.get(`/budget/${userId}`)
     dispatch({
       type: GET_USER_EXPENSES,
-      payload: data
+      payload: expense
     })
     dispatch({
       type: GET_USER_INCOME,
-      payload: data
+      payload: income
     })
     dispatch({
       type: GET_USER_GOALS,
-      payload: data
+      payload: goals
     })
   } catch (err) {
     // eslint-disable-next-line no-console

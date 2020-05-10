@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
-import { selectUserGoal, getUserGoals } from '../../../store/actions/goals'
+import { selectUserGoal } from '../../../store/actions/goals'
 
 class GoalsTable extends Component {
-  componentDidMount () {
-    this.props.getUserGoals(this.props.userId)
-  }
   handleClick = (goal) => () => {
     this.props.selectUserGoal(goal)
   }
@@ -35,8 +32,8 @@ class GoalsTable extends Component {
           </Table.Header>
           <Table.Body>
             {
-              this.props.goals && this.props.goals.map((goal) => {
-                return <Table.Row className='pointerCursor'key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
+              this.props.goals.map((goal) => {
+                return <Table.Row className='pointerCursor' key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{goal.targetBudget}</Table.Cell>
                   <Table.Cell>{goal.targetDate}</Table.Cell>
@@ -62,7 +59,6 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  selectUserGoal,
-  getUserGoals
+  selectUserGoal
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GoalsTable)

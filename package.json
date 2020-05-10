@@ -17,15 +17,14 @@
     "server": "node server",
     "test": "jest --watchAll",
     "knex": "knex --knexfile server/db/knexfile.js",
+    "postinstall": "run-s db:reset build",
     "db:reset": "run-s db:delete db:migrate db:seed",
-    "db:migrate": "npm run knex migrate:latest",
-    "db:seed": "npm run knex seed:run",
+    "db:refresh": "run-s db:rollback db:migrate db:seed",
     "db:delete": "rm -f server/db/dev.sqlite3",
-    "postinstall": "run-s db:reset build"
+    "db:rollback": "npm run knex migrate:rollback",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run"
   },
-  "eslintIgnore": [
-    "bundle.js"
-  ],
   "babel": {
     "presets": [
       "@babel/preset-env",
