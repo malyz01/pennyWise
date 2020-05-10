@@ -21,13 +21,11 @@ export default (state = INITIAL_STATE, action) => {
     case GET_USER_GOALS:
       return { ...state, all: payload }
     case ADD_USER_GOALS:
-      return { ...state, all: [...state.goal.all, payload] }
+      return { ...state, all: [...state.all, payload] }
     case DELETE_USER_GOALS:
       return { ...state,
         all: state.all.filter(goal => {
           if (goal.id !== Number(payload)) {
-            console.log(goal.id)
-            console.log(payload)
             return true
           }
           return false

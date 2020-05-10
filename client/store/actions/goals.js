@@ -53,8 +53,7 @@ export const selectUserGoal = data => dispatch => {
 export const deleteUserGoals = (goalsId) => async (dispatch) => {
   try {
     const userGoals = await api.delete(`/goals/${goalsId}`)
-    console.log(userGoals);
-    
+
     dispatch({
       type: DELETE_USER_GOALS,
       payload: userGoals.data
@@ -62,7 +61,5 @@ export const deleteUserGoals = (goalsId) => async (dispatch) => {
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in deleteUserGoals Api Call')
-    console.log(err);
-    
   }
 }
