@@ -3,24 +3,15 @@ import { Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import './income.css'
-import {
-  setModalIncomeForm,
-  setModalIncomeOpen
-} from '../../store/actions/modal'
+import { setModalName, setModalOpen } from '../../store/actions/modal'
 import { updateUserIncome, deleteUserIncome } from '../../store/actions/income'
 
 class Header extends Component {
   handleOnClick = action => () => {
-    const {
-      setModalIncomeForm,
-      setModalIncomeOpen,
-      updateUserIncome,
-      deleteUserIncome,
-      selected
-    } = this.props
+    const { updateUserIncome, deleteUserIncome, selected } = this.props
     if (action === 'Add Income' || action === 'Update Income') {
-      setModalIncomeForm(action)
-      setModalIncomeOpen(true)
+      this.props.setModalName(action)
+      this.props.setModalOpen(true)
     }
     if (action === 'active') {
       selected.active = !selected.active
@@ -74,8 +65,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  setModalIncomeOpen,
-  setModalIncomeForm,
+  setModalOpen,
+  setModalName,
   updateUserIncome,
   deleteUserIncome
 }

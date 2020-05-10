@@ -4,12 +4,12 @@ import { withRouter } from 'react-router-dom'
 import { Button, Dropdown } from 'semantic-ui-react'
 
 import { logout } from '../../store/actions/auth'
-import { setModalAuthForm, setModalAuthOpen } from '../../store/actions/modal'
+import { setModalName, setModalOpen } from '../../store/actions/modal'
 
 class MenuBtn extends Component {
   handleOnClick = (route) => () => {
-    this.props.setModalAuthForm(route)
-    this.props.setModalAuthOpen(true)
+    this.props.setModalName(route)
+    this.props.setModalOpen(true)
   }
 
   logout = () => {
@@ -76,8 +76,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  setModalAuthOpen,
-  setModalAuthForm,
+  setModalOpen,
+  setModalName,
   logout
 }
 

@@ -1,4 +1,5 @@
 const connection = require('../connection')
+const snakeCaseKeys = require('snakecase-keys')
 
 function getAllExpenses (db = connection) {
   return db('expense')
@@ -21,7 +22,7 @@ function getUserExpenses (userId, db = connection) {
 
 function addUserExpense (data, db = connection) {
   return db('expense')
-    .insert(data)
+    .insert(snakeCaseKeys(data))
     .then(([id]) =>
       db('expense')
         .where('id', id)
@@ -37,15 +38,7 @@ function addUserExpense (data, db = connection) {
 function updateUserExpense (expenseId, data, db = connection) {
   return db('expense')
     .where('id', expenseId)
-    .update({
-      id: data.id,
-      user_id: data.userId,
-      expense_name: data.expenseName,
-      categories: data.categories,
-      frequency: data.frequency,
-      expense_amount: data.expenseAmount,
-      active: data.active
-    })
+    .update(snakeCaseKeys(data))
     .then(() => db('expense').where('id', expenseId).select().first())
     .catch((err) => {
       // eslint-disable-next-line no-console

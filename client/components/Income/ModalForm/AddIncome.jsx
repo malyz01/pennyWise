@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
-import './modal.css'
+import './incomeModal.css'
 
 import { addUserIncome } from '../../../store/actions/income'
-import {
-  setModalIncomeOpen,
-  setModalIncomeForm
-} from '../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 const incomeType = [
   { key: 'p', text: 'Primary', value: 'Primary' },
@@ -33,8 +30,8 @@ export class Login extends Component {
 
   handleOnSubmit = async () => {
     await this.props.addUserIncome(this.props.userId, this.state)
-    this.props.setModalIncomeOpen(false)
-    this.props.setModalIncomeForm('')
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
@@ -85,12 +82,12 @@ export class Login extends Component {
 
 const mapStateToProps = state => ({
   userId: state.auth.user.id,
-  form: state.modal.income.form
+  form: state.modal.name
 })
 
 const mapDispatchToProps = {
-  setModalIncomeOpen,
-  setModalIncomeForm,
+  setModalOpen,
+  setModalName,
   addUserIncome
 }
 

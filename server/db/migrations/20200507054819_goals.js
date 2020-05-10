@@ -8,8 +8,10 @@ exports.up = (knex) =>
     t.integer('target_budget')
     t.datetime('start_date').defaultTo(knex.fn.now())
     t.datetime('target_date')
-    t.string('period')
+    t.integer('current_amount')
+    t.string('frequency').defaultTo('Weekly')
     t.integer('budget_distribution')
+    t.boolean('active').defaultTo(true)
   })
 
 exports.down = (knex) => knex.schema.dropTable(table)

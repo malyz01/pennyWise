@@ -1,4 +1,5 @@
 const connection = require('../connection')
+const snakeCaseKeys = require('snakecase-keys')
 
 function getAllGoals (db = connection) {
   return db('goals')
@@ -21,7 +22,7 @@ function getUserGoals (userId, db = connection) {
 
 function addGoal (data, db = connection) {
   return db('goals')
-    .insert(data)
+    .insert(snakeCaseKeys(data))
     .then(([id]) => db('goals')
       .where('id', id)
       .select()
@@ -35,7 +36,7 @@ function addGoal (data, db = connection) {
 function updateGoal (goalId, data, db = connection) {
   return db('goals')
     .where('id', goalId)
-    .update(data)
+    .update(snakeCaseKeys(data))
     .then(() => db('goals')
       .where('id', goalId)
       .select()

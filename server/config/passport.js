@@ -1,30 +1,27 @@
-// const passport = require('passport')
-// const JWTstrategy = require('passport-jwt').Strategy
-// const ExtractJWT = require('passport-jwt').ExtractJwt
+const passport = require('passport')
+const JWTstrategy = require('passport-jwt').Strategy
+const ExtractJWT = require('passport-jwt').ExtractJwt
+const db = require('../db/connection')
 
-// const opts = {
-//   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-//   secretOrKey: process.env.SECRET_KEY
-// }
+const opts = {
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SECRET
+}
 
-// passport.use(
-//   'jwt',
-//   new JWTstrategy(opts, (jwtPayload, done) => {
-//     try {
-//       db.findUserJWT(jwtPayload.id)
-//         .then(user => {
-//           if (user) {
-//             console.log('user is authorized for next action ', user.username)
-//             done(null, user)
-//           } else {
-//             console.log('user not found in db')
-//             done(null, false)
-//           }
-//         })
-//     } catch (err) {
-//       done(err)
-//     }
-//   })
-// )
+passport.use(
+  'jwt',
+  new JWTstrategy(opts, async (jwtPayload, done) => {
+    try {
+      const user = await db('users').where('id', jwtPayload.id).select().first()
+      if (user) {
+        done(null, jwtPayload)
+      } else {
+        done(null, false)
+      }
+    } catch (err) {
+      done(err)
+    }
+  })
+)
 
-// module.exports = passport
+module.exports = passport

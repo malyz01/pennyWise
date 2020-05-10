@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal } from 'semantic-ui-react'
-import './modal.css'
+import './incomeModal.css'
 
 import AddIncome from './AddIncome'
 import UpdateIncome from './UpdateIncome'
-import {
-  setModalIncomeOpen,
-  setModalIncomeForm
-} from '../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 export class ModalIncomeForm extends Component {
   close = () => {
-    this.props.setModalIncomeOpen(false)
-    this.props.setModalIncomeForm('')
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
@@ -30,13 +27,13 @@ export class ModalIncomeForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  modal: state.modal.income.form,
-  open: state.modal.income.open
+  modal: state.modal.name,
+  open: state.modal.open
 })
 
 const mapDispatchToProps = {
-  setModalIncomeOpen,
-  setModalIncomeForm
+  setModalOpen,
+  setModalName
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalIncomeForm)
