@@ -2,8 +2,8 @@
   padding-top:10%;
   padding: bottom 3%;
   color:white;
- 
 }
+
 .incomeHeaderTitle{
   text-align: center;
   font-size:2.5rem;
@@ -11,17 +11,19 @@
   letter-spacing:5px;
   text-shadow: 2px 2px 3px rgb(24, 24, 24);
   font-weight:600;
-
 }
+
 .incomeHeaderText{
   width:70%;
   margin: 0 auto;
 }
+
 .incomeHeader Hr{
   width:80%;
   margin: 0 auto;
   margin-bottom:20px;
 }
+
 .incomeTable{
   padding-bottom:10%;
 }
@@ -54,11 +56,13 @@
 .incomeButtons .button:hover{
   background:#af6ef0 !important;
 }
+
 .incomeButtons .button.add{
   background:rgb(219, 219, 219) !important;
   color:black;
   text-shadow:none;
 }
+
 .incomeButtons .button.add:hover{
   background:white !important;
 }
@@ -74,14 +78,20 @@
   color:white;
   text-decoration: solid;
 }
+
 .income .ui.single.line.table td{
   background:rgb(34, 33, 36);
   color:white;
   text-decoration: solid;
 }
+
 .income .ui.table{
   background:none !important;
   border-radius:20px;
   overflow:hidden;
   text-align:center;
+}
+
+.pointerCursor {
+  cursor: pointer;
 }

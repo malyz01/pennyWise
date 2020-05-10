@@ -12,7 +12,7 @@ class Footer extends React.Component {
       <div className="footerMainContainer">
         <Logo />
         <FooterItems />
-        <div className="footerLine"></div>
+        <hr className='footerLine'/>
         <SocialLogos />
       </div>
     )

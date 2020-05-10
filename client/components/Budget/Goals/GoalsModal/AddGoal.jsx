@@ -47,7 +47,7 @@ export class Login extends Component {
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
           <Form.Field>
             <Form.Input
-           
+
               onChange={this.handleOnChange}
               name="goalName"
               type="text"
@@ -56,7 +56,7 @@ export class Login extends Component {
           </Form.Field>
           <Form.Field>
             <Form.Input
-        
+
               onChange={this.handleOnChange}
               name="targetBudget"
               type="text"
@@ -65,7 +65,7 @@ export class Login extends Component {
           </Form.Field>
           <Form.Field>
             <Form.Input
-           
+
               onChange={this.handleOnChange}
               name="currentAmount"
               type="text"
@@ -79,7 +79,7 @@ export class Login extends Component {
           />
           <Form.Field>
             <Form.Input
-          
+
               onChange={this.handleOnChange}
               name="targetDate"
               type="date"
@@ -88,7 +88,7 @@ export class Login extends Component {
           </Form.Field>
           <Form.Field>
             <Form.Input
-          
+
               onChange={this.handleOnChange}
               name="budgetDistribution"
               type="text"

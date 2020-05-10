@@ -12,27 +12,36 @@
 
 .budget {
     background: rgb(44,6,77);
+    padding-bottom:10%;
     background: linear-gradient(0deg, rgba(226,191,117,1) 0%, rgba(44,6,77,1) 100%);
-  }
+}
+
+.budget Hr.titles{
+    width:80%;
+    margin: 0 auto;
+    margin-bottom:20px;
+}
 
 .topCardComponent {
-cursor: pointer;
-  height: 400px;
-  width: 800px;
+
+  width: 100%;
   perspective: 800px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   margin: auto;
+  margin-bottom: 150px;
   transition: ease-in;
-  border: 3px solid #008080;
   border-radius: 10px;
-  padding: 2rem;
-  background-image: linear-gradient(45deg, #674C82 50% , #000 50% )
+  padding: 5rem;
+  background-image: linear-gradient(40deg, #674C82 50% , #000 50% );
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.733);
 }
 
 .topCardWrapper {
     position: relative;
-    display: flex;
-    max-width: 50em;
+    width:100%;
     margin: 0 auto;
     justify-content: space-between;
     /* transform: skewY(-60deg); */
@@ -57,12 +66,20 @@ cursor: pointer;
     flex: 1;
     max-width: 50em;
 	margin: 0 auto;
-    transform: skewY(11deg);
     position: relative;
 }
 
 .headingColumn h2 {
-   margin-top: 3rem !important;
+    margin-top: 3rem !important;
+}
+
+.budgetRow{
+    display:flex;
+    margin-bottom:5px;
+}
+
+.colRight{
+    margin-left:auto;
 }
 
 .amountColumn {
@@ -94,11 +111,10 @@ cursor: pointer;
 
 .budgetHeader{
     text-align: center;
-    font-family: 'Raleway', sans-serif;
-    font-weight: lighter;
-    color: white;
-    letter-spacing: 7.9px;
-    font-size: 30px;
+    font-size:2.5rem;
+    margin-bottom:20px;
+    letter-spacing:5px;
+    color:white;
     text-shadow: 0px 3px 7px black;
 }
 
@@ -110,15 +126,11 @@ cursor: pointer;
     margin: 0;
     font-weight: 0;
 }
-
-.BudgetHeaderLine{
-    border-top: 2px solid #707070;
-    width: 60%;
-    line-height: 0px;
-    position: relative;
-    margin: 10px auto;
+.budget .table{
+    border-radius:15px;
+    overflow: hidden;
+    text-align: center;
 }
-
 /* BudgetCard Component */
 
 /* .diagonalBG{
