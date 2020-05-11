@@ -18,7 +18,7 @@
   
 }
 .goalButtons .button{
-  background:#333333 !important;
+  background:#333333;
   text-shadow: none;
   border-radius: 5px;
   flex-grow: 1;
@@ -30,24 +30,31 @@
   color:white;
   transition:500ms;
 }
-.goalButtons .ui.button:hover{
+
+.goalButtons .ui.button:focus{
+  background-color: #2C2B2B !important;
+  transform: scale(1.1);
   color: white;
-  transform: scale(1.1); 
-  transition: all .2s ease-in-out;
-  background-color: #434343 ;
 }
 
+.goalButtons .ui.button:hover{
+  transform: scale(1.1); 
+  transition: all .2s ease-in-out;
+  background-color: #464646;
+}
+
+
+
+/* ========ADD=GOALS=BUTTON========= */
 .goalButtons .ui.button.add{
   background:rgb(219, 219, 219) !important;
   color:black;
   text-shadow:none;
 }
-.goalButtons .button.add:hover{
+.goalButtons .ui.button.add:hover{
   background:white !important;
-  transition: all .2s ease-in-out;
-  transform: scale(1.1); 
 }
-
+/* ================================= */
 .pointerCursor {
   cursor: pointer;
 }
