@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
 
 import { authUser } from '../../../store/actions/auth'
-import { setModalAuthOpen, setModalAuthForm } from '../../../store/actions/modal'
+import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 export class Login extends Component {
   state = {
@@ -17,8 +17,8 @@ export class Login extends Component {
 
   handleOnSubmit = () => {
     this.props.authUser(this.state)
-    this.props.setModalAuthOpen(false)
-    this.props.setModalAuthForm('')
+    this.props.setModalOpen(false)
+    this.props.setModalName(null)
   }
 
   render () {
@@ -31,15 +31,15 @@ export class Login extends Component {
         <Form.Field>
           <Form.Input value={password} onChange={this.handleOnChange} name='password' type='password' placeholder='password' />
         </Form.Field>
-        <Button className='authBtn' type='submit'>Submit</Button>
+        <Button className='submitBtn' type='submit'>Submit</Button>
       </Form>
     )
   }
 }
 
 const mapDispatchToProps = {
-  setModalAuthOpen,
-  setModalAuthForm,
+  setModalOpen,
+  setModalName,
   authUser
 }
 

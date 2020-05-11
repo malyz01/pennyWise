@@ -1,6 +1,6 @@
 const connection = require('../connection')
 
-function getUserDetails (id, db = connection) {
+function getUserProfile (id, db = connection) {
   return db('users')
     .where('users.id', id)
     .join('profiles', 'users.id', 'profiles.user_id')
@@ -12,6 +12,34 @@ function getUserDetails (id, db = connection) {
     )
     .first()
     .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+    })
+}
+
+function getUserDetails (id, db = connection) {
+  return db('income')
+    .where('user_id', id)
+    .select('income_amount')
+    .then((userIncome) => {
+      return db('expense')
+        .where('user_id', id)
+        .select('expense_amount')
+        .then((expenseAmount) => ({
+          userIncome,
+          expenseAmount
+        }))
+    })
+    .then((userData) => {
+      return db('goals')
+        .where('user_id', id)
+        .select('goal_name')
+        .then((goalName) => ({
+          ...userData,
+          goalName
+        }))
+    })
+    .catch((err) => {
       // eslint-disable-next-line no-console
       console.error(err)
     })
@@ -39,7 +67,7 @@ function getProfiles (db = connection) {
   return db('profiles')
     .select()
     .catch(err => {
-    // eslint-disable-next-line no-console
+      // eslint-disable-next-line no-console
       console.error(err)
     })
 }
@@ -55,6 +83,7 @@ function deleteUserById (id, db = connection) {
 }
 
 module.exports = {
+  getUserProfile,
   getUserDetails,
   updateProfileDetails,
   getUsers,

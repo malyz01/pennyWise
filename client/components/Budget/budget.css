@@ -1,0 +1,178 @@
+:root {
+	--magic-number: 0.09719; /* tan(11°)/2 */
+	--content-width: 100vw;
+	--skew-padding: calc(var(--content-width) * var(--magic-number));
+}
+
+@media screen and (min-width: 42em) {
+	:root {
+		--content-width: 42em;
+	}
+}
+
+.budget {
+    background: rgb(44,6,77);
+    padding-bottom:10%;
+    background: linear-gradient(0deg, rgba(226,191,117,1) 0%, rgba(44,6,77,1) 100%);
+}
+
+.budget Hr.titles{
+    width:80%;
+    margin: 0 auto;
+    margin-bottom:20px;
+}
+.budgetCardMain{
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.733);
+    border-radius: 40px;
+    overflow: hidden;
+
+}
+.budgetGraphs{
+    min-height:100px;
+    width:100%;
+    padding:5rem;
+    background: rgba(0, 0, 0, 0.493);
+}
+.budgetGraphLabel{
+    width:200px;
+    font-size: 1rem;
+    color:white;
+    padding-right:15px;
+    font-weight: bold;
+}
+.budgetGraphRow{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+}
+.budgetGraphBar{
+    height:100%;
+    width:100%;
+    background: white;
+    margin-right:auto;
+    border-radius: 0 30px 30px 0;
+}
+.topCardComponent {
+
+  width: 100%;
+  perspective: 800px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  transition: ease-in;
+  
+  padding: 5rem;
+  background-image: linear-gradient(40deg, #674C82 55% , rgba(0, 0, 0, 0.616) 20% );
+  
+}
+
+.topCardWrapper {
+    position: relative;
+    width:100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    /* transform: skewY(-60deg); */
+}
+
+.diagonal-box:before {
+	position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, #674C82, #000); 	
+    transform: skewY(-11deg);
+}
+
+.headingColumn {
+    color: white !important;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    max-width: 50em;
+	margin: 0 auto;
+    position: relative;
+}
+
+.headingColumn h2 {
+    margin-top: 3rem !important;
+}
+
+.budgetRow{
+    display:flex;
+    margin-bottom:5px;
+}
+
+.colRight{
+    margin-left:auto;
+}
+
+.amountColumn {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.amountColumn h2 {
+   margin-bottom: 1px;
+} 
+
+/* .budgetMainContainer{
+    margin: auto;
+    background-color: #3D3055;
+    padding: auto;
+} */
+
+.budgetHeaderContainer{
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.budgetHeader{
+    text-align: center;
+    font-size:2.5rem;
+    margin-bottom:20px;
+    letter-spacing:5px;
+    color:white;
+    text-shadow: 0px 3px 7px black;
+}
+
+.budgetPTags{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 4.16px;
+    color: white;
+    margin: 0;
+    font-weight: 0;
+}
+.budget .table{
+    border-radius:15px;
+    overflow: hidden;
+    text-align: center;
+}
+/* BudgetCard Component */
+
+/* .diagonalBG{
+    background: #674C82 0% 0% no-repeat padding-box;
+    padding: 3rem;
+    width: 100%;
+    min-width: 350px;
+    max-width: 605px;
+    transform: matrix(0.64, 0.77, -0.77, 0.64, 0, 0);
+    /* perspective: 800px; */
+    /* position: relative; */
+    /* margin: auto;
+    transition: ease-in;
+    border: solid 1px #300;
+    border-radius: 25px; */
+
+
+/* .topCardComponent{
+    border: 2px solid violet;
+    border-radius: ;
+} */

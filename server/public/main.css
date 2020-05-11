@@ -4,3 +4,29 @@ body {
 body h1{
   font-family: 'Raleway', sans-serif !important;
 }
+
+.ui.button.submitBtn {
+  background-color: #7363C8;
+  color: white
+}
+.appContainer {
+  position: relative;
+}
+
+.fern {
+  height:500px;
+  right: -20px;
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+}
+.routesContainer{
+  min-height: 60vh
+}
+
+.appContainer .ui.table tr:hover{
+ font-weight: 800;
+}
+.appContainer .ui.table tr.active{
+  font-weight: 800;
+ }

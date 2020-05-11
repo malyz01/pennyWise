@@ -1,19 +1,11 @@
-import {
-  SET_MODAL_AUTH_OPEN,
-  SET_MODAL_AUTH_FORM
-} from '../types'
+import { SET_MODAL_OPEN, SET_MODAL_NAME } from '../types'
 
-export const setModalAuthOpen = (bool) => ({
-  type: SET_MODAL_AUTH_OPEN,
-  payload: bool
+export const setModalOpen = (open) => ({
+  type: SET_MODAL_OPEN,
+  payload: open
 })
 
-export const setModalAuthForm = (form) => ({
-  type: SET_MODAL_AUTH_FORM,
-  payload: form
+export const setModalName = (name) => ({
+  type: SET_MODAL_NAME,
+  payload: name
 })
-
-export default {
-  setModalAuthOpen,
-  setModalAuthForm
-}

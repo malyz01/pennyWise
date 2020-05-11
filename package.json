@@ -12,25 +12,21 @@
     "dev": "run-p dev:client dev:server",
     "dev:client": "webpack --watch",
     "dev:server": "nodemon server",
-    "start": "run-s build server",
+    "start": "npm run server",
     "build": "webpack",
     "server": "node server",
     "test": "jest --watchAll",
     "knex": "knex --knexfile server/db/knexfile.js",
+    "postinstall": "run-s db:reset build",
     "db:reset": "run-s db:delete db:migrate db:seed",
-    "db:migrate": "npm run knex migrate:latest",
-    "db:seed": "npm run knex seed:run",
+    "db:refresh": "run-s db:rollback db:migrate db:seed",
     "db:delete": "rm -f server/db/dev.sqlite3",
-    "postinstall": "run-s db:reset build"
+    "db:rollback": "npm run knex migrate:rollback",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run"
   },
-  "eslintIgnore": [
-    "bundle.js"
-  ],
   "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
+    "presets": ["@babel/preset-env", "@babel/preset-react"],
     "plugins": [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
@@ -38,9 +34,7 @@
     ]
   },
   "jest": {
-    "setupFiles": [
-      "./tests/setup.js"
-    ]
+    "setupFiles": ["./tests/setup.js"]
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -59,6 +53,7 @@
     "react-scroll": "^1.7.16",
     "react-slick": "^0.25.2",
     "semantic-ui-react": "^0.88.2",
+    "snakecase-keys": "^3.2.0",
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
@@ -73,7 +68,6 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
     "dotenv": "^8.2.0",
-    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "file-loader": "^6.0.0",

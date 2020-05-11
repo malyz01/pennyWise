@@ -3,6 +3,7 @@
   background-color: #322943;
   position: relative;
   padding: 50px 100px 10px 100px;
+  width: 100%;
   /* margin-top: 100px; */
 }
 
@@ -67,8 +68,7 @@
 }
 
 .footerLine {
-  border-top: 2px solid #707070;
-  width: 75%;
+  width: 66%;
   position: relative;
   margin: 50px auto;
 }
