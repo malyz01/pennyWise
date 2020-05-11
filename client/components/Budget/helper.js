@@ -3,7 +3,7 @@ function cta (frequency, amount) {
   if (frequency === 'Monthly') return amount * 12
   if (frequency === 'Weekly') return amount * 52
 }
-
+// hello :3
 function ctm (amount) {
   return (amount / 12).toFixed(2)
 }
