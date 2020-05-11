@@ -22,8 +22,8 @@ class Header extends Component {
 
   render () {
     return (
-      <Container className='expenseHeader'>
-        <div className='expenseHeaderTitle'>OVERVIEW OF INCOME</div>
+      <Container className='incomeHeader'>
+        <div className='incomeHeaderTitle'>OVERVIEW OF INCOME</div>
         <hr />
         <div className='incomeButtons'>
           <button

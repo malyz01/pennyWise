@@ -9,8 +9,6 @@
   font-size:2.5rem;
   margin-bottom:20px;
   letter-spacing:5px;
-  text-shadow: 2px 2px 3px rgb(24, 24, 24);
-  font-weight:600;
 }
 
 .incomeHeaderText{
@@ -28,12 +26,6 @@
   padding-bottom:10%;
 }
 
-/* .incomeButtons .button{
-  display: flex;
-  margin-top:50px;
-  margin-bottom:50px;
-} */
-
 .incomeButtons{
   display: flex;
   margin-top:50px;
@@ -46,15 +38,15 @@
   margin-right:20px;
   letter-spacing: 10px;
   padding:15px;
-  border-radius:30px;
+  border-radius:5px;
   font-size: 0.8rem;
-  background: #bd9cdf !important;
+  background: #333333 !important;
   color:white;
-  text-shadow: 1px 1px 2px black;
 }
 
 .incomeButtons .button:hover{
-  background:#af6ef0 !important;
+  background:#434343 !important;
+  color: white;
 }
 
 .incomeButtons .button.add{
@@ -69,26 +61,6 @@
 
 .income{
   background-color: #5E5371;
-}
-
-/* TABLE STYLES */
-.income .ui.single.line.table th{
-  background:#9770be;
-  color:white;
-  text-decoration: solid;
-}
-
-.income .ui.single.line.table td{
-  background:rgb(34, 33, 36);
-  color:white;
-  text-decoration: solid;
-}
-
-.income .ui.table{
-  background:none !important;
-  border-radius:20px;
-  overflow:hidden;
-  text-align:center;
 }
 
 .pointerCursor {

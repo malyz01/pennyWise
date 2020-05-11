@@ -22,12 +22,12 @@ class FooterItems extends React.Component {
           <p className='footerHeading'>CONTACT</p>
           {/* <div className='footerLinks'> */}
           <div className='contactSection'>
-            <p><a href="#">Matt Uy</a></p>
-            <p><a href="#">Chris Alba</a></p>
-            <p><a href="#">Lucas Santana</a></p>
-            <p><a href="#">Jimmi Meredith</a></p>
-            <p><a href="#">Raymond Leung</a></p>
-            <p><a href="#">David Dumolo</a></p>
+            <p><a href="mailto:emailofuser">Matt Uy</a></p>
+            <p><a href="mailto:emailofuser">Chris Alba</a></p>
+            <p><a href="mailto:emailofuser">Lucas Santana</a></p>
+            <p><a href="mailto:jimmi.meredith@gmail.com">Jimmi Meredith</a></p>
+            <p><a href="mailto:emailofuser">Raymond Leung</a></p>
+            <p><a href="mailto:emailofuser">David Dumolo</a></p>
           </div>
           {/* </div> */}
         </div>
