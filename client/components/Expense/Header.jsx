@@ -26,10 +26,7 @@ class Header extends Component {
         <div className="expenseHeaderTitle">OVERVIEW OF EXPENSES</div>
         <hr />
         <div className="expenseHeaderText">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cumque
-          exercitationem sequi expedita cupiditate error nam laudantium ut quo
-          quasi rerum eaque fuga odit, laborum facilis mollitia impedit dolore
-          corporis!
+          an overview of your expenses done right
         </div>
         <div className="expenseButtons">
           <button

@@ -18,25 +18,26 @@
   
 }
 .goalButtons .button{
+  background:#333333 !important;
+  text-shadow: none;
+  border-radius: 5px;
   flex-grow: 1;
   margin-left:20px;
   margin-right:20px;
   letter-spacing: 10px;
   padding:15px;
-  border-radius:30px;
   font-size: 0.8rem;
-  background: #bd9cdf !important;
   color:white;
   transition:500ms;
-  text-shadow: 1px 1px 2px black;
 }
-.goalButtons .button:hover{
-  background:#8b71a5 !important;
+.goalButtons .ui.button:hover{
   color: white;
   transform: scale(1.1); 
   transition: all .2s ease-in-out;
+  background-color: #434343 ;
 }
-.goalButtons .button.add{
+
+.goalButtons .ui.button.add{
   background:rgb(219, 219, 219) !important;
   color:black;
   text-shadow:none;
