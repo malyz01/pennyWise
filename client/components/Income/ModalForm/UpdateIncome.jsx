@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
+import './incomeModal.css'
 
 import { updateUserIncome } from '../../../store/actions/income'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
-import './incomeModal.css'
 
 const category = [
   { key: 'p', text: 'Primary', value: 'Primary' },

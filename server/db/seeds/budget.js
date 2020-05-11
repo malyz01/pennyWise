@@ -239,7 +239,7 @@ exports.seed = knex =>
           user_id: 1001,
           income_name: 'Mechanic',
           frequency: 'Weekly',
-          income_type: 'primary',
+          income_type: 'Primary',
           income_amount: 1200
         },
         {
@@ -247,7 +247,7 @@ exports.seed = knex =>
           user_id: 1002,
           income_name: 'Freelance Web Devloper',
           frequency: 'Weekly',
-          income_type: 'primary',
+          income_type: 'Primary',
           income_amount: 1000
         },
         {
@@ -255,7 +255,7 @@ exports.seed = knex =>
           user_id: 1003,
           income_name: 'Technical Support',
           frequency: 'Weekly',
-          income_type: 'primary',
+          income_type: 'Primary',
           income_amount: 1200
         },
         {
@@ -263,7 +263,7 @@ exports.seed = knex =>
           user_id: 1004,
           income_name: 'Systems Engineer',
           frequency: 'Weekly',
-          income_type: 'primary',
+          income_type: 'Primary',
           income_amount: 2000
         },
         {
@@ -271,7 +271,7 @@ exports.seed = knex =>
           user_id: 1005,
           income_name: 'Network Analyst',
           frequency: 'Weekly',
-          income_type: 'primary',
+          income_type: 'Primary',
           income_amount: 1500
         },
         {
@@ -279,7 +279,7 @@ exports.seed = knex =>
           user_id: 1006,
           income_name: 'Javascript Full-Stack Developer',
           frequency: 'Weekly',
-          income_type: 'primary',
+          income_type: 'Primary',
           income_amount: 2000
         }
       ])
