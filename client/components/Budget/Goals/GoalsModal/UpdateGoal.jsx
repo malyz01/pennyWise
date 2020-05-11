@@ -33,13 +33,18 @@ export class UpdateGoal extends Component {
 
   updateMoney = (type) => {
     if (type === 'add') {
-      if (this.state.currentAmount + this.state.money >= 0) {
-        this.setState({ currentAmount: this.state.currentAmount + Number(this.state.money) })
+      console.log(this.props.select)
+      if (Number(this.state.currentAmount) + Number(this.state.money) >= 0) {
+        let money = this.state.money
+        if (Number(this.state.currentAmount) + Number(this.state.money) > Number(this.props.select.targetBudget)) {
+          money = Number(this.props.select.targetBudget) - Number(this.state.currentAmount)
+        }
+        this.setState({ currentAmount: Number(this.state.currentAmount) + Number(money) })
       }
     }
     if (type === 'subtract') {
-      if (this.state.currentAmount - this.state.money >= 0) {
-        this.setState({ currentAmount: this.state.currentAmount - Number(this.state.money) })
+      if (Number(this.state.currentAmount) - Number(this.state.money) >= 0) {
+        this.setState({ currentAmount: Number(this.state.currentAmount) - Number(this.state.money) })
       }
     }
   }
