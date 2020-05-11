@@ -5,7 +5,7 @@ import Header from './Header'
 import { connect } from 'react-redux'
 import Goals from './Goals'
 import BudgetCard from './BudgetCard'
-import GoalModal from './Goals/GoalsModal'
+import GoalModal from './Goals/GoalsModal' // To be deleted
 import { getUserBudget } from '../../store/actions/budget'
 import { Container } from 'semantic-ui-react'
 
@@ -31,6 +31,7 @@ class Budget extends React.Component {
           <BudgetCard expense={expense} income={income} goal={goal} />
           <Goals />
           <GoalModal />
+          {/* ^ to be deleted */}
         </Container>
       </div>
     )

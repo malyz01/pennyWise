@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-import ModalForm from './ModalForm'
 import Loading from '../Loading'
 import { getUserIncome } from '../../store/actions/income'
 import { loading } from '../../store/actions/loading'
@@ -34,7 +33,6 @@ export class Income extends Component {
       <div className='income'>
         <Header />
         <Table data={{ userId, income, selected }} />
-        <ModalForm />
       </div>
     )
   }
