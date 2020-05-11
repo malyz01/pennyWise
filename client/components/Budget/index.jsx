@@ -13,15 +13,17 @@ import { loading } from '../../store/actions/loading'
 import Loading from '../Loading'
 
 class Budget extends React.Component {
-  async componentDidMount () {
-    this.props.loading(true)
-    await this.props.getUserBudget(this.props.userId)
-    this.props.loading(false)
+  componentDidMount () {
+    this.props.getUserBudget(this.props.userId)
+  }
+
+  componentWillUnmount () {
+    this.props.loading('budget', true)
   }
 
   render () {
     const { expense, income, goal } = this.props
-    if (!this.props.loading) return <Loading/>
+    if (this.props.load) return <Loading/>
     return (
       <div className="budget">
         <Container>
@@ -36,7 +38,7 @@ class Budget extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.loading,
+  load: state.loading.budget,
   userId: state.auth.user.id,
   expense: state.expense.all,
   income: state.income.all,

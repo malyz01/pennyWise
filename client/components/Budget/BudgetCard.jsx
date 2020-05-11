@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
@@ -39,13 +39,13 @@ class BudgetCard extends Component {
   renderTotalContribution = () => {
     const { goal } = this.props
     if (this.state.frequency === 'Weekly') {
-      return goal && goal.length > 0 && h.ctw(h.getTotalContribution(goal))
+      return h.ctw(h.getTotalContribution(goal))
     }
     if (this.state.frequency === 'Monthly') {
-      return goal && goal.length > 0 && h.ctm(h.getTotalContribution(goal))
+      return h.ctm(h.getTotalContribution(goal))
     }
     if (this.state.frequency === 'Annually') {
-      return goal && goal.length > 0 && h.getTotalContribution(goal)
+      return h.getTotalContribution(goal)
     }
   }
 
@@ -154,26 +154,33 @@ class BudgetCard extends Component {
           {
             this.props.goal.map((item, index) => {
               return (
-                <>
-                  <div key={item.id} className="budgetGraphRow">
+                <Fragment key={item.id}>
+                  <div className="budgetGraphRow">
                     <div className="budgetGraphLabel">
                       <p>{item.goalName}</p>
                     </div>
                     <div className="budgetGraphBarContainer">
-                      <div className="budgetGraphBar" style={{
-                        background: this.getColor(count),
-                        width: `${item.currentAmount / item.targetBudget * 100}%`
-                      }}>
-                      </div>
+                      <div
+                        className="budgetGraphBar"
+                        style={{
+                          background: this.getColor(count),
+                          width: `${
+                            (item.currentAmount / item.targetBudget) * 100
+                          }%`
+                        }}
+                      ></div>
                       <div className="budgetGraphBarRatio">
-                        {(item.currentAmount / item.targetBudget * 100).toFixed(2)}%
+                        {(
+                          (item.currentAmount / item.targetBudget) *
+                          100
+                        ).toFixed(2)}
+                        %
                       </div>
-
                     </div>
-
                   </div>
                   {index < this.props.goal.length - 1 && <hr />}
-                </>)
+                </Fragment>
+              )
             })
           }
 

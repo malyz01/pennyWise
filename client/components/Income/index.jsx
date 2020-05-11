@@ -9,10 +9,12 @@ import { getUserIncome } from '../../store/actions/income'
 import { loading } from '../../store/actions/loading'
 
 export class Income extends Component {
-  async componentDidMount () {
-    this.props.loading(true)
-    await this.props.getUserIncome(this.props.userId)
-    this.props.loading(false)
+  componentDidMount () {
+    this.props.getUserIncome(this.props.userId)
+  }
+
+  componentWillUnmount () {
+    this.props.loading('income', true)
   }
 
   totalIncome () {
@@ -27,7 +29,7 @@ export class Income extends Component {
 
   render () {
     const { userId, income, selected } = this.props
-    if (!this.props.loading) return <Loading />
+    if (this.props.load) return <Loading />
     return (
       <div className='income'>
         <Header />
@@ -38,7 +40,7 @@ export class Income extends Component {
   }
 }
 const mapStateToProps = state => ({
-  loading: state.loading,
+  load: state.loading.income,
   userId: state.auth.user.id,
   income: state.income.all,
   selected: state.income.selected
