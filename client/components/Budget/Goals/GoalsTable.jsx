@@ -38,7 +38,7 @@ class GoalsTable extends Component {
               this.props.goals.map((goal) => {
                 return <Table.Row className='pointerCursor' key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
                   <Table.Cell>{goal.goalName}</Table.Cell>
-                  <Table.Cell>{goal.targetBudget}</Table.Cell>
+                  <Table.Cell>${goal.targetBudget}</Table.Cell>
                   <Table.Cell>{goal.targetDate}</Table.Cell>
                   <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} ${this.getPeriod(goal.targetDate, goal.startDate) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
                   <Table.Cell>{goal.currentAmount}</Table.Cell>

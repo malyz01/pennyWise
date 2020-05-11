@@ -36,6 +36,7 @@ class Budget extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.loading,
   userId: state.auth.user.id,
   expense: state.expense.all,
   income: state.income.all,

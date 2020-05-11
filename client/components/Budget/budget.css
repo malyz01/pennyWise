@@ -169,28 +169,12 @@
     font-weight: 0;
 }
 .budget .table{
-    border-radius:15px;
+    border-radius: 6px;
     overflow: hidden;
     text-align: center;
 }
-/* BudgetCard Component */
 
-/* .diagonalBG{
-    background: #674C82 0% 0% no-repeat padding-box;
-    padding: 3rem;
-    width: 100%;
-    min-width: 350px;
-    max-width: 605px;
-    transform: matrix(0.64, 0.77, -0.77, 0.64, 0, 0);
-    /* perspective: 800px; */
-    /* position: relative; */
-    /* margin: auto;
-    transition: ease-in;
-    border: solid 1px #300;
-    border-radius: 25px; */
-
-
-/* .topCardComponent{
-    border: 2px solid violet;
-    border-radius: ;
-} */
+button.ui.button.add{
+    max-width: 265px;
+    border-radius: 5px;
+}

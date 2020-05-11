@@ -22,17 +22,17 @@ export class ExpenseTable extends Component {
     return (
       <Fade>
         <Container className='expenseTable'>
-          <Table inverted selectable singleLine>
+          <Table inverted singleLine>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Expense</Table.HeaderCell>
+                <Table.HeaderCell>Expenses</Table.HeaderCell>
                 <Table.HeaderCell>Type</Table.HeaderCell>
                 <Table.HeaderCell>Frequency</Table.HeaderCell>
                 <Table.HeaderCell>Amount</Table.HeaderCell>
                 <Table.HeaderCell>Active</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
-  
+
             <Table.Body>
               {expenses.map((e, i) => (
                 <Table.Row className='pointerCursor'
@@ -43,7 +43,7 @@ export class ExpenseTable extends Component {
                   <Table.Cell>{e.expenseName}</Table.Cell>
                   <Table.Cell>{e.categories}</Table.Cell>
                   <Table.Cell>{e.frequency}</Table.Cell>
-                  <Table.Cell>{e.expenseAmount}</Table.Cell>
+                  <Table.Cell>${e.expenseAmount}</Table.Cell>
                   <Table.Cell>{e.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               ))}

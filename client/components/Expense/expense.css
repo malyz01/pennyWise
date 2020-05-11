@@ -2,6 +2,7 @@
   padding-top:10%;
   padding: bottom 3%;
   color:white;
+  letter-spacing: 5px;
 }
 .expenseHeaderTitle{
   text-align: center;
@@ -11,7 +12,9 @@
 
 }
 .expenseHeaderText{
-  width:70%;
+  max-width: 90%;
+  text-align: center;
+  letter-spacing: 4.5px;
   margin: 0 auto;
 }
 .expenseHeader Hr{
@@ -21,7 +24,7 @@
 }
 .expenseTable{
   padding-bottom:10%;
-}
+} 
 
 .expenseButtons{
   display: flex;
@@ -36,12 +39,13 @@
   padding:15px;
   border-radius:30px;
   font-size: 0.8rem;
-  background: #bd9cdf !important;
+  transition: 500ms;
+  background: #333333 !important;
   color:white;
-  text-shadow: 1px 1px 2px black;
 }
+
 .expenseButtons .button:hover{
-  background:#8b71a5 !important;
+  background:#434343 !important;
   color: white;
   transform: scale(1.1); 
   transition: all .2s ease-in-out;
