@@ -2,11 +2,11 @@ const router = require('express').Router()
 const camelcaseKeys = require('camelcase-keys')
 
 const db = require('../db/fn/expense')
-const { isLoggedInAndOwner } = require('../middleware')
+const { isGetOwner, isWriteOwner } = require('../middleware')
 
 // GET - /api/v1/expense/:userId
 // Complete Postman Testing
-router.get('/:userId', isLoggedInAndOwner, (req, res, next) => {
+router.get('/:userId', isGetOwner, (req, res, next) => {
   db.getUserExpenses(req.params.userId)
     .then(camelcaseKeys)
     .then((expenses) => res.status(200).json(expenses))
@@ -17,7 +17,7 @@ router.get('/:userId', isLoggedInAndOwner, (req, res, next) => {
 
 // POST /api/v1/expense/:userId
 // Complete Postman Testing
-router.post('/:userId', isLoggedInAndOwner, (req, res) => {
+router.post('/:userId', isGetOwner, (req, res) => {
   db.addUserExpense({ ...req.params, ...req.body })
     .then(camelcaseKeys)
     .then(expense => res.status(200).json(expense))
@@ -28,8 +28,8 @@ router.post('/:userId', isLoggedInAndOwner, (req, res) => {
 
 // PUT - /api/v1/expense/:expenseId
 // Complete Postman Testing
-router.put('/:expenseId', (req, res) => {
-  db.updateUserExpense(req.params.expenseId, req.body)
+router.put('/:expense', isWriteOwner, (req, res) => {
+  db.updateUserExpense(req.params.expense, req.body)
     .then(camelcaseKeys)
     .then(d => {
       res.status(200).json(d)
@@ -41,11 +41,11 @@ router.put('/:expenseId', (req, res) => {
 
 // DELETE - /api/v1/expense/:expenseId
 // Complete Postman Testing
-router.delete('/:expenseId', (req, res) => {
-  db.deleteUserExpense(req.params.expenseId)
+router.delete('/:expense', isWriteOwner, (req, res) => {
+  db.deleteUserExpense(req.params.expense)
     .then(camelcaseKeys)
     .then(() => {
-      res.status(200).json(req.params.expenseId)
+      res.status(200).json(req.params.expense)
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)

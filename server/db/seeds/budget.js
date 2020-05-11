@@ -21,7 +21,7 @@ exports.seed = knex =>
         },
         {
           id: 1003,
-          email: 'senseimatt@testing.com',
+          email: 'matt@testing.com',
           password:
             '$2b$10$E42ZIELPHZiIN.2DjHbywuhHDONKSRK7/jppFiJU/wtm2EGV0Fszu'
         },
