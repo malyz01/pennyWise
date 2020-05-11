@@ -6,6 +6,7 @@ import {
   UPDATE_USER_EXPENSE
 } from '../types'
 import api from '../../api'
+import { loading } from './loading'
 
 export const getUserExpenses = userId => async dispatch => {
   try {
@@ -14,7 +15,7 @@ export const getUserExpenses = userId => async dispatch => {
       type: GET_USER_EXPENSES,
       payload: data
     })
-    return true
+    dispatch(loading('expense', false))
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in getUserExpense Api Call')
@@ -27,7 +28,6 @@ export const selectUserExpense = data => dispatch => {
       type: SELECT_USER_EXPENSE,
       payload: data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in addUserExpense Api Call')
@@ -41,7 +41,6 @@ export const addUserExpense = (userId, expenseData) => async dispatch => {
       type: ADD_USER_EXPENSE,
       payload: data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in addUserExpense Api Call')
@@ -56,7 +55,6 @@ export const updateUserExpense = (expenseId, expenseData) => async dispatch => {
       type: UPDATE_USER_EXPENSE,
       payload: data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in updateUserExpense Api Call')
@@ -70,7 +68,6 @@ export const deleteUserExpense = expenseId => async dispatch => {
       type: DELETE_USER_EXPENSE,
       payload: data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in deleteUserExpense Api Call')

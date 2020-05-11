@@ -1,5 +1,5 @@
 import api from '../../api'
-import { 
+import {
   GET_USER_EXPENSES,
   GET_USER_INCOME,
   GET_USER_GOALS

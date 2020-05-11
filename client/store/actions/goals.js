@@ -6,6 +6,7 @@ import {
   UPDATE_USER_GOALS
 } from '../types'
 import api from '../../api'
+import { loading } from './loading'
 
 export const getUserGoals = (userId) => async (dispatch) => {
   try {
@@ -14,7 +15,7 @@ export const getUserGoals = (userId) => async (dispatch) => {
       type: GET_USER_GOALS,
       payload: userGoals.data
     })
-    return true
+    dispatch(loading('goals', false))
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in getUserGoals Api Call')
@@ -28,7 +29,6 @@ export const addUserGoal = (userId, data) => async (dispatch) => {
       type: ADD_USER_GOALS,
       payload: userGoal.data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in addUserGoals Api Call')
@@ -42,7 +42,6 @@ export const updateUserGoal = (goalsId, data) => async (dispatch) => {
       type: UPDATE_USER_GOALS,
       payload: userGoals.data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in updateUserGoals Api Call')
@@ -54,7 +53,6 @@ export const selectUserGoal = data => dispatch => {
       type: SELECT_USER_GOALS,
       payload: data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in addUserExpense Api Call')
@@ -68,7 +66,6 @@ export const deleteUserGoals = (goalsId) => async (dispatch) => {
       type: DELETE_USER_GOALS,
       payload: userGoals.data
     })
-    return true
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in deleteUserGoals Api Call')
