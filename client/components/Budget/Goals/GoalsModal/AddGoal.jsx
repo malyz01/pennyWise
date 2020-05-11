@@ -6,12 +6,20 @@ import './goalModal.css'
 import { addUserGoal } from '../../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 
+const options = [
+  { key: 'w', text: 'Weekly', value: 'Weekly' },
+  { key: 'm', text: 'Monthly', value: 'Monthly' },
+  { key: 'a', text: 'Annually', value: 'Annually' }
+]
+
 export class Login extends Component {
   state = {
     goalName: '',
     targetBudget: '',
     currentAmount: '',
-    targetDate: ''
+    frequency: 'Weekly',
+    targetDate: '',
+    budgetDistribution: ''
   }
 
   handleOnChange = (e, { name, value }) => {
@@ -29,7 +37,9 @@ export class Login extends Component {
       goalName,
       targetBudget,
       currentAmount,
-      targetDate
+      frequency,
+      targetDate,
+      budgetDistribution
     } = this.state
     return (
       <div className="goalModalFormContainer">
@@ -66,6 +76,13 @@ export class Login extends Component {
               placeholder="current amount"
             />
           </Form.Field>
+          <Form.Select
+            defaultValue={frequency}
+            name="frequency"
+            onChange={this.handleOnChange}
+            placeholder="frequency"
+            options={options}
+          />
           <Form.Field>
             <Form.Input
               value={targetDate}
@@ -74,6 +91,16 @@ export class Login extends Component {
               required
               type="date"
               placeholder="target date"
+            />
+          </Form.Field>
+          <Form.Field>
+            <Form.Input
+              value={budgetDistribution}
+              onChange={this.handleOnChange}
+              name="budgetDistribution"
+              required
+              type="number"
+              placeholder="budget distribution"
             />
           </Form.Field>
           <Button className="submitBtn" type="submit">
