@@ -64,7 +64,7 @@ exports.seed = knex =>
         {
           id: 3,
           user_id: 1003,
-          full_name: 'Sensei Matt',
+          full_name: 'Matt Uy',
           avatar:
             'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'
         },
