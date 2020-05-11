@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   GET_USER_EXPENSES,
   SELECT_USER_EXPENSE,
@@ -17,7 +18,6 @@ export const getUserExpenses = userId => async dispatch => {
     })
     dispatch(loading('expense', false))
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in getUserExpense Api Call')
   }
 }
@@ -29,7 +29,6 @@ export const selectUserExpense = data => dispatch => {
       payload: data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in addUserExpense Api Call')
   }
 }
@@ -42,7 +41,6 @@ export const addUserExpense = (userId, expenseData) => async dispatch => {
       payload: data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in addUserExpense Api Call')
   }
 }
@@ -56,7 +54,6 @@ export const updateUserExpense = (expenseId, expenseData) => async dispatch => {
       payload: data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in updateUserExpense Api Call')
   }
 }
@@ -69,7 +66,6 @@ export const deleteUserExpense = expenseId => async dispatch => {
       payload: data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in deleteUserExpense Api Call')
   }
 }

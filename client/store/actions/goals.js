@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   ADD_USER_GOALS,
   DELETE_USER_GOALS,
@@ -17,7 +18,6 @@ export const getUserGoals = (userId) => async (dispatch) => {
     })
     dispatch(loading('goals', false))
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in getUserGoals Api Call')
   }
 }
@@ -30,7 +30,6 @@ export const addUserGoal = (userId, data) => async (dispatch) => {
       payload: userGoal.data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in addUserGoals Api Call')
   }
 }
@@ -43,7 +42,6 @@ export const updateUserGoal = (goalsId, data) => async (dispatch) => {
       payload: userGoals.data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in updateUserGoals Api Call')
   }
 }
@@ -54,7 +52,6 @@ export const selectUserGoal = data => dispatch => {
       payload: data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in addUserExpense Api Call')
   }
 }
@@ -67,7 +64,6 @@ export const deleteUserGoals = (goalsId) => async (dispatch) => {
       payload: userGoals.data
     })
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.log('error in deleteUserGoals Api Call')
   }
 }
