@@ -14,41 +14,34 @@ class BottomDetailsCardComponent extends React.Component {
     this.getTotalIncome()
   }
 
+  r = (name) => (ac, va) => {
+    if (va.active) {
+      if (va.frequency === 'Monthly') {
+        va[name] = va[name] * 12 / 52
+      }
+      if (va.frequency === 'Annually') {
+        va[name] = va[name] / 52
+      }
+      return (ac + va[name])
+    }
+    return ac
+  }
+
   getTotalIncome = () => {
     const { income } = this.props
-    this.setState({ income: income.reduce((ac, va) => {
-      if (va.active) {
-        if (va.frequency === 'Monthly') {
-          va.incomeAmount = va.incomeAmount * 12 / 52
-        } else if (va.frequency === 'Annually') {
-          va.incomeAmount = va.incomeAmount / 52
-        }
-        return (ac + va.incomeAmount)
-      }
-      return ac
-    }, 0).toFixed(2)
+    this.setState({ income: income.reduce(this.r('incomeAmount'), 0).toFixed(2)
     })
   }
 
   getTotalExpense = () => {
     const { expense } = this.props
-    this.setState({ expense: expense.reduce((ac, va) => {
-      if (va.active) {
-        if (va.frequency === 'Monthly') {
-          va.expenseAmount = va.expenseAmount * 12 / 52
-        }
-        if (va.frequency === 'Annually') {
-          va.expenseAmount = va.expenseAmount / 52
-        }
-        return (ac + va.expenseAmount)
-      }
-      return ac
-    }, 0).toFixed(2) })
+    this.setState({
+      expense: expense.reduce(this.r('expenseAmount'), 0).toFixed(2)
+    })
   }
 
   render () {
     const { history } = this.props
-
     return (
       <div className="bottomCardDetailsContainer">
         <div className="bottomButtonContainer">

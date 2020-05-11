@@ -1,6 +1,7 @@
-import { GET_LOADING_PENDING } from '../types'
+import { SET_LOADING_PENDING } from '../types'
 
-export const loading = (bool) => ({
-  type: GET_LOADING_PENDING,
-  payload: bool
+export const loading = (name, bool) => ({
+  type: SET_LOADING_PENDING,
+  name,
+  pending: bool
 })

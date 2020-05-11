@@ -7,9 +7,6 @@ import {
 } from '../types'
 import api from '../../api'
 
-export const GET_LOADING_PENDING = 'GET_LOADING_PENDING'
-export const GET_LOADING_SUCCESS = 'GET_LOADING_SUCCESS'
-
 export const getUserExpenses = userId => async dispatch => {
   try {
     const { data } = await api.get(`/expense/${userId}`)

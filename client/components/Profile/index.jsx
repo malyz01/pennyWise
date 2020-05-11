@@ -4,8 +4,10 @@ import './profile.css'
 
 import BottomDetailsCardComponent from './BottomDetailsCardComponent'
 import ProfileMain from './ProfileMain'
-import { getUserProfile, getUserDetails } from '../../store/actions/user'
+import Loading from '../Loading'
+import { getUserProfile } from '../../store/actions/user'
 import { getUserBudget } from '../../store/actions/budget'
+import { loading } from '../../store/actions/loading'
 
 class ProfileContainer extends React.Component {
   componentDidMount () {
@@ -13,12 +15,14 @@ class ProfileContainer extends React.Component {
     this.props.getUserBudget(this.props.userId)
   }
 
-  render () {
-    console.log(this.props.expense)
+  componentWillUnmount () {
+    this.props.loading('user', true)
+    this.props.loading('budget', true)
+  }
 
-    if ((!this.props.user) ||
-     (this.props.expense && this.props.expense.length === 0) ||
-      (this.props.income && this.props.income.length === 0)) { return <div>Loading...</div> }
+  render () {
+    const { budget, user } = this.props.load
+    if (budget || user) return <Loading />
     return (
       <div className="profileMainContainer">
         <div className="profileHeader">
@@ -47,6 +51,7 @@ class ProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  load: state.loading,
   userId: state.auth.user.id,
   user: state.user.profile,
   expense: state.expense.all,
@@ -54,6 +59,12 @@ const mapStateToProps = (state) => ({
   goal: state.goal.all
 })
 
-export default connect(mapStateToProps, { getUserProfile, getUserDetails, getUserBudget })(
+const mapDispatchToProps = {
+  getUserProfile,
+  getUserBudget,
+  loading
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
   ProfileContainer
 )

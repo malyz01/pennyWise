@@ -3,33 +3,9 @@ import {
   DELETE_USER_INCOME,
   GET_USER_INCOME,
   UPDATE_USER_INCOME,
-  SELECT_USER_INCOME,
-  GET_LOADING_PENDING,
-  GET_LOADING_SUCCESS
-
+  SELECT_USER_INCOME
 } from '../types'
 import api from '../../api'
-
-export const getUserIncomeSuccess = (userId) => async (dispatch) => {
-  try {
-    dispatch({
-      type: GET_LOADING_SUCCESS,
-      payload: userId.all // return user data
-    })
-  } catch (err) {
-    console.log('there was an error with getUserGoalsSuccess action type')
-  }
-}
-
-export const getUserIncomePending = () => async (dispatch) => {
-  try {
-    dispatch({
-      type: GET_LOADING_PENDING
-    })
-  } catch (err) {
-    console.log('there was an error with getUserGoalsSuccess action type')
-  }
-}
 
 export const getUserIncome = userId => async dispatch => {
   try {

@@ -1,5 +1,6 @@
 import { GET_USER_PROFILE, GET_USER_DETAILS } from '../types'
 import api from '../../api'
+import { loading } from './loading'
 
 export const getUserProfile = (userId) => async (dispatch) => {
   try {
@@ -8,6 +9,7 @@ export const getUserProfile = (userId) => async (dispatch) => {
       type: GET_USER_PROFILE,
       payload: data
     })
+    dispatch(loading('user', false))
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('error in getUserProfile Api Call')

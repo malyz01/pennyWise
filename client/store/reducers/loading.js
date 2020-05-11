@@ -1,11 +1,19 @@
 import {
-  GET_LOADING_PENDING
+  SET_LOADING_PENDING
 } from '../types'
 
-export default (state = false, action) => {
+const INITIAL_STATE = {
+  budget: true,
+  expense: true,
+  goals: true,
+  income: true,
+  user: true
+}
+
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_LOADING_PENDING:
-      return action.payload // load the loading text or icon
+    case SET_LOADING_PENDING:
+      return { ...state, [action.name]: action.pending }
     default:
       return state
   }
