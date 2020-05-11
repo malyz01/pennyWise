@@ -10,7 +10,11 @@ import reducers from './store/reducers'
 import { setAuthorizationToken, setAuth } from './store/actions/auth'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
+const envr =
+  process.env.NODE_ENV === 'production'
+    ? applyMiddleware(thunk)
+    : composeEnhancers(applyMiddleware(thunk))
+const store = createStore(reducers, envr)
 
 if (localStorage.jwtToken) {
   setAuthorizationToken(localStorage.jwtToken)
