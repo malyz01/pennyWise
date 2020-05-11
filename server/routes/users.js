@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const db = require('../db/fn/user')
 
+const { isGetOwner, isWriteOwner } = require('../middleware')
+
 router.get('/', (req, res) => {
   return db
     .getProfiles()
@@ -11,7 +13,7 @@ router.get('/', (req, res) => {
 })
 
 // GET - /api/v1/users/:userId/profile
-router.get('/:userId/profile', (req, res) => {
+router.get('/:userId/profile', isGetOwner, (req, res) => {
   db.getUserProfile(req.params.userId)
     .then((userDetail) => res.status(200).json(userDetail))
     .catch((err) => {
@@ -20,17 +22,17 @@ router.get('/:userId/profile', (req, res) => {
 })
 
 // GET - /api/v1/users/:id/details
-router.get('/:userId/details', (req, res) => {
+router.get('/:userId/details', isGetOwner, (req, res) => {
   db.getUserDetails(req.params.userId)
     .then((userDetail) => res.status(200).json(userDetail))
     .catch((err) => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
     })
 })
-// PUT - /api/v1/users/profile
 
-router.put('/profile', (req, res) => {
-  db.updateProfileDetails(req.body.id, req.body.details)
+// TODO PUT - /api/v1/users/profile/:profilesId
+router.put('/profile/:profiles', isWriteOwner, (req, res) => {
+  db.updateProfileDetails(req.params.profiles, req.body.details)
     .then(profile => res.sendStatus(200))
     .catch(err => {
       res.status(500).json('DATABASE ERROR: ' + err.message)
