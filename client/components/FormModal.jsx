@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal } from 'semantic-ui-react'
-// import './auth.css'
 
 import Login from './Navbar/Auth/Login'
 import Signup from './Navbar/Auth/Signup'
@@ -10,7 +9,7 @@ import UpdateIncome from './Income/ModalForm/UpdateIncome'
 import AddExpense from './Expense/ModalForm/AddExpense'
 import UpdateExpense from './Expense/ModalForm/UpdateExpense'
 import AddGoal from './Budget/Goals/GoalsModal/AddGoal'
-import UpdateGoal from './Budget/Goals/GoalsModal/'
+import UpdateGoal from './Budget/Goals/GoalsModal/UpdateGoal'
 import { setModalOpen, setModalName } from '../store/actions/modal'
 
 class Auth extends Component {
