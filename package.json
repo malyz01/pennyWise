@@ -12,7 +12,7 @@
     "dev": "run-p dev:client dev:server",
     "dev:client": "webpack --watch",
     "dev:server": "nodemon server",
-    "start": "run-s build server",
+    "start": "npm run server",
     "build": "webpack",
     "server": "node server",
     "test": "jest --watchAll",
@@ -26,10 +26,7 @@
     "db:seed": "npm run knex seed:run"
   },
   "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
+    "presets": ["@babel/preset-env", "@babel/preset-react"],
     "plugins": [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
@@ -37,9 +34,7 @@
     ]
   },
   "jest": {
-    "setupFiles": [
-      "./tests/setup.js"
-    ]
+    "setupFiles": ["./tests/setup.js"]
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -73,7 +68,6 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
     "dotenv": "^8.2.0",
-    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "file-loader": "^6.0.0",

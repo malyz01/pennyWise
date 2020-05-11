@@ -24,6 +24,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@master # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: 'pennyWise'
+          heroku_app_name: 'pennywise-eda'
           heroku_email: 'mattuy001@gmail.com'
-
