@@ -9,7 +9,7 @@ import Expense from './Expense'
 import Income from './Income'
 import Budget from './Budget'
 import withAuth from './HOC/withAuth'
-import FormModal from './FormModal'
+import MainModalForm from './MainModalForm'
 import LoadingIndicator from './Loading'
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
           <Route exact path="/income" component={withAuth(Income)} />
           <Route exact path="/budget" component={withAuth(Budget)} />
           <Route exact path="/loading" component={LoadingIndicator}/>
-          <FormModal />
+          <MainModalForm />
         </div>
       </HashRouter>
       <Footer />
