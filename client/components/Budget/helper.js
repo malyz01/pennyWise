@@ -14,19 +14,28 @@ function ctw (amount) {
 
 function getTotalContribution (arr) {
   return arr.reduce((a, v) => {
-    return a + cta(v.frequency, v.budgetDistribution)
+    if (v.active) {
+      return a + cta(v.frequency, v.budgetDistribution)
+    }
+    return a
   }, 0)
 }
 
 function getTotalIncome (income) {
   return income.reduce((a, v) => {
-    return a + cta(v.frequency, v.incomeAmount)
+    if (v.active) {
+      return a + cta(v.frequency, v.incomeAmount)
+    }
+    return a
   }, 0)
 }
 
 function getTotalExpense (expense) {
   return expense.reduce((a, v) => {
-    return a + cta(v.frequency, v.expenseAmount)
+    if (v.active) {
+      return a + cta(v.frequency, v.expenseAmount)
+    }
+    return a
   }, 0)
 }
 

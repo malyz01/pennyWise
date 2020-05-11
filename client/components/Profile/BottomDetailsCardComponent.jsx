@@ -17,12 +17,17 @@ class BottomDetailsCardComponent extends React.Component {
   getTotalIncome = () => {
     const { income } = this.props
     this.setState({ income: income.reduce((ac, va) => {
-      if (va.frequency === 'Monthly') {
-        va.incomeAmount = va.incomeAmount * 12 / 52
-      } else if (va.frequency === 'Annually') {
-        va.incomeAmount = va.incomeAmount / 52
+      console.log(va)
+
+      if (va.active) {
+        if (va.frequency === 'Monthly') {
+          va.incomeAmount = va.incomeAmount * 12 / 52
+        } else if (va.frequency === 'Annually') {
+          va.incomeAmount = va.incomeAmount / 52
+        }
+        return (ac + va.incomeAmount)
       }
-      return (ac + va.incomeAmount)
+      return ac
     }, 0).toFixed(2)
     })
   }
@@ -30,16 +35,18 @@ class BottomDetailsCardComponent extends React.Component {
   getTotalExpense = () => {
     const { expense } = this.props
     this.setState({ expense: expense.reduce((ac, va) => {
-      if (va.frequency === 'Monthly') {
-        va.expenseAmount = va.expenseAmount * 12 / 52
+      if (va.active) {
+        if (va.frequency === 'Monthly') {
+          va.expenseAmount = va.expenseAmount * 12 / 52
+        }
+        if (va.frequency === 'Annually') {
+          va.expenseAmount = va.expenseAmount / 52
+        }
+        return (ac + va.expenseAmount)
       }
-      if (va.frequency === 'Annually') {
-        va.expenseAmount = va.expenseAmount / 52
-      }
-      return (ac + va.expenseAmount)
+      return ac
     }, 0).toFixed(2) })
   }
-
 
   render () {
     const { history } = this.props
