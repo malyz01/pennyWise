@@ -26,7 +26,7 @@ class Goals extends Component {
           <div className="goalHeaderTitle">
           SPECIFY INCOME ALLOCATION FOR YOUR GOALS
           </div>
-          <hr className="titles"/>
+          <hr className="goalsTitleLine"/>
         </div>
         <div className="goalButtons">
           <button className="ui button add"onClick={this.handleOnClick('Add Goal')}>ADD GOAL</button>
