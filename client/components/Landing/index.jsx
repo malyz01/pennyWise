@@ -3,14 +3,18 @@ import Info from './Info'
 import Carousel from './Carousel'
 import Header from './Header'
 import './landing.css'
+import Slide from 'react-reveal/Slide'
 
 const Landing = () => {
   return (
     <div className = "landing">
       <Header/>
       <div className='landingSubContainer'>
-        <Info />
-        <Carousel/>
+        <Slide duration={500} left>
+          <Info />
+        </Slide>
+        <Slide duration={500} delay={500} right>        <Carousel />
+        </Slide>
       </div>
     </div>
   )

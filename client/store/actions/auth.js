@@ -1,5 +1,6 @@
 import api, { setTokenHeader } from '../../api'
 import { SET_AUTH } from '../types'
+import { loading } from './loading'
 
 export const setAuth = (user) => ({
   type: SET_AUTH,
@@ -12,11 +13,13 @@ export const setAuthorizationToken = (token) => {
 
 export const authUser = (user) => async (dispatch) => {
   try {
+    dispatch(loading(true))
     const response = await api.post(`/auth/login`, user)
     const { token, ...userData } = response.data
     localStorage.setItem('jwtToken', token)
     setAuthorizationToken(token)
     dispatch(setAuth(userData))
+    dispatch(loading(false))
     return userData.id
   } catch (err) {
     throw new Error(err.response.data.message)
