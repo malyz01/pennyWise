@@ -17,8 +17,6 @@ class BottomDetailsCardComponent extends React.Component {
   getTotalIncome = () => {
     const { income } = this.props
     this.setState({ income: income.reduce((ac, va) => {
-      console.log(va)
-
       if (va.active) {
         if (va.frequency === 'Monthly') {
           va.incomeAmount = va.incomeAmount * 12 / 52
