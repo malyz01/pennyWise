@@ -11,7 +11,7 @@ const ProfileMain = ({ user }) => {
         </div>
         <div className='editAndSubButton'>
           <button className='ui blue button'>edit profile</button>
-          <button className="ui purple button">subscribe email</button>
+          {/* <button className="ui purple button">subscribe email</button> */}
         </div>
       </div>
       <img className="profileAvatar" src={user.avatar} alt="user avatar image"/>

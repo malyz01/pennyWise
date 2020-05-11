@@ -6,18 +6,10 @@ import './goalModal.css'
 import { updateUserGoal } from '../../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 
-const options = [
-  { key: 'w', text: 'Weekly', value: 'Weekly' },
-  { key: 'm', text: 'Monthly', value: 'Monthly' },
-  { key: 'a', text: 'Annually', value: 'Annually' }
-]
-
 export class UpdateGoal extends Component {
   state = {
     currentAmount: this.props.select.currentAmount,
-    budgetDistribution: this.props.select.budgetDistribution,
-    frequency: this.props.select.frequency,
-    money: 0
+    money: ''
   }
 
   handleOnChange = (e, { name, value }) => {
@@ -45,36 +37,44 @@ export class UpdateGoal extends Component {
     }
   }
   render () {
-    const { currentAmount, budgetDistribution, frequency } = this.state
+    const { currentAmount } = this.state
     return (
       <div className="goalModalFormContainer">
         <div className="goalModalHeader">Add Funds To Your Goal</div>
         <div className="divider" />
-        <label>{`Your Current Amount is $${currentAmount}`}</label>
-        <input type="number" placeholder="add money" name="money" onChange={this.handleMoney}/><button onClick={() => this.updateMoney('add')}className="ui button green">+</button>
-        <button onClick={() => this.updateMoney('subtract')} className="ui button red">-</button>
-        <div className="goalModalHeader">{this.props.form}</div>
-        <div className="divider" />
-        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <label>Budget Distribution</label>
-          <Form.Field>
-            <Form.Input
-              value={budgetDistribution}
-              onChange={this.handleOnChange}
-              name="budgetDistribution"
-              required
-              type="number"
-              placeholder="budget distribution"
-            />
-          </Form.Field>
-          <label>Frequency</label>
-          <Form.Select
-            options={options}
-            name="frequency"
-            defaultValue={frequency}
-            onChange={this.handleOnChange}
-            placeholder="frequency"
-          />
+        <Form onSubmit={this.handleOnSubmit}>
+          <div style={{ display: 'block' }}>
+            <label>Your Current Amount is: {currentAmount}</label>
+            <div style={{ display: 'flex', margin: '1.5rem 0' }}>
+              <Form.Field style={{ margin: '0 2rem 0 0' }}>
+                <Form.Input
+                  value={this.state.money}
+                  onChange={this.handleOnChange}
+                  name="money"
+                  required
+                  type="number"
+                  placeholder="add / subtract money"
+                />
+              </Form.Field>
+              <Button
+                onClick={() => this.updateMoney('add')}
+                type="button"
+                circular
+                size="large"
+                color="teal"
+                icon="add"
+              />
+              <Button
+                onClick={() => this.updateMoney('subtract')}
+                type="button"
+                circular
+                size="large"
+                color="red"
+                icon="minus"
+              />
+            </div>
+          </div>
+
           <Button className="submitBtn" type="submit">
             Submit
           </Button>
