@@ -57,64 +57,93 @@ class BudgetCard extends Component {
   onChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
-
+  getColor = () => {
+    const getRandom = () => {
+      return Math.floor(Math.random() * 255)
+    }
+    return `rgb(${getRandom()},${getRandom()},${getRandom()})`
+  }
   render () {
     return (
-      <div className="topCardComponent">
-        <div className="topCardWrapper">
-          <div className="budgetRow">
-            <div className="colLeft">
-              <h2 style={{ color: 'white' }}>Frequency</h2>
+      <div className = "budgetCardMain">
+        <div className="topCardComponent">
+          <div className="topCardWrapper">
+            <div className="budgetRow">
+              <div className="colLeft">
+                <h2 style={{ color: 'white' }}>Frequency</h2>
+              </div>
+              <div className="colRight">
+                <Dropdown
+                  placeholder="frequency"
+                  selection
+                  onChange={this.onChange}
+                  name="frequency"
+                  value={this.state.frequency}
+                  options={options}
+                />
+              </div>
             </div>
-            <div className="colRight">
-              <Dropdown
-                placeholder="frequency"
-                selection
-                onChange={this.onChange}
-                name="frequency"
-                value={this.state.frequency}
-                options={options}
-              />
-            </div>
-          </div>
-          <hr style={{ marginBottom: '20px' }} />
+            <hr style={{ marginBottom: '20px' }} />
 
-          <div className="budgetRow">
-            <div className="colLeft">
-              <h2 style={{ color: 'white' }}>Total Budget:</h2>
-            </div>
-            <div className="colRight">
-              <h2 style={{ color: 'white' }}>
+            <div className="budgetRow">
+              <div className="colLeft">
+                <h2 style={{ color: 'white' }}>Total Budget:</h2>
+              </div>
+              <div className="colRight">
+                <h2 style={{ color: 'white' }}>
                 $ {this.renderTotalBudget()}
-              </h2>
+                </h2>
+              </div>
             </div>
-          </div>
-          <hr style={{ marginBottom: '20px' }} />
+            <hr style={{ marginBottom: '20px' }} />
 
-          <div className="budgetRow">
-            <div className="colLeft">
-              <h2 style={{ color: 'white' }}>Total Contribution:</h2>
-            </div>
-            <div className="colRight">
-              <h2 style={{ color: 'white' }}>
+            <div className="budgetRow">
+              <div className="colLeft">
+                <h2 style={{ color: 'white' }}>Total Contribution:</h2>
+              </div>
+              <div className="colRight">
+                <h2 style={{ color: 'white' }}>
                 $ {this.renderTotalContribution()}
-              </h2>
+                </h2>
+              </div>
             </div>
-          </div>
-          <hr style={{ marginBottom: '20px' }} />
+            <hr style={{ marginBottom: '20px' }} />
 
-          <div className="budgetRow">
-            <div className="colLeft">
-              <h2 style={{ color: 'white' }}>Un-Allocated Budget:</h2>
-            </div>
-            <div className="colRight">
-              <h2 style={{ color: 'white' }}>
+            <div className="budgetRow">
+              <div className="colLeft">
+                <h2 style={{ color: 'white' }}>Un-Allocated Budget:</h2>
+              </div>
+              <div className="colRight">
+                <h2 style={{ color: 'white' }}>
                 $ {this.renderUnallocatedBudget()}
-              </h2>
+                </h2>
+              </div>
             </div>
           </div>
         </div>
+        <div className = "budgetGraphs">
+          {
+            [1, 2, 3, 4, 5].map((item, index) => {
+              return (
+                <>
+              <div key={item} className = "budgetGraphRow">
+                <div className = "budgetGraphLabel">
+                  <p>Lucas new runescape account</p>
+                </div>
+
+                <div className = "budgetGraphBar" style={{ background: this.getColor }}>
+
+                </div>
+
+              </div>
+              {index < 4 && <hr/>}
+              </>)
+            })
+          }
+
+        </div>
       </div>
+
     )
   }
 }
