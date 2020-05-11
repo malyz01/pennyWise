@@ -15,3 +15,9 @@ export const getUserProfile = (userId) => async (dispatch) => {
     console.log('error in getUserProfile Api Call')
   }
 }
+
+// export const updateUserProfile = (userId, updatedData) => async (dispatch) => {
+//   try {
+//     const { data } = await api.put()
+//   }
+// }
