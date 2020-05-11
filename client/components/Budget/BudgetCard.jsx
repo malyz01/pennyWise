@@ -14,7 +14,12 @@ class BudgetCard extends Component {
   state = {
     frequency: 'Weekly'
   }
-
+  componentDidMount() {
+    count = 0
+  }
+  componentDidUpdate() {
+    count = 0
+  }
   renderTotalBudget = () => {
     const { income, expense } = this.props
     if (this.state.frequency === 'Weekly') {
@@ -58,13 +63,13 @@ class BudgetCard extends Component {
     this.setState({ [name]: value })
   }
   getColor = (number) => {
-    const getShade = (minR, minB, minG, maxR, maxB, maxG) => {
-      return `rgb(${Math.floor(Math.random() * (maxR - minR) + minR)},${Math.floor((Math.random() * (maxB - minB) + minB))},${Math.floor((Math.random() * (maxG - minG) + minG))})`
-    }
-    const getWhite = (min, max) => {
-      const shade = Math.floor(Math.random() * (max - min) + min)
-      return `rgb(${shade},${shade},${shade})`
-    }
+    // const getShade = (minR, minB, minG, maxR, maxB, maxG) => {
+    //   return `rgb(${Math.floor(Math.random() * (maxR - minR) + minR)},${Math.floor((Math.random() * (maxB - minB) + minB))},${Math.floor((Math.random() * (maxG - minG) + minG))})`
+    // }
+    // const getWhite = (min, max) => {
+    //   const shade = Math.floor(Math.random() * (max - min) + min)
+    //   return `rgb(${shade},${shade},${shade})`
+    // }
     switch (number) {
       case 0:
         count++
@@ -80,7 +85,7 @@ class BudgetCard extends Component {
         return '#9326ff'
     }
   }
-  render () {
+  render() {
     console.log('goals', this.props.goal)
     return (
       <div className="budgetCardMain">
@@ -150,12 +155,16 @@ class BudgetCard extends Component {
                     <div className="budgetGraphLabel">
                       <p>{item.goalName}</p>
                     </div>
-
-                    <div className="budgetGraphBar" style={{
-                      background: this.getColor(count),
-                      // width: '50%'
-                      width: `${item.currentAmount / item.targetBudget * 100}%`
-                    }}>
+                    <div className="budgetGraphBarContainer">
+                      <div className="budgetGraphBar" style={{
+                        background: this.getColor(count),
+                        // width: '50%'
+                        width: `${item.currentAmount / item.targetBudget * 100}%`
+                      }}>
+                      </div>
+                      <div className="budgetGraphBarRatio">
+                        {(item.currentAmount / item.targetBudget * 100).toFixed(2)}%
+                      </div>
 
                     </div>
 
