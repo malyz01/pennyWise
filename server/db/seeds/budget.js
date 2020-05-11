@@ -98,136 +98,119 @@ exports.seed = knex =>
           user_id: 1001,
           goal_name: 'Vacation',
           target_budget: 1000,
-          target_date: '2020-06-01',
-          budget_distribution: 100
+          target_date: '2020-06-01'
         },
         {
           id: 2,
           user_id: 1001,
           goal_name: 'House Repairs',
           target_budget: 1000,
-          target_date: '2020-11-20',
-          budget_distribution: 100
+          target_date: '2020-11-20'
         },
         {
           id: 3,
           user_id: 1001,
           goal_name: 'New Car',
           target_budget: 1000,
-          target_date: '2021-02-01',
-          budget_distribution: 100
+          target_date: '2021-02-01'
         },
         {
           id: 4,
           user_id: 1001,
           goal_name: 'New Celphone',
           target_budget: 1000,
-          target_date: '2020-07-15',
-          budget_distribution: 100
+          target_date: '2020-07-15'
         },
         {
           id: 5,
           user_id: 1001,
           goal_name: 'New Computer',
           target_budget: 1000,
-          target_date: '2020-08-01',
-          budget_distribution: 100
+          target_date: '2020-08-01'
         },
         {
           id: 6,
           user_id: 1001,
           goal_name: 'Christmas Money',
           target_budget: 1000,
-          target_date: '2020-12-01',
-          budget_distribution: 100
+          target_date: '2020-12-01'
         },
         {
           id: 7,
           user_id: 1006,
           goal_name: 'Rottweiler Puppy',
           target_budget: 3000,
-          target_date: '2021-11-01',
-          budget_distribution: 100
+          target_date: '2021-11-01'
         },
         {
           id: 8,
           user_id: 1006,
           goal_name: 'Wide Screen TV',
           target_budget: 1000,
-          target_date: '2020-07-01',
-          budget_distribution: 100
+          target_date: '2020-07-01'
         },
         {
           id: 9,
           user_id: 1006,
           goal_name: 'Jeep Wrangler',
           target_budget: 20000,
-          target_date: '2021-12-01',
-          budget_distribution: 150
+          target_date: '2021-12-01'
         },
         {
           id: 10,
           user_id: 1002,
           goal_name: 'Family Reunion',
           target_budget: 2000,
-          target_date: '2020-09-01',
-          budget_distribution: 80
+          target_date: '2020-09-01'
         },
         {
           id: 11,
           user_id: 1002,
           goal_name: 'Surf Board',
           target_budget: 1000,
-          target_date: '2020-12-01',
-          budget_distribution: 100
+          target_date: '2020-12-01'
         },
         {
           id: 12,
           user_id: 1003,
           goal_name: 'Playstation 5',
           target_budget: 800,
-          target_date: '2020-12-01',
-          budget_distribution: 50
+          target_date: '2020-12-01'
         },
         {
           id: 13,
           user_id: 1003,
           goal_name: 'Scooter',
           target_budget: 500,
-          target_date: '2020-06-10',
-          budget_distribution: 70
+          target_date: '2020-06-10'
         },
         {
           id: 14,
           user_id: 1004,
           goal_name: 'Jacuzzi',
           target_budget: 5000,
-          target_date: '2021-03-03',
-          budget_distribution: 70
+          target_date: '2021-03-03'
         },
         {
           id: 15,
           user_id: 1004,
           goal_name: 'Garden Patio Set',
           target_budget: 1500,
-          target_date: '2020-09-01',
-          budget_distribution: 100
+          target_date: '2020-09-01'
         },
         {
           id: 16,
           user_id: 1005,
           goal_name: 'Car Tools',
           target_budget: 1000,
-          target_date: '2020-08-20',
-          budget_distribution: 60
+          target_date: '2020-08-20'
         },
         {
           id: 17,
           user_id: 1005,
           goal_name: 'Multifuction Printer',
           target_budget: 1000,
-          target_date: '2020-12-11',
-          budget_distribution: 120
+          target_date: '2020-12-11'
         }
 
       ])
