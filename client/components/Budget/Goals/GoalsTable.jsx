@@ -42,7 +42,7 @@ class GoalsTable extends Component {
                   <Table.Cell>{goal.targetDate}</Table.Cell>
                   <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} ${this.getPeriod(goal.targetDate, goal.startDate) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
                   <Table.Cell>{goal.currentAmount}</Table.Cell>
-                  <Table.Cell>{getWeeklyContribution(this.getPeriod(goal.targetDate), goal.targetBudget)}</Table.Cell>
+                  <Table.Cell>{getWeeklyContribution(this.getPeriod(goal.targetDate), goal.currentAmount, goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{goal.active ? 'YES' : 'NO'}</Table.Cell>
                 </Table.Row>
               })
