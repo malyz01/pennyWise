@@ -21,7 +21,38 @@
     margin: 0 auto;
     margin-bottom:20px;
 }
+.budgetCardMain{
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.733);
+    border-radius: 40px;
+    overflow: hidden;
 
+}
+.budgetGraphs{
+    min-height:100px;
+    width:100%;
+    padding:5rem;
+    background: rgba(0, 0, 0, 0.493);
+}
+.budgetGraphLabel{
+    width:200px;
+    font-size: 1rem;
+    color:white;
+    padding-right:15px;
+    font-weight: bold;
+}
+.budgetGraphRow{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+}
+.budgetGraphBar{
+    height:100%;
+    width:100%;
+    background: white;
+    margin-right:auto;
+    border-radius: 0 30px 30px 0;
+}
 .topCardComponent {
 
   width: 100%;
@@ -31,12 +62,11 @@
   justify-content: center;
   position: relative;
   margin: auto;
-  margin-bottom: 150px;
   transition: ease-in;
-  border-radius: 10px;
+  
   padding: 5rem;
-  background-image: linear-gradient(40deg, #674C82 50% , #000 50% );
-  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.733);
+  background-image: linear-gradient(40deg, #674C82 55% , rgba(0, 0, 0, 0.616) 20% );
+  
 }
 
 .topCardWrapper {
