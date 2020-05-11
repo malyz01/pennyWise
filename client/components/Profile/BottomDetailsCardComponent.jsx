@@ -4,17 +4,53 @@ import { withRouter } from 'react-router-dom'
 import './profile.css'
 
 class BottomDetailsCardComponent extends React.Component {
+  state = {
+    income: 0,
+    expense: 0
+  }
+
+  componentDidMount () {
+    this.getTotalExpense()
+    this.getTotalIncome()
+  }
+
   getTotalIncome = () => {
-    return this.props.data.userIncome.reduce((ac, va) => ac + va.income_amount, 0)
+    const { income } = this.props
+    this.setState({ income: income.reduce((ac, va) => {
+      console.log(va)
+
+      if (va.active) {
+        if (va.frequency === 'Monthly') {
+          va.incomeAmount = va.incomeAmount * 12 / 52
+        } else if (va.frequency === 'Annually') {
+          va.incomeAmount = va.incomeAmount / 52
+        }
+        return (ac + va.incomeAmount)
+      }
+      return ac
+    }, 0).toFixed(2)
+    })
   }
+
   getTotalExpense = () => {
-    return this.props.data.expenseAmount.reduce((ac, va) => ac + va.expense_amount, 0)
+    const { expense } = this.props
+    this.setState({ expense: expense.reduce((ac, va) => {
+      if (va.active) {
+        if (va.frequency === 'Monthly') {
+          va.expenseAmount = va.expenseAmount * 12 / 52
+        }
+        if (va.frequency === 'Annually') {
+          va.expenseAmount = va.expenseAmount / 52
+        }
+        return (ac + va.expenseAmount)
+      }
+      return ac
+    }, 0).toFixed(2) })
   }
-  getTotalBudget = () => {
-    return (this.getTotalIncome() - this.getTotalExpense()).toFixed(2)
-  }
+
   render () {
-    const { history, data } = this.props
+    const { history } = this.props
+
     return (
       <div className="bottomCardDetailsContainer">
         <div className="bottomButtonContainer">
@@ -52,10 +88,11 @@ class BottomDetailsCardComponent extends React.Component {
               <p>Total Goals</p>
             </div>
             <div className="moneyOverview">
-              <p>{this.getTotalIncome()}</p>
-              <p>{this.getTotalExpense()}</p>
-              <p>{this.getTotalBudget()} per week</p>
-              <p>{data.goalName.length}</p>
+
+              <p>{this.state.income} per week</p>
+              <p>{this.state.expense} per week</p>
+              <p>{this.state.income - this.state.expense} per week</p>
+              <p>{this.props.goal.length}</p>
             </div>
           </div>
         </div>

@@ -10,10 +10,10 @@ class GoalsTable extends Component {
   }
   getPeriod = (end, start) => {
     const date1 = new Date(end)
-    const date2 = new Date(start)
-    const diffTime = Math.abs(date2 - date1)
+    const date2 = Date.now()
+    const diffTime = date1 - date2
 
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+    return Math.floor(diffTime / (1000 * 60 * 60 * 24))
   }
   render () {
     return (
@@ -24,7 +24,7 @@ class GoalsTable extends Component {
               <Table.HeaderCell>Goal Name</Table.HeaderCell>
               <Table.HeaderCell>Target Budget</Table.HeaderCell>
               <Table.HeaderCell>Target Date</Table.HeaderCell>
-              <Table.HeaderCell>Period</Table.HeaderCell>
+              <Table.HeaderCell>Time Remaining</Table.HeaderCell>
               <Table.HeaderCell>Current Amount</Table.HeaderCell>
               <Table.HeaderCell>Contributions</Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
@@ -37,7 +37,7 @@ class GoalsTable extends Component {
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{goal.targetBudget}</Table.Cell>
                   <Table.Cell>{goal.targetDate}</Table.Cell>
-                  <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} Days`}</Table.Cell>
+                  <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} ${this.getPeriod(goal.targetDate, goal.startDate) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
                   <Table.Cell>{goal.currentAmount}</Table.Cell>
                   <Table.Cell>{`${goal.budgetDistribution} ${goal.frequency}`}</Table.Cell>
                   <Table.Cell>{goal.active ? 'YES' : 'NO'}</Table.Cell>
