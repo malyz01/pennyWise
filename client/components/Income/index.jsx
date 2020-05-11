@@ -4,12 +4,15 @@ import { connect } from 'react-redux'
 import Header from './Header'
 import Table from './Table'
 import ModalForm from './ModalForm'
+import Loading from '../Loading'
 import { getUserIncome } from '../../store/actions/income'
+import { loading } from '../../store/actions/loading'
 
 export class Income extends Component {
-  componentDidMount () {
-    const { getUserIncome } = this.props
-    getUserIncome(this.props.userId)
+  async componentDidMount () {
+    this.props.loading(true)
+    await this.props.getUserIncome(this.props.userId)
+    this.props.loading(false)
   }
 
   totalIncome () {
@@ -24,6 +27,7 @@ export class Income extends Component {
 
   render () {
     const { userId, income, selected } = this.props
+    if (!this.props.loading) return <Loading />
     return (
       <div className='income'>
         <Header />
@@ -34,9 +38,10 @@ export class Income extends Component {
   }
 }
 const mapStateToProps = state => ({
+  loading: state.loading,
   userId: state.auth.user.id,
   income: state.income.all,
   selected: state.income.selected
 })
 
-export default connect(mapStateToProps, { getUserIncome })(Income)
+export default connect(mapStateToProps, { getUserIncome, loading })(Income)

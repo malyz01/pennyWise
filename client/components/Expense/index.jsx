@@ -5,15 +5,19 @@ import Header from './Header'
 import Table from './Table'
 import ModalForm from './ModalForm'
 import { getUserExpenses } from '../../store/actions/expense'
+import Loading from '../Loading'
+import { loading } from '../../store/actions/loading'
 
 export class Expense extends Component {
-  componentDidMount () {
-    const { getUserExpenses, userId } = this.props
-    getUserExpenses(userId)
+  async componentDidMount () {
+    this.props.loading(true)
+    await this.props.getUserExpenses(this.props.userId)
+    this.props.loading(false)
   }
 
   render () {
     const { userId, expenses, selected } = this.props
+    if (!this.props.loading) return <Loading />
     return (
       <div className="expense">
         <Header />
@@ -25,9 +29,10 @@ export class Expense extends Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.loading,
   userId: state.auth.user.id,
   expenses: state.expense.all,
   selected: state.expense.selected
 })
 
-export default connect(mapStateToProps, { getUserExpenses })(Expense)
+export default connect(mapStateToProps, { getUserExpenses, loading })(Expense)

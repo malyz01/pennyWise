@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
+import Fade from 'react-reveal/Fade'
 
 import h from './helper'
 
@@ -60,12 +61,22 @@ class BudgetCard extends Component {
 
   render () {
     return (
-      <div className="topCardComponent">
-        <div className="topCardWrapper">
-          <div className="budgetRow">
-            <div className="colLeft">
-              <h2 style={{ color: 'white' }}>Frequency</h2>
+      <Fade>
+        <div className="topCardComponent">
+          <div className="topCardWrapper">
+            <div className="budgetRow">
+              <div className="colLeft">
+                <h2 style={{ color: 'white' }}>Frequency</h2>
+              </div>
+              <div className="colRight">
+                <select name="frequency" id="">
+                  <option value="Weekly">Weekly</option>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Yearly">Yearly</option>
+                </select>
+              </div>
             </div>
+
             <div className="colRight">
               <Dropdown
                 placeholder="frequency"
@@ -114,7 +125,7 @@ class BudgetCard extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </Fade>
     )
   }
 }

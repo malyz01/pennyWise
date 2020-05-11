@@ -9,15 +9,21 @@ import GoalModal from './Goals/GoalsModal'
 import { getUserBudget } from '../../store/actions/budget'
 import { Container } from 'semantic-ui-react'
 
+import { loading } from '../../store/actions/loading'
+import Loading from '../Loading'
+
 class Budget extends React.Component {
-  componentDidMount () {
-    const { getUserBudget, userId } = this.props
-    getUserBudget(userId)
+  async componentDidMount () {
+    this.props.loading(true)
+    await this.props.getUserBudget(this.props.userId)
+    this.props.loading(false)
   }
 
   render () {
-    const { expense, income, goal } = this.props
+    console.log(this.props)
 
+    const { expense, income, goal } = this.props
+    if (!this.props.loading) return <Loading/>
     return (
       <div className="budget">
         <Container>
@@ -38,4 +44,4 @@ const mapStateToProps = state => ({
   goal: state.goal.all
 })
 
-export default connect(mapStateToProps, { getUserBudget })(Budget)
+export default connect(mapStateToProps, { getUserBudget, loading })(Budget)
