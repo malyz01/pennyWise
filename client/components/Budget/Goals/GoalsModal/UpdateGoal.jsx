@@ -6,24 +6,31 @@ import './goalModal.css'
 import { updateUserGoal } from '../../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 
+const options = [
+  { key: 'w', text: 'Weekly', value: 'Weekly' },
+  { key: 'm', text: 'Monthly', value: 'Monthly' },
+  { key: 'a', text: 'Annually', value: 'Annually' }
+]
+
 export class UpdateGoal extends Component {
   state = {
     currentAmount: this.props.select.currentAmount,
-    money: ''
+    budgetDistribution: this.props.select.budgetDistribution,
+    frequency: this.props.select.frequency,
+    money: 0
   }
 
   handleOnChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
-  handleMoney = (evt) => {
-    this.setState({ [evt.target.name]: evt.target.value })
-  }
+
   handleOnSubmit = async () => {
     const { currentAmount, budgetDistribution, frequency } = this.state
     await this.props.updateUserGoal(this.props.select.id, { currentAmount, budgetDistribution, frequency })
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
+
   updateMoney = (type) => {
     if (type === 'add') {
       if (this.state.currentAmount + this.state.money >= 0) {
@@ -37,7 +44,7 @@ export class UpdateGoal extends Component {
     }
   }
   render () {
-    const { currentAmount } = this.state
+    const { currentAmount, budgetDistribution, frequency } = this.state
     return (
       <div className="goalModalFormContainer">
         <div className="goalModalHeader">Add Funds To Your Goal</div>
@@ -75,10 +82,33 @@ export class UpdateGoal extends Component {
             </div>
           </div>
 
+          <div className="goalModalHeader">{this.props.form}</div>
+          <div className="divider" />
+          <label>Budget Distribution</label>
+          <Form.Field>
+            <Form.Input
+              value={budgetDistribution}
+              onChange={this.handleOnChange}
+              name="budgetDistribution"
+              required
+              type="number"
+              placeholder="budget distribution"
+            />
+          </Form.Field>
+          <label>Frequency</label>
+          <Form.Select
+            options={options}
+            name="frequency"
+            defaultValue={frequency}
+            onChange={this.handleOnChange}
+            placeholder="frequency"
+          />
+
           <Button className="submitBtn" type="submit">
             Submit
           </Button>
         </Form>
+
       </div>
     )
   }
