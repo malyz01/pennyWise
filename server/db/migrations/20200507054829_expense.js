@@ -6,8 +6,8 @@ exports.up = (knex) =>
     t.integer('user_id').references('users.id')
     t.string('expense_name')
     t.string('categories')
-    t.string('frequency')
-    t.integer('expense_amount')
+    t.string('frequency').defaultTo('Weekly')
+    t.decimal('expense_amount')
     t.boolean('active').defaultTo(true)
   })
 

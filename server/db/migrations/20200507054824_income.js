@@ -5,9 +5,9 @@ exports.up = knex =>
     t.increments('id').primary()
     t.integer('user_id').references('users.id')
     t.string('income_name')
-    t.string('frequency')
+    t.string('frequency').defaultTo('Weekly')
     t.string('income_type')
-    t.integer('income_amount')
+    t.decimal('income_amount')
     t.boolean('active').defaultTo(true)
   })
 

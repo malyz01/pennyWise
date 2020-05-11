@@ -25,6 +25,7 @@ export const getUserBudgetPending = () => async (dispatch) => {
 export const getUserBudget = userId => async dispatch => {
   try {
     const { data: { expense, income, goals } } = await api.get(`/budget/${userId}`)
+    
     dispatch({
       type: GET_USER_EXPENSES,
       payload: expense

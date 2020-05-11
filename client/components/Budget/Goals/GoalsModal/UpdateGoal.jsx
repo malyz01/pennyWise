@@ -9,7 +9,7 @@ import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
   { key: 'm', text: 'Monthly', value: 'Monthly' },
-  { key: 'y', text: 'Yearly', value: 'Yearly' }
+  { key: 'a', text: 'Annually', value: 'Annually' }
 ]
 
 export class UpdateGoal extends Component {
@@ -50,7 +50,7 @@ export class UpdateGoal extends Component {
       <div className="goalModalFormContainer">
         <div className="goalModalHeader">Add Funds To Your Goal</div>
         <div className="divider" />
-        <label>{`Your Current Amount is $${this.state.currentAmount}`}</label>
+        <label>{`Your Current Amount is $${currentAmount}`}</label>
         <input type="number" placeholder="add money" name="money" onChange={this.handleMoney}/><button onClick={() => this.updateMoney('add')}className="ui button green">+</button>
         <button onClick={() => this.updateMoney('subtract')} className="ui button red">-</button>
         <div className="goalModalHeader">{this.props.form}</div>
@@ -58,11 +58,11 @@ export class UpdateGoal extends Component {
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
           <label>Budget Distribution</label>
           <Form.Field>
-
             <Form.Input
               value={budgetDistribution}
               onChange={this.handleOnChange}
               name="budgetDistribution"
+              required
               type="number"
               placeholder="budget distribution"
             />

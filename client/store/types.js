@@ -1,6 +1,9 @@
 // AUTH
 export const SET_AUTH = 'SET_AUTH'
 
+// LOADING
+export const LOADING = 'LOADING'
+
 // USERS
 export const GET_USER_PROFILE = 'GET_USER_PROFILE'
 export const GET_USER_DETAILS = 'GET_USER_DETAILS'

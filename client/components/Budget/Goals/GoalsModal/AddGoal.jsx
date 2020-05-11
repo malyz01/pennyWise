@@ -9,7 +9,7 @@ import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 const options = [
   { key: 'w', text: 'Weekly', value: 'Weekly' },
   { key: 'm', text: 'Monthly', value: 'Monthly' },
-  { key: 'y', text: 'Yearly', value: 'Yearly' }
+  { key: 'a', text: 'Annually', value: 'Annually' }
 ]
 
 export class Login extends Component {
@@ -51,6 +51,7 @@ export class Login extends Component {
               value={goalName}
               onChange={this.handleOnChange}
               name="goalName"
+              required
               type="text"
               placeholder="goal name"
             />
@@ -60,6 +61,7 @@ export class Login extends Component {
               value={targetBudget}
               onChange={this.handleOnChange}
               name="targetBudget"
+              required
               type="number"
               placeholder="goal amount"
             />
@@ -69,6 +71,7 @@ export class Login extends Component {
               value={currentAmount}
               onChange={this.handleOnChange}
               name="currentAmount"
+              required
               type="number"
               placeholder="current amount"
             />
@@ -85,6 +88,7 @@ export class Login extends Component {
               value={targetDate}
               onChange={this.handleOnChange}
               name="targetDate"
+              required
               type="date"
               placeholder="target date"
             />
@@ -94,6 +98,7 @@ export class Login extends Component {
               value={budgetDistribution}
               onChange={this.handleOnChange}
               name="budgetDistribution"
+              required
               type="number"
               placeholder="budget distribution"
             />

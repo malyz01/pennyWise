@@ -1,5 +1,5 @@
-function cty (frequency, amount) {
-  if (frequency === 'Yearly') return amount
+function cta (frequency, amount) {
+  if (frequency === 'Annually') return amount
   if (frequency === 'Monthly') return amount * 12
   if (frequency === 'Weekly') return amount * 52
 }
@@ -14,19 +14,28 @@ function ctw (amount) {
 
 function getTotalContribution (arr) {
   return arr.reduce((a, v) => {
-    return a + cty(v.frequency, v.budgetDistribution)
+    if (v.active) {
+      return a + cta(v.frequency, v.budgetDistribution)
+    }
+    return a
   }, 0)
 }
 
 function getTotalIncome (income) {
   return income.reduce((a, v) => {
-    return a + cty(v.frequency, v.incomeAmount)
+    if (v.active) {
+      return a + cta(v.frequency, v.incomeAmount)
+    }
+    return a
   }, 0)
 }
 
 function getTotalExpense (expense) {
   return expense.reduce((a, v) => {
-    return a + cty(v.frequency, v.expenseAmount)
+    if (v.active) {
+      return a + cta(v.frequency, v.expenseAmount)
+    }
+    return a
   }, 0)
 }
 
@@ -36,16 +45,14 @@ function getTotalBudget (income, expense) {
 
 function getUnallocatedBudget (income, expense, goals) {
   const totalBudget = getTotalBudget(income, expense)
-
   const totalContribution = getTotalContribution(goals)
-
   const allocatedBudget = totalBudget - totalContribution
 
   return allocatedBudget.toFixed(2)
 }
 
 export default {
-  cty,
+  cta,
   ctm,
   ctw,
   getTotalContribution,
