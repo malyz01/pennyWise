@@ -20,8 +20,6 @@ class Budget extends React.Component {
   }
 
   render () {
-    console.log(this.props)
-
     const { expense, income, goal } = this.props
     if (!this.props.loading) return <Loading/>
     return (

@@ -5,6 +5,7 @@ import modal from './modal'
 import expense from './expense'
 import income from './income'
 import goal from './goal'
+import globalState from './globalState'
 import loading from './loading'
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   expense,
   modal,
   goal,
+  globalState,
   loading
 })

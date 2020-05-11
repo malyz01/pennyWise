@@ -57,12 +57,14 @@ class BudgetCard extends Component {
   onChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
+  
   getColor = () => {
     const getRandom = () => {
       return Math.floor(Math.random() * 255)
     }
     return `rgb(${getRandom()},${getRandom()},${getRandom()})`
   }
+  
   render () {
     return (
       <div className = "budgetCardMain">
