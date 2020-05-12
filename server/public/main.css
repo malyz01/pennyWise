@@ -33,6 +33,7 @@ body h1{
 
  .modalMainContainer {
   background-color: #322943 !important;
+  border-radius: 20px !important;
   color: white;
   min-height: 400px;
   padding: 3rem !important;
