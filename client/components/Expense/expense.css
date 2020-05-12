@@ -1,5 +1,4 @@
 .expenseHeader{
-  padding-top:10%;
   padding: bottom 3%;
   color:white;
   letter-spacing: 5px;
@@ -23,7 +22,7 @@
   margin-bottom:20px;
 }
 .expenseTable{
-  padding-bottom:10%;
+  padding-bottom:2rem;
 } 
 
 .expenseButtons{
@@ -72,6 +71,7 @@
 
 .expense{
   background-color: #5E5371;
+  padding: 6rem 0;
 }
 
 .expense .ui.table{
