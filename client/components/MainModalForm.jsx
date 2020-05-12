@@ -4,12 +4,13 @@ import { Modal } from 'semantic-ui-react'
 
 import Login from './Navbar/Auth/Login'
 import Signup from './Navbar/Auth/Signup'
+import UpdateProfile from './Profile/ModalForm'
 import AddIncome from './Income/ModalForm/AddIncome'
 import UpdateIncome from './Income/ModalForm/UpdateIncome'
 import AddExpense from './Expense/ModalForm/AddExpense'
 import UpdateExpense from './Expense/ModalForm/UpdateExpense'
-import AddGoal from './Budget/Goals/GoalsModal/AddGoal'
-import UpdateGoal from './Budget/Goals/GoalsModal/UpdateGoal'
+import AddGoal from './Budget/Goals/ModalForm/AddGoal'
+import UpdateGoal from './Budget/Goals/ModalForm/UpdateGoal'
 import { setModalOpen, setModalName } from '../store/actions/modal'
 
 class Auth extends Component {
@@ -25,6 +26,7 @@ class Auth extends Component {
         <Modal.Content className='modalMainContainer'>
           {modal === 'signup' && <Signup />}
           {modal === 'login' && <Login />}
+          {modal === 'Update Profile' && <UpdateProfile />}
           {modal === 'Add Income' && <AddIncome />}
           {modal === 'Update Income' && <UpdateIncome />}
           {modal === 'Add Expense' && <AddExpense />}
