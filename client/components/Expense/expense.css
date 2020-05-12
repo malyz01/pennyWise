@@ -1,5 +1,4 @@
 .expenseHeader{
-  padding-top:10%;
   padding: bottom 3%;
   color:white;
   letter-spacing: 5px;
@@ -72,7 +71,7 @@
 
 .expense{
   background-color: #5E5371;
-  padding-bottom: 2rem;
+  padding: 6rem 0;
 }
 
 .expense .ui.table{
