@@ -10,12 +10,47 @@ class GoalsTable extends Component {
     this.props.selectUserGoal(goal)
   }
 
-  getPeriod = (end) => {
+  getRemaining = (end) => {
     const date1 = new Date(end)
     const date2 = Date.now()
     const diffTime = date1 - date2
 
     return Math.floor(diffTime / (1000 * 60 * 60 * 24))
+  }
+
+  getDailyContribution = (amount, frequency) => {
+    switch (frequency) {
+      case 'Weekly':
+        return amount / 7
+      case 'Monthly':
+        return amount * 12 / (52 * 7)
+      case 'Annually':
+        return amount / (52 * 7)
+    }
+  }
+  getWeeklyContribution = (amount, frequency) => {
+    switch (frequency) {
+      case 'Monthly':
+        return amount * 12 / 52
+      case 'Annually':
+        return amount / 52
+      default:
+        return amount
+
+    }
+  }
+  getActualDate = (amountAdded, frequency, targetBudget, currentAmount) => {
+    // calculate days left
+
+    const daysLeft = ((targetBudget - currentAmount) / this.getDailyContribution(amountAdded, frequency))
+
+    const millisecondsLeft = daysLeft * 24 * 60 * 60 * 1000
+
+    // calculate date of completion (current date + days left = date of completion)
+    const currentDate = Date.now()
+    const completionDate = new Date(Number(currentDate) + Number(millisecondsLeft))
+
+    return completionDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
   }
 
   render () {
@@ -26,10 +61,12 @@ class GoalsTable extends Component {
             <Table.Row>
               <Table.HeaderCell>Goal Name</Table.HeaderCell>
               <Table.HeaderCell>Target Budget</Table.HeaderCell>
-              <Table.HeaderCell>Target Date</Table.HeaderCell>
-              <Table.HeaderCell>Time Remaining</Table.HeaderCell>
               <Table.HeaderCell>Current Amount</Table.HeaderCell>
-              <Table.HeaderCell>Weekly Contributions</Table.HeaderCell>
+              <Table.HeaderCell>Actual Date of Completion</Table.HeaderCell>
+              <Table.HeaderCell>Actual Time Remaining</Table.HeaderCell>
+              <Table.HeaderCell>Actual Weekly Contributions</Table.HeaderCell>
+              <Table.HeaderCell className="goalsTableSpecial">Your Chosen Date of Completion</Table.HeaderCell>
+              <Table.HeaderCell className="goalsTableSpecial">Calculated Weekly Contributions</Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -39,10 +76,12 @@ class GoalsTable extends Component {
                 return <Table.Row className='pointerCursor' key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>${goal.targetBudget}</Table.Cell>
-                  <Table.Cell>{goal.targetDate}</Table.Cell>
-                  <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} ${this.getPeriod(goal.targetDate, goal.startDate) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
-                  <Table.Cell>{goal.currentAmount}</Table.Cell>
-                  <Table.Cell>{getWeeklyContribution(this.getPeriod(goal.targetDate), goal.currentAmount, goal.targetBudget)}</Table.Cell>
+                  <Table.Cell>${goal.currentAmount}</Table.Cell>
+                  <Table.Cell>{`${this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount)}`}</Table.Cell>
+                  <Table.Cell>{`${this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount))} ${this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount)) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
+                  <Table.Cell>${this.getWeeklyContribution(goal.budgetDistribution, goal.frequency).toFixed(2)}</Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">{goal.targetDate}</Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">{getWeeklyContribution(this.getRemaining(goal.targetDate), goal.currentAmount, goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               })
