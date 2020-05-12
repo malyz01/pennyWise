@@ -3,17 +3,18 @@ const camelcaseKeys = require('camelcase-keys')
 const db = require('../db/fn/income')
 const { isGetOwner, isWriteOwner } = require('../middleware')
 
+// TODO FOR ADMIN
 // GET - /api/v1/income/
 // postman testing COMPLETE
-router.get('/', (req, res) => {
-  return db
-    .getAllIncomes()
-    .then(camelcaseKeys)
-    .then(income => res.json(income))
-    .catch(err => {
-      res.status(500).send(err.message)
-    })
-})
+// router.get('/', (req, res) => {
+//   return db
+//     .getAllIncomes()
+//     .then(camelcaseKeys)
+//     .then(income => res.json(income))
+//     .catch(err => {
+//       res.status(500).send(err.message)
+//     })
+// })
 
 // GET - /api/v1/income/:userId
 // postman testing COMPLETE

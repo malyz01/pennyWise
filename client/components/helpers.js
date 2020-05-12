@@ -2,7 +2,6 @@ export const addCommas = (string, isNaM) => {
   if (typeof string === 'number' && !isFinite(string)) {
     return 'Infinite'
   }
-
   if (typeof string !== 'string') {
     string = String(string)
   }
@@ -24,7 +23,11 @@ export const addCommas = (string, isNaM) => {
       count++
     }
   }
-
+  if (wholeNumber[0] === '-') {
+    if (wholeNumber[1] === ',') {
+      wholeNumber = wholeNumber.slice(0, 1) + wholeNumber.slice(2, wholeNumber.lenght)
+    }
+  }
   if (isNaM) {
     return wholeNumber
   }

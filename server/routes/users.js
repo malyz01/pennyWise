@@ -3,14 +3,16 @@ const db = require('../db/fn/user')
 
 const { isGetOwner } = require('../middleware')
 
-router.get('/', (req, res) => {
-  return db
-    .getProfiles()
-    .then((profiles) => res.json(profiles))
-    .catch(err => {
-      res.status(500).json('DATABASE ERROR: ' + err.message)
-    })
-})
+// TODO FOR ADMIN
+// GET - /api/v1/users/
+// router.get('/', (req, res) => {
+//   return db
+//     .getProfiles()
+//     .then((profiles) => res.json(profiles))
+//     .catch(err => {
+//       res.status(500).json('DATABASE ERROR: ' + err.message)
+//     })
+// })
 
 // GET - /api/v1/users/:userId/profile
 router.get('/:userId/profile', isGetOwner, (req, res) => {
