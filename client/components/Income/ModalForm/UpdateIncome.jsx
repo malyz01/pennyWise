@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import { Formik, Form, Field } from 'formik'
 import './incomeModal.css'
 
+import Input from '../../FormComponents/Input'
+import Dropdown from '../../FormComponents/Dropdown'
 import { updateUserIncome } from '../../../store/actions/income'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
@@ -17,67 +20,60 @@ const options = [
 ]
 
 export class Login extends Component {
-  state = {
-    incomeType: this.props.select.incomeType,
-    incomeName: this.props.select.incomeName,
-    incomeAmount: this.props.select.incomeAmount,
-    frequency: this.props.select.frequency
-  }
-
-  handleOnChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-  }
-
-  handleOnSubmit = async () => {
-    await this.props.updateUserIncome(this.props.select.id, this.state)
+  handleOnSubmit = async (values) => {
+    await this.props.updateUserIncome(this.props.select.id, values)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
 
   render () {
-    const { incomeType, incomeName, incomeAmount, frequency } = this.state
+    const { incomeType, incomeName, incomeAmount, frequency } = this.props.select
     return (
-      <div className='incomeModalFormContainer'>
-        <div className='incomeModalHeader'>{this.props.form}</div>
-        <div className='divider' />
-        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <Form.Select
-            options={category}
-            name='incomeType'
-            defaultValue={incomeType}
-            onChange={this.handleOnChange}
-            placeholder='incomeType'
-          />
-          <Form.Field>
-            <Form.Input
-              value={incomeName}
-              onChange={this.handleOnChange}
-              name='incomeName'
-              type='text'
-              placeholder='income name'
+      <Formik
+        initialValues={{
+          incomeType,
+          incomeName,
+          incomeAmount,
+          frequency
+        }}
+        onSubmit={this.handleOnSubmit}
+      >
+        <Form>
+          <div className="modalIncomeMainContainer">
+            <div className="modalIncomeHeader">{this.props.form}</div>
+            <div className="divider" />
+            <Field
+              title="Type"
+              options={category}
+              name="incomeType"
+              component={Dropdown}
             />
-          </Form.Field>
-          <Form.Field>
-            <Form.Input
-              value={incomeAmount}
-              onChange={this.handleOnChange}
-              name='incomeAmount'
-              type='text'
-              placeholder='income amount'
+            <Field
+              title="Name"
+              name="incomeName"
+              type="text"
+              component={Input}
+              placeholder="income name"
             />
-          </Form.Field>
-          <Form.Select
-            options={options}
-            name='frequency'
-            defaultValue={frequency}
-            onChange={this.handleOnChange}
-            placeholder='frequency'
-          />
-          <Button className='submitBtn' type='submit'>
-            Submit
-          </Button>
+            <Field
+              title="Amount"
+              name="incomeAmount"
+              type="text"
+              component={Input}
+              placeholder="income amount"
+            />
+            <Field
+              title="Frequency"
+              options={options}
+              name="frequency"
+              component={Dropdown}
+            />
+            <Button className="submitBtn" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
-      </div>
+      </Formik>
     )
   }
 }

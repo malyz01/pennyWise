@@ -47,9 +47,9 @@ export class Login extends Component {
             )}
 
             <Field
+              title="Email"
               name="email"
               type="text"
-              title="Email"
               component={Input}
               placeholder="email"
             />
