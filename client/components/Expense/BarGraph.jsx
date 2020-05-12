@@ -24,13 +24,8 @@ export default class BarGraph extends React.Component {
               left: 20,
               bottom: 5
             }}
-            barSize={20}
           >
-            <XAxis
-              dataKey="name"
-              scale="point"
-              padding={{ left: 10, right: 10 }}
-            />
+            <XAxis dataKey="name"/>
             <YAxis />
             <Tooltip />
             <Legend />
