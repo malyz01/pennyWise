@@ -58,7 +58,7 @@ export class Login extends Component {
             <Field
               title="Amount"
               name="incomeAmount"
-              type="text"
+              type="number"
               component={Input}
               placeholder="income amount"
             />
