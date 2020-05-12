@@ -47,6 +47,7 @@
     "camelcase-keys": "^6.2.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "formik": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "knex": "^0.21.1",
@@ -59,7 +60,8 @@
     "react-slick": "^0.25.2",
     "semantic-ui-react": "^0.88.2",
     "snakecase-keys": "^3.2.0",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^4.2.0",
+    "yup": "^0.28.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

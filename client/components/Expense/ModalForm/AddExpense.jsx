@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import { Formik, Form, Field } from 'formik'
 import './expenseModal.css'
 
+import Input from '../../FormComponents/Input'
+import Dropdown from '../../FormComponents/Dropdown'
 import { addUserExpense } from '../../../store/actions/expense'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
@@ -17,65 +20,59 @@ const options = [
 ]
 
 export class Login extends Component {
-  state = {
-    categories: '',
-    expenseName: '',
-    expenseAmount: '',
-    frequency: ''
-  }
-
-  handleOnChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-  }
-
-  handleOnSubmit = async () => {
-    await this.props.addUserExpense(this.props.userId, this.state)
+  handleOnSubmit = async (values) => {
+    await this.props.addUserExpense(this.props.userId, values)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
 
   render () {
-    const { expenseName, expenseAmount } = this.state
     return (
-      <div className="expenseModalFormContainer">
-        <div className="expenseModalHeader">{this.props.form}</div>
-        <div className="divider" />
-        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <Form.Select
-            options={category}
-            name="categories"
-            onChange={this.handleOnChange}
-            placeholder="categories"
-          />
-          <Form.Field>
-            <Form.Input
-              value={expenseName}
-              onChange={this.handleOnChange}
+      <Formik
+        initialValues={{
+          categories: 'Essential',
+          expenseName: '',
+          expenseAmount: '',
+          frequency: 'Weekly'
+        }}
+        onSubmit={this.handleOnSubmit}
+      >
+        <Form>
+          <div className="modalExpenseMainContainer">
+            <div className="modalExpenseHeader">{this.props.form}</div>
+            <div className="divider" />
+            <Field
+              title="Catergory"
+              options={category}
+              name="categories"
+              component={Dropdown}
+            />
+            <Field
+              title="Name"
               name="expenseName"
               type="text"
+              component={Input}
               placeholder="expense name"
             />
-          </Form.Field>
-          <Form.Field>
-            <Form.Input
-              value={expenseAmount}
-              onChange={this.handleOnChange}
+            <Field
+              title="Amount"
               name="expenseAmount"
               type="text"
-              placeholder="expense amount"
+              component={Input}
+              placeholder="income amount"
             />
-          </Form.Field>
-          <Form.Select
-            options={options}
-            name="frequency"
-            onChange={this.handleOnChange}
-            placeholder="frequency"
-          />
-          <Button className="submitBtn" type="submit">
-            Submit
-          </Button>
+            <Field
+              title="Frequency"
+              options={options}
+              name="frequency"
+              component={Dropdown}
+            />
+            <Button className="submitBtn" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
-      </div>
+      </Formik>
     )
   }
 }

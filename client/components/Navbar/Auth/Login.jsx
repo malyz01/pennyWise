@@ -1,77 +1,78 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Button } from 'semantic-ui-react'
-import './auth.css'
+import { Message, Button } from 'semantic-ui-react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as yup from 'yup'
 
+import './auth.css'
+import Input from '../../FormComponents/Input'
 import { authUser } from '../../../store/actions/auth'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 export class Login extends Component {
   state = {
-    email: '',
-    password: '',
-    emailError: false,
-    passwordError: false
+    error: null
   }
 
-  handleOnChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-
-    const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-
-    if (re.test(this.state.email)) {
-      this.setState({ emailError: true })
-    } else {
-      this.setState({ emailError: false })
+  handleOnSubmit = async values => {
+    try {
+      await this.props.authUser(values)
+      this.props.setModalOpen(false)
+      this.props.setModalName(null)
+    } catch (err) {
+      this.setState({ error: err.message })
     }
-
-    if (this.state.password.length > 3) {
-      this.setState({ passwordError: true })
-    } else {
-      this.setState({ passwordError: false })
-    }
-  }
-
-  handleOnSubmit = () => {
-    this.props.authUser(this.state)
-    this.props.setModalOpen(false)
-    this.props.setModalName(null)
   }
 
   render () {
-    const { email, password } = this.state
     return (
-      <Form onSubmit={this.handleOnSubmit}>
-        <div className='authHeader'>{this.props.modal}</div>
-        <div className='divider' />
-        <Form.Field>
-          <Form.Input
-            value={email}
-            onChange={this.handleOnChange}
-            name='email'
-            type='text'
-            placeholder='email'
-            error={this.state.emailError}
-          />
-        </Form.Field>
-        <Form.Field>
-          <Form.Input
-            value={password}
-            onChange={this.handleOnChange}
-            name='password'
-            type='password'
-            placeholder='password'
-            error={this.state.passwordError}
-          />
-        </Form.Field>
-        <Button
-          className='submitBtn'
-          type='submit'
-          disabled={!this.state.emailError || !this.state.passwordError}
-        >
-          Submit
-        </Button>
-      </Form>
+      <Formik
+        initialValues={{
+          email: '',
+          password: ''
+        }}
+        onSubmit={this.handleOnSubmit}
+        validationSchema={LoginSchema}
+      >
+        <Form>
+          <div className="authMainContainer">
+            <div className="authHeader">{this.props.modal}</div>
+            <div className="divider" />
+            {this.state.error && (
+              <div className="modalErrorContainerMsg">
+                <Message negative>
+                  <Message.Header>{this.state.error}</Message.Header>
+                </Message>
+              </div>
+            )}
+
+            <Field
+              title="Email"
+              name="email"
+              type="text"
+              component={Input}
+              placeholder="email"
+            />
+            <div className="modalErrorDiv">
+              <ErrorMessage name="email" />
+            </div>
+            <Field
+              name="password"
+              type="password"
+              title="Password"
+              component={Input}
+              placeholder="password"
+            />
+            <div className="modalErrorDiv">
+              <ErrorMessage name="password" />
+            </div>
+            <Button className="submitBtn" type="submit">
+                  Submit
+            </Button>
+
+          </div>
+        </Form>
+      </Formik>
     )
   }
 }
@@ -85,5 +86,13 @@ const mapDispatchToProps = {
   setModalName,
   authUser
 }
+
+const LoginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Please enter a valid email')
+    .required('Please enter your email'),
+  password: yup.string().required('Please enter your correct password')
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

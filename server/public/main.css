@@ -32,7 +32,33 @@ body h1{
   font-weight: 800;
  }
 
- .modalMainContainer {
-  min-height: 400px;
+.divider {
+  background-color: white;
+  height: 3px;
+  margin: 8px auto 35px;
+}
+
+.modalMainContainer {
+  border-radius: 25px !important;
+  background-color: transparent !important;
+}
+
+ .modalContentContainer {
   background-color: #322943 !important;
+  border-radius: 20px !important;
+  color: white;
+  min-height: 400px;
+  padding: 3rem !important;
+}
+
+.modalErrorContainerMsg {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalErrorDiv {
+  color: #c71f1f;
+  margin-bottom: 1.5rem;
 }

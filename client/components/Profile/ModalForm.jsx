@@ -1,57 +1,54 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import { Formik, Form, Field } from 'formik'
 import './profile.css'
 
+import Input from '../FormComponents/Input'
 import { updateUserProfile } from '../../store/actions/user'
 import { setModalOpen, setModalName } from '../../store/actions/modal'
 
 export class UpdateProfile extends Component {
-  state = {
-    fullName: this.props.user.fullName,
-    avatar: this.props.user.avatar
-  }
-
-  handleOnChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-  }
-
-  handleOnSubmit = async () => {
-    await this.props.updateUserProfile(this.props.user.id, this.state)
+  handleOnSubmit = async (values) => {
+    await this.props.updateUserProfile(this.props.user.id, values)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
 
   render () {
-    const { fullName, avatar } = this.state
+    const { fullName, avatar } = this.props.user
     return (
-      <div className="profileModalFormContainer">
-        <div className="profileModalHeader">{this.props.form}</div>
-        <div className="divider" />
-        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <Form.Field>
-            <Form.Input
-              value={fullName}
-              onChange={this.handleOnChange}
+      <Formik
+        initialValues={{
+          fullName,
+          avatar
+        }}
+        onSubmit={this.handleOnSubmit}
+      >
+        <Form>
+          <div className="modalProfileMainContainer">
+            <div className="modalProfileHeader">{this.props.form}</div>
+            <div className="divider" />
+            <Field
+              title="Full name"
               name="fullName"
               type="text"
+              component={Input}
               placeholder="full name"
             />
-          </Form.Field>
-          <Form.Field>
-            <Form.Input
-              value={avatar}
-              onChange={this.handleOnChange}
+            <Field
+              title="Avatar url"
               name="avatar"
               type="text"
-              placeholder="avatar (enter URL link)"
+              component={Input}
+              placeholder="avatar url"
             />
-          </Form.Field>
-          <Button className="submitBtn" type="submit">
-            Submit
-          </Button>
+            <Button className="submitBtn" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
-      </div>
+      </Formik>
     )
   }
 }

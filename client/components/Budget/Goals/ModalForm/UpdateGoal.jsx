@@ -55,8 +55,15 @@ export class UpdateGoal extends Component {
         <div className="divider" />
         <Form onSubmit={this.handleOnSubmit}>
           <div style={{ display: 'block' }}>
-            <label>Your Current Amount is: ${currentAmount} out of ${this.props.select.targetBudget}</label>
-            {this.state.currentAmount === this.props.select.targetBudget && <div style={{ color: '#f7d365', fontWeight: 'bold' }}>GOAL REACHED!</div>}
+            <label>
+              Your Current Amount is: ${currentAmount} out of $
+              {this.props.select.targetBudget}
+            </label>
+            {this.state.currentAmount === this.props.select.targetBudget && (
+              <div style={{ color: '#f7d365', fontWeight: 'bold' }}>
+                GOAL REACHED!
+              </div>
+            )}
             <div style={{ display: 'flex', margin: '1.5rem 0' }}>
               <Form.Field style={{ margin: '0 2rem 0 0' }}>
                 <Form.Input
@@ -89,8 +96,8 @@ export class UpdateGoal extends Component {
 
           <div className="goalModalHeader">{this.props.form}</div>
           <div className="divider" />
-          <label>Budget Distribution</label>
           <Form.Field>
+            <div className="modalGoalLabel">Budget Distribution</div>
             <Form.Input
               value={budgetDistribution}
               onChange={this.handleOnChange}
@@ -100,7 +107,7 @@ export class UpdateGoal extends Component {
               placeholder="budget distribution"
             />
           </Form.Field>
-          <label>Frequency</label>
+          <div className="modalGoalLabel">Frequency</div>
           <Form.Select
             options={options}
             name="frequency"
@@ -113,7 +120,6 @@ export class UpdateGoal extends Component {
             Submit
           </Button>
         </Form>
-
       </div>
     )
   }

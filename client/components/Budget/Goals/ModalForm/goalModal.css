@@ -9,14 +9,33 @@
   width: 100%;
   margin: auto;
   height: 100%;
-  padding-top: 3rem;
 }
+
 .goalModalFormContainer label{
   font-size:1.3rem;
   color:white;
 }
+
 .goalModalHeader {
   color: white;
   font-family: 'Raleway', sans-serif;
   font-size: 24px;
+}
+
+.modalGoalMainContainer {
+  max-width: 400px;
+  margin: auto;
+  font-family: 'Raleway', sans-serif;
+}
+
+.modalGoalHeader {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.modalGoalLabel {
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+  color: white;
 }
