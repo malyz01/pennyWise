@@ -36,7 +36,6 @@ class GoalsTable extends Component {
         return amount / 52
       default:
         return amount
-
     }
   }
   getActualDate = (amountAdded, frequency, targetBudget, currentAmount) => {
@@ -50,9 +49,14 @@ class GoalsTable extends Component {
     const currentDate = Date.now()
     const completionDate = new Date(Number(currentDate) + Number(millisecondsLeft))
 
-    return completionDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
+    const formatedDate = completionDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
+    const segments = formatedDate.split('/')
+    return `${segments[1]}/${segments[0]}/${segments[2]}`
   }
-
+  formatDate = (date) => {
+    const segments = date.split('-')
+    return `${segments[2]}/${segments[1]}/${segments[0]}`
+  }
   render () {
     return (
       <Fade>
@@ -80,7 +84,7 @@ class GoalsTable extends Component {
                   <Table.Cell>{`${this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount)}`}</Table.Cell>
                   <Table.Cell>{`${this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount))} ${this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount)) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
                   <Table.Cell>${this.getWeeklyContribution(goal.budgetDistribution, goal.frequency).toFixed(2)}</Table.Cell>
-                  <Table.Cell className="goalsTableSpecial">{goal.targetDate}</Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">{this.formatDate(goal.targetDate)}</Table.Cell>
                   <Table.Cell className="goalsTableSpecial">{getWeeklyContribution(this.getRemaining(goal.targetDate), goal.currentAmount, goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
