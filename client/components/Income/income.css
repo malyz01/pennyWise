@@ -1,16 +1,22 @@
-.incomeHeader{
-  padding-top:10%;
-  padding: bottom 3%;
-  color:white;
+/* BODY BACKGROUND */
+.income{
+  background-color: #5E5371;
 }
+
+/* HEADER */
 
 .incomeHeaderTitle{
   text-align: center;
   font-size:2.5rem;
   margin-bottom:20px;
+  /* font-family: 'Raleway', sans-serif; */
   letter-spacing:5px;
-  text-shadow: 2px 2px 3px rgb(24, 24, 24);
-  font-weight:600;
+}
+
+.incomeHeader{
+  padding-top:10%;
+  /* padding-bottom: 3%; */
+  color:white;
 }
 
 .incomeHeaderText{
@@ -24,18 +30,13 @@
   margin-bottom:20px;
 }
 
-.incomeTable{
-  padding-bottom:10%;
-}
+/* ============== */
 
-/* .incomeButtons .button{
-  display: flex;
-  margin-top:50px;
-  margin-bottom:50px;
-} */
+/* BUTTONS */
 
 .incomeButtons{
   display: flex;
+  justify-content: center;
   margin-top:50px;
   margin-bottom:50px;
 }
@@ -46,20 +47,29 @@
   margin-right:20px;
   letter-spacing: 10px;
   padding:15px;
-  border-radius:30px;
+  border-radius:5px;
   font-size: 0.8rem;
-  background: #bd9cdf !important;
+  transition: .5s;
+  background: #333333 !important;
   color:white;
-  text-shadow: 1px 1px 2px black;
+}
+
+.incomeButtons button.ui.button.incomeAdd.toggleOnAndOff:focus{
+  background:#434343 !important;
+  color: white;
 }
 
 .incomeButtons .button:hover{
-  background:#af6ef0 !important;
+  background:#434343 !important;
+  color: white;
+  transition: all .2 ease-in-out;
+  transform: scale(1.05);
 }
 
 .incomeButtons .button.add{
   background:rgb(219, 219, 219) !important;
   color:black;
+  align-items: center !important;
   text-shadow:none;
 }
 
@@ -67,30 +77,21 @@
   background:white !important;
 }
 
-.income{
-  background-color: #5E5371;
+/* ============ */
+
+/* TABLE */
+
+.incomeTable{
+  padding-bottom:10%;
 }
 
-/* TABLE STYLES */
-.income .ui.single.line.table th{
-  background:#9770be;
-  color:white;
-  text-decoration: solid;
-}
-
-.income .ui.single.line.table td{
-  background:rgb(34, 33, 36);
-  color:white;
-  text-decoration: solid;
-}
-
-.income .ui.table{
-  background:none !important;
-  border-radius:20px;
-  overflow:hidden;
-  text-align:center;
+.income .table{
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: center;
 }
 
 .pointerCursor {
   cursor: pointer;
 }
+

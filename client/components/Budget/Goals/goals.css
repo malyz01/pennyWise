@@ -11,6 +11,7 @@
 }
 .goalButtons{
   display: flex;
+  justify-content: center;
   margin-top:50px;
   margin-bottom:50px;
   width:100%;
@@ -27,7 +28,7 @@
   padding:15px;
   font-size: 0.8rem;
   color:white;
-  transition:500ms;
+  transition: .5s;
 }
 
 .goalButtons .ui.button:focus{
@@ -37,12 +38,26 @@
 }
 
 .goalButtons .ui.button:hover{
-  transform: scale(1.1); 
+  transform: scale(1.05); 
   color: white;
   transition: all .2s ease-in-out;
   background-color: #434343;
 }
 
+.ui.inverted.table th.goalsTableSpecial{
+  background:rgba(48, 48, 48, 0.651) !important;
+  color:rgb(255, 255, 255) !important;
+}
+.ui.inverted.table th{
+  font-size:1rem;
+}
+.ui.inverted.table {
+  background: rgba(26, 26, 26, 0.651) !important;
+}
+.ui.inverted.table td.goalsTableSpecial{
+  background:rgba(90, 90, 90, 0.719) !important;
+  color:rgb(255, 255, 255) !important;
+}
 .goalsTitleLine{
   width: 80%;
 }

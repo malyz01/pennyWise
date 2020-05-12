@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
-
+import { addCommas } from '../helpers'
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
@@ -66,7 +66,7 @@ class BudgetCard extends Component {
     this.setState({ [name]: value })
   }
 
-  getColor = (number) => {
+  getColor = (ratioOfCompletion) => {
     // const getShade = (minR, minB, minG, maxR, maxB, maxG) => {
     //   return `rgb(${Math.floor(Math.random() * (maxR - minR) + minR)},${Math.floor((Math.random() * (maxB - minB) + minB))},${Math.floor((Math.random() * (maxG - minG) + minG))})`
     // }
@@ -74,20 +74,24 @@ class BudgetCard extends Component {
     //   const shade = Math.floor(Math.random() * (max - min) + min)
     //   return `rgb(${shade},${shade},${shade})`
     // }
-    switch (number) {
-      case 0:
-        count++
-        return '#9d00e6'
-      case 1:
-        count++
-        return '#c64dff'
-      case 2:
-        count++
-        return '#cd7eb8'
-      case 3:
-        count = 0
-        return '#9326ff'
+    // switch (number) {
+    //   case 0:
+    //     count++
+    //     return '#9d00e6'
+    //   case 1:
+    //     count++
+    //     return '#c64dff'
+    //   case 2:
+    //     count++
+    //     return '#cd7eb8'
+    //   case 3:
+    //     count = 0
+    //     return '#9326ff'
+    // }
+    if (ratioOfCompletion >= 1) {
+      return '#2ab963'
     }
+    return `rgba(${102},${0},${255},${ratioOfCompletion})`
   }
 
   render () {
@@ -120,7 +124,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalBudget()}
+                  $ {addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>
@@ -132,7 +136,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalContribution()}
+                  $ {addCommas(this.renderTotalContribution())}
                 </h2>
               </div>
             </div>
@@ -144,13 +148,14 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderUnallocatedBudget()}
+                  $ {addCommas(this.renderUnallocatedBudget())}
                 </h2>
               </div>
             </div>
           </div>
         </div>
         <div className="budgetGraphs">
+          {this.props.goal && this.props.goal.length > 0 && <h1>Goals Overview</h1>}
           {
             this.props.goal.map((item, index) => {
               return (
@@ -163,7 +168,7 @@ class BudgetCard extends Component {
                       <div
                         className="budgetGraphBar"
                         style={{
-                          background: this.getColor(count),
+                          background: this.getColor(item.currentAmount / item.targetBudget),
                           width: `${
                             (item.currentAmount / item.targetBudget) * 100
                           }%`
@@ -178,7 +183,7 @@ class BudgetCard extends Component {
                       </div>
                     </div>
                   </div>
-                  {index < this.props.goal.length - 1 && <hr />}
+                  {/* {index < this.props.goal.length - 1 && <hr />} */}
                 </Fragment>
               )
             })

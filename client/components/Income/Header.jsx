@@ -22,8 +22,8 @@ class Header extends Component {
 
   render () {
     return (
-      <Container className='expenseHeader'>
-        <div className='expenseHeaderTitle'>OVERVIEW OF INCOME</div>
+      <Container className='incomeHeader'>
+        <div className='incomeHeaderTitle'>OVERVIEW OF INCOME</div>
         <hr />
         <div className='incomeButtons'>
           <button
@@ -35,21 +35,20 @@ class Header extends Component {
           {this.props.selected && (
             <>
               <button
-                onClick={this.handleOnClick('active')}
-                className='ui button  incomeAdd'
-              >
-                ON/OFF
-              </button>
-              <button
                 onClick={this.handleOnClick('Update Income')}
-                className='ui button incomeAdd'
-              >
+                className='ui button incomeAdd'>
                 UPDATE
               </button>
+
+              <button
+                onClick={this.handleOnClick('active')}
+                className='ui button  incomeAdd toggleOnAndOff'>
+                ON/OFF
+              </button>
+
               <button
                 onClick={this.handleOnClick('delete')}
-                className='ui button  incomeAdd'
-              >
+                className='ui button  incomeAdd'>
                 DELETE
               </button>
             </>
