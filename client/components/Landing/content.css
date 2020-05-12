@@ -1,0 +1,33 @@
+.landingContent{
+  padding-top:100px;
+  padding-bottom:100px;
+}
+.landingContentJoin{
+  text-align:center;
+}
+.landingInfoHr {
+  margin: 1.5rem auto;
+  width:80%;
+  border-bottom: 2px solid;
+  border-top:none;
+  border-image-slice: 1;
+  border-image-source: radial-gradient(circle, rgba(87,26,177,0.8799894957983193) 73%, rgba(252,70,107,0) 100%);
+}
+.landingInfoList {
+  padding: 5% 0 5% 0;
+}
+.landingInfoHeading h1{
+  font-size:3rem;
+  color:rgb(115, 99, 200);
+  letter-spacing: 5px;
+}
+.ui.button.landingSignUp{
+  background: #7363C8;
+  width: 250px;
+  margin:20px;
+  color: white;
+  transition: 500ms;
+}
+.ui.button.landingSignUp:hover{
+  background: rgba(116, 99, 200, 0.596)
+}

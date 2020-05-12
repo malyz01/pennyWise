@@ -1,16 +1,16 @@
 .landingCarousel{
-  position: absolute;
+  position: relative;
   padding: 20px;
   padding-bottom: 5px;
   background: white;
   width: 700px;
   height: 350px;
-  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.712);
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
 }
 .landingCarouselOuter{
-  position: absolute;
-  top: 100px;
-  right: 10%;
+  position: relative;
+  margin: 0 auto 0 auto;
+  width:fit-content;
 }
 .landingCarouselMain{
   display: flex;
@@ -42,6 +42,7 @@
   display:flex;
   justify-content: center;
   align-items: center;
+  height:100%;
 }
 .landingLeft{
   position:absolute;
@@ -58,6 +59,9 @@
   font-size:3rem;
   letter-spacing: 10px;
 
+}
+.landingCarouselItem{
+  height:100%;
 }
 .landingCarouselText {
   position:absolute;
@@ -86,6 +90,10 @@
   bottom:0px;
   left:0px;
   width:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom:10px;
 }
 .landingCarouselIndex:hover {
   cursor: pointer;
@@ -94,10 +102,12 @@
   cursor: pointer !important;
 }
 .landingCarouselIcon{
-  width:30px;
-  height:30px;
-  margin-right:10px;
-  margin-left:10px;
+  width:15px;
+  height:15px;
+  margin-right:20px;
+  margin-left:20px;
+  background:white;
+  border-radius: 50%;
 }
 
 .visible {
