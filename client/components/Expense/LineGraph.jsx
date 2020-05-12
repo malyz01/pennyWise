@@ -19,7 +19,7 @@ export default class Graph extends React.Component {
           marginRight: '2rem'
         }}
       >
-        <div style={{ background: 'white', padding: '2rem' }}>
+        <div style={{ background: '#dedede', padding: '2rem' }}>
           <LineChart
             width={500}
             height={300}
