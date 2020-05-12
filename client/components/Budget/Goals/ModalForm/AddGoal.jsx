@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import { Formik, Form, Field } from 'formik'
 import './goalModal.css'
 
+import Input from '../../../FormComponents/Input'
+import Dropdown from '../../../FormComponents/Dropdown'
 import { addUserGoal } from '../../../../store/actions/goals'
 import { setModalOpen, setModalName } from '../../../../store/actions/modal'
 
@@ -13,101 +16,76 @@ const options = [
 ]
 
 export class Login extends Component {
-  state = {
-    goalName: '',
-    targetBudget: '',
-    currentAmount: '',
-    frequency: 'Weekly',
-    targetDate: '',
-    budgetDistribution: ''
-  }
-
-  handleOnChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-  }
-
-  handleOnSubmit = async () => {
-    await this.props.addUserGoal(this.props.userId, this.state)
+  handleOnSubmit = async (values) => {
+    await this.props.addUserGoal(this.props.userId, values)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
 
   render () {
-    const {
-      goalName,
-      targetBudget,
-      currentAmount,
-      frequency,
-      targetDate,
-      budgetDistribution
-    } = this.state
     return (
-      <div className="goalModalFormContainer">
-        <div className="goalModalHeader">{this.props.form}</div>
-        <div className="divider" />
-        <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <Form.Field>
-            <Form.Input
-              value={goalName}
-              onChange={this.handleOnChange}
+      <Formik
+        initialValues={{
+          goalName: '',
+          targetBudget: '',
+          currentAmount: '',
+          frequency: 'Weekly',
+          targetDate: '',
+          budgetDistribution: ''
+        }}
+        onSubmit={this.handleOnSubmit}
+      >
+        <Form>
+          <div className="modalGoalMainContainer">
+            <div className="modalGoalHeader">{this.props.form}</div>
+            <div className="divider" />
+            <Field
+              title="Name"
               name="goalName"
-              required
               type="text"
+              component={Input}
               placeholder="goal name"
             />
-          </Form.Field>
-          <Form.Field>
-            <Form.Input
-              value={targetBudget}
-              onChange={this.handleOnChange}
+            <Field
+              title="Target budget"
               name="targetBudget"
-              required
               type="number"
-              placeholder="goal amount"
+              component={Input}
+              placeholder="target budget"
             />
-          </Form.Field>
-          <Form.Field>
-            <Form.Input
-              value={currentAmount}
-              onChange={this.handleOnChange}
+            <Field
+              title="Current amount"
               name="currentAmount"
-              required
               type="number"
+              component={Input}
               placeholder="current amount"
             />
-          </Form.Field>
-          <Form.Select
-            defaultValue={frequency}
-            name="frequency"
-            onChange={this.handleOnChange}
-            placeholder="frequency"
-            options={options}
-          />
-          <Form.Field>
-            <Form.Input
-              value={targetDate}
-              onChange={this.handleOnChange}
+            <Field
+              title="Target date"
               name="targetDate"
-              required
               type="date"
+              component={Input}
               placeholder="target date"
             />
-          </Form.Field>
-          <Form.Field>
-            <Form.Input
-              value={budgetDistribution}
-              onChange={this.handleOnChange}
+            <Field
+              title="Budget Distribution"
               name="budgetDistribution"
-              required
               type="number"
+              component={Input}
               placeholder="budget distribution"
             />
-          </Form.Field>
-          <Button className="submitBtn" type="submit">
-            Submit
-          </Button>
+            <Field
+              title="Frequency"
+              options={options}
+              name="frequency"
+              component={Dropdown}
+            />
+            <Button className="submitBtn" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
-      </div>
+      </Formik>
     )
   }
 }

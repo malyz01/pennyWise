@@ -144,17 +144,14 @@ button.ui.blue.button:hover{
   padding-bottom: 5px;
 }
 
-.profileModalFormContainer {
-  min-width: 350px;
-  max-width: 500px;
-  width: 100%;
+.modalProfileMainContainer {
+  max-width: 400px;
   margin: auto;
-  height: 100%;
-  padding: 2rem;
+  font-family: 'Raleway', sans-serif;
 }
 
-.profileModalHeader {
-  color: white;
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
+.modalProfileHeader {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: capitalize;
 }
