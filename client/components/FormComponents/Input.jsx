@@ -1,14 +1,15 @@
 import React from 'react'
-import { Form, Input } from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
+import './formComponents.css'
 
 const CsmInput = props => {
-  const { field, label, type } = props
+  const { children, field, title, form, ...rest } = props
   console.log(props)
   return (
-    <Form.Field>
-      <label>Label Here</label>
-      <Input {...props.field} type={type} />
-    </Form.Field>
+    <div className="formInputContainer">
+      <div className="formInputLabel">{title}</div>
+      <Input fluid {...props.field} {...rest} />
+    </div>
   )
 }
 

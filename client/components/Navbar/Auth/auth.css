@@ -1,20 +1,21 @@
 .authMainContainer {
-  background-color: #322943;
-  color: white;
-  height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.authSubContainer {
+  margin: auto;
 }
 
 .divider {
   background-color: white;
   height: 3px;
-  margin: 8px 0 10px;
+  margin: 8px 0 35px;
 }
 
 .authHeader {
   font-size: 2rem;
+  text-align: center;
   text-transform: capitalize;
 } 
 

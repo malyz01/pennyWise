@@ -1,0 +1,14 @@
+/* TITLE / LABEL */
+
+.formInputContainer {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 1.5rem;
+  min-width: 320px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.formInputLabel {
+  font-size: 1.2rem;
+}

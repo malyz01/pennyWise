@@ -32,6 +32,8 @@ body h1{
  }
 
  .modalMainContainer {
-  min-height: 400px;
   background-color: #322943 !important;
+  color: white;
+  min-height: 400px;
+  padding: 3rem !important;
 }
