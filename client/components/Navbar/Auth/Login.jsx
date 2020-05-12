@@ -1,77 +1,56 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Button } from 'semantic-ui-react'
-import './auth.css'
+import { Button } from 'semantic-ui-react'
+import { Formik, Form, Field } from 'formik'
+import * as yup from 'yup'
 
+import './auth.css'
+import Input from '../../FormComponents/Input'
 import { authUser } from '../../../store/actions/auth'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 export class Login extends Component {
-  state = {
-    email: '',
-    password: '',
-    emailError: false,
-    passwordError: false
-  }
-
   handleOnChange = (e, { name, value }) => {
     this.setState({ [name]: value })
-
-    const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-
-    if (re.test(this.state.email)) {
-      this.setState({ emailError: true })
-    } else {
-      this.setState({ emailError: false })
-    }
-
-    if (this.state.password.length >= 3) {
-      this.setState({ passwordError: true })
-    } else {
-      this.setState({ passwordError: false })
-    }
   }
 
-  handleOnSubmit = () => {
-    this.props.authUser(this.state)
+  handleOnSubmit = values => {
+    this.props.authUser(values)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
 
   render () {
-    const { email, password } = this.state
     return (
-      <Form onSubmit={this.handleOnSubmit}>
-        <div className='authHeader'>{this.props.modal}</div>
-        <div className='divider' />
-        <Form.Field>
-          <Form.Input
-            value={email}
-            onChange={this.handleOnChange}
+      <Formik
+        initialValues={{
+          email: '',
+          password: ''
+        }}
+        onSubmit={this.handleOnSubmit}
+        validationSchema={SignupSchema}
+      >
+        <Form>
+          <div className='authHeader'>{this.props.modal}</div>
+          <div className='divider' />
+          <Field
             name='email'
             type='text'
+            label='labelme'
+            component={Input}
             placeholder='email'
-            error={this.state.emailError}
           />
-        </Form.Field>
-        <Form.Field>
-          <Form.Input
-            value={password}
-            onChange={this.handleOnChange}
+          <Field
             name='password'
             type='password'
+            component={Input}
             placeholder='password'
-            error={this.state.passwordError}
           />
-        </Form.Field>
-        <Button
-          className='submitBtn'
-          type='submit'
-          disabled={!this.state.emailError || !this.state.passwordError}
-        >
-          Submit
-        </Button>
-      </Form>
+          <Button className='submitBtn' type='submit'>
+            Submit
+          </Button>
+        </Form>
+      </Formik>
     )
   }
 }
@@ -85,5 +64,13 @@ const mapDispatchToProps = {
   setModalName,
   authUser
 }
+
+const SignupSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Please enter a valid email')
+    .required('Please enter your email'),
+  password: yup.string().required()
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
