@@ -63,8 +63,7 @@
 }
 .expenseButtons button.ui.button.add:hover{
   background:white !important;
-  /* transition: all .2s ease-in-out;
-  transform: scale(1.05);  */
+
 }
 
 .expenseButtons .ui.button.add {
@@ -72,10 +71,7 @@
 }
 
 .expense{
-  /* background-color: #5E5371; */
-  background: #114357;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #5E5371;
 }
 
 .expense .ui.table{
