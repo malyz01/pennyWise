@@ -35,21 +35,20 @@ class Header extends Component {
           {this.props.selected && (
             <>
               <button
-                onClick={this.handleOnClick('active')}
-                className='ui button  incomeAdd toggleOnAndOff'
-              >
-                ON/OFF
-              </button>
-              <button
                 onClick={this.handleOnClick('Update Income')}
-                className='ui button incomeAdd'
-              >
+                className='ui button incomeAdd'>
                 UPDATE
               </button>
+
+              <button
+                onClick={this.handleOnClick('active')}
+                className='ui button  incomeAdd toggleOnAndOff'>
+                ON/OFF
+              </button>
+
               <button
                 onClick={this.handleOnClick('delete')}
-                className='ui button  incomeAdd'
-              >
+                className='ui button  incomeAdd'>
                 DELETE
               </button>
             </>
