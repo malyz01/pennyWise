@@ -1,6 +1,7 @@
 /* BODY BACKGROUND */
 .income{
   background-color: #5E5371;
+  min-height: 600px;
   padding: 6rem 0;
 }
 
