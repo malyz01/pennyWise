@@ -94,15 +94,18 @@ class GoalsTable extends Component {
               this.props.goals.map((goal) => {
                 return <Table.Row className='pointerCursor' key={goal.id} onClick = {this.handleClick(goal)} active={this.props.selected && goal.id === this.props.selected.id}>
                   <Table.Cell>{goal.goalName}</Table.Cell>
-                  <Table.Cell>${goal.targetBudget.toFixed(2)}</Table.Cell>
-                  <Table.Cell>{goal.targetDate}</Table.Cell>
-                  <Table.Cell>{`${this.getPeriod(goal.targetDate, goal.startDate)} ${this.getPeriod(goal.targetDate, goal.startDate) > 1 ? 'Days' : 'Day'} `}</Table.Cell>
-                  <Table.Cell>${goal.currentAmount.toFixed(2)}</Table.Cell>
-                  <Table.Cell>{getWeeklyContribution(this.getPeriod(goal.targetDate), goal.currentAmount, goal.targetBudget)}</Table.Cell>
+                  <Table.Cell>${goal.targetBudget}</Table.Cell>
+                  <Table.Cell>${goal.currentAmount}</Table.Cell>
+                  <Table.Cell>{`${this.formatDate(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount), 'actual')}`}</Table.Cell>
+                  <Table.Cell>{this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount), 'string')}</Table.Cell>
+                  <Table.Cell>${this.getWeeklyContribution(goal.budgetDistribution, goal.frequency).toFixed(2)}</Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">{this.formatDate(goal.targetDate, 'chosen')}</Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">{getWeeklyContribution(this.getRemaining(goal.targetDate), goal.currentAmount, goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               })
             }
+
           </Table.Body>
         </Table>
       </Fade>
