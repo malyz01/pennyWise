@@ -21,10 +21,15 @@ export class Expense extends Component {
   render () {
     const { userId, expenses, selected } = this.props
     if (this.props.load) return <Loading />
-    const graphData = expenses.map((i) => ({
-      name: i.expenseName,
-      Expense: i.expenseAmount
-    }))
+    const graphData = expenses.map((i) => {
+      if (i.active) {
+        return {
+          name: i.expenseName,
+          Expense: i.expenseAmount
+        }
+      }
+      return null
+    }).filter(income => income !== null)
     return (
       <div className="expense">
         <Header />
