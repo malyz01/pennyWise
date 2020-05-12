@@ -4,17 +4,18 @@ const camelcaseKeys = require('camelcase-keys')
 const db = require('../db/fn/goal')
 const { isGetOwner, isWriteOwner } = require('../middleware')
 
+// TODO FOR ADMIN
 // GET - api/v1/goals/
 // postman testing COMPLETE
-router.get('/', (req, res) => {
-  return db
-    .getAllGoals()
-    .then(camelcaseKeys)
-    .then((goals) => res.json(goals))
-    .catch(err => {
-      res.status(500).send(err.message)
-    })
-})
+// router.get('/', (req, res) => {
+//   return db
+//     .getAllGoals()
+//     .then(camelcaseKeys)
+//     .then((goals) => res.json(goals))
+//     .catch(err => {
+//       res.status(500).send(err.message)
+//     })
+// })
 
 // GET - /api/v1/goals/:userId
 // postman testing COMPLETE
