@@ -16,7 +16,7 @@ class GoalsTable extends Component {
     const diffTime = date1 - date2
 
     let remaining = Math.floor(diffTime / (1000 * 60 * 60 * 24))
-   
+
     if (type === 'string') {
       if (remaining > 1) {
         remaining = addCommas(remaining, true)

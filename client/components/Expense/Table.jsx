@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Table, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
-
+import { addCommas } from '../helpers'
 import './expense.css'
 import { selectUserExpense } from '../../store/actions/expense'
 
@@ -43,7 +43,7 @@ export class ExpenseTable extends Component {
                   <Table.Cell>{e.expenseName}</Table.Cell>
                   <Table.Cell>{e.categories}</Table.Cell>
                   <Table.Cell>{e.frequency}</Table.Cell>
-                  <Table.Cell>${e.expenseAmount}</Table.Cell>
+                  <Table.Cell>${addCommas(e.expenseAmount)}</Table.Cell>
                   <Table.Cell>{e.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               ))}
