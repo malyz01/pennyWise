@@ -24,7 +24,7 @@ export class Login extends Component {
       this.setState({ emailError: false })
     }
 
-    if (this.state.password.length > 3) {
+    if (this.state.password.length >= 3) {
       this.setState({ passwordError: true })
     } else {
       this.setState({ passwordError: false })
