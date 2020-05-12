@@ -30,3 +30,8 @@ body h1{
 .appContainer .ui.table tr.active{
   font-weight: 800;
  }
+
+ .modalMainContainer {
+  min-height: 400px;
+  background-color: #322943 !important;
+}

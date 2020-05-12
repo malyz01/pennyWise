@@ -97,12 +97,15 @@ class GoalsTable extends Component {
     )
   }
 }
+
 const mapStateToProps = (state) => ({
   goals: state.goal.all,
   selected: state.goal.selected,
   userId: state.auth.user.id
 })
+
 const mapDispatchToProps = {
   selectUserGoal
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(GoalsTable)
