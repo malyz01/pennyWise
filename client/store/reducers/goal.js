@@ -21,22 +21,12 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_USER_GOALS:
       return { ...state, all: [...state.all, payload] }
     case DELETE_USER_GOALS:
-      return {
-        ...state,
-        all: state.all.filter(goal => {
-          if (goal.id !== Number(payload)) {
-            return true
-          }
-          return false
-        })
-      }
+      return { all: state.all.filter(goal => goal.id !== Number(payload)), selected: null }
     case UPDATE_USER_GOALS:
       return {
         ...state,
         all: state.all.map(goal => {
-          if (goal.id === Number(payload.id)) {
-            return payload
-          }
+          if (goal.id === Number(payload.id)) return payload
           return goal
         }),
         selected: payload
