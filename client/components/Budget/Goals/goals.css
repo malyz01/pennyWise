@@ -44,6 +44,20 @@
   background-color: #434343;
 }
 
+.ui.inverted.table th.goalsTableSpecial{
+  background:rgba(48, 48, 48, 0.651) !important;
+  color:rgb(255, 255, 255) !important;
+}
+.ui.inverted.table th{
+  font-size:1rem;
+}
+.ui.inverted.table {
+  background: rgba(26, 26, 26, 0.651) !important;
+}
+.ui.inverted.table td.goalsTableSpecial{
+  background:rgba(90, 90, 90, 0.719) !important;
+  color:rgb(255, 255, 255) !important;
+}
 .goalsTitleLine{
   width: 80%;
 }

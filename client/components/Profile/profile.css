@@ -143,3 +143,18 @@ button.ui.blue.button:hover{
 .editAndSubButton{
   padding-bottom: 5px;
 }
+
+.profileModalFormContainer {
+  min-width: 350px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  padding: 2rem;
+}
+
+.profileModalHeader {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+}
