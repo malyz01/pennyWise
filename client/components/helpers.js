@@ -23,11 +23,18 @@ export const addCommas = (string, isNaM) => {
       count++
     }
   }
+  let dollarSign = '$'
+  if (isNaM) {
+    dollarSign = ''
+  }
   if (wholeNumber[0] === '-') {
     if (wholeNumber[1] === ',') {
-      wholeNumber = wholeNumber.slice(0, 1) + wholeNumber.slice(2, wholeNumber.lenght)
+      wholeNumber = wholeNumber.slice(0, 1) + dollarSign + wholeNumber.slice(2, wholeNumber.lenght)
     }
+  } else {
+    wholeNumber = dollarSign + wholeNumber
   }
+
   if (isNaM) {
     return wholeNumber
   }
