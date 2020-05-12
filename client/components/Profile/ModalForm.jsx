@@ -44,7 +44,7 @@ export class UpdateProfile extends Component {
               onChange={this.handleOnChange}
               name="avatar"
               type="text"
-              placeholder="avatar"
+              placeholder="avatar (enter URL link)"
             />
           </Form.Field>
           <Button className="submitBtn" type="submit">
