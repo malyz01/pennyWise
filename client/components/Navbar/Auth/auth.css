@@ -1,25 +1,11 @@
 .authMainContainer {
-  display: flex;
-  font-family: 'Raleway', sans-serif;
-}
-
-.authSubContainer {
+  max-width: 320px;
   margin: auto;
-}
-
-.divider {
-  background-color: white;
-  height: 3px;
-  margin: 8px 0 35px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .authHeader {
   font-size: 2rem;
   text-align: center;
   text-transform: capitalize;
-} 
-
-.authFormContainer {
-  min-width: 300px;
-  max-width: 400px;
 }

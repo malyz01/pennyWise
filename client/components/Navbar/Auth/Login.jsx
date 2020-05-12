@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button } from 'semantic-ui-react'
+import { Message, Button } from 'semantic-ui-react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 
@@ -10,10 +10,18 @@ import { authUser } from '../../../store/actions/auth'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
 
 export class Login extends Component {
-  handleOnSubmit = values => {
-    this.props.authUser(values)
-    this.props.setModalOpen(false)
-    this.props.setModalName(null)
+  state = {
+    error: null
+  }
+
+  handleOnSubmit = async values => {
+    try {
+      await this.props.authUser(values)
+      this.props.setModalOpen(false)
+      this.props.setModalName(null)
+    } catch (err) {
+      this.setState({ error: err.message })
+    }
   }
 
   render () {
@@ -27,30 +35,41 @@ export class Login extends Component {
         validationSchema={LoginSchema}
       >
         <Form>
-          <div className="authHeader">{this.props.modal}</div>
-          <div className="divider" />
           <div className="authMainContainer">
-            <div className="authSubContainer">
-              <Field
-                name="email"
-                type="text"
-                title="Email"
-                component={Input}
-                placeholder="email"
-              />
+            <div className="authHeader">{this.props.modal}</div>
+            <div className="divider" />
+            {this.state.error && (
+              <div className="modalErrorContainerMsg">
+                <Message negative>
+                  <Message.Header>{this.state.error}</Message.Header>
+                </Message>
+              </div>
+            )}
+
+            <Field
+              name="email"
+              type="text"
+              title="Email"
+              component={Input}
+              placeholder="email"
+            />
+            <div className="modalErrorDiv">
               <ErrorMessage name="email" />
-              <Field
-                name="password"
-                type="password"
-                title="Password"
-                component={Input}
-                placeholder="password"
-              />
-              <ErrorMessage name="password" />
-              <Button className="submitBtn" type="submit">
-              Submit
-              </Button>
             </div>
+            <Field
+              name="password"
+              type="password"
+              title="Password"
+              component={Input}
+              placeholder="password"
+            />
+            <div className="modalErrorDiv">
+              <ErrorMessage name="password" />
+            </div>
+            <Button className="submitBtn" type="submit">
+                  Submit
+            </Button>
+
           </div>
         </Form>
       </Formik>

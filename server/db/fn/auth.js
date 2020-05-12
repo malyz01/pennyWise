@@ -5,7 +5,7 @@ const fn = require('./user')
 const authenticate = async (data, db = connection) => {
   try {
     const user = await db('users').where('email', data.email).first()
-    if (typeof user === 'undefined') return 'Email does not exists'
+    if (typeof user === 'undefined') return 'Email does not exist'
 
     const isMatch = await bcrypt.compare(data.password, user.password)
     if (!isMatch) return 'Password does not match'
@@ -32,7 +32,7 @@ const newUser = async (data, db = connection) => {
     })
     return { id, email, fullName }
   } catch (err) {
-    return 'Username/Email is already taken'
+    return 'Email is already taken'
   }
 }
 

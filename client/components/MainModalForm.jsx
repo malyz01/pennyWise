@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal } from 'semantic-ui-react'
+import Fade from 'react-reveal/Fade'
 
 import Login from './Navbar/Auth/Login'
 import Signup from './Navbar/Auth/Signup'
@@ -22,18 +23,25 @@ class Auth extends Component {
   render () {
     const { open, modal } = this.props
     return (
-      <Modal open={open} onClose={this.close} closeIcon>
-        <Modal.Content className='modalMainContainer'>
-          {modal === 'signup' && <Signup />}
-          {modal === 'login' && <Login />}
-          {modal === 'Update Profile' && <UpdateProfile />}
-          {modal === 'Add Income' && <AddIncome />}
-          {modal === 'Update Income' && <UpdateIncome />}
-          {modal === 'Add Expense' && <AddExpense />}
-          {modal === 'Update Expense' && <UpdateExpense />}
-          {modal === 'Add Goal' && <AddGoal />}
-          {modal === 'Update Goal' && <UpdateGoal />}
-        </Modal.Content>
+      <Modal
+        className="modalMainContainer"
+        open={open}
+        onClose={this.close}
+        closeIcon
+      >
+        <Fade>
+          <Modal.Content className="modalContentContainer">
+            {modal === 'signup' && <Signup />}
+            {modal === 'login' && <Login />}
+            {modal === 'Update Profile' && <UpdateProfile />}
+            {modal === 'Add Income' && <AddIncome />}
+            {modal === 'Update Income' && <UpdateIncome />}
+            {modal === 'Add Expense' && <AddExpense />}
+            {modal === 'Update Expense' && <UpdateExpense />}
+            {modal === 'Add Goal' && <AddGoal />}
+            {modal === 'Update Goal' && <UpdateGoal />}
+          </Modal.Content>
+        </Fade>
       </Modal>
     )
   }

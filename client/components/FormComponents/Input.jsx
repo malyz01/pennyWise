@@ -4,7 +4,6 @@ import './formComponents.css'
 
 const CsmInput = props => {
   const { children, field, title, form, ...rest } = props
-  console.log(props)
   return (
     <div className="formInputContainer">
       <div className="formInputLabel">{title}</div>
