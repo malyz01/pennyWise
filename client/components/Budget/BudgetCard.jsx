@@ -90,6 +90,27 @@ class BudgetCard extends Component {
     }
   }
 
+  addCommas = (string) => {
+    if (typeof string !== 'string') {
+      string = String(string)
+    }
+    let decimals = string.split('.')[1]
+    if (decimals === undefined) {
+      decimals = '00'
+    }
+    let wholeNumber = string.split('.')[0]
+    let count = 0
+    for (let i = wholeNumber.length - 1; i > 0; i--) {
+      if (count === 2) {
+        wholeNumber = wholeNumber.slice(0, i) + ',' + wholeNumber.slice(i, wholeNumber.length)
+        count = 0
+      } else {
+        count++
+      }
+    }
+    return wholeNumber + '.' + decimals
+  }
+
   render () {
     return (
       <div className="budgetCardMain">
@@ -120,7 +141,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalBudget()}
+                  $ {this.addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>
@@ -132,7 +153,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalContribution()}
+                  $ {this.addCommas(this.renderTotalContribution())}
                 </h2>
               </div>
             </div>
@@ -144,7 +165,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderUnallocatedBudget()}
+                  $ {this.addCommas(this.renderUnallocatedBudget())}
                 </h2>
               </div>
             </div>
