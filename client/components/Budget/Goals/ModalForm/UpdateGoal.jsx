@@ -33,13 +33,17 @@ export class UpdateGoal extends Component {
 
   updateMoney = (type) => {
     if (type === 'add') {
-      if (this.state.currentAmount + this.state.money >= 0) {
-        this.setState({ currentAmount: this.state.currentAmount + Number(this.state.money) })
+      if (Number(this.state.currentAmount) + Number(this.state.money) >= 0) {
+        let money = this.state.money
+        if (Number(this.state.currentAmount) + Number(this.state.money) > Number(this.props.select.targetBudget)) {
+          money = Number(this.props.select.targetBudget) - Number(this.state.currentAmount)
+        }
+        this.setState({ currentAmount: Number(this.state.currentAmount) + Number(money) })
       }
     }
     if (type === 'subtract') {
-      if (this.state.currentAmount - this.state.money >= 0) {
-        this.setState({ currentAmount: this.state.currentAmount - Number(this.state.money) })
+      if (Number(this.state.currentAmount) - Number(this.state.money) >= 0) {
+        this.setState({ currentAmount: Number(this.state.currentAmount) - Number(this.state.money) })
       }
     }
   }
@@ -51,7 +55,8 @@ export class UpdateGoal extends Component {
         <div className="divider" />
         <Form onSubmit={this.handleOnSubmit}>
           <div style={{ display: 'block' }}>
-            <label>Your Current Amount is: {currentAmount}</label>
+            <label>Your Current Amount is: ${currentAmount} out of ${this.props.select.targetBudget}</label>
+            {this.state.currentAmount === this.props.select.targetBudget && <div style={{ color: '#f7d365', fontWeight: 'bold' }}>GOAL REACHED!</div>}
             <div style={{ display: 'flex', margin: '1.5rem 0' }}>
               <Form.Field style={{ margin: '0 2rem 0 0' }}>
                 <Form.Input
