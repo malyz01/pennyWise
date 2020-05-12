@@ -3,15 +3,13 @@ import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
 import './profile.css'
 
-import { updateUserExpense } from '../../store/actions/expense'
+import { updateUserProfile } from '../../store/actions/user'
 import { setModalOpen, setModalName } from '../../store/actions/modal'
 
-export class Login extends Component {
+export class UpdateProfile extends Component {
   state = {
-    categories: this.props.select.categories,
-    expenseName: this.props.select.expenseName,
-    expenseAmount: this.props.select.expenseAmount,
-    frequency: this.props.select.frequency
+    fullName: this.props.user.fullName,
+    avatar: this.props.user.avatar
   }
 
   handleOnChange = (e, { name, value }) => {
@@ -19,50 +17,36 @@ export class Login extends Component {
   }
 
   handleOnSubmit = async () => {
-    await this.props.updateUserExpense(this.props.select.id, this.state)
+    await this.props.updateUserProfile(this.props.user.id, this.state)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
   }
 
   render () {
-    const { categories, expenseName, expenseAmount, frequency } = this.state
+    const { fullName, avatar } = this.state
     return (
-      <div className="expenseModalFormContainer">
-        <div className="expenseModalHeader">{this.props.form}</div>
+      <div className="profileModalFormContainer">
+        <div className="profileModalHeader">{this.props.form}</div>
         <div className="divider" />
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
-          <Form.Select
-            options={category}
-            name="categories"
-            defaultValue={categories}
-            onChange={this.handleOnChange}
-            placeholder="categories"
-          />
           <Form.Field>
             <Form.Input
-              value={expenseName}
+              value={fullName}
               onChange={this.handleOnChange}
-              name="expenseName"
+              name="fullName"
               type="text"
-              placeholder="expense name"
+              placeholder="full name"
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
-              value={expenseAmount}
+              value={avatar}
               onChange={this.handleOnChange}
-              name="expenseAmount"
+              name="avatar"
               type="text"
-              placeholder="expense amount"
+              placeholder="avatar"
             />
           </Form.Field>
-          <Form.Select
-            options={options}
-            name="frequency"
-            defaultValue={frequency}
-            onChange={this.handleOnChange}
-            placeholder="frequency"
-          />
           <Button className="submitBtn" type="submit">
             Submit
           </Button>
@@ -74,13 +58,13 @@ export class Login extends Component {
 
 const mapStateToProps = (state) => ({
   form: state.modal.name,
-  select: state.expense.selected
+  user: state.user.profile
 })
 
 const mapDispatchToProps = {
   setModalOpen,
   setModalName,
-  updateUserExpense
+  updateUserProfile
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateProfile)
