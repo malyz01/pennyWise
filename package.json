@@ -26,7 +26,10 @@
     "db:seed": "npm run knex seed:run"
   },
   "babel": {
-    "presets": ["@babel/preset-env", "@babel/preset-react"],
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
     "plugins": [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
@@ -34,7 +37,9 @@
     ]
   },
   "jest": {
-    "setupFiles": ["./tests/setup.js"]
+    "setupFiles": [
+      "./tests/setup.js"
+    ]
   },
   "dependencies": {
     "axios": "^0.19.2",

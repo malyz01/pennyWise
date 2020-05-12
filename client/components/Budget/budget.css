@@ -71,18 +71,18 @@
 }
 .topCardComponent {
 
-  width: 100%;
-  perspective: 800px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: auto;
-  transition: ease-in;
-  
-  padding: 5rem;
-     background: rgba(0, 0, 0, 0.616);
-   background-image: linear-gradient(219deg, rgb(39, 9, 48) 50%, rgb(24, 7, 41) 65%);
+    width: 100%;
+    perspective: 800px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+    transition: ease-in;
+
+    padding: 5rem;
+    background: rgba(0, 0, 0, 0.616);
+    background-image: linear-gradient(219deg, rgb(39, 9, 48) 50%, rgb(24, 7, 41) 65%);
   
 }
 
@@ -139,12 +139,6 @@
    margin-bottom: 1px;
 } 
 
-/* .budgetMainContainer{
-    margin: auto;
-    background-color: #3D3055;
-    padding: auto;
-} */
-
 .budgetHeaderContainer{
     padding-bottom: 100px;
     padding-top: 100px;
@@ -166,7 +160,7 @@
     font-weight: 0;
 }
 .budget .table{
-    border-radius: 6px;
+    border-radius: 5px;
     overflow: hidden;
     text-align: center;
 }

@@ -32,11 +32,9 @@ class Goals extends Component {
           <button className="ui button add"onClick={this.handleOnClick('Add Goal')}>ADD GOAL</button>
           {this.props.selected && this.props.goals && (
               <>
+                <button className="ui button" onClick={this.handleOnClick('Update Goal')}>UPDATE</button>
                 <button className="ui button" onClick={this.handleOnClick('toggle')}>ON/OFF</button>
                 <button className="ui button" onClick={this.handleOnClick('delete')}>DELETE</button>
-                <button className="ui button" onClick={this.handleOnClick('Update Goal')}>
-                UPDATE
-                </button>
               </>
           )}
         </div>
