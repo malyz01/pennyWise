@@ -1,19 +1,11 @@
-.expenseModalMainContainer {
-  min-height: 400px;
-  background-color: #322943 !important;
-}
-
-.expenseModalFormContainer {
-  min-width: 350px;
-  max-width: 500px;
-  width: 100%;
+.modalExpenseMainContainer {
+  max-width: 400px;
   margin: auto;
-  height: 100%;
-  padding: 2rem;
+  font-family: 'Raleway', sans-serif;
 }
 
-.expenseModalHeader {
-  color: white;
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
+.modalExpenseHeader {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: capitalize;
 }
