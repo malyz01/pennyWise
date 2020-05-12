@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleClick = () => {
     setNavbarToggle(!navbarToggle)
   }
-  useEffect = () => {
+  useEffect(() => {
     var prevScrollpos = window.pageYOffset
     window.onscroll = function () {
       var currentScrollPos = window.pageYOffset
@@ -21,7 +21,7 @@ const Navbar = () => {
       }
       prevScrollpos = currentScrollPos
     }
-  }
+  })
   return (
     <>
       {!navbarToggle && <div className="navToggleOn" onClick={handleClick}><Icon name="chevron circle down"/></div>}

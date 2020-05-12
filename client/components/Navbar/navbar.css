@@ -1,5 +1,5 @@
 .navBarMainContainer {
-  position: sticky;
+  position: fixed;
   top:0px;
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,7 @@
   color: rgb(115, 99, 200);
 }
 .navOff{
-  position:absolute;
+  position:fixed;
   top: -100px;
   transition:500ms;
   opacity: 0;
