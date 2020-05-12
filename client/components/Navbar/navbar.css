@@ -1,12 +1,12 @@
 .navBarMainContainer {
-  position: sticky;
+  position: fixed;
   top:0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 70px;
   padding: 0 10rem 0;
-  z-index: 2;
+  z-index: 10;
   background-color: white;
   transition:500ms;
   width:100%;
@@ -42,7 +42,7 @@
   color: rgb(115, 99, 200);
 }
 .navOff{
-  position:absolute;
+  position:fixed;
   top: -100px;
   transition:500ms;
   opacity: 0;
