@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import { addCommas } from '../helpers'
 
 import './profile.css'
 
@@ -80,10 +81,10 @@ class BottomDetailsCardComponent extends React.Component {
             </div>
             <div className="moneyOverview">
 
-              <p>{this.state.income} per week</p>
-              <p>{this.state.expense} per week</p>
-              <p>{this.state.income - this.state.expense} per week</p>
-              <p>{this.props.goal.length}</p>
+              <p>{addCommas(this.state.income)} per week</p>
+              <p>{addCommas(this.state.expense)} per week</p>
+              <p>{addCommas(this.state.income - this.state.expense)} per week</p>
+              <p>{addCommas(this.props.goal.length, true)}</p>
             </div>
           </div>
         </div>

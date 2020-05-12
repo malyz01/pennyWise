@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
-
+import { addCommas } from '../helpers'
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
@@ -120,7 +120,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalBudget()}
+                  $ {addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>
@@ -132,7 +132,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalContribution()}
+                  $ {addCommas(this.renderTotalContribution())}
                 </h2>
               </div>
             </div>
@@ -144,7 +144,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderUnallocatedBudget()}
+                  $ {addCommas(this.renderUnallocatedBudget())}
                 </h2>
               </div>
             </div>
