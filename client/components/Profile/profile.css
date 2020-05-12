@@ -10,15 +10,16 @@
 .profileHeading {
   text-align: center;
   /* font-family: 'Raleway', sans-serif; */
-  font-weight: lighter;
+  /* font-weight: lighter; */
   color: white;
-  letter-spacing: 7.9px;
+  letter-spacing: 5px;
   font-size: 30px;
 }
 
 .profileHeaderLine{
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
+  margin-top: 20px;
   margin-bottom:20px;
 }
 

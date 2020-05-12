@@ -11,6 +11,7 @@
 }
 .goalButtons{
   display: flex;
+  justify-content: center;
   margin-top:50px;
   margin-bottom:50px;
   width:100%;

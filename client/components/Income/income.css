@@ -1,14 +1,25 @@
-.incomeHeader{
-  padding-top:10%;
-  padding: bottom 3%;
-  color:white;
+/* BODY BACKGROUND */
+.income{
+  /* background-color: #5E5371; */
+  background: #114357;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+/* HEADER */
 
 .incomeHeaderTitle{
   text-align: center;
   font-size:2.5rem;
   margin-bottom:20px;
+  /* font-family: 'Raleway', sans-serif; */
   letter-spacing:5px;
+}
+
+.incomeHeader{
+  padding-top:10%;
+  /* padding-bottom: 3%; */
+  color:white;
 }
 
 .incomeHeaderText{
@@ -22,12 +33,13 @@
   margin-bottom:20px;
 }
 
-.incomeTable{
-  padding-bottom:10%;
-}
+/* ============== */
+
+/* BUTTONS */
 
 .incomeButtons{
   display: flex;
+  justify-content: center;
   margin-top:50px;
   margin-bottom:50px;
 }
@@ -60,6 +72,7 @@
 .incomeButtons .button.add{
   background:rgb(219, 219, 219) !important;
   color:black;
+  align-items: center !important;
   text-shadow:none;
 }
 
@@ -67,11 +80,12 @@
   background:white !important;
 }
 
-.income{
-  /* background-color: #5E5371; */
-  background: #114357;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* ============ */
+
+/* TABLE */
+
+.incomeTable{
+  padding-bottom:10%;
 }
 
 .income .table{
@@ -79,7 +93,6 @@
   overflow: hidden;
   text-align: center;
 }
-
 
 .pointerCursor {
   cursor: pointer;

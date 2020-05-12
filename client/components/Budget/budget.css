@@ -12,9 +12,9 @@
 
 .budget {
 /* background-color: #5E5371; */
-background: #114357;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #114357;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     padding-bottom:10%;
 }
@@ -75,18 +75,18 @@ background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, F
 }
 .topCardComponent {
 
-  width: 100%;
-  perspective: 800px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: auto;
-  transition: ease-in;
-  
-  padding: 5rem;
-     background: rgba(0, 0, 0, 0.616);
-   background-image: linear-gradient(219deg, rgb(39, 9, 48) 50%, rgb(24, 7, 41) 65%);
+    width: 100%;
+    perspective: 800px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+    transition: ease-in;
+
+    padding: 5rem;
+    background: rgba(0, 0, 0, 0.616);
+    background-image: linear-gradient(219deg, rgb(39, 9, 48) 50%, rgb(24, 7, 41) 65%);
   
 }
 
