@@ -3,6 +3,7 @@ import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
 import { addCommas } from '../helpers'
+import Fade from 'react-reveal/Fade'
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
@@ -12,7 +13,10 @@ let count = 0
 
 class BudgetCard extends Component {
   state = {
-    frequency: 'Weekly'
+    frequency: 'Weekly',
+    item: this.props.goal.item,
+    percentStart: 0,
+    percentFinish: 0
   }
 
   componentDidMount () {
@@ -21,6 +25,24 @@ class BudgetCard extends Component {
 
   componentDidUpdate () {
     count = 0
+    setTimeout(() => {
+      this.percentage()
+    }, 30)
+  }
+
+  updateBudget(total) {
+    this.setState({
+      percentFinish: total
+    })
+    this.percentage()
+  }
+
+  percentage = () => {
+    if (this.state.percentStart < this.state.percentFinish) {
+      this.setState({
+        percentStart: this.state.percentStart + 1
+      })
+    }
   }
 
   renderTotalBudget = () => {
@@ -94,7 +116,8 @@ class BudgetCard extends Component {
     return `rgba(${102},${0},${255},${ratioOfCompletion})`
   }
 
-  render () {
+  render() {
+    console.log(this.state.item)
     return (
       <div className="budgetCardMain">
         <div className="topCardComponent">
@@ -174,13 +197,15 @@ class BudgetCard extends Component {
                           }%`
                         }}
                       ></div>
-                      <div className="budgetGraphBarRatio">
-                        {(
-                          (item.currentAmount / item.targetBudget) *
-                          100
-                        ).toFixed(2)}
-                        %
-                      </div>
+                      <Fade onReveal={() => this.updateBudget((this.state.item.currentAmount / this.state.item.targetBudget) * 100)}>
+                        <div className="budgetGraphBarRatio">
+                          {this.state.percentStart}
+                          {/* //   (item.currentAmount / item.targetBudget) *
+                          //   100
+                          // ).toFixed(2)} */}
+                          %
+                        </div>
+                      </Fade>
                     </div>
                   </div>
                   {/* {index < this.props.goal.length - 1 && <hr />} */}
