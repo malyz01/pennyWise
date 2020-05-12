@@ -37,41 +37,45 @@ export class Login extends Component {
   render () {
     const { incomeName, incomeAmount } = this.state
     return (
-      <div className='incomeModalFormContainer'>
-        <div className='incomeModalHeader'>{this.props.form}</div>
-        <div className='divider' />
+      <div className="incomeModalFormContainer">
+        <div className="incomeModalHeader">{this.props.form}</div>
+        <div className="divider" />
         <Form style={{ height: '100%' }} onSubmit={this.handleOnSubmit}>
           <Form.Select
             options={incomeType}
-            name='incomeType'
+            label="Type"
+            name="incomeType"
             onChange={this.handleOnChange}
-            placeholder='incomeType'
+            placeholder="incomeType"
           />
           <Form.Field>
             <Form.Input
               value={incomeName}
               onChange={this.handleOnChange}
-              name='incomeName'
-              type='text'
-              placeholder='income name'
+              label="Name"
+              name="incomeName"
+              type="text"
+              placeholder="income name"
             />
           </Form.Field>
           <Form.Field>
             <Form.Input
               value={incomeAmount}
               onChange={this.handleOnChange}
-              name='incomeAmount'
-              type='text'
-              placeholder='income amount'
+              label="Amount"
+              name="incomeAmount"
+              type="text"
+              placeholder="income amount"
             />
           </Form.Field>
           <Form.Select
             options={options}
-            name='frequency'
+            label="Frequency"
+            name="frequency"
             onChange={this.handleOnChange}
-            placeholder='frequency'
+            placeholder="frequency"
           />
-          <Button className='submitBtn' type='submit'>
+          <Button className="submitBtn" type="submit">
             Submit
           </Button>
         </Form>
