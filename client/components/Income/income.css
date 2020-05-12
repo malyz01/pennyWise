@@ -1,6 +1,7 @@
 /* BODY BACKGROUND */
 .income{
   background-color: #5E5371;
+  padding-bottom: 2rem;
 }
 
 /* HEADER */
@@ -82,7 +83,7 @@
 /* TABLE */
 
 .incomeTable{
-  padding-bottom:10%;
+  padding-bottom:2rem;
 }
 
 .income .table{
