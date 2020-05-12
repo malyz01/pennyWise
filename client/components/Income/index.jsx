@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-import LineGraph from './LineGraph'
-import BarGraph from './BarGraph'
+// import LineGraph from './LineGraph'
+// import BarGraph from './BarGraph'
 import Loading from '../Loading'
 import { getUserIncome } from '../../store/actions/income'
 import { loading } from '../../store/actions/loading'
@@ -31,15 +31,15 @@ export class Income extends Component {
   render () {
     const { userId, income, selected } = this.props
     if (this.props.load) return <Loading />
-    const graphData = income.map(i => ({ name: i.incomeName, Income: i.incomeAmount }))
+    // const graphData = income.map(i => ({ name: i.incomeName, Income: i.incomeAmount }))
     return (
       <div className="income">
         <Header />
         <Table data={{ userId, income, selected }} />
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
           <LineGraph data={graphData} />
           <BarGraph data={graphData} />
-        </div>
+        </div> */}
       </div>
     )
   }
