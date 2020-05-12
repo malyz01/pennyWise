@@ -43,7 +43,7 @@ export class incomeTable extends Component {
                   <Table.Cell>{e.incomeName}</Table.Cell>
                   <Table.Cell>{e.incomeType}</Table.Cell>
                   <Table.Cell>{e.frequency}</Table.Cell>
-                  <Table.Cell>{e.incomeAmount}</Table.Cell>
+                  <Table.Cell>${e.incomeAmount.toFixed(2)}</Table.Cell>
                   <Table.Cell>{e.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               ))}

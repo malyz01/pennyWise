@@ -36,7 +36,7 @@ class Header extends Component {
             <>
               <button
                 onClick={this.handleOnClick('active')}
-                className='ui button  incomeAdd'
+                className='ui button  incomeAdd toggleOnAndOff'
               >
                 ON/OFF
               </button>

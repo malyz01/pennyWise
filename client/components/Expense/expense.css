@@ -39,7 +39,7 @@
   padding:15px;
   border-radius:5px;
   font-size: 0.8rem;
-  transition: 500ms;
+  transition: .5s;
   background: #333333 !important;
   color:white;
 }
@@ -52,7 +52,7 @@
 .expenseButtons .button:hover{
   background:#434343 !important;
   color: white;
-  transform: scale(1.1); 
+  transform: scale(1.05); 
   transition: all .2s ease-in-out;
 }
 .expenseButtons .button.add{
@@ -60,10 +60,10 @@
   color:black;
   text-shadow:none;
 }
-.expenseButtons .button.add:hover{
+.expenseButtons button.ui.button.add:hover{
   background:white !important;
-  transition: all .2s ease-in-out;
-  transform: scale(1.1); 
+  /* transition: all .2s ease-in-out;
+  transform: scale(1.05);  */
 }
 
 .expenseButtons .ui.button.add {
@@ -71,24 +71,13 @@
 }
 
 .expense{
-  background-color: #5E5371;
+  /* background-color: #5E5371; */
+  background: #114357;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-/* TABLE STYLES */
-/* .expense .ui.single.line.table th{
-  background:#9770be;
-  color:white;
-  text-decoration: solid;
-}
-.expense .ui.single.line.table td{
-  background:rgb(34, 33, 36);
-  color:white;
-  text-decoration: solid;
-} */
 .expense .ui.table{
-  /* background:none !important; */
-  /* border-radius:20px; */
-  /* overflow:hidden; */
   text-align:center;
 }
 

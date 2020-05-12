@@ -43,7 +43,7 @@ export class ExpenseTable extends Component {
                   <Table.Cell>{e.expenseName}</Table.Cell>
                   <Table.Cell>{e.categories}</Table.Cell>
                   <Table.Cell>{e.frequency}</Table.Cell>
-                  <Table.Cell>${e.expenseAmount}</Table.Cell>
+                  <Table.Cell>${e.expenseAmount.toFixed(2)}</Table.Cell>
                   <Table.Cell>{e.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               ))}
