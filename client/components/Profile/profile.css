@@ -1,5 +1,8 @@
 .profileMainContainer {
-  background-color: #3D3055;
+  background: #114357;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F29492, #114357);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F29492, #114357); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   padding-bottom: 100px;
   margin: auto;
 }
@@ -13,6 +16,12 @@
   font-size: 30px;
 }
 
+.profileHeaderLine{
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom:20px;
+}
+
 .profileSummary {
   text-align: center;
   /* font-family: 'Raleway', sans-serif; */
@@ -22,7 +31,6 @@
 }
 
 .profileHeadingLine {
-  border-top: 2px solid #707070;
   width: 50%;
   position: relative;
   margin: 10px auto;
