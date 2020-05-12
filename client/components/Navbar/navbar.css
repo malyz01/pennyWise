@@ -1,6 +1,6 @@
 .navBarMainContainer {
   position: sticky;
-  top: 0;
+  top:0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,8 +8,43 @@
   padding: 0 10rem 0;
   z-index: 2;
   background-color: white;
+  transition:500ms;
+  width:100%;
 }
-
+.navToggle{
+  position:absolute;
+  left:50px;
+  top:25px;
+  font-size:1.5rem;
+  color:rgba(0, 0, 0, 0.281);
+  
+}
+.navToggle:hover{
+  color: rgb(115, 99, 200);
+  cursor: pointer;
+}
+.navOn {
+  transition:500ms;
+  opacity: 1;
+}
+.navToggleOn{
+  position: fixed;
+  top:30px;
+  left:10px;
+  font-size:2.5rem;
+  color:rgba(255, 255, 255, 0.733);
+  
+}
+.navToggleOn:hover{
+  cursor: pointer;
+  color: rgb(115, 99, 200);
+}
+.navOff{
+  position:absolute;
+  top: -100px;
+  transition:500ms;
+  opacity: 0;
+}
 .navBarLogoContainer {
    display: flex;
    align-items: center;
