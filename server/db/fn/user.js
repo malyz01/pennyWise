@@ -1,4 +1,5 @@
 const connection = require('../connection')
+const snakeCaseKeys = require('snakecase-keys')
 
 function getUserProfile (id, db = connection) {
   return db('users')
@@ -45,10 +46,19 @@ function getUserDetails (id, db = connection) {
     })
 }
 
-function updateProfileDetails (id, details, db = connection) {
+function updateProfileDetails (userId, data, db = connection) {
   return db('profiles')
-    .where('profiles.id', id)
-    .update({ ...details })
+    .where('user_id', userId)
+    .update(snakeCaseKeys(data))
+    .then(() => db('profiles')
+      .where('user_id', userId)
+      .join('users', 'profiles.user_id', 'users.id')
+      .select(
+        'users.id as id',
+        'profiles.full_name as fullName',
+        'users.email',
+        'profiles.avatar')
+      .first())
     .catch(err => {
       // eslint-disable-next-line no-console
       console.error(err)
@@ -63,6 +73,7 @@ function getUsers (db = connection) {
       console.error(err)
     })
 }
+
 function getProfiles (db = connection) {
   return db('profiles')
     .select()

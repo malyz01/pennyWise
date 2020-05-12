@@ -68,8 +68,7 @@
 }
 
 .income{
-  background: rgb(44,6,77);
-  background: linear-gradient(0deg, rgba(226,191,117,1) 0%, rgba(44,6,77,1) 100%);
+  background-color: #5E5371;
 }
 
 /* TABLE STYLES */

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
+import './auth.css'
 
 import { authUser } from '../../../store/actions/auth'
 import { setModalOpen, setModalName } from '../../../store/actions/modal'
@@ -41,6 +42,8 @@ export class Login extends Component {
     const { email, password } = this.state
     return (
       <Form onSubmit={this.handleOnSubmit}>
+        <div className='authHeader'>{this.props.modal}</div>
+        <div className='divider' />
         <Form.Field>
           <Form.Input
             value={email}
@@ -73,10 +76,14 @@ export class Login extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  modal: state.modal.name
+})
+
 const mapDispatchToProps = {
   setModalOpen,
   setModalName,
   authUser
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

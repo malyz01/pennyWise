@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { GET_USER_PROFILE } from '../types'
+import { GET_USER_PROFILE, UPDATE_USER_PROFILE } from '../types'
 import api from '../../api'
 import { loading } from './loading'
 
@@ -13,5 +13,17 @@ export const getUserProfile = (userId) => async (dispatch) => {
     dispatch(loading('user', false))
   } catch (err) {
     console.log('error in getUserProfile Api Call')
+  }
+}
+
+export const updateUserProfile = (userId, updatedData) => async (dispatch) => {
+  try {
+    const { data } = await api.put(`/users/${userId}/profile`, updatedData)
+    dispatch({
+      type: UPDATE_USER_PROFILE,
+      payload: data
+    })
+  } catch (err) {
+    console.log('error in updateUserProfile Api Call')
   }
 }
