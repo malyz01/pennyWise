@@ -90,10 +90,9 @@
 .totalOverview, .moneyOverview{
   padding: 30px;
   flex-grow:1;
+  text-align: left;
 }
 .moneyOverview{
-  
-  padding-left:60px;
   background: #674C82;
   color:white;
   position:relative;

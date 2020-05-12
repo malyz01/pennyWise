@@ -81,10 +81,11 @@ class BottomDetailsCardComponent extends React.Component {
             </div>
             <div className="moneyOverview">
 
-              <p>{addCommas(this.state.income)} per week</p>
-              <p>{addCommas(this.state.expense)} per week</p>
-              <p>{addCommas(this.state.income - this.state.expense)} per week</p>
+              <p>${addCommas(this.state.income)} per week</p>
+              <p>${addCommas(this.state.expense)} per week</p>
+              <p>${addCommas(this.state.income - this.state.expense)} per week</p>
               <p>{addCommas(this.props.goal.length, true)}</p>
+              
             </div>
           </div>
         </div>
