@@ -57,9 +57,9 @@ exports.seed = knex =>
         {
           id: 2,
           user_id: 1002,
-          full_name: 'Lucas',
+          full_name: 'Lucas Santana',
           avatar:
-            'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'
+            'https://static-cdn.jtvnw.net/jtv_user_pictures/68ce82ab-4b24-402b-b3bf-136237e2d183-profile_banner-480.jpeg'
         },
         {
           id: 3,
@@ -120,7 +120,7 @@ exports.seed = knex =>
         {
           id: 4,
           user_id: 1001,
-          goal_name: 'New Celphone',
+          goal_name: 'New Cellphone',
           target_budget: 1000,
           target_date: '2020-07-15',
           budget_distribution: 100

@@ -23,7 +23,7 @@ export class incomeTable extends Component {
     return (
       <Fade>
         <Container className='incomeTable'>
-          <Table inverted selectable singleLine>
+          <Table inverted >
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Income</Table.HeaderCell>

@@ -11,6 +11,7 @@
 }
 .goalButtons{
   display: flex;
+  justify-content: center;
   margin-top:50px;
   margin-bottom:50px;
   width:100%;
@@ -27,7 +28,7 @@
   padding:15px;
   font-size: 0.8rem;
   color:white;
-  transition:500ms;
+  transition: .5s;
 }
 
 .goalButtons .ui.button:focus{
@@ -37,7 +38,7 @@
 }
 
 .goalButtons .ui.button:hover{
-  transform: scale(1.1); 
+  transform: scale(1.05); 
   color: white;
   transition: all .2s ease-in-out;
   background-color: #434343;
