@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
-
+import { addCommas } from '../helpers'
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
@@ -90,27 +90,6 @@ class BudgetCard extends Component {
     }
   }
 
-  addCommas = (string) => {
-    if (typeof string !== 'string') {
-      string = String(string)
-    }
-    let decimals = string.split('.')[1]
-    if (decimals === undefined) {
-      decimals = '00'
-    }
-    let wholeNumber = string.split('.')[0]
-    let count = 0
-    for (let i = wholeNumber.length - 1; i > 0; i--) {
-      if (count === 2) {
-        wholeNumber = wholeNumber.slice(0, i) + ',' + wholeNumber.slice(i, wholeNumber.length)
-        count = 0
-      } else {
-        count++
-      }
-    }
-    return wholeNumber + '.' + decimals
-  }
-
   render () {
     return (
       <div className="budgetCardMain">
@@ -141,7 +120,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.addCommas(this.renderTotalBudget())}
+                  $ {addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>
@@ -153,7 +132,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.addCommas(this.renderTotalContribution())}
+                  $ {addCommas(this.renderTotalContribution())}
                 </h2>
               </div>
             </div>
@@ -165,7 +144,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.addCommas(this.renderUnallocatedBudget())}
+                  $ {addCommas(this.renderUnallocatedBudget())}
                 </h2>
               </div>
             </div>
