@@ -7,10 +7,8 @@ module.exports = {
   getTestDb: () => knex(testConfig),
 
   // Create a separate in-memory database before each test
-  initialise: db =>
-    db.migrate.latest()
-      .then(() => db.seed.run()),
+  initialise: db => db.migrate.latest().then(() => db.seed.run()),
 
-  // Destroy the database connection after each test
+  // #Destroy the database connection after each test
   cleanup: db => db.destroy()
 }
