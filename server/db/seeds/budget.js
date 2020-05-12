@@ -120,7 +120,7 @@ exports.seed = knex =>
         {
           id: 4,
           user_id: 1001,
-          goal_name: 'New Celphone',
+          goal_name: 'New Cellphone',
           target_budget: 1000,
           target_date: '2020-07-15',
           budget_distribution: 100
