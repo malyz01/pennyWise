@@ -29,7 +29,7 @@ export class Login extends Component {
   render () {
     const { categories, expenseName, expenseAmount, frequency } = this.props.select
     return (
-     <Formik
+      <Formik
         initialValues={{
           categories,
           expenseName,
