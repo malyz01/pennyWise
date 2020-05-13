@@ -5,11 +5,11 @@ function cta (frequency, amount) {
 }
 
 function ctm (amount) {
-  return Number((amount / 12).toFixed(2))
+  return (amount / 12)
 }
 
 function ctw (amount) {
-  return Number((amount / 52).toFixed(2))
+  return (amount / 52)
 }
 
 function getTotalContribution (arr) {
@@ -40,7 +40,7 @@ function getTotalExpense (expense) {
 }
 
 function getTotalBudget (income, expense) {
-  return Number((getTotalIncome(income) - getTotalExpense(expense)).toFixed(2))
+  return getTotalIncome(income) - getTotalExpense(expense)
 }
 
 function getUnallocatedBudget (income, expense, goals) {
@@ -48,7 +48,7 @@ function getUnallocatedBudget (income, expense, goals) {
   const totalContribution = getTotalContribution(goals)
   const allocatedBudget = totalBudget - totalContribution
 
-  return Number(allocatedBudget.toFixed(2))
+  return allocatedBudget
 }
 
 export default {

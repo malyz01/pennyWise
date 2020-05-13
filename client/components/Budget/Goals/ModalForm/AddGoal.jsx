@@ -52,21 +52,21 @@ class Login extends Component {
               placeholder='goal name'
             />
             <Field
-              title='Target budget'
+              title='Target Budget Goal'
               name='targetBudget'
               type='number'
               component={Input}
-              placeholder='target budget'
+              placeholder='target budget goal'
             />
             <Field
-              title='Current amount'
+              title='Current Amount'
               name='currentAmount'
               type='number'
               component={Input}
               placeholder='current amount'
             />
             <Field
-              title='Target date'
+              title='Target Date'
               name='targetDate'
               type='date'
               component={Input}
@@ -76,11 +76,11 @@ class Login extends Component {
               <ErrorMessage name='targetDate' />
             </div>
             <Field
-              title='Budget Distribution'
+              title='Budget Contribution'
               name='budgetDistribution'
               type='number'
               component={Input}
-              placeholder='budget distribution'
+              placeholder='budget contribution'
             />
             <Field
               title='Frequency'
