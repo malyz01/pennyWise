@@ -175,10 +175,11 @@ class BudgetCard extends Component {
                         }}
                       ></div>
                       <div className="budgetGraphBarRatio">
-                        {(
+                        {addCommas(
                           (item.currentAmount / item.targetBudget) *
-                          100
-                        ).toFixed(2)}
+                          100,
+                          true
+                        )}
                         %
                       </div>
                     </div>

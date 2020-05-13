@@ -2,11 +2,15 @@ export const addCommas = (string, isNaM) => {
   if (typeof string === 'number' && !isFinite(string)) {
     return 'Infinite'
   }
+  if (typeof string === 'number') {
+    string = string.toFixed(2)
+  }
   if (typeof string !== 'string') {
     string = String(string)
   }
 
   let decimals = string.split('.')[1]
+
   if (!isNaM) {
     if (decimals === undefined) {
       decimals = '00'
