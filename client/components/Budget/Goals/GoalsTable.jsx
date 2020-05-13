@@ -58,7 +58,8 @@ class GoalsTable extends Component {
 
     // calculate date of completion (current date + days left = date of completion)
     const currentDate = Date.now()
-    const completionDate = new Date(Number(currentDate) + Number(millisecondsLeft))
+    const totalTime = currentDate + millisecondsLeft
+    const completionDate = new Date(totalTime)
 
     const formatedDate = completionDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
 
