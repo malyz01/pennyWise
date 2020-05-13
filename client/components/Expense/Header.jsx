@@ -26,7 +26,7 @@ class Header extends Component {
         <div className="expenseHeaderTitle">OVERVIEW OF EXPENSES</div>
         <hr />
         <div className="expenseHeaderText">
-          an overview of your expenses done right
+          Manage all forms of expenses here
         </div>
         <div className="expenseButtons">
           <button

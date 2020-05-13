@@ -28,14 +28,8 @@ class ProfileContainer extends React.Component {
         <div className="profileHeader">
           <div className="profileHeading">WELCOME TO YOUR PROFILE</div>
           <hr className="profileHeaderLine"/>
-          <div className="profileHeadingLine"></div>
           <p className="profileSummary">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </p>
-          <p className="profileSummary">
-            Lorem Ipsum has been the industry&#39;s standard dummy text ever
-            since the 1500s.
+            Manage your account and profile settings
           </p>
         </div>
 

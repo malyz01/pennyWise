@@ -2,9 +2,9 @@
   position: relative;
   padding: 20px;
   padding-bottom: 5px;
-  background: white;
-  width: 700px;
-  height: 350px;
+  background: black;
+  width: 850px;
+  height: 400px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
 }
 .landingCarouselOuter{
@@ -33,10 +33,15 @@
   justify-content: center;
   transition:500ms;
   z-index:3;
-  background:rgba(255, 255, 255, 0.171);
+  background:none;
+}
+.landingCarousel .landingArrows i.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }
 .landingCarousel .landingArrows:hover{
-  background:white;
+  color:white;
 }
 .landingCarouselInner{
   display:flex;
@@ -53,9 +58,9 @@
   right:0px;
 }
 .landingCarouselTitle{
-  width:700px;
+  width:850px;
   text-align: center;
-  color:white;
+  color:rgb(115, 99, 200);
   font-size:3rem;
   letter-spacing: 10px;
 
@@ -93,7 +98,7 @@
   display:flex;
   align-items: center;
   justify-content: center;
-  padding-bottom:10px;
+  padding-bottom: 10px;
 }
 .landingCarouselIndex:hover {
   cursor: pointer;

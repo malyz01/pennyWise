@@ -11,7 +11,6 @@ const Header = () => {
         <div className="wrapper">
 
         </div>
-
       </div>
 
     </div>

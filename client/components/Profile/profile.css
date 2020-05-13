@@ -14,7 +14,7 @@
 }
 
 .profileHeaderLine{
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom:20px;
@@ -26,12 +26,6 @@
   letter-spacing: 4.16px;
   color: white;
   margin: 0;
-}
-
-.profileHeadingLine {
-  width: 50%;
-  position: relative;
-  margin: 10px auto;
 }
 
 .profileHeader {
