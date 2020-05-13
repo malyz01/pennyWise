@@ -97,7 +97,7 @@ exports.seed = knex =>
           id: 1,
           user_id: 1001,
           goal_name: 'Vacation',
-          target_budget: 10000,
+          target_budget: 1000,
           target_date: '2020-06-01',
           budget_distribution: 100
         },
@@ -105,7 +105,7 @@ exports.seed = knex =>
           id: 2,
           user_id: 1001,
           goal_name: 'House Repairs',
-          target_budget: 20000,
+          target_budget: 1000,
           target_date: '2020-11-20',
           budget_distribution: 100
         },
@@ -113,7 +113,7 @@ exports.seed = knex =>
           id: 3,
           user_id: 1001,
           goal_name: 'New Car',
-          target_budget: 8000,
+          target_budget: 1000,
           target_date: '2021-02-01',
           budget_distribution: 100
         },
@@ -121,7 +121,7 @@ exports.seed = knex =>
           id: 4,
           user_id: 1001,
           goal_name: 'New Cellphone',
-          target_budget: 1500,
+          target_budget: 1000,
           target_date: '2020-07-15',
           budget_distribution: 100
         },
@@ -129,7 +129,7 @@ exports.seed = knex =>
           id: 5,
           user_id: 1001,
           goal_name: 'New Computer',
-          target_budget: 3500,
+          target_budget: 1000,
           target_date: '2020-08-01',
           budget_distribution: 100
         },
