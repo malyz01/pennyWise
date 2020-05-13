@@ -22,7 +22,7 @@ class GoalsTable extends Component {
         remaining = addCommas(remaining, true)
         return `${remaining} days`
       } else if (remaining <= 0) {
-        return `completed!`
+        return `Completed!`
       }
       return remaining
     }
@@ -80,14 +80,14 @@ class GoalsTable extends Component {
         <Table inverted>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Goal Name</Table.HeaderCell>
-              <Table.HeaderCell>Target Budget</Table.HeaderCell>
+              <Table.HeaderCell>Goal</Table.HeaderCell>
+              <Table.HeaderCell>Target Amount</Table.HeaderCell>
               <Table.HeaderCell>Current Amount</Table.HeaderCell>
-              <Table.HeaderCell>Actual Date of Completion</Table.HeaderCell>
-              <Table.HeaderCell>Actual Time Remaining</Table.HeaderCell>
-              <Table.HeaderCell>Actual Weekly Contributions</Table.HeaderCell>
-              <Table.HeaderCell className="goalsTableSpecial">Your Chosen Date of Completion</Table.HeaderCell>
-              <Table.HeaderCell className="goalsTableSpecial">Calculated Weekly Contributions</Table.HeaderCell>
+              <Table.HeaderCell>Weekly Contribution</Table.HeaderCell>
+              <Table.HeaderCell>Automated Completion Date</Table.HeaderCell>
+              <Table.HeaderCell>Time Remaining</Table.HeaderCell>
+              <Table.HeaderCell className="goalsTableSpecial">Automated Weekly Contributions</Table.HeaderCell>
+              <Table.HeaderCell className="goalsTableSpecial">Slected Completion Date</Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -98,11 +98,11 @@ class GoalsTable extends Component {
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{addCommas(goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{addCommas(goal.currentAmount)}</Table.Cell>
+                  <Table.Cell>{addCommas(this.getWeeklyContribution(goal.budgetDistribution, goal.frequency).toFixed(2))}</Table.Cell>
                   <Table.Cell>{`${this.formatDate(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount), 'actual')}`}</Table.Cell>
                   <Table.Cell>{this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount), 'string')}</Table.Cell>
-                  <Table.Cell>{addCommas(this.getWeeklyContribution(goal.budgetDistribution, goal.frequency).toFixed(2))}</Table.Cell>
-                  <Table.Cell className="goalsTableSpecial">{this.formatDate(goal.targetDate, 'chosen')}</Table.Cell>
                   <Table.Cell className="goalsTableSpecial">{addCommas(getWeeklyContribution(this.getRemaining(goal.targetDate), goal.currentAmount, goal.targetBudget))}</Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">{this.formatDate(goal.targetDate, 'chosen')}</Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
               })
