@@ -7,7 +7,6 @@ import Goals from './Goals'
 import BudgetCard from './BudgetCard'
 import { getUserBudget } from '../../store/actions/budget'
 import { Container } from 'semantic-ui-react'
-import Test from '../Test'
 
 import { loading } from '../../store/actions/loading'
 import Loading from '../Loading'
@@ -29,7 +28,6 @@ class Budget extends React.Component {
         <Container>
           <Header />
           <BudgetCard expense={expense} income={income} goal={goal} />
-          <Test />
           <Goals />
         </Container>
       </div>
