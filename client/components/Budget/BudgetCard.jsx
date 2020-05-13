@@ -124,7 +124,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  {(this.renderTotalBudget())}
+                  {addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>

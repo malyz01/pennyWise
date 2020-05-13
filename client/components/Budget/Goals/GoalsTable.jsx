@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Fade from 'react-reveal/Fade'
 import { selectUserGoal } from '../../../store/actions/goals'
 import { getWeeklyContribution } from './tableHelper'
-import {} from '../../helpers'
+import { addCommas } from '../../helpers'
 class GoalsTable extends Component {
   handleClick = goal => () => {
     this.props.selectUserGoal(goal)
@@ -109,7 +109,7 @@ class GoalsTable extends Component {
             {this.props.goals.map(goal => {
               return (
                 <Table.Row
-                  className='pointerCursor'
+                  className="pointerCursor"
                   key={goal.id}
                   onClick={this.handleClick(goal)}
                   active={
@@ -117,8 +117,8 @@ class GoalsTable extends Component {
                   }
                 >
                   <Table.Cell>{goal.goalName}</Table.Cell>
-                  <Table.Cell>{goal.targetBudget}</Table.Cell>
-                  <Table.Cell>{goal.currentAmount}</Table.Cell>
+                  <Table.Cell>{addCommas(goal.targetBudget)}</Table.Cell>
+                  <Table.Cell>{addCommas(goal.currentAmount)}</Table.Cell>
                   <Table.Cell>{`${this.formatDate(
                     this.getActualDate(
                       goal.budgetDistribution,
@@ -140,20 +140,22 @@ class GoalsTable extends Component {
                     )}
                   </Table.Cell>
                   <Table.Cell>
-                    {this.getWeeklyContribution(
-                      goal.budgetDistribution,
-                      goal.frequency
-                    )}
+                    {
+                      this.getWeeklyContribution(
+                        goal.budgetDistribution,
+                        goal.frequency
+                      )
+                    }
                   </Table.Cell>
-                  <Table.Cell className='goalsTableSpecial'>
+                  <Table.Cell className="goalsTableSpecial">
                     {this.formatDate(goal.targetDate, 'chosen')}
                   </Table.Cell>
-                  <Table.Cell className='goalsTableSpecial'>
-                    {getWeeklyContribution(
+                  <Table.Cell className="goalsTableSpecial">
+                    {addCommas(getWeeklyContribution(
                       this.getRemaining(goal.targetDate),
                       goal.currentAmount,
                       goal.targetBudget
-                    )}
+                    ))}
                   </Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>

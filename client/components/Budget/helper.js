@@ -45,7 +45,6 @@ function getTotalBudget (income, expense) {
 
 function getUnallocatedBudget (income, expense, goals) {
   const totalBudget = getTotalBudget(income, expense)
-  console.log(typeof totalBudget)
   const totalContribution = getTotalContribution(goals)
   const allocatedBudget = totalBudget - totalContribution
 
