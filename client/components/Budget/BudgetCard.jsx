@@ -124,7 +124,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {addCommas(this.renderTotalBudget())}
+                  {addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>
@@ -136,7 +136,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {addCommas(this.renderTotalContribution())}
+                  {addCommas(this.renderTotalContribution())}
                 </h2>
               </div>
             </div>
@@ -148,7 +148,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {addCommas(this.renderUnallocatedBudget())}
+                  {addCommas(this.renderUnallocatedBudget(), false)}
                 </h2>
               </div>
             </div>

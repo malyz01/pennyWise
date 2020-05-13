@@ -29,7 +29,9 @@ export const addCommas = (string, isNaM) => {
   }
   if (wholeNumber[0] === '-') {
     if (wholeNumber[1] === ',') {
-      wholeNumber = wholeNumber.slice(0, 1) + dollarSign + wholeNumber.slice(2, wholeNumber.lenght)
+      wholeNumber = wholeNumber.slice(0, 1) + dollarSign + wholeNumber.slice(2, wholeNumber.length)
+    } else {
+      wholeNumber = wholeNumber.slice(0, 1) + dollarSign + wholeNumber.slice(1, wholeNumber.length)
     }
   } else {
     wholeNumber = dollarSign + wholeNumber
