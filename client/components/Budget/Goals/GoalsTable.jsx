@@ -19,7 +19,7 @@ class GoalsTable extends Component {
 
     if (type === 'string') {
       if (remaining > 1) {
-        remaining = (remaining, true)
+        remaining = addCommas(remaining, true)
         return `${remaining} days`
       } else if (remaining <= 0) {
         return `Completed!`
@@ -140,22 +140,22 @@ class GoalsTable extends Component {
                     )}
                   </Table.Cell>
                   <Table.Cell>
-                    {
-                      this.getWeeklyContribution(
-                        goal.budgetDistribution,
-                        goal.frequency
-                      )
-                    }
+                    {addCommas(this.getWeeklyContribution(
+                      goal.budgetDistribution,
+                      goal.frequency
+                    ))}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
                     {this.formatDate(goal.targetDate, 'chosen')}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
-                    {addCommas(getWeeklyContribution(
-                      this.getRemaining(goal.targetDate),
-                      goal.currentAmount,
-                      goal.targetBudget
-                    ))}
+                    {addCommas(
+                      getWeeklyContribution(
+                        this.getRemaining(goal.targetDate),
+                        goal.currentAmount,
+                        goal.targetBudget
+                      )
+                    )}
                   </Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
