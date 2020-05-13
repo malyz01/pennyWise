@@ -16,8 +16,11 @@ const options = [
   { key: 'a', text: 'Annually', value: 'Annually' }
 ]
 
-export class Login extends Component {
+class Login extends Component {
   handleOnSubmit = async values => {
+    if (values.budgetDistribution > values.targetBudget - values.currentAmount) {
+      values.budgetDistribution = values.targetBudget - values.currentAmount
+    }
     await this.props.addUserGoal(this.props.userId, values)
     this.props.setModalOpen(false)
     this.props.setModalName(null)
