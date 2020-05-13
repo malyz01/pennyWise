@@ -6,7 +6,7 @@ export const addCommas = (string, isNaM) => {
     string = string.toFixed(2)
   }
   if (typeof string !== 'string') {
-    string = String(string)
+    string = string.toString()
   }
 
   let decimals = string.split('.')[1]
