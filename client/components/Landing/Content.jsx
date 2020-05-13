@@ -41,7 +41,9 @@ const Content = (props) => {
             )}
           </div>
         </div>
-        <Carousel />
+        <div className="landingCarouselBottom">
+          <Carousel />
+        </div>
       </Container>
     </div>
   )
