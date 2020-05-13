@@ -51,6 +51,9 @@ class GoalsTable extends Component {
   }
   getActualDate = (amountAdded, frequency, targetBudget, currentAmount) => {
     // calculate days left
+    if (targetBudget - currentAmount <= 0) {
+      return 'Goal Completed'
+    }
 
     const daysLeft =
       (targetBudget - currentAmount) /
@@ -73,6 +76,13 @@ class GoalsTable extends Component {
     return formatedDate
   }
   formatDate = (date, type) => {
+    if (date === 'Goal Completed') {
+      return 'Goal Completed'
+    }
+    if (date === 'Invalid Date') {
+      return 'No Weekly Contributions'
+    }
+
     if (type === 'chosen') {
       const segments = date.split('-')
       return `${segments[2]}/${segments[1]}/${segments[0]}`
@@ -81,6 +91,7 @@ class GoalsTable extends Component {
       const segments = date.split('/')
       return `${segments[1]}/${segments[0]}/${segments[2]}`
     }
+    return 'invalid type'
   }
   render () {
     return (

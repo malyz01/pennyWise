@@ -28,14 +28,14 @@ class BudgetCell extends Component {
       this.percentage()
     }, 30)
     if (this.props.item.currentAmount !== prevProps.item.currentAmount) {
-      this.setState({ item: this.props.item }, () => {
-        console.log(this.state.item)
-        console.log(prevProps.item)
-      })
+      this.setState({ item: this.props.item })
     }
   }
 
   getColor = (ratioOfCompletion) => {
+    if (ratioOfCompletion >= 1) {
+      return `rgba(${26},${186},${111},${ratioOfCompletion})`
+    }
     return `rgba(${90},${3},${252},${ratioOfCompletion})`
   }
 
