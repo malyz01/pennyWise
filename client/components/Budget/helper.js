@@ -40,7 +40,7 @@ function getTotalExpense (expense) {
 }
 
 function getTotalBudget (income, expense) {
-  return (getTotalIncome(income) - getTotalExpense(expense)
+  return getTotalIncome(income) - getTotalExpense(expense)
 }
 
 function getUnallocatedBudget (income, expense, goals) {
