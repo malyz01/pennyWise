@@ -25,6 +25,9 @@ class Header extends Component {
       <Container className='incomeHeader'>
         <div className='incomeHeaderTitle'>OVERVIEW OF INCOME</div>
         <hr />
+        <div className='incomeHeaderText'>
+          Manage your income source details here
+        </div>
         <div className='incomeButtons'>
           <button
             onClick={this.handleOnClick('Add Income')}

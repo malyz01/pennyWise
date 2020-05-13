@@ -24,7 +24,7 @@ class Goals extends Component {
       <div className="goalMainContainer">
         <div className="goalTableHeader">
           <div className="goalHeaderTitle">
-          SPECIFY INCOME ALLOCATION FOR YOUR GOALS
+          SPECIFY BUDGET ALLOCATION FOR YOUR GOALS
           </div>
           <hr className="goalsTitleLine"/>
         </div>

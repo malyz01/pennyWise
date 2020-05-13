@@ -6,7 +6,7 @@ const Carrousel = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    speed: 500
+    speed: 1000
   }
 
   return (
@@ -26,7 +26,8 @@ const Carrousel = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
-          ></div>
+          >
+          </div>
         </div>
         <div>
           <div
@@ -47,8 +48,8 @@ const Carrousel = () => {
               height: `${window.innerHeight}px`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
-            }}
-          ></div>
+            }}>
+          </div>
         </div>
       </Slider>
     </div>

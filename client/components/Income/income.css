@@ -20,7 +20,9 @@
 }
 
 .incomeHeaderText{
-  width:70%;
+  max-width: 90%;
+  text-align: center;
+  letter-spacing: 4.5px;
   margin: 0 auto;
 }
 

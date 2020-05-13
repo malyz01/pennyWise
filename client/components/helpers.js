@@ -1,5 +1,7 @@
 export const addCommas = (string, isNaM) => {
-
+  if (string === '-') {
+    return string
+  }
   if (typeof string === 'number') {
     string = string.toFixed(2)
   }

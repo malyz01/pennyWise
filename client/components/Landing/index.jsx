@@ -5,7 +5,7 @@ import Content from './Content'
 const Landing = () => {
   return (
     <div className = "landing">
-      <Header/>
+      <Header />
       <Content />
     </div>
   )

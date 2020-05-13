@@ -10,8 +10,15 @@ class GoalsTable extends Component {
     this.props.selectUserGoal(goal)
   }
 
-  getRemaining = (end, type) => {
+  getRemaining = (end, type, targetAmount, currentAmount) => {
     const date1 = new Date(end)
+
+    if (date1.toString() === 'Invalid Date') {
+      if (targetAmount === currentAmount) {
+        return 'Goal Reached'
+      }
+      return '-'
+    }
     const date2 = Date.now()
     const diffTime = date1 - date2
 
@@ -21,11 +28,13 @@ class GoalsTable extends Component {
       if (remaining > 1) {
         remaining = addCommas(remaining, true)
         return `${remaining} days`
-      } else if (remaining <= 0) {
+      }
+      if (remaining <= 0) {
         return `Completed!`
       }
       return remaining
     }
+
     return remaining
   }
 
@@ -51,6 +60,9 @@ class GoalsTable extends Component {
   }
   getActualDate = (amountAdded, frequency, targetBudget, currentAmount) => {
     // calculate days left
+    if (targetBudget - currentAmount <= 0) {
+      return 'Goal Completed'
+    }
 
     const daysLeft =
       (targetBudget - currentAmount) /
@@ -73,6 +85,12 @@ class GoalsTable extends Component {
     return formatedDate
   }
   formatDate = (date, type) => {
+    if (date === 'Goal Completed') {
+      return 'Goal Reached'
+    }
+    if (date === 'Invalid Date') {
+      return '-'
+    }
     if (type === 'chosen') {
       const segments = date.split('-')
       return `${segments[2]}/${segments[1]}/${segments[0]}`
@@ -81,6 +99,7 @@ class GoalsTable extends Component {
       const segments = date.split('/')
       return `${segments[1]}/${segments[0]}/${segments[2]}`
     }
+    return 'invalid type'
   }
   render () {
     return (
@@ -91,17 +110,11 @@ class GoalsTable extends Component {
               <Table.HeaderCell>Goal</Table.HeaderCell>
               <Table.HeaderCell>Target Amount</Table.HeaderCell>
               <Table.HeaderCell>Current Amount</Table.HeaderCell>
-
-              <Table.HeaderCell>Actual Date of Completion</Table.HeaderCell>
-              <Table.HeaderCell>Actual Time Remaining</Table.HeaderCell>
-              <Table.HeaderCell>Actual Weekly Contributions</Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>
-                Your Chosen Date of Completion
-              </Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>
-                Calculated Weekly Contributions
-              </Table.HeaderCell>
-
+              <Table.HeaderCell>Weekly Contribution</Table.HeaderCell>
+              <Table.HeaderCell>Automated Completion Date</Table.HeaderCell>
+              <Table.HeaderCell>Time Remaining</Table.HeaderCell>
+              <Table.HeaderCell className='goalsTableSpecial'>Automated Weekly Contribution</Table.HeaderCell>
+              <Table.HeaderCell className='goalsTableSpecial'>Selected Completion Date</Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -119,6 +132,12 @@ class GoalsTable extends Component {
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{addCommas(goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{addCommas(goal.currentAmount)}</Table.Cell>
+                  <Table.Cell>
+                    {addCommas(this.getWeeklyContribution(
+                      goal.budgetDistribution,
+                      goal.frequency
+                    ))}
+                  </Table.Cell>
                   <Table.Cell>{`${this.formatDate(
                     this.getActualDate(
                       goal.budgetDistribution,
@@ -136,17 +155,10 @@ class GoalsTable extends Component {
                         goal.targetBudget,
                         goal.currentAmount
                       ),
-                      'string'
+                      'string',
+                      goal.targetBudget,
+                      goal.currentAmount
                     )}
-                  </Table.Cell>
-                  <Table.Cell>
-                    {addCommas(this.getWeeklyContribution(
-                      goal.budgetDistribution,
-                      goal.frequency
-                    ))}
-                  </Table.Cell>
-                  <Table.Cell className="goalsTableSpecial">
-                    {this.formatDate(goal.targetDate, 'chosen')}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
                     {addCommas(
@@ -156,6 +168,9 @@ class GoalsTable extends Component {
                         goal.targetBudget
                       )
                     )}
+                  </Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">
+                    {this.formatDate(goal.targetDate, 'chosen')}
                   </Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
