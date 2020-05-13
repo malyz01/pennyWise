@@ -25,7 +25,10 @@ export class UpdateGoal extends Component {
   }
 
   handleOnSubmit = async () => {
-    const { currentAmount, budgetDistribution, frequency } = this.state
+    let { currentAmount, budgetDistribution, frequency } = this.state
+    if (budgetDistribution > this.props.select.targetBudget - currentAmount) {
+      budgetDistribution = this.props.select.targetBudget - currentAmount
+    }
     await this.props.updateUserGoal(this.props.select.id, { currentAmount, budgetDistribution, frequency })
     this.props.setModalOpen(false)
     this.props.setModalName(null)

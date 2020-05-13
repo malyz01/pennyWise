@@ -4,8 +4,6 @@
 name: pennyWise CI/CD
 
 on:
-  push:
-    branches: [dev]
   pull_request:
     branches: [master]
 
