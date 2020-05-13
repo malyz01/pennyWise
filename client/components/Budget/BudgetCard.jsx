@@ -60,9 +60,9 @@ class BudgetCard extends Component {
     this.setState({ [name]: value })
   }
 
-  // getColor = (ratioOfCompletion) => {
-  //   return `rgba(${90},${3},${252},${ratioOfCompletion})`
-  // }
+  getColor = (ratioOfCompletion) => {
+    return `rgba(${90},${3},${252},${ratioOfCompletion})`
+  }
 
   render () {
     return (
@@ -126,7 +126,6 @@ class BudgetCard extends Component {
         </div>
         <div className="budgetGraphs">
           {this.props.goal && this.props.goal.length > 0 && <h1>Goals Overview</h1>}
-
           <Fragment>
             {this.props.goal.map((item, index) => <BudgetCell key={item.id} item={item} />)}
           </Fragment>

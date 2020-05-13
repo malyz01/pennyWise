@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import './budget.css'
 import Fade from 'react-reveal/Fade'
 
-let count = 0
-
 class BudgetCell extends Component {
   state = {
     item: this.props.item,
@@ -26,10 +24,13 @@ class BudgetCell extends Component {
     }
   }
 
-  componentDidUpdate () {
+  componentDidUpdate (prevProps) {
     setTimeout(() => {
       this.percentage()
     }, 30)
+    if (this.props.item !== prevProps.item) {
+      this.setState({ item: this.props.item })
+    }
   }
 
   getColor = (ratioOfCompletion) => {
