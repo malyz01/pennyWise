@@ -16,3 +16,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.landingInfoBody p {
+  font-weight: bold;
+  font-size: 60px;
+}

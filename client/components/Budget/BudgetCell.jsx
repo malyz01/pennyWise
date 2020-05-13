@@ -30,6 +30,7 @@ class BudgetCell extends Component {
     setTimeout(() => {
       this.percentage()
     }, 30)
+    count = 0
   }
 
   getColor = (number) => {

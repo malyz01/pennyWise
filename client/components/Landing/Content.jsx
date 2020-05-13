@@ -23,15 +23,17 @@ const Content = (props) => {
             </div>
             <hr className="landingInfoHr" />
             <div className="landingInfoList">
+              {/* <div className="landginInfoBody">
+                <p style={{fontWeight: 'bold'}}>- COVID-19 information regarding you and your money</p>
+              </div> */}
               <div className="landginInfoBody">
-                - COVID-19 information regarding you and your money
-              </div>
+                <p style={{fontWeight: 'bold', fontSize: '18px'}}> - Your money, mindfulness and this moment</p>
+              </div><br />
               <div className="landginInfoBody">
-                - Your money, mindfulness and this moment
-              </div>
-              <div className="landginInfoBody">
-                - Too many of us worry about our money situations. Sorting your
-                money is good for your mental health too.
+                <p style={{fontWeight: 'bold', fontSize: '18px'}}>
+                  - Too many of us worry about our money situations. Sorting your
+                  money is good for your mental health too.
+                </p>
               </div>
               {!props.isAuthenticated && (
                 <button
