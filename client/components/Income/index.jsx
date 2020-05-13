@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-import LineGraph from './LineGraph'
 import BarGraph from './BarGraph'
 import Loading from '../Loading'
 import { getUserIncome } from '../../store/actions/income'
