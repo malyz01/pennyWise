@@ -14,7 +14,7 @@ let count = 0
 class BudgetCard extends Component {
   state = {
     frequency: 'Weekly',
-    item: this.props.goal.item,
+    item: this.props,
     percentStart: 0,
     percentFinish: 0
   }
@@ -117,7 +117,7 @@ class BudgetCard extends Component {
   }
 
   render() {
-    console.log(this.state.item)
+    console.log(this.state)
     return (
       <div className="budgetCardMain">
         <div className="topCardComponent">
@@ -197,7 +197,7 @@ class BudgetCard extends Component {
                           }%`
                         }}
                       ></div>
-                      <Fade onReveal={() => this.updateBudget((this.state.item.currentAmount / this.state.item.targetBudget) * 100)}>
+                      <Fade onReveal={() => this.updateBudget((this.state.goal.currentAmount / this.state.goal.targetBudget) * 100)}>
                         <div className="budgetGraphBarRatio">
                           {this.state.percentStart}
                           {/* //   (item.currentAmount / item.targetBudget) *
