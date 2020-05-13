@@ -3,8 +3,8 @@
   padding: 20px;
   padding-bottom: 5px;
   background: white;
-  width: 700px;
-  height: 350px;
+  width: 850px;
+  height: 400px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
 }
 .landingCarouselOuter{
@@ -53,7 +53,7 @@
   right:0px;
 }
 .landingCarouselTitle{
-  width:700px;
+  width:850px;
   text-align: center;
   color:rgb(115, 99, 200);
   font-size:3rem;
