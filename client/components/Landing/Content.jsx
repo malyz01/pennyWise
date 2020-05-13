@@ -27,11 +27,11 @@ const Content = (props) => {
                 <p style={{fontWeight: 'bold'}}>- COVID-19 information regarding you and your money</p>
               </div> */}
               <div className="landginInfoBody">
-                <p style={{fontWeight: 'bold', fontSize: '18px'}}> - Your money, mindfulness and this moment</p>
+                <p style={{fontWeight: 'bold', fontSize: '18px'}}> Your money, mindfulness and this moment</p>
               </div><br />
               <div className="landginInfoBody">
                 <p style={{fontWeight: 'bold', fontSize: '18px'}}>
-                  - Too many of us worry about our money situations. Sorting your
+                  Too many of us worry about our money situations. Sorting your
                   money is good for your mental health too.
                 </p>
               </div>
