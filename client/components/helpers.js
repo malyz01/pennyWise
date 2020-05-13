@@ -1,7 +1,5 @@
 export const addCommas = (string, isNaM) => {
-  if (typeof string === 'number' && !isFinite(string)) {
-    return 'Infinite'
-  }
+
   if (typeof string === 'number') {
     string = string.toFixed(2)
   }
