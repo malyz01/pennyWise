@@ -8,6 +8,7 @@
   font-size:2.5rem;
   margin-bottom:20px;
   letter-spacing:5px;
+  padding-top: 7.5%;
 
 }
 .expenseHeaderText{
@@ -71,6 +72,7 @@
 
 .expense{
   background-color: #5E5371;
+  min-height: 600px;
   padding: 6rem 0;
 }
 

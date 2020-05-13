@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-// import LineGraph from './LineGraph'
-// import BarGraph from './BarGraph'
+import LineGraph from './LineGraph'
+import BarGraph from './BarGraph'
 import Loading from '../Loading'
 import { getUserIncome } from '../../store/actions/income'
 import { loading } from '../../store/actions/loading'
@@ -22,29 +22,44 @@ export class Income extends Component {
     const { data } = this.props.userData
     let total = 0
     data &&
-      data.map(item => {
+      data.map((item) => {
         total += item.incomeAmount
       })
     return total
   }
 
+  validateIncome = (income) => {
+    let i = { ...income }
+    if (i.active) {
+      if (i.frequency === 'Monthly') {
+        i.incomeAmount = (i.incomeAmount * 12) / 52
+      }
+      if (i.frequency === 'Annually') {
+        i.incomeAmount = i.incomeAmount / 52
+      }
+    } else {
+      i.incomeAmount = 0
+      i.incomeName = `${i.incomeName} \n (OFF)`
+    }
+    return { name: i.incomeName, Income: i.incomeAmount }
+  }
+
   render () {
     const { userId, income, selected } = this.props
     if (this.props.load) return <Loading />
-    // const graphData = income.map(i => ({ name: i.incomeName, Income: i.incomeAmount }))
+    const graphData = income.map(this.validateIncome)
     return (
       <div className="income">
         <Header />
         <Table data={{ userId, income, selected }} />
-        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <LineGraph data={graphData} />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <BarGraph data={graphData} />
-        </div> */}
+        </div>
       </div>
     )
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   load: state.loading.income,
   userId: state.auth.user.id,
   income: state.income.all,

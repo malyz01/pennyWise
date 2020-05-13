@@ -15,7 +15,7 @@ export default class BarGraph extends React.Component {
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ background: '#dedede', padding: '2rem' }}>
           <BarChart
-            width={500}
+            width={800}
             height={300}
             data={this.props.data}
             margin={{
@@ -24,12 +24,9 @@ export default class BarGraph extends React.Component {
               left: 20,
               bottom: 5
             }}
-            barSize={20}
           >
             <XAxis
               dataKey="name"
-              scale="point"
-              padding={{ left: 10, right: 10 }}
             />
             <YAxis />
             <Tooltip />

@@ -1,13 +1,14 @@
 export const addCommas = (string, isNaM) => {
-  if (typeof string === 'number' && !isFinite(string)) {
-    return 'Infinite'
-  }
 
+  if (typeof string === 'number') {
+    string = string.toFixed(2)
+  }
   if (typeof string !== 'string') {
-    string = String(string)
+    string = string.toString()
   }
 
   let decimals = string.split('.')[1]
+
   if (!isNaM) {
     if (decimals === undefined) {
       decimals = '00'
@@ -23,6 +24,19 @@ export const addCommas = (string, isNaM) => {
     } else {
       count++
     }
+  }
+  let dollarSign = '$'
+  if (isNaM) {
+    dollarSign = ''
+  }
+  if (wholeNumber[0] === '-') {
+    if (wholeNumber[1] === ',') {
+      wholeNumber = wholeNumber.slice(0, 1) + dollarSign + wholeNumber.slice(2, wholeNumber.length)
+    } else {
+      wholeNumber = wholeNumber.slice(0, 1) + dollarSign + wholeNumber.slice(1, wholeNumber.length)
+    }
+  } else {
+    wholeNumber = dollarSign + wholeNumber
   }
 
   if (isNaM) {

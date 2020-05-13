@@ -33,7 +33,6 @@
 
 .goalButtons .ui.button:focus{
   background-color: #2C2B2B !important;
-  /* transform: scale(1.1); */
   color: white;
 }
 
@@ -44,6 +43,7 @@
   background-color: #434343;
 }
 
+/* TABLE */
 .ui.inverted.table th.goalsTableSpecial{
   background:rgba(48, 48, 48, 0.651) !important;
   color:rgb(255, 255, 255) !important;
@@ -59,7 +59,11 @@
   color:rgb(255, 255, 255) !important;
 }
 .goalsTitleLine{
-  width: 80%;
+  width: 93%;
+}
+
+.pointerCursor {
+  cursor: pointer;
 }
 
 /* ========ADD=GOALS=BUTTON========= */
@@ -72,6 +76,3 @@
   background:white !important;
 }
 /* ================================= */
-.pointerCursor {
-  cursor: pointer;
-}

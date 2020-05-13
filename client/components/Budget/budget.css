@@ -49,8 +49,6 @@
     padding-right:15px;
     font-weight: bold;
     color:rgb(255, 255, 255);
-    /* background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,0) 95%, rgba(28,1,47,1) 100%); */
     text-shadow:1px 1px 3px black;
     height:80px;
     display:flex;
@@ -184,7 +182,7 @@ background: linear-gradient(90deg, rgba(255,255,255,0) 95%, rgba(28,1,47,1) 100%
 
 .budgetHeaderContainer{
     padding-bottom: 100px;
-    padding-top: 100px;
+    padding-top: 15%;
 }
 
 .budgetHeader{

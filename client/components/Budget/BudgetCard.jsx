@@ -124,7 +124,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalBudget()}
+                  {addCommas(this.renderTotalBudget())}
                 </h2>
               </div>
             </div>
@@ -136,7 +136,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderTotalContribution()}
+                  {addCommas(this.renderTotalContribution())}
                 </h2>
               </div>
             </div>
@@ -148,13 +148,47 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {this.renderUnallocatedBudget()}
+                  {addCommas(this.renderUnallocatedBudget(), false)}
                 </h2>
               </div>
             </div>
           </div>
         </div>
         <div className="budgetGraphs">
+          {this.props.goal && this.props.goal.length > 0 && <h1>Goals Overview</h1>}
+          {
+            this.props.goal.map((item, index) => {
+              return (
+                <Fragment key={item.id}>
+                  <div className="budgetGraphRow">
+                    <div className="budgetGraphLabel">
+                      <p>{item.goalName}</p>
+                    </div>
+                    <div className="budgetGraphBarContainer">
+                      <div
+                        className="budgetGraphBar"
+                        style={{
+                          background: this.getColor(item.currentAmount / item.targetBudget),
+                          width: `${
+                            (item.currentAmount / item.targetBudget) * 100
+                          }%`
+                        }}
+                      ></div>
+                      <div className="budgetGraphBarRatio">
+                        {addCommas(
+                          (item.currentAmount / item.targetBudget) *
+                          100,
+                          true
+                        )}
+                        %
+                      </div>
+                    </div>
+                  </div>
+                  {/* {index < this.props.goal.length - 1 && <hr />} */}
+                </Fragment>
+              )
+            })
+          }
 
           <Fragment>
             {this.props.goal.map((item, index) => <BudgetCell key={item.id} item={item} />)}

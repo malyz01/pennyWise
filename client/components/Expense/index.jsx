@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-// import LineGraph from './LineGraph'
-// import BarGraph from './BarGraph'
+import BarGraph from './BarGraph'
 import Loading from '../Loading'
 import { getUserExpenses } from '../../store/actions/expense'
 import { loading } from '../../store/actions/loading'
@@ -18,29 +17,38 @@ export class Expense extends Component {
     this.props.loading('expense', true)
   }
 
-  render () {
-    const { userId, expenses, selected } = this.props
-    if (this.props.load) return <Loading />
-    // const graphData = expenses.map((i) => {
-    //   if (i.active) {
-    //     return {
-    //       name: i.expenseName,
-    //       Expense: i.expenseAmount
-    //     }
-    //   }
-    //   return null
-    // }).filter(income => income !== null)
-    return (
-      <div className="expense">
-        <Header />
-        <Table data={{ userId, expenses, selected }} />
-        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <LineGraph data={graphData} />
-          <BarGraph data={graphData} />
-        </div> */}
-      </div>
-    )
-  }
+         validateIncome = (expense) => {
+           console.log(expense)
+      
+           let i = { ...expense }
+           if (i.active) {
+             if (i.frequency === 'Monthly') {
+               i.expenseAmount = (i.expenseAmount * 12) / 52
+             }
+             if (i.frequency === 'Annually') {
+               i.expenseAmount = i.expenseAmount / 52
+             }
+           } else {
+             i.expenseAmount = 0
+             i.expenseName = `${i.expenseName} \n (OFF)`
+           }
+           return { name: i.expenseName, Expense: i.expenseAmount }
+         }
+
+         render () {
+           const { userId, expenses, selected } = this.props
+           if (this.props.load) return <Loading />
+           const graphData = expenses.map(this.validateIncome)
+           return (
+             <div className="expense">
+               <Header />
+               <Table data={{ userId, expenses, selected }} />
+               <div style={{ display: 'flex', justifyContent: 'center' }}>
+                 <BarGraph data={graphData} />
+               </div>
+             </div>
+           )
+         }
 }
 
 const mapStateToProps = state => ({

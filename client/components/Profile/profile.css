@@ -14,7 +14,7 @@
 }
 
 .profileHeaderLine{
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom:20px;
@@ -28,15 +28,9 @@
   margin: 0;
 }
 
-.profileHeadingLine {
-  width: 50%;
-  position: relative;
-  margin: 10px auto;
-}
-
 .profileHeader {
   padding-bottom: 100px;
-  padding-top: 100px;
+  padding-top: 9%;
 }
 
 .profileCardContainer{
@@ -90,10 +84,9 @@
 .totalOverview, .moneyOverview{
   padding: 30px;
   flex-grow:1;
+  text-align: left;
 }
 .moneyOverview{
-  
-  padding-left:60px;
   background: #674C82;
   color:white;
   position:relative;

@@ -30,14 +30,14 @@ export class UpdateProfile extends Component {
             <div className="modalProfileHeader">{this.props.form}</div>
             <div className="divider" />
             <Field
-              title="Full name"
+              title="Full Name"
               name="fullName"
               type="text"
               component={Input}
               placeholder="full name"
             />
             <Field
-              title="Avatar url"
+              title="Avatar"
               name="avatar"
               type="text"
               component={Input}
