@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown, Card } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
-import { addCommas } from '../helpers'
-import Fade from 'react-reveal/Fade'
+import BudgetCell from './BudgetCell'
+
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
@@ -14,10 +14,9 @@ let count = 0
 class BudgetCard extends Component {
   state = {
     frequency: 'Weekly',
-    item: this.props.goal,
-    percentStart: 0,
-    percentFinish: 0
+    percentStart: 0
   }
+
 
   componentDidMount () {
     count = 0
@@ -25,24 +24,6 @@ class BudgetCard extends Component {
 
   componentDidUpdate () {
     count = 0
-    setTimeout(() => {
-      this.percentage()
-    }, 30)
-  }
-
-  updateBudget(total) {
-    this.setState({
-      percentFinish: total
-    })
-    this.percentage()
-  }
-
-  percentage = () => {
-    if (this.state.percentStart < this.state.percentFinish) {
-      this.setState({
-        percentStart: this.state.percentStart + 1
-      })
-    }
   }
 
   renderTotalBudget = () => {
@@ -88,7 +69,7 @@ class BudgetCard extends Component {
     this.setState({ [name]: value })
   }
 
-  getColor = (ratioOfCompletion) => {
+  getColor = (number) => {
     // const getShade = (minR, minB, minG, maxR, maxB, maxG) => {
     //   return `rgb(${Math.floor(Math.random() * (maxR - minR) + minR)},${Math.floor((Math.random() * (maxB - minB) + minB))},${Math.floor((Math.random() * (maxG - minG) + minG))})`
     // }
@@ -96,28 +77,24 @@ class BudgetCard extends Component {
     //   const shade = Math.floor(Math.random() * (max - min) + min)
     //   return `rgb(${shade},${shade},${shade})`
     // }
-    // switch (number) {
-    //   case 0:
-    //     count++
-    //     return '#9d00e6'
-    //   case 1:
-    //     count++
-    //     return '#c64dff'
-    //   case 2:
-    //     count++
-    //     return '#cd7eb8'
-    //   case 3:
-    //     count = 0
-    //     return '#9326ff'
-    // }
-    if (ratioOfCompletion >= 1) {
-      return '#2ab963'
+    switch (number) {
+      case 0:
+        count++
+        return '#9d00e6'
+      case 1:
+        count++
+        return '#c64dff'
+      case 2:
+        count++
+        return '#cd7eb8'
+      case 3:
+        count = 0
+        return '#9326ff'
     }
-    return `rgba(${102},${0},${255},${ratioOfCompletion})`
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.props.goal)
     return (
       <div className="budgetCardMain">
         <div className="topCardComponent">
@@ -147,7 +124,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {addCommas(this.renderTotalBudget())}
+                  $ {this.renderTotalBudget()}
                 </h2>
               </div>
             </div>
@@ -159,7 +136,7 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {addCommas(this.renderTotalContribution())}
+                  $ {this.renderTotalContribution()}
                 </h2>
               </div>
             </div>
@@ -171,52 +148,19 @@ class BudgetCard extends Component {
               </div>
               <div className="colRight">
                 <h2 style={{ color: 'white' }}>
-                  $ {addCommas(this.renderUnallocatedBudget())}
+                  $ {this.renderUnallocatedBudget()}
                 </h2>
               </div>
             </div>
           </div>
         </div>
         <div className="budgetGraphs">
-          {this.props.goal && this.props.goal.length > 0 && <h1>Goals Overview</h1>}
-          {
-            this.props.goal.map((item, index) => {
-              return (
-                <Fragment key={item.id}>
-                  <div className="budgetGraphRow">
-                    <div className="budgetGraphLabel">
-                      <p>{item.goalName}</p>
-                    </div>
-                    <div className="budgetGraphBarContainer">
-                      <div
-                        className="budgetGraphBar"
-                        style={{
-                          background: this.getColor(item.currentAmount / item.targetBudget),
-                          width: `${
-                            (item.currentAmount / item.targetBudget) * 100
-                          }%`
-                        }}
-                      ></div>
-                      <Fade onReveal={() => this.updateBudget((item.currentAmount / item.targetBudget) * 100)}>
-                        <div className="budgetGraphBarRatio">
-                          {this.state.percentStart}
-                          {/* //   (item.currentAmount / item.targetBudget) *
-                          //   100
-                          // ).toFixed(2)} */}
-                          %
-                        </div>
-                      </Fade>
-                    </div>
-                  </div>
-                  {/* {index < this.props.goal.length - 1 && <hr />} */}
-                </Fragment>
-              )
-            })
-          }
 
+          <Fragment>
+            {this.props.goal.map((item, index) => <BudgetCell key={item.id} item={item} />)}
+          </Fragment>
         </div>
       </div>
-
     )
   }
 }
