@@ -5,10 +5,9 @@ const Header = () => {
     <div>
       <div className='budgetMainContainer'>
         <div className='budgetHeaderContainer'>
-          <div className="budgetHeader">YOUR BUDGET SUMMARY</div>
+          <div className="budgetHeader">OVERVIEW OF BUDGET</div>
           <hr className="titles"/>
-          <p className="budgetPTags">Making a plan to get through.</p>
-          <p className="budgetPTags">Give each of your hard-earned dollars a job to do using Pennywise's budgeting tool.</p>
+          <p className="budgetPTags">Manage your goals and your budget here</p>
         </div>
 
         <div className='budgetCardContainer'>
