@@ -21,7 +21,7 @@ export default class BarGraph extends React.Component {
         <div style={{ background: '#dedede', padding: '2rem' }}>
           <BarChart
             layout="vertical"
-            width={1000}
+            width={1070}
             height={400}
             data={this.props.data}
             margin={{

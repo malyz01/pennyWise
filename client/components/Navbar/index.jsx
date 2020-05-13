@@ -24,9 +24,9 @@ const Navbar = () => {
   })
   return (
     <>
-      {!navbarToggle && <div className="navToggleOn" onClick={handleClick}><Icon name="chevron arrow down"/></div>}
+      {!navbarToggle && <div className="navToggleOn" onClick={handleClick}><Icon name="chevron down"/></div>}
       <div className={`navBarMainContainer ${navbarToggle ? 'navOn' : 'navOff'}`}>
-        <div onClick={handleClick}className='navToggle'><Icon name ="chevron arrow up"/></div>
+        <div onClick={handleClick}className='navToggle'><Icon name ="chevron up"/></div>
         <LogoMenu />
         <MenuBtn />
       </div>
