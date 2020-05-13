@@ -15,77 +15,78 @@ class BottomDetailsCardComponent extends React.Component {
     this.getTotalIncome()
   }
 
-  r = (name) => (ac, va) => {
+  r = name => (ac, va) => {
     if (va.active) {
       if (va.frequency === 'Monthly') {
-        va[name] = va[name] * 12 / 52
+        va[name] = (va[name] * 12) / 52
       }
       if (va.frequency === 'Annually') {
         va[name] = va[name] / 52
       }
-      return (ac + va[name])
+      return ac + va[name]
     }
     return ac
   }
 
   getTotalIncome = () => {
     const { income } = this.props
-    this.setState({ income: income.reduce(this.r('incomeAmount'), 0).toFixed(2)
+    this.setState({
+      income: income.reduce(this.r('incomeAmount'), 0).toFixed(2)
     })
   }
 
   getTotalExpense = () => {
     const { expense } = this.props
     this.setState({
-      expense: expense.reduce(this.r('expenseAmount'), 0).toFixed(2)
+      expense: expense.reduce(this.r('expenseAmount'), 0)
     })
   }
 
   render () {
     const { history } = this.props
     return (
-      <div className="bottomCardDetailsContainer">
-        <div className="bottomButtonContainer">
+      <div className='bottomCardDetailsContainer'>
+        <div className='bottomButtonContainer'>
           <button
-            className="ui right labeled icon button"
+            className='ui right labeled icon button'
             onClick={() => history.push('/income')}
           >
-            <i className="right arrow icon"></i>
+            <i className='right arrow icon'></i>
             manage your income
           </button>
 
           <button
-            className="ui right labeled icon button"
+            className='ui right labeled icon button'
             onClick={() => history.push('/expense')}
           >
-            <i className="right arrow icon"></i>
+            <i className='right arrow icon'></i>
             manage your expenses
           </button>
 
           <button
-            className="ui right labeled icon button"
+            className='ui right labeled icon button'
             onClick={() => history.push('/budget')}
           >
-            <i className="right arrow icon"></i>
+            <i className='right arrow icon'></i>
             manage your budget
           </button>
         </div>
-        <div className="totalDisplayContainer">
-          <h1 className="totalDisplayTitle">An Overview of your Finances</h1>
-          <div className="totalDisplayBox">
-            <div className="totalOverview">
+        <div className='totalDisplayContainer'>
+          <h1 className='totalDisplayTitle'>An Overview of your Finances</h1>
+          <div className='totalDisplayBox'>
+            <div className='totalOverview'>
               <p>Total Income</p>
               <p>Total Expenses</p>
               <p>Total Budget</p>
               <p>Total Goals</p>
             </div>
-            <div className="moneyOverview">
-
+            <div className='moneyOverview'>
               <p>{addCommas(this.state.income)} per week</p>
               <p>{addCommas(this.state.expense)} per week</p>
-              <p>{addCommas(this.state.income - this.state.expense)} per week</p>
+              <p>
+                {addCommas(this.state.income - this.state.expense)} per week
+              </p>
               <p>{addCommas(this.props.goal.length, true)}</p>
-              
             </div>
           </div>
         </div>
