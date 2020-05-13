@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './budget.css'
 import Fade from 'react-reveal/Fade'
-
+import { addCommas } from '../helpers'
 class BudgetCell extends Component {
   state = {
     item: this.props.item,
@@ -12,8 +12,7 @@ class BudgetCell extends Component {
   updateBudget (total) {
     this.setState({
       percentFinish: total
-    })
-    this.percentage()
+    }, this.percentage)
   }
 
   percentage = () => {
@@ -28,12 +27,15 @@ class BudgetCell extends Component {
     setTimeout(() => {
       this.percentage()
     }, 30)
-    if (this.props.item !== prevProps.item) {
+    if (this.props.item.currentAmount !== prevProps.item.currentAmount) {
       this.setState({ item: this.props.item })
     }
   }
 
   getColor = (ratioOfCompletion) => {
+    if (ratioOfCompletion >= 1) {
+      return `rgba(${26},${186},${111},${ratioOfCompletion})`
+    }
     return `rgba(${90},${3},${252},${ratioOfCompletion})`
   }
 
@@ -56,7 +58,7 @@ class BudgetCell extends Component {
             ></div>
             <Fade onReveal={() => this.updateBudget((this.state.item.currentAmount / this.state.item.targetBudget) * 100)}>
               <div className="budgetGraphBarRatio">
-                {this.state.percentStart}
+                {addCommas((this.state.item.currentAmount / this.state.item.targetBudget) * 100, true)}
                             %
               </div>
             </Fade>

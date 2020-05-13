@@ -10,8 +10,15 @@ class GoalsTable extends Component {
     this.props.selectUserGoal(goal)
   }
 
-  getRemaining = (end, type) => {
+  getRemaining = (end, type, targetAmount, currentAmount) => {
     const date1 = new Date(end)
+
+    if (date1.toString() === 'Invalid Date') {
+      if (targetAmount === currentAmount) {
+        return 'Goal Reached'
+      }
+      return '-'
+    }
     const date2 = Date.now()
     const diffTime = date1 - date2
 
@@ -21,11 +28,13 @@ class GoalsTable extends Component {
       if (remaining > 1) {
         remaining = addCommas(remaining, true)
         return `${remaining} days`
-      } else if (remaining <= 0) {
+      }
+      if (remaining <= 0) {
         return `Completed!`
       }
       return remaining
     }
+
     return remaining
   }
 
@@ -51,6 +60,9 @@ class GoalsTable extends Component {
   }
   getActualDate = (amountAdded, frequency, targetBudget, currentAmount) => {
     // calculate days left
+    if (targetBudget - currentAmount <= 0) {
+      return 'Goal Completed'
+    }
 
     const daysLeft =
       (targetBudget - currentAmount) /
@@ -73,6 +85,12 @@ class GoalsTable extends Component {
     return formatedDate
   }
   formatDate = (date, type) => {
+    if (date === 'Goal Completed') {
+      return 'Goal Reached'
+    }
+    if (date === 'Invalid Date') {
+      return '-'
+    }
     if (type === 'chosen') {
       const segments = date.split('-')
       return `${segments[2]}/${segments[1]}/${segments[0]}`
@@ -81,6 +99,7 @@ class GoalsTable extends Component {
       const segments = date.split('/')
       return `${segments[1]}/${segments[0]}/${segments[2]}`
     }
+    return 'invalid type'
   }
   render () {
     return (
@@ -136,7 +155,9 @@ class GoalsTable extends Component {
                         goal.targetBudget,
                         goal.currentAmount
                       ),
-                      'string'
+                      'string',
+                      goal.targetBudget,
+                      goal.currentAmount
                     )}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
