@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import './content.css'
-import Slide from 'react-reveal/Slide'
+// import Slide from 'react-reveal/Slide'
 import Fade from 'react-reveal/Fade'
 
 import Carousel from './Carousel'
@@ -32,14 +32,14 @@ const Content = (props) => {
                   Bring your money and budgeting back in balance
                 </p>
               </div>
-              {!props.isAuthenticated && (
+              {/* {!props.isAuthenticated && (
                 <button
                   onClick={handleOnClick}
                   className="ui button landingSignUp"
                 >
                   Sign Up
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </Fade>
