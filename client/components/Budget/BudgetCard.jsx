@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown, Card } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
-import { addCommas } from '../helpers'
+import BudgetCell from './BudgetCell'
+
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
@@ -12,8 +13,10 @@ let count = 0
 
 class BudgetCard extends Component {
   state = {
-    frequency: 'Weekly'
+    frequency: 'Weekly',
+    percentStart: 0
   }
+
 
   componentDidMount () {
     count = 0
@@ -66,7 +69,7 @@ class BudgetCard extends Component {
     this.setState({ [name]: value })
   }
 
-  getColor = (ratioOfCompletion) => {
+  getColor = (number) => {
     // const getShade = (minR, minB, minG, maxR, maxB, maxG) => {
     //   return `rgb(${Math.floor(Math.random() * (maxR - minR) + minR)},${Math.floor((Math.random() * (maxB - minB) + minB))},${Math.floor((Math.random() * (maxG - minG) + minG))})`
     // }
@@ -74,27 +77,24 @@ class BudgetCard extends Component {
     //   const shade = Math.floor(Math.random() * (max - min) + min)
     //   return `rgb(${shade},${shade},${shade})`
     // }
-    // switch (number) {
-    //   case 0:
-    //     count++
-    //     return '#9d00e6'
-    //   case 1:
-    //     count++
-    //     return '#c64dff'
-    //   case 2:
-    //     count++
-    //     return '#cd7eb8'
-    //   case 3:
-    //     count = 0
-    //     return '#9326ff'
-    // }
-    if (ratioOfCompletion >= 1) {
-      return '#2ab963'
+    switch (number) {
+      case 0:
+        count++
+        return '#9d00e6'
+      case 1:
+        count++
+        return '#c64dff'
+      case 2:
+        count++
+        return '#cd7eb8'
+      case 3:
+        count = 0
+        return '#9326ff'
     }
-    return `rgba(${102},${0},${255},${ratioOfCompletion})`
   }
 
-  render () {
+  render() {
+    console.log(this.props.goal)
     return (
       <div className="budgetCardMain">
         <div className="topCardComponent">
@@ -190,9 +190,11 @@ class BudgetCard extends Component {
             })
           }
 
+          <Fragment>
+            {this.props.goal.map((item, index) => <BudgetCell key={item.id} item={item} />)}
+          </Fragment>
         </div>
       </div>
-
     )
   }
 }

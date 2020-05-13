@@ -7,8 +7,8 @@ const Header = () => {
         <div className='budgetHeaderContainer'>
           <div className="budgetHeader">YOUR BUDGET SUMMARY</div>
           <hr className="titles"/>
-          <p className="budgetPTags">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <p className="budgetPTags">Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s.</p>
+          <p className="budgetPTags">Making a plan to get through.</p>
+          <p className="budgetPTags">Give each of your hard-earned dollars a job to do using Pennywise's budgeting tool.</p>
         </div>
 
         <div className='budgetCardContainer'>

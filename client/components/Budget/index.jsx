@@ -10,6 +10,7 @@ import { Container } from 'semantic-ui-react'
 
 import { loading } from '../../store/actions/loading'
 import Loading from '../Loading'
+import Fade from 'react-reveal/Fade'
 
 class Budget extends React.Component {
   componentDidMount () {
@@ -27,7 +28,7 @@ class Budget extends React.Component {
       <div className="budget">
         <Container>
           <Header />
-          <BudgetCard expense={expense} income={income} goal={goal} />
+          <Fade><BudgetCard expense={expense} income={income} goal={goal} /></Fade>
           <Goals />
         </Container>
       </div>

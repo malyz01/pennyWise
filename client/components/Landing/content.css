@@ -32,6 +32,11 @@
   background: rgba(116, 99, 200, 0.596)
 }
 
+.landingInfoBody p {
+  font-weight: bold !important;
+  font-size: 24px !important;
+}
+
 /* .landingCarouselBottom{
   padding-left: -1000px;
   padding-right:100%;
