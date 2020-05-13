@@ -30,24 +30,10 @@ class BudgetCell extends Component {
     setTimeout(() => {
       this.percentage()
     }, 30)
-    count = 0
   }
 
-  getColor = (number) => {
-    switch (number) {
-      case 0:
-        count++
-        return '#9d00e6'
-      case 1:
-        count++
-        return '#c64dff'
-      case 2:
-        count++
-        return '#cd7eb8'
-      case 3:
-        count = 0
-        return '#9326ff'
-    }
+  getColor = (ratioOfCompletion) => {
+    return `rgba(${90},${3},${252},${ratioOfCompletion})`
   }
 
   render () {
@@ -61,7 +47,7 @@ class BudgetCell extends Component {
           <div className="budgetGraphBarContainer">
             <div className="budgetGraphBar"
               style={{
-                background: this.getColor(count),
+                background: this.getColor(this.state.item.currentAmount / this.state.item.targetBudget),
                 width: `${
                   (this.state.item.currentAmount / this.state.item.targetBudget) * 100
                 }%`

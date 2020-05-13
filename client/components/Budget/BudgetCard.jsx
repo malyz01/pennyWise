@@ -1,29 +1,20 @@
 import React, { Component, Fragment } from 'react'
-import { Dropdown, Card } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 import './budget.css'
 import h from './helper'
 import BudgetCell from './BudgetCell'
+import { addCommas } from '../helpers'
 
 const options = [
   { key: 'w', value: 'Weekly', text: 'Weekly' },
   { key: 'm', value: 'Monthly', text: 'Monthly' },
   { key: 'a', value: 'Annually', text: 'Annually' }
 ]
-let count = 0
 
 class BudgetCard extends Component {
   state = {
     frequency: 'Weekly',
     percentStart: 0
-  }
-
-
-  componentDidMount () {
-    count = 0
-  }
-
-  componentDidUpdate () {
-    count = 0
   }
 
   renderTotalBudget = () => {
@@ -69,32 +60,11 @@ class BudgetCard extends Component {
     this.setState({ [name]: value })
   }
 
-  getColor = (number) => {
-    // const getShade = (minR, minB, minG, maxR, maxB, maxG) => {
-    //   return `rgb(${Math.floor(Math.random() * (maxR - minR) + minR)},${Math.floor((Math.random() * (maxB - minB) + minB))},${Math.floor((Math.random() * (maxG - minG) + minG))})`
-    // }
-    // const getWhite = (min, max) => {
-    //   const shade = Math.floor(Math.random() * (max - min) + min)
-    //   return `rgb(${shade},${shade},${shade})`
-    // }
-    switch (number) {
-      case 0:
-        count++
-        return '#9d00e6'
-      case 1:
-        count++
-        return '#c64dff'
-      case 2:
-        count++
-        return '#cd7eb8'
-      case 3:
-        count = 0
-        return '#9326ff'
-    }
-  }
+  // getColor = (ratioOfCompletion) => {
+  //   return `rgba(${90},${3},${252},${ratioOfCompletion})`
+  // }
 
-  render() {
-    console.log(this.props.goal)
+  render () {
     return (
       <div className="budgetCardMain">
         <div className="topCardComponent">
@@ -102,7 +72,7 @@ class BudgetCard extends Component {
             <div className="budgetRow">
               <div className="colLeft">
                 < h2 style={{ color: 'white' }}>
-                  Frequency
+                Frequency
                 </h2>
               </div>
               <div className="colRight">
@@ -156,39 +126,6 @@ class BudgetCard extends Component {
         </div>
         <div className="budgetGraphs">
           {this.props.goal && this.props.goal.length > 0 && <h1>Goals Overview</h1>}
-          {
-            this.props.goal.map((item, index) => {
-              return (
-                <Fragment key={item.id}>
-                  <div className="budgetGraphRow">
-                    <div className="budgetGraphLabel">
-                      <p>{item.goalName}</p>
-                    </div>
-                    <div className="budgetGraphBarContainer">
-                      <div
-                        className="budgetGraphBar"
-                        style={{
-                          background: this.getColor(item.currentAmount / item.targetBudget),
-                          width: `${
-                            (item.currentAmount / item.targetBudget) * 100
-                          }%`
-                        }}
-                      ></div>
-                      <div className="budgetGraphBarRatio">
-                        {addCommas(
-                          (item.currentAmount / item.targetBudget) *
-                          100,
-                          true
-                        )}
-                        %
-                      </div>
-                    </div>
-                  </div>
-                  {/* {index < this.props.goal.length - 1 && <hr />} */}
-                </Fragment>
-              )
-            })
-          }
 
           <Fragment>
             {this.props.goal.map((item, index) => <BudgetCell key={item.id} item={item} />)}

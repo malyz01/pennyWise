@@ -13,16 +13,36 @@ import Loading from '../Loading'
 import Fade from 'react-reveal/Fade'
 
 class Budget extends React.Component {
+  state = {
+    expense: [],
+    income: [],
+    goal: []
+  }
   componentDidMount () {
     this.props.getUserBudget(this.props.userId)
+    this.setState({
+      expense: this.props.expense,
+      income: this.props.income,
+      goal: this.props.goal
+    })
   }
 
   componentWillUnmount () {
     this.props.loading('budget', true)
   }
-
+  componentDidUpdate (prevProps) {
+    if (this.props.expense !== prevProps.expense ||
+       this.props.income !== prevProps.income ||
+       this.props.goal !== prevProps.goal) {
+      this.setState({
+        expense: this.props.expense,
+        income: this.props.income,
+        goal: this.props.goal
+      })
+    }
+  }
   render () {
-    const { expense, income, goal } = this.props
+    const { expense, income, goal } = this.state
     if (this.props.load) return <Loading/>
     return (
       <div className="budget">
