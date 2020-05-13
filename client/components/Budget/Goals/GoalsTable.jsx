@@ -98,7 +98,7 @@ class GoalsTable extends Component {
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{addCommas(goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{addCommas(goal.currentAmount)}</Table.Cell>
-                  <Table.Cell>{addCommas(this.getWeeklyContribution(goal.budgetDistribution, goal.frequency).toFixed(2))}</Table.Cell>
+                  <Table.Cell>{addCommas(this.getWeeklyContribution(goal.budgetDistribution, goal.frequency))}</Table.Cell>
                   <Table.Cell>{`${this.formatDate(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount), 'actual')}`}</Table.Cell>
                   <Table.Cell>{this.getRemaining(this.getActualDate(goal.budgetDistribution, goal.frequency, goal.targetBudget, goal.currentAmount), 'string')}</Table.Cell>
                   <Table.Cell className="goalsTableSpecial">{addCommas(getWeeklyContribution(this.getRemaining(goal.targetDate), goal.currentAmount, goal.targetBudget))}</Table.Cell>
