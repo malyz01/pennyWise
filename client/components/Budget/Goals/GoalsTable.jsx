@@ -32,7 +32,6 @@ class GoalsTable extends Component {
       if (remaining <= 0) {
         return `Completed!`
       }
-      console.log(typeof remaining)
       return remaining
     }
 
