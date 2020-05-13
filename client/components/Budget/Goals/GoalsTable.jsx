@@ -10,8 +10,15 @@ class GoalsTable extends Component {
     this.props.selectUserGoal(goal)
   }
 
-  getRemaining = (end, type) => {
+  getRemaining = (end, type, targetAmount, currentAmount) => {
     const date1 = new Date(end)
+
+    if (date1.toString() === 'Invalid Date') {
+      if (targetAmount === currentAmount) {
+        return 'Goal Reached'
+      }
+      return '-'
+    }
     const date2 = Date.now()
     const diffTime = date1 - date2
 
@@ -21,11 +28,14 @@ class GoalsTable extends Component {
       if (remaining > 1) {
         remaining = addCommas(remaining, true)
         return `${remaining} days`
-      } else if (remaining <= 0) {
+      }
+      if (remaining <= 0) {
         return `Completed!`
       }
+      console.log(typeof remaining)
       return remaining
     }
+
     return remaining
   }
 
@@ -77,12 +87,11 @@ class GoalsTable extends Component {
   }
   formatDate = (date, type) => {
     if (date === 'Goal Completed') {
-      return 'Goal Completed'
+      return 'Goal Reached'
     }
     if (date === 'Invalid Date') {
-      return 'No Weekly Contributions'
+      return '-'
     }
-
     if (type === 'chosen') {
       const segments = date.split('-')
       return `${segments[2]}/${segments[1]}/${segments[0]}`
@@ -147,7 +156,9 @@ class GoalsTable extends Component {
                         goal.targetBudget,
                         goal.currentAmount
                       ),
-                      'string'
+                      'string',
+                      goal.targetBudget,
+                      goal.currentAmount
                     )}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
