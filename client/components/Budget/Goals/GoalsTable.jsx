@@ -113,8 +113,8 @@ class GoalsTable extends Component {
               <Table.HeaderCell>Weekly Contribution</Table.HeaderCell>
               <Table.HeaderCell>Automated Completion Date</Table.HeaderCell>
               <Table.HeaderCell>Time Remaining</Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>Selected Completion Date</Table.HeaderCell>
               <Table.HeaderCell className='goalsTableSpecial'>Automated Weekly Contribution</Table.HeaderCell>
+              <Table.HeaderCell className='goalsTableSpecial'>Selected Completion Date</Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -161,9 +161,6 @@ class GoalsTable extends Component {
                     )}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
-                    {this.formatDate(goal.targetDate, 'chosen')}
-                  </Table.Cell>
-                  <Table.Cell className="goalsTableSpecial">
                     {addCommas(
                       getWeeklyContribution(
                         this.getRemaining(goal.targetDate),
@@ -171,6 +168,9 @@ class GoalsTable extends Component {
                         goal.targetBudget
                       )
                     )}
+                  </Table.Cell>
+                  <Table.Cell className="goalsTableSpecial">
+                    {this.formatDate(goal.targetDate, 'chosen')}
                   </Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
