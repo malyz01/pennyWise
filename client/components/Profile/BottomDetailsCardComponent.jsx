@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import {} from '../helpers'
 
 import './profile.css'
 
@@ -38,11 +37,12 @@ class BottomDetailsCardComponent extends React.Component {
   getTotalExpense = () => {
     const { expense } = this.props
     this.setState({
-      expense: expense.reduce(this.r('expenseAmount'), 0).toFixed(2)
+      expense: expense.reduce(this.r('expenseAmount'), 0)
     })
   }
 
   render () {
+    console.log(typeof this.state.expense)
     const { history } = this.props
     return (
       <div className='bottomCardDetailsContainer'>

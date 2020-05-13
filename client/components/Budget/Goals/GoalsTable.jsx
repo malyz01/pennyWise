@@ -141,7 +141,7 @@ class GoalsTable extends Component {
                     {this.getWeeklyContribution(
                       goal.budgetDistribution,
                       goal.frequency
-                    ).toFixed(2)}
+                    )}
                   </Table.Cell>
                   <Table.Cell className='goalsTableSpecial'>
                     {this.formatDate(goal.targetDate, 'chosen')}
