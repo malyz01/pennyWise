@@ -1,5 +1,5 @@
 .landingContent{
-  padding-top:100px;
+  padding-top:75px;
   padding-bottom:100px;
 }
 .landingContentJoin{
@@ -14,7 +14,7 @@
   border-image-source: radial-gradient(circle, rgba(87,26,177,0.8799894957983193) 73%, rgba(252,70,107,0) 100%);
 }
 .landingInfoList {
-  padding: 5% 0 5% 0;
+  padding: 2.5% 0 10% 0;
 }
 .landingInfoHeading h1{
   font-size:3rem;

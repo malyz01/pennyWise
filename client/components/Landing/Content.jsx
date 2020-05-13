@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import './content.css'
-import Slide from 'react-reveal/Slide'
+// import Slide from 'react-reveal/Slide'
+import Fade from 'react-reveal/Fade'
 
 import Carousel from './Carousel'
 import { setModalOpen, setModalName } from '../../store/actions/modal'
@@ -16,39 +17,35 @@ const Content = (props) => {
   return (
     <div className="landingContent">
       <Container>
-        <Slide left duration={500}>
+        <Fade >
           <div className="landingContentJoin">
             <div className="landingInfoHeading">
-              <h1>Join the Wise</h1>
+              <h1>PennyWise</h1>
             </div>
             <hr className="landingInfoHr" />
             <div className="landingInfoList">
-              {/* <div className="landginInfoBody">
-                <p style={{fontWeight: 'bold'}}>- COVID-19 information regarding you and your money</p>
-              </div> */}
               <div className="landginInfoBody">
-                <p style={{fontWeight: 'bold', fontSize: '18px'}}> Your money, mindfulness and this moment</p>
+                <p style={{ fontWeight: 'bold', fontSize: '18px' }}>Stuck on the Money-Go-Round?</p>
               </div><br />
               <div className="landginInfoBody">
-                <p style={{fontWeight: 'bold', fontSize: '18px'}}>
-                  Too many of us worry about our money situations. Sorting your
-                  money is good for your mental health too.
+                <p style={{ fontWeight: 'bold', fontSize: '18px' }}>
+                  Bring your money and budgeting back in balance
                 </p>
               </div>
-              {!props.isAuthenticated && (
+              {/* {!props.isAuthenticated && (
                 <button
                   onClick={handleOnClick}
                   className="ui button landingSignUp"
                 >
                   Sign Up
                 </button>
-              )}
+              )} */}
             </div>
           </div>
-        </Slide>
-        <Slide right duration={500} delay={500}>
+        </Fade>
+        <Fade>
           <Carousel />
-        </Slide>
+        </Fade>
       </Container>
     </div>
   )

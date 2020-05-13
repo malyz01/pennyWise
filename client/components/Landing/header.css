@@ -3,7 +3,7 @@
 ======================*/
 
 .carrouselWrapper {
-    height: 600px; 
+    height: 500px; 
     border-bottom:15px solid white;
   }
 
@@ -14,7 +14,6 @@
     /* align-items: stretch; */
     align-items: center;
     justify-content: center;
-
   }
 
   .carousel {
