@@ -91,17 +91,11 @@ class GoalsTable extends Component {
               <Table.HeaderCell>Goal</Table.HeaderCell>
               <Table.HeaderCell>Target Amount</Table.HeaderCell>
               <Table.HeaderCell>Current Amount</Table.HeaderCell>
-
-              <Table.HeaderCell>Actual Date of Completion</Table.HeaderCell>
-              <Table.HeaderCell>Actual Time Remaining</Table.HeaderCell>
-              <Table.HeaderCell>Actual Weekly Contributions</Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>
-                Your Chosen Date of Completion
-              </Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>
-                Calculated Weekly Contributions
-              </Table.HeaderCell>
-
+              <Table.HeaderCell>Weekly Contribution</Table.HeaderCell>
+              <Table.HeaderCell>Automated Completion Date</Table.HeaderCell>
+              <Table.HeaderCell>Time Remaining</Table.HeaderCell>
+              <Table.HeaderCell className='goalsTableSpecial'>Selected Completion Date</Table.HeaderCell>
+              <Table.HeaderCell className='goalsTableSpecial'>Automated Weekly Contribution</Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -119,6 +113,12 @@ class GoalsTable extends Component {
                   <Table.Cell>{goal.goalName}</Table.Cell>
                   <Table.Cell>{addCommas(goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{addCommas(goal.currentAmount)}</Table.Cell>
+                  <Table.Cell>
+                    {addCommas(this.getWeeklyContribution(
+                      goal.budgetDistribution,
+                      goal.frequency
+                    ))}
+                  </Table.Cell>
                   <Table.Cell>{`${this.formatDate(
                     this.getActualDate(
                       goal.budgetDistribution,
@@ -138,12 +138,6 @@ class GoalsTable extends Component {
                       ),
                       'string'
                     )}
-                  </Table.Cell>
-                  <Table.Cell>
-                    {addCommas(this.getWeeklyContribution(
-                      goal.budgetDistribution,
-                      goal.frequency
-                    ))}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
                     {this.formatDate(goal.targetDate, 'chosen')}
