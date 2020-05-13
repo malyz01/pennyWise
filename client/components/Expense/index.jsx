@@ -18,8 +18,6 @@ export class Expense extends Component {
   }
 
          validateIncome = (expense) => {
-           console.log(expense)
-      
            let i = { ...expense }
            if (i.active) {
              if (i.frequency === 'Monthly') {
