@@ -6,12 +6,14 @@ class BudgetCell extends Component {
   state = {
     item: this.props.item,
     percentStart: 0,
-    percentFinish: 0
+    percentFinish: 0,
+    tempStart: 0
   }
 
   updateBudget (total) {
     this.setState({
-      percentFinish: total
+      percentFinish: total,
+      tempStart: this.state.percentStart
     }, this.percentage)
   }
 
@@ -21,7 +23,7 @@ class BudgetCell extends Component {
         percentStart: this.state.percentStart + 1
       }, () => setTimeout(() => {
         this.percentage()
-      }, 1500 / (this.state.percentFinish - this.state.percentStart)))
+      }, 1500 / (this.state.percentFinish - this.state.tempStart)))
     }
   }
 
