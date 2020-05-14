@@ -23,7 +23,7 @@ class BudgetCell extends Component {
         percentStart: this.state.percentStart + 1
       }, () => setTimeout(() => {
         this.percentage()
-      }, 1500 / (this.state.percentFinish - this.state.tempStart)))
+      }, 2000 / (this.state.percentFinish - this.state.tempStart)))
     }
   }
 
