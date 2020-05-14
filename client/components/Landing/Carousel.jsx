@@ -5,23 +5,19 @@ import { Transition } from 'semantic-ui-react'
 const items = [
   {
     // text: 'Tools To Manage Your Expenses',
-    img: '/images/expense-carousel.png'
+    img: '/images/income_img.JPG'
   },
   {
     // text: 'Tools To Manage Your Income',
-    img: '/images/income-carousel.png'
+    img: '/images/expense_img.JPG'
   },
   {
     // text: 'Tools To Manage Your Budget',
-    img: '/images/budget-0-carousel.png'
+    img: '/images/budget_img_1.JPG'
   },
   {
     // text: 'Tools To Manage Your Budget',
-    img: '/images/budget-1-carousel.png'
-  },
-  {
-    // text: 'Tools To Manage Your Budget',
-    img: '/images/budget-2-carousel.png'
+    img: '/images/budget_img_2.JPG'
   }
 ]
 
