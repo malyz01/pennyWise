@@ -3,7 +3,7 @@ const server = require('../server')
 
 jest.mock('../db/fn/expense', () => {
   return {
-    getExpense: () => {
+    getUserExpenses: () => {
       return Promise.resolve({
         id: 1111,
         categories: 'essential',
@@ -17,8 +17,9 @@ jest.mock('../db/fn/expense', () => {
 
 test('GET /:userId returns the correct expenses', () => {
   return request(server)
-    .get('/api/v1/expense/1111')
-    .then(res => {
-      expect(res.body.expense_name).toBe('food')
+    .get('/api/v1/expense/1001')
+    .set({ 'Authorization': `Bearer ${process.env.TOKEN}`, 'Content-Type': 'application/json' })
+    .then((res) => {
+      expect(res.body.expenseName).toBe('food')
     })
 })
