@@ -27,7 +27,9 @@ class BudgetCell extends Component {
 
   componentDidUpdate (prevProps) {
     if (this.props.item.currentAmount !== prevProps.item.currentAmount) {
-      this.setState({ item: this.props.item })
+      this.setState({ item: this.props.item }, () => {
+        this.updateBudget((this.state.item.currentAmount / this.state.item.targetBudget) * 100)
+      })
     }
   }
 
