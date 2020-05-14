@@ -5,7 +5,7 @@ test('getWeeklyContribution returns the correct result', () => {
   const currentAmount = 200
   const budget = 12000
   const result = getWeeklyContribution(daysNumber, currentAmount, budget)
-  expect(result).toBe(2360)
+  expect(result).toBe('2360.00')
 })
 
 test('getMonthlyContribution returns the correct result', () => {
