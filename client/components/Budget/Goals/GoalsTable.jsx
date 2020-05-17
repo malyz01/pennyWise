@@ -19,7 +19,7 @@ class GoalsTable extends Component {
       }
       return '-'
     }
-    const date2 = Date.now()
+    const date2 = new Date()
     const diffTime = date1 - date2
 
     let remaining = Math.floor(diffTime / (1000 * 60 * 60 * 24))
