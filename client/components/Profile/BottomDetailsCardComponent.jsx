@@ -30,16 +30,18 @@ class BottomDetailsCardComponent extends React.Component {
 
   getTotalIncome = () => {
     const { income } = this.props
+    const totalIncome = income.reduce(this.r('incomeAmount'), 0)
     this.setState({
-      income: income.reduce(this.r('incomeAmount'), 0)
+      income: totalIncome
 
     })
   }
 
   getTotalExpense = () => {
     const { expense } = this.props
+    const totalExpense = expense.reduce(this.r('expenseAmount'), 0)
     this.setState({
-      expense: expense.reduce(this.r('expenseAmount'), 0)
+      expense: totalExpense
     })
   }
 
