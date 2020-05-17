@@ -1,11 +1,15 @@
 /* eslint-disable no-console */
 const connection = require('../connection')
 const snakeCaseKeys = require('snakecase-keys')
-const convertToNumber = (expense) =>
+const convertArrToNumber = (expense) =>
   expense.map((e) => ({
     ...e,
     expense_amount: parseFloat(e.expense_amount)
   }))
+const convertToNumber = (expense) => ({
+  ...expense,
+  expense_amount: parseFloat(expense.expense_amount)
+})
 
 // function getAllExpenses (db = connection) {
 //   return db('expense')
@@ -19,7 +23,7 @@ function getUserExpenses (userId, db = connection) {
   return db('expense')
     .where('user_id', userId)
     .select()
-    .then(convertToNumber)
+    .then(convertArrToNumber)
     .catch((err) => {
       console.error(err)
     })

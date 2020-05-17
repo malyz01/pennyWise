@@ -1,11 +1,16 @@
 /* eslint-disable no-console */
 const connection = require('../connection')
 const snakeCaseKeys = require('snakecase-keys')
-const convertToNumber = (income) =>
+const convertArrToNumber = (income) =>
   income.map((i) => ({
     ...i,
     income_amount: parseFloat(i.income_amount)
   }))
+const convertToNumber = (income) =>
+  ({
+    ...income,
+    income_amount: parseFloat(income.income_amount)
+  })
 
 // function getAllIncomes (db = connection) {
 //   return db('income')
@@ -20,7 +25,7 @@ function getUserIncomes (userId, db = connection) {
   return db('income')
     .where('user_id', userId)
     .select()
-    .then(convertToNumber)
+    .then(convertArrToNumber)
     .catch((err) => {
       console.error(err)
     })

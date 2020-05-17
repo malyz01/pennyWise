@@ -1,13 +1,20 @@
 /* eslint-disable no-console */
 const connection = require('../connection')
 const snakeCaseKeys = require('snakecase-keys')
-const convertToNumber = (goals) =>
+const convertArrToNumber = (goals) =>
   goals.map((g) => ({
     ...g,
     target_budget: parseFloat(g.target_budget),
     current_amount: parseFloat(g.current_amount),
     budget_distribution: parseFloat(g.budget_distribution)
   }))
+const convertToNumber = (goal) =>
+  ({
+    ...goal,
+    target_budget: parseFloat(goal.target_budget),
+    current_amount: parseFloat(goal.current_amount),
+    budget_distribution: parseFloat(goal.budget_distribution)
+  })
 
 function getAllGoals (db = connection) {
   return db('goals')
@@ -21,7 +28,7 @@ function getUserGoals (userId, db = connection) {
   return db('goals')
     .where('user_id', userId)
     .select()
-    .then(convertToNumber)
+    .then(convertArrToNumber)
     .catch((err) => {
       console.error(err)
     })
