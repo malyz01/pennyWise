@@ -4,51 +4,28 @@ import './profile.css'
 
 import { addCommas } from '../helpers'
 
+const r = (name) => (ac, va) => {
+  if (va.active) {
+    if (va.frequency === 'Monthly') {
+      va[name] = (va[name] * 12) / 52
+    }
+    if (va.frequency === 'Annually') {
+      va[name] = va[name] / 52
+    }
+    return ac + va[name]
+  }
+  return ac
+}
+
 class BottomDetailsCardComponent extends React.Component {
   state = {
-    income: 0,
-    expense: 0
-  }
-
-  componentDidMount () {
-    this.getTotalExpense()
-    this.getTotalIncome()
-  }
-
-  r = name => (ac, va) => {
-    if (va.active) {
-      if (va.frequency === 'Monthly') {
-        va[name] = (va[name] * 12) / 52
-      }
-      if (va.frequency === 'Annually') {
-        va[name] = va[name] / 52
-      }
-      return ac + va[name]
-    }
-    return ac
-  }
-
-  getTotalIncome = () => {
-    const { income } = this.props
-    const totalIncome = income.reduce(this.r('incomeAmount'), 0)
-    this.setState({
-      income: totalIncome
-
-    })
-  }
-
-  getTotalExpense = () => {
-    const { expense } = this.props
-    const totalExpense = expense.reduce(this.r('expenseAmount'), 0)
-    this.setState({
-      expense: totalExpense
-    })
+    income: this.props.income.reduce(r('incomeAmount'), 0),
+    expense: this.props.expense.reduce(r('expenseAmount'), 0)
   }
 
   render () {
     const { history } = this.props
     console.log(this.state)
-    console.log(this.props)
     return (
       <div className="bottomCardDetailsContainer">
         <div className="bottomButtonContainer">
@@ -88,8 +65,10 @@ class BottomDetailsCardComponent extends React.Component {
             <div className="moneyOverview">
               <p>{addCommas(this.state.income)} per week</p>
               <p>{addCommas(this.state.expense)} per week</p>
-              <p>{addCommas(this.state.income - this.state.expense)} per week</p>
-              <p>{addCommas(this.props.goal.length, true)}</p>
+              <p>
+                {addCommas(this.state.income - this.state.expense)} per week
+              </p>
+              <p>{this.props.goal.length}</p>
             </div>
           </div>
         </div>
