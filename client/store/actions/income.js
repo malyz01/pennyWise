@@ -9,7 +9,7 @@ import {
 import api from '../../api'
 import { loading } from './loading'
 
-export const getUserIncome = userId => async dispatch => {
+export const getUserIncome = (userId) => async (dispatch) => {
   try {
     const { data } = await api.get(`/income/${userId}`)
     dispatch({
@@ -22,7 +22,7 @@ export const getUserIncome = userId => async dispatch => {
   }
 }
 
-export const selectUserIncome = data => dispatch => {
+export const selectUserIncome = (data) => (dispatch) => {
   try {
     dispatch({
       type: SELECT_USER_INCOME,
@@ -33,7 +33,7 @@ export const selectUserIncome = data => dispatch => {
   }
 }
 
-export const addUserIncome = (userId, incomeData) => async dispatch => {
+export const addUserIncome = (userId, incomeData) => async (dispatch) => {
   try {
     const { data } = await api.post(`/income/${userId}`, incomeData)
     dispatch({
@@ -41,11 +41,12 @@ export const addUserIncome = (userId, incomeData) => async dispatch => {
       payload: data
     })
   } catch (err) {
+    console.log(err.message)
     console.log('error in addUserIncome Api Call')
   }
 }
 
-export const updateUserIncome = (incomeId, incomeData) => async dispatch => {
+export const updateUserIncome = (incomeId, incomeData) => async (dispatch) => {
   try {
     const { data } = await api.put(`/income/${incomeId}`, incomeData)
     dispatch({
@@ -57,7 +58,7 @@ export const updateUserIncome = (incomeId, incomeData) => async dispatch => {
   }
 }
 
-export const deleteUserIncome = incomeId => async dispatch => {
+export const deleteUserIncome = (incomeId) => async (dispatch) => {
   try {
     const { data } = await api.delete(`/income/${incomeId}`)
     dispatch({
