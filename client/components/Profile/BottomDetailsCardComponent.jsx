@@ -7,12 +7,12 @@ import { addCommas } from '../helpers'
 const r = (name) => (ac, va) => {
   if (va.active) {
     if (va.frequency === 'Monthly') {
-      va[name] = (va[name] * 12) / 52
+      va[name] = (Number(va[name]) * 12) / 52
     }
     if (va.frequency === 'Annually') {
-      va[name] = va[name] / 52
+      va[name] = Number(va[name]) / 52
     }
-    return ac + va[name]
+    return ac + Number(va[name])
   }
   return ac
 }
