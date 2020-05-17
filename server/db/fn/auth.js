@@ -22,11 +22,12 @@ const newUser = async (data, db = connection) => {
   try {
     if (password !== confirmPassword) return 'Password does not match'
     const hashPassword = await bcrypt.hash(password, 10)
-    const id = await db('users').insert({
-      email,
-      password: hashPassword
-    })
-    console.log(id)
+    const id = await db('users')
+      .insert({
+        email,
+        password: hashPassword
+      })
+      .returning('id')
     await db('profiles').insert({
       user_id: id[0],
       full_name: fullName
