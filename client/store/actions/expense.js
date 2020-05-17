@@ -9,7 +9,7 @@ import {
 import api from '../../api'
 import { loading } from './loading'
 
-export const getUserExpenses = userId => async dispatch => {
+export const getUserExpenses = (userId) => async (dispatch) => {
   try {
     const { data } = await api.get(`/expense/${userId}`)
     dispatch({
@@ -22,18 +22,19 @@ export const getUserExpenses = userId => async dispatch => {
   }
 }
 
-export const selectUserExpense = data => dispatch => {
+export const selectUserExpense = (data) => (dispatch) => {
   try {
     dispatch({
       type: SELECT_USER_EXPENSE,
       payload: data
     })
   } catch (err) {
+    console.log(err)
     console.log('error in addUserExpense Api Call')
   }
 }
 
-export const addUserExpense = (userId, expenseData) => async dispatch => {
+export const addUserExpense = (userId, expenseData) => async (dispatch) => {
   try {
     const { data } = await api.post(`/expense/${userId}`, expenseData)
     dispatch({
@@ -45,7 +46,9 @@ export const addUserExpense = (userId, expenseData) => async dispatch => {
   }
 }
 
-export const updateUserExpense = (expenseId, expenseData) => async dispatch => {
+export const updateUserExpense = (expenseId, expenseData) => async (
+  dispatch
+) => {
   try {
     // /api/v1/expense/:expenseId
     const { data } = await api.put(`/expense/${expenseId}`, expenseData)
@@ -58,7 +61,7 @@ export const updateUserExpense = (expenseId, expenseData) => async dispatch => {
   }
 }
 
-export const deleteUserExpense = expenseId => async dispatch => {
+export const deleteUserExpense = (expenseId) => async (dispatch) => {
   try {
     const { data } = await api.delete(`/expense/${expenseId}`)
     dispatch({

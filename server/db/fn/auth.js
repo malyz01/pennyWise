@@ -26,6 +26,7 @@ const newUser = async (data, db = connection) => {
       email,
       password: hashPassword
     })
+    console.log(id)
     await db('profiles').insert({
       user_id: id[0],
       full_name: fullName
