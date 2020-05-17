@@ -21,9 +21,7 @@ class GoalsTable extends Component {
     }
     const date2 = new Date()
     const diffTime = date1 - date2
-    console.log('diffTime', diffTime)
     let remaining = Math.floor(diffTime / (1000 * 60 * 60 * 24))
-    console.log('remaining', remaining)
 
     if (type === 'string') {
       if (remaining > 1) {
@@ -93,7 +91,9 @@ class GoalsTable extends Component {
       return '-'
     }
     if (type === 'chosen') {
+      console.log(date)
       const segments = date.split('-')
+      console.log(segments)
       return `${segments[2]}/${segments[1]}/${segments[0]}`
     }
     if (type === 'actual') {
