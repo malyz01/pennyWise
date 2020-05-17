@@ -7,7 +7,7 @@ exports.up = (knex) =>
     t.string('expense_name')
     t.string('categories')
     t.string('frequency').defaultTo('Weekly')
-    t.decimal('expense_amount')
+    t.float('expense_amount')
     t.boolean('active').defaultTo(true)
   })
 
