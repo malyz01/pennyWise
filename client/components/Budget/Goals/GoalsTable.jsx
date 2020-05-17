@@ -21,8 +21,9 @@ class GoalsTable extends Component {
     }
     const date2 = new Date()
     const diffTime = date1 - date2
-
+    console.log('diffTime', diffTime)
     let remaining = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+    console.log('remaining', remaining)
 
     if (type === 'string') {
       if (remaining > 1) {
