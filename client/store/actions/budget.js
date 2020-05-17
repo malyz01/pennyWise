@@ -13,7 +13,6 @@ export const getUserBudget = userId => async dispatch => {
     const exp = expense.map(e => ({ ...e, expenseAmount: Number(e.expenseAmount) }))
     const inc = income.map(i => ({ ...i, incomeAmount: Number(i.incomeAmount) }))
     const goal = goals.map(g => ({ ...g, targetBudget: Number(g.targetBudget), currentAmount: Number(g.currentAmount), budgetDistribution: Number(g.budgetDistribution) }))
-    console.log(goals)
 
     dispatch({
       type: GET_USER_EXPENSES,
