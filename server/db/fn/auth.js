@@ -32,7 +32,7 @@ const newUser = async (data, db = connection) => {
       user_id: id[0],
       full_name: fullName
     })
-    return { id, email, fullName }
+    return { id: id[0], email, fullName }
   } catch (err) {
     throw new Error(err.message)
     // return 'Email is already taken'
