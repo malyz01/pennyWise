@@ -6,12 +6,14 @@ class BudgetCell extends Component {
   state = {
     item: this.props.item,
     percentStart: 0,
-    percentFinish: 0
+    percentFinish: 0,
+    tempStart: 0
   }
 
   updateBudget (total) {
     this.setState({
-      percentFinish: total
+      percentFinish: total,
+      tempStart: this.state.percentStart
     }, this.percentage)
   }
 
@@ -19,16 +21,17 @@ class BudgetCell extends Component {
     if (this.state.percentStart < this.state.percentFinish) {
       this.setState({
         percentStart: this.state.percentStart + 1
-      })
+      }, () => setTimeout(() => {
+        this.percentage()
+      }, 2000 / (this.state.percentFinish - this.state.tempStart)))
     }
   }
 
   componentDidUpdate (prevProps) {
-    setTimeout(() => {
-      this.percentage()
-    }, 30)
     if (this.props.item.currentAmount !== prevProps.item.currentAmount) {
-      this.setState({ item: this.props.item })
+      this.setState({ item: this.props.item }, () => {
+        this.updateBudget((this.state.item.currentAmount / this.state.item.targetBudget) * 100)
+      })
     }
   }
 
@@ -58,7 +61,7 @@ class BudgetCell extends Component {
             ></div>
             <Fade onReveal={() => this.updateBudget((this.state.item.currentAmount / this.state.item.targetBudget) * 100)}>
               <div className="budgetGraphBarRatio">
-                {addCommas((this.state.item.currentAmount / this.state.item.targetBudget) * 100, true)}
+                {addCommas((this.state.percentStart), true)}
                             %
               </div>
             </Fade>
