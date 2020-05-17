@@ -7,13 +7,13 @@ const convertToNumber = (expense) =>
     expense_amount: parseFloat(e.expense_amount)
   }))
 
-function getAllExpenses (db = connection) {
-  return db('expense')
-    .select()
-    .catch(err => {
-      console.error(err)
-    })
-}
+// function getAllExpenses (db = connection) {
+//   return db('expense')
+//     .select()
+//     .catch(err => {
+//       console.error(err)
+//     })
+// }
 
 function getUserExpenses (userId, db = connection) {
   return db('expense')
@@ -56,7 +56,6 @@ function deleteUserExpense (expenseId, db = connection) {
 }
 
 module.exports = {
-  getAllExpenses,
   getUserExpenses,
   addUserExpense,
   updateUserExpense,
