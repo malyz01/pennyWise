@@ -10,19 +10,22 @@ export const getUserBudget = userId => async dispatch => {
   dispatch(loading(true))
   try {
     const { data: { expense, income, goals } } = await api.get(`/budget/${userId}`)
-    console.log('expense', expense)
-    console.log('income', income)
+    const exp = expense.map(e => ({ ...e, expenseAmount: Number(e.expenseAmount) }))
+    const inc = income.map(i => ({ ...i, incomeAmount: Number(i.incomeAmount) }))
+    const goal = goals.map(g => ({ ...g, targetBudget: Number(g.targetBudget), currentAmount: Number(g.currentAmount), budgetDistribution: Number(g.budgetDistribution) }))
+    console.log(goals)
+
     dispatch({
       type: GET_USER_EXPENSES,
-      payload: expense
+      payload: exp
     })
     dispatch({
       type: GET_USER_INCOME,
-      payload: income
+      payload: inc
     })
     dispatch({
       type: GET_USER_GOALS,
-      payload: goals
+      payload: goal
     })
     dispatch(loading('budget', false))
   } catch (err) {
