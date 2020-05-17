@@ -171,7 +171,7 @@ class GoalsTable extends Component {
                     )}
                   </Table.Cell>
                   <Table.Cell className="goalsTableSpecial">
-                    {this.formatDate(goal.targetDate, 'chosen')}
+                    {this.formatDate(new Date(goal.targetDate), 'chosen')}
                   </Table.Cell>
                   <Table.Cell>{goal.active ? 'Yes' : 'No'}</Table.Cell>
                 </Table.Row>
