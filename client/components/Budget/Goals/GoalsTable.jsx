@@ -91,10 +91,15 @@ class GoalsTable extends Component {
       return '-'
     }
     if (type === 'chosen') {
-      console.log(date)
-      const segments = date.split('-')
-      console.log(segments)
-      return `${segments[2]}/${segments[1]}/${segments[0]}`
+      var d = new Date(date)
+      var month = '' + (d.getMonth() + 1)
+      var day = '' + d.getDate()
+      var year = d.getFullYear()
+
+      if (month.length < 2) month = '0' + month
+      if (day.length < 2) day = '0' + day
+
+      return [year, month, day].join('/')
     }
     if (type === 'actual') {
       const segments = date.split('/')
