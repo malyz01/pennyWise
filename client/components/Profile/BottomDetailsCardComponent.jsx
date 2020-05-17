@@ -45,6 +45,7 @@ class BottomDetailsCardComponent extends React.Component {
 
   render () {
     const { history } = this.props
+    console.log(this.state)
     return (
       <div className="bottomCardDetailsContainer">
         <div className="bottomButtonContainer">
