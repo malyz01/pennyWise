@@ -1,4 +1,4 @@
-exports.seed = knex =>
+exports.seed = (knex) =>
   knex('expense')
     .del()
     .then(() => knex('income').del())
@@ -48,42 +48,42 @@ exports.seed = knex =>
     .then(() =>
       knex('profiles').insert([
         {
-          id: 1,
+          id: 1001,
           user_id: 1001,
           full_name: 'John Doe',
           avatar:
             'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'
         },
         {
-          id: 2,
+          id: 1002,
           user_id: 1002,
           full_name: 'Lucas Santana',
           avatar:
             'https://static-cdn.jtvnw.net/jtv_user_pictures/68ce82ab-4b24-402b-b3bf-136237e2d183-profile_banner-480.jpeg'
         },
         {
-          id: 3,
+          id: 1003,
           user_id: 1003,
           full_name: 'Matt Uy',
           avatar:
             'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'
         },
         {
-          id: 4,
+          id: 1004,
           user_id: 1004,
           full_name: 'Christy',
           avatar:
             'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'
         },
         {
-          id: 5,
+          id: 1005,
           user_id: 1005,
           full_name: 'Jimmi',
           avatar:
             'https://cdn2.iconfinder.com/data/icons/web-mobile-2-1/64/user_avatar_admin_web_mobile_business_office-512.png'
         },
         {
-          id: 6,
+          id: 1006,
           user_id: 1006,
           full_name: 'David',
           avatar:
@@ -94,7 +94,7 @@ exports.seed = knex =>
     .then(() =>
       knex('goals').insert([
         {
-          id: 1,
+          id: 1001,
           user_id: 1001,
           goal_name: 'Vacation',
           target_budget: 1000,
@@ -102,7 +102,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 2,
+          id: 1002,
           user_id: 1001,
           goal_name: 'House Repairs',
           target_budget: 1000,
@@ -110,7 +110,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 3,
+          id: 1003,
           user_id: 1001,
           goal_name: 'New Car',
           target_budget: 1000,
@@ -118,7 +118,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 4,
+          id: 1004,
           user_id: 1001,
           goal_name: 'New Cellphone',
           target_budget: 1000,
@@ -126,7 +126,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 5,
+          id: 1005,
           user_id: 1001,
           goal_name: 'New Computer',
           target_budget: 1000,
@@ -134,7 +134,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 6,
+          id: 1006,
           user_id: 1001,
           goal_name: 'Christmas Money',
           target_budget: 1000,
@@ -142,7 +142,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 7,
+          id: 1007,
           user_id: 1006,
           goal_name: 'Rottweiler Puppy',
           target_budget: 3000,
@@ -150,7 +150,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 8,
+          id: 1008,
           user_id: 1006,
           goal_name: 'Wide Screen TV',
           target_budget: 1000,
@@ -158,7 +158,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 9,
+          id: 1009,
           user_id: 1006,
           goal_name: 'Jeep Wrangler',
           target_budget: 20000,
@@ -166,7 +166,7 @@ exports.seed = knex =>
           budget_distribution: 150
         },
         {
-          id: 10,
+          id: 1010,
           user_id: 1002,
           goal_name: 'Family Reunion',
           target_budget: 2000,
@@ -174,7 +174,7 @@ exports.seed = knex =>
           budget_distribution: 80
         },
         {
-          id: 11,
+          id: 1011,
           user_id: 1002,
           goal_name: 'Surf Board',
           target_budget: 1000,
@@ -182,7 +182,7 @@ exports.seed = knex =>
           budget_distribution: 100
         },
         {
-          id: 12,
+          id: 1012,
           user_id: 1003,
           goal_name: 'Playstation 5',
           target_budget: 800,
@@ -190,7 +190,7 @@ exports.seed = knex =>
           budget_distribution: 50
         },
         {
-          id: 13,
+          id: 1013,
           user_id: 1003,
           goal_name: 'Scooter',
           target_budget: 500,
@@ -198,7 +198,7 @@ exports.seed = knex =>
           budget_distribution: 70
         },
         {
-          id: 14,
+          id: 1014,
           user_id: 1004,
           goal_name: 'Jacuzzi',
           target_budget: 5000,
@@ -206,7 +206,7 @@ exports.seed = knex =>
           budget_distribution: 70
         },
         {
-          id: 15,
+          id: 1015,
           user_id: 1004,
           goal_name: 'Garden Patio Set',
           target_budget: 1500,
@@ -222,20 +222,19 @@ exports.seed = knex =>
           budget_distribution: 60
         },
         {
-          id: 17,
+          id: 1017,
           user_id: 1005,
           goal_name: 'Multifuction Printer',
           target_budget: 1000,
           target_date: '2020-12-11',
           budget_distribution: 120
         }
-
       ])
     )
     .then(() =>
       knex('income').insert([
         {
-          id: 1,
+          id: 1001,
           user_id: 1001,
           income_name: 'Mechanic',
           frequency: 'Weekly',
@@ -243,7 +242,7 @@ exports.seed = knex =>
           income_amount: 1200
         },
         {
-          id: 2,
+          id: 1002,
           user_id: 1002,
           income_name: 'Freelance Web Devloper',
           frequency: 'Weekly',
@@ -251,7 +250,7 @@ exports.seed = knex =>
           income_amount: 1000
         },
         {
-          id: 3,
+          id: 1003,
           user_id: 1003,
           income_name: 'Technical Support',
           frequency: 'Weekly',
@@ -259,7 +258,7 @@ exports.seed = knex =>
           income_amount: 1200
         },
         {
-          id: 4,
+          id: 1004,
           user_id: 1004,
           income_name: 'Systems Engineer',
           frequency: 'Weekly',
@@ -267,7 +266,7 @@ exports.seed = knex =>
           income_amount: 2000
         },
         {
-          id: 5,
+          id: 1005,
           user_id: 1005,
           income_name: 'Network Analyst',
           frequency: 'Weekly',
@@ -275,7 +274,7 @@ exports.seed = knex =>
           income_amount: 1500
         },
         {
-          id: 7,
+          id: 1007,
           user_id: 1006,
           income_name: 'Javascript Full-Stack Developer',
           frequency: 'Weekly',
@@ -287,7 +286,7 @@ exports.seed = knex =>
     .then(() =>
       knex('expense').insert([
         {
-          id: 1,
+          id: 1001,
           user_id: 1001,
           expense_name: 'fuel',
           categories: 'Essential',
@@ -295,7 +294,7 @@ exports.seed = knex =>
           expense_amount: 50
         },
         {
-          id: 2,
+          id: 1002,
           user_id: 1001,
           expense_name: 'Grocery',
           categories: 'Essential',
@@ -303,7 +302,7 @@ exports.seed = knex =>
           expense_amount: 200
         },
         {
-          id: 3,
+          id: 1003,
           user_id: 1001,
           expense_name: 'Electric Bill',
           categories: 'Essential',
@@ -311,7 +310,7 @@ exports.seed = knex =>
           expense_amount: 220
         },
         {
-          id: 4,
+          id: 1004,
           user_id: 1001,
           expense_name: 'Pizza',
           categories: 'Non-Essential',
@@ -319,7 +318,7 @@ exports.seed = knex =>
           expense_amount: 40
         },
         {
-          id: 5,
+          id: 1005,
           user_id: 1001,
           expense_name: 'Gym',
           categories: 'Non-Essential',
@@ -327,7 +326,7 @@ exports.seed = knex =>
           expense_amount: 9.99
         },
         {
-          id: 6,
+          id: 1006,
           user_id: 1001,
           expense_name: 'Car Insurance',
           categories: 'Essential',
