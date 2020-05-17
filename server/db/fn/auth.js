@@ -34,8 +34,8 @@ const newUser = async (data, db = connection) => {
     })
     return { id, email, fullName }
   } catch (err) {
-    console.log(err)
-    return 'Email is already taken'
+    throw new Error(err.message)
+    // return 'Email is already taken'
   }
 }
 
