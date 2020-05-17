@@ -22,17 +22,17 @@ const newUser = async (data, db = connection) => {
   try {
     if (password !== confirmPassword) return 'Password does not match'
     const hashPassword = await bcrypt.hash(password, 10)
-    const [id] = await db('users').insert({
+    const id = await db('users').insert({
       email,
       password: hashPassword
     })
     await db('profiles').insert({
-      user_id: id,
+      user_id: id[0],
       full_name: fullName
     })
     return { id, email, fullName }
   } catch (err) {
-    console.log(err.message)
+    console.log(err)
     return 'Email is already taken'
   }
 }
