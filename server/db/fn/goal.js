@@ -37,6 +37,7 @@ function getUserGoals (userId, db = connection) {
 function addGoal (data, db = connection) {
   return db('goals')
     .insert(snakeCaseKeys(data))
+    .returning('id')
     .then(([id]) => db('goals').where('id', id).select().first())
     .then(convertToNumber)
     .catch((err) => {

@@ -29,7 +29,6 @@ export const selectUserExpense = (data) => (dispatch) => {
       payload: data
     })
   } catch (err) {
-    console.log(err)
     console.log('error in addUserExpense Api Call')
   }
 }
@@ -42,7 +41,6 @@ export const addUserExpense = (userId, expenseData) => async (dispatch) => {
       payload: data
     })
   } catch (err) {
-    console.log(err.message)
     console.log('error in addUserExpense Api Call')
   }
 }

@@ -30,7 +30,6 @@ function getUserExpenses (userId, db = connection) {
 }
 
 function addUserExpense (data, db = connection) {
-  console.log(data)
   return db('expense')
     .insert(snakeCaseKeys(data))
     .returning('id')

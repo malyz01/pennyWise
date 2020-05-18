@@ -22,7 +22,7 @@ router.post('/:userId', isGetOwner, (req, res) => {
     .then(camelcaseKeys)
     .then(expense => res.status(200).json(expense))
     .catch(err => {
-      res.status(500).json('DATABASE ERROR: ' + err.message)
+      res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
 

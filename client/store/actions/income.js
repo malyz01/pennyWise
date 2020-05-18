@@ -41,7 +41,6 @@ export const addUserIncome = (userId, incomeData) => async (dispatch) => {
       payload: data
     })
   } catch (err) {
-    console.log(err.message)
     console.log('error in addUserIncome Api Call')
   }
 }

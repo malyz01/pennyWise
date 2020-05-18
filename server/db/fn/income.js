@@ -34,6 +34,7 @@ function getUserIncomes (userId, db = connection) {
 function addUserIncome (data, db = connection) {
   return db('income')
     .insert(snakeCaseKeys(data))
+    .returning('id')
     .then(([id]) => db('income').where('id', id).select().first())
     .then(convertToNumber)
     .catch((err) => {
