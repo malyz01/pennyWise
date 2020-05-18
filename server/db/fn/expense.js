@@ -30,12 +30,14 @@ function getUserExpenses (userId, db = connection) {
 }
 
 function addUserExpense (data, db = connection) {
+  console.log(data)
   return db('expense')
     .insert(snakeCaseKeys(data))
+    .returning('id')
     .then(([id]) => db('expense').where('id', id).select().first())
     .then(convertToNumber)
     .catch((err) => {
-      console.error(err)
+      console.error(err.message)
     })
 }
 
