@@ -7,7 +7,6 @@ import {
 import { loading } from './loading'
 
 export const getUserBudget = userId => async dispatch => {
-  dispatch(loading(true))
   try {
     const { data: { expense, income, goals } } = await api.get(`/budget/${userId}`)
     const exp = expense.map(e => ({ ...e, expenseAmount: Number(e.expenseAmount) }))
