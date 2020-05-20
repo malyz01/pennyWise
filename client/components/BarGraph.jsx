@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container} from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 import {
   BarChart,
   Bar,
@@ -14,9 +14,7 @@ import {
 import './bargraph.css'
 
 class BarGraph extends React.Component {
-  renderLegend = () => {
-    return <div className="barGraphLegend">Weekly</div>
-  }
+  renderLegend = () => <div className="barGraphLegend">Weekly</div>
 
   render () {
     const { data, dKey } = this.props
@@ -34,7 +32,12 @@ class BarGraph extends React.Component {
             }}
           >
             <XAxis type="number" />
-            <YAxis dataKey="name" type="category" />
+            <YAxis
+              className="barGraphYAxis"
+              dataKey="name"
+              type="category"
+              tick={{ stroke: '#2A2730' }}
+            />
             <Tooltip />
             <Legend content={this.renderLegend} />
             <CartesianGrid strokeDasharray="3 3" />
