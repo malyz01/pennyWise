@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-import BarGraph from './BarGraph'
+import BarGraph from '../BarGraph'
 import Loading from '../Loading'
 import { getUserExpenses } from '../../store/actions/expense'
 import { loading } from '../../store/actions/loading'
@@ -41,9 +41,7 @@ export class Expense extends Component {
              <div className="expense">
                <Header />
                <Table data={{ userId, expenses, selected }} />
-               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                 <BarGraph data={graphData} />
-               </div>
+               <BarGraph dKey="Expense" data={graphData} />
              </div>
            )
          }
