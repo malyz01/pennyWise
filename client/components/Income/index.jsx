@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import Table from './Table'
-import BarGraph from './BarGraph'
+import BarGraph from '../BarGraph'
 import Loading from '../Loading'
 import { getUserIncome } from '../../store/actions/income'
 import { loading } from '../../store/actions/loading'
@@ -38,7 +38,7 @@ export class Income extends Component {
       }
     } else {
       i.incomeAmount = 0
-      i.incomeName = `${i.incomeName} \n (OFF)`
+      i.incomeName = `-`
     }
     return { name: i.incomeName, Income: i.incomeAmount }
   }
@@ -51,9 +51,7 @@ export class Income extends Component {
       <div className="income">
         <Header />
         <Table data={{ userId, income, selected }} />
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <BarGraph data={graphData} />
-        </div>
+        <BarGraph dKey='Income' data={graphData} />
       </div>
     )
   }
