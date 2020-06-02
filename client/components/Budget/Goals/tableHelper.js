@@ -12,8 +12,10 @@ export function getMonthlyContribution (daysNumber, currentAmount, budget) {
 }
 
 export function getWeeklyContribution (daysNumber, currentAmount, budget) {
+  if (daysNumber < 0) daysNumber = 0
   const weeksRemaining = Math.ceil(daysNumber / 7)
   const paymentRemaining = budget - currentAmount
   const weeklyContributions = Number(paymentRemaining / weeksRemaining)
+  if (weeklyContributions === Infinity) return '-'
   return weeklyContributions === 0 ? '-' : weeklyContributions.toFixed(2)
 }
