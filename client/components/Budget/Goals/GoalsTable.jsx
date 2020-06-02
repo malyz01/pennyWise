@@ -6,13 +6,12 @@ import { selectUserGoal } from '../../../store/actions/goals'
 import { getWeeklyContribution } from './tableHelper'
 import { addCommas } from '../../helpers'
 class GoalsTable extends Component {
-  handleClick = goal => () => {
+  handleClick = (goal) => () => {
     this.props.selectUserGoal(goal)
   }
 
   getRemaining = (end, type, targetAmount, currentAmount) => {
     const date1 = new Date(end)
-
     if (date1.toString() === 'Invalid Date') {
       if (targetAmount === currentAmount) {
         return 'Goal Reached'
@@ -83,6 +82,7 @@ class GoalsTable extends Component {
 
     return formatedDate
   }
+
   formatDate = (date, type) => {
     if (date === 'Goal Completed') {
       return 'Goal Reached'
@@ -119,13 +119,17 @@ class GoalsTable extends Component {
               <Table.HeaderCell>Weekly Contribution</Table.HeaderCell>
               <Table.HeaderCell>Automated Completion Date</Table.HeaderCell>
               <Table.HeaderCell>Time Remaining</Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>Automated Weekly Contribution</Table.HeaderCell>
-              <Table.HeaderCell className='goalsTableSpecial'>Selected Completion Date</Table.HeaderCell>
+              <Table.HeaderCell className="goalsTableSpecial">
+                Automated Weekly Contribution
+              </Table.HeaderCell>
+              <Table.HeaderCell className="goalsTableSpecial">
+                Selected Completion Date
+              </Table.HeaderCell>
               <Table.HeaderCell>Active</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.goals.map(goal => {
+            {this.props.goals.map((goal) => {
               return (
                 <Table.Row
                   className="pointerCursor"
@@ -139,10 +143,12 @@ class GoalsTable extends Component {
                   <Table.Cell>{addCommas(goal.targetBudget)}</Table.Cell>
                   <Table.Cell>{addCommas(goal.currentAmount)}</Table.Cell>
                   <Table.Cell>
-                    {addCommas(this.getWeeklyContribution(
-                      goal.budgetDistribution,
-                      goal.frequency
-                    ))}
+                    {addCommas(
+                      this.getWeeklyContribution(
+                        goal.budgetDistribution,
+                        goal.frequency
+                      )
+                    )}
                   </Table.Cell>
                   <Table.Cell>{`${this.formatDate(
                     this.getActualDate(
@@ -189,7 +195,7 @@ class GoalsTable extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   goals: state.goal.all,
   selected: state.goal.selected,
   userId: state.auth.user.id
