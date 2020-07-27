@@ -1,0 +1,5 @@
+{
+  "deno.enable": false
+  // "javascript.suggestionActions.enabled": false,
+  // "javascript.validate.enable": false
+}
