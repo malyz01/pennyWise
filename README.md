@@ -1,7 +1,5 @@
 # PennyWise
-
-> IMPORTANT! DO NOT USE:
-```npm audit fix```
+`In Progress`
 
 ## Welcome to PennyWise
 
@@ -13,3 +11,4 @@ http://pennywise-eda.herokuapp.com/#/
 - Manage your expenses
 - Manage your budget
 - Manage you goals
+
